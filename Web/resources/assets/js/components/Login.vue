@@ -1,10 +1,10 @@
 <template>
-    <form class="form form-login" :submit.prevent="login">
+    <form class="form form-login" v-on:submit.prevent="login">
         <h2 class="form-title">Connexion</h2>
-
-        <div class="info info--error" v-if="infoError">Login failed. Please try again.</div>
-
-        <div class="container-login" :class="{'is-waiting': loader}">
+        <div class="container-login">
+            <div v-if="message" class="alert" v-bind:class="{ 'alert-success': succes, 'alert-danger': erreur}">
+                <strong v-if="erreur">Erreur !</strong><strong v-else>Succès !</strong> {{ message }}
+            </div>
             <div class="input-field">
                 <input v-model.trim="email"  id="email" type="email" required>
                 <label for="email" class="">Adresse email</label>
@@ -28,25 +28,33 @@
         data () {
             return {
                 loader: false,
-                infoError: false,
+                erreur: false,
+                succes: false,
                 email: '',
-                password: ''
+                password: '',
+                message: ''
             }
         },
         methods: {
             login () {
-                this.loader = true
-                this.infoError = false
-                this.$http.post('/login', {
+                erreur: false
+                succes: false
+                message: ''
+                this.$http.post('/connexion', {
                     email: this.email,
                     password: this.password
                 }).then((response) => {
-                    console.log("succes");
+                    if (response.data.succes == true) {
+                        this.succes = true
+                    } else {
+                        this.erreur = true
+                        this.password = ''
+                    }
+                    this.message = response.data.message
                     //localStorage.setItem('token', response.body.token)
                     //store.commit('LOGIN_USER')
                     //router.push('/')
                 }, () => {
-                    console.log("erreur");
                     this.infoError = true
                     this.loader = false
                     this.password = ''

@@ -1093,7 +1093,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Header.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Header.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1102,9 +1102,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1d126904", Component.options)
+    hotAPI.createRecord("data-v-1bc06644", Component.options)
   } else {
-    hotAPI.reload("data-v-1d126904", Component.options)
+    hotAPI.reload("data-v-1bc06644", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1140,7 +1140,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Sidebar.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Sidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1149,9 +1149,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-28cb1975", Component.options)
+    hotAPI.createRecord("data-v-00467796", Component.options)
   } else {
-    hotAPI.reload("data-v-28cb1975", Component.options)
+    hotAPI.reload("data-v-00467796", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -15844,7 +15844,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/App.vue"
+Component.options.__file = "resources\\assets\\js\\App.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -15853,9 +15853,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-66ab2f82", Component.options)
+    hotAPI.createRecord("data-v-6dd1125c", Component.options)
   } else {
-    hotAPI.reload("data-v-66ab2f82", Component.options)
+    hotAPI.reload("data-v-6dd1125c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -15876,13 +15876,13 @@ var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("2d8a5e95", content, false);
+var update = __webpack_require__(42)("626c521a", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16315,7 +16315,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1d126904", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1bc06644", module.exports)
   }
 }
 
@@ -16399,7 +16399,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-28cb1975", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-00467796", module.exports)
   }
 }
 
@@ -16436,7 +16436,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-66ab2f82", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6dd1125c", module.exports)
   }
 }
 
@@ -16466,7 +16466,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Login.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16475,9 +16475,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
+    hotAPI.createRecord("data-v-01e7f602", Component.options)
   } else {
-    hotAPI.reload("data-v-3e2ac97c", Component.options)
+    hotAPI.reload("data-v-01e7f602", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16523,9 +16523,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             loader: false,
-            infoError: false,
+            erreur: false,
+            succes: false,
             email: '',
-            password: ''
+            password: '',
+            message: ''
         };
     },
 
@@ -16533,18 +16535,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         login: function login() {
             var _this = this;
 
-            this.loader = true;
-            this.infoError = false;
-            this.$http.post('/login', {
+            erreur: false;
+            succes: false;
+            message: '';
+            this.$http.post('/connexion', {
                 email: this.email,
                 password: this.password
             }).then(function (response) {
-                console.log("succes");
+                if (response.data.succes == true) {
+                    _this.succes = true;
+                } else {
+                    _this.erreur = true;
+                    _this.password = '';
+                }
+                _this.message = response.data.message;
                 //localStorage.setItem('token', response.body.token)
                 //store.commit('LOGIN_USER')
                 //router.push('/')
             }, function () {
-                console.log("erreur");
                 _this.infoError = true;
                 _this.loader = false;
                 _this.password = '';
@@ -16563,94 +16571,109 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "form",
-    { staticClass: "form form-login", attrs: { submit: _vm.login } },
+    {
+      staticClass: "form form-login",
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          _vm.login($event)
+        }
+      }
+    },
     [
       _c("h2", { staticClass: "form-title" }, [_vm._v("Connexion")]),
       _vm._v(" "),
-      _vm.infoError
-        ? _c("div", { staticClass: "info info--error" }, [
-            _vm._v("Login failed. Please try again.")
-          ])
-        : _vm._e(),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "container-login", class: { "is-waiting": _vm.loader } },
-        [
-          _c("div", { staticClass: "input-field" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.email,
-                  expression: "email",
-                  modifiers: { trim: true }
+      _c("div", { staticClass: "container-login" }, [
+        _vm.message
+          ? _c(
+              "div",
+              {
+                staticClass: "alert",
+                class: {
+                  "alert-success": _vm.succes,
+                  "alert-danger": _vm.erreur
                 }
-              ],
-              attrs: { id: "email", type: "email", required: "" },
-              domProps: { value: _vm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.email = $event.target.value.trim()
-                },
-                blur: function($event) {
-                  _vm.$forceUpdate()
-                }
+              },
+              [
+                _vm.erreur
+                  ? _c("strong", [_vm._v("Erreur !")])
+                  : _c("strong", [_vm._v("Succès !")]),
+                _vm._v(" " + _vm._s(_vm.message) + "\n        ")
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-field" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model.trim",
+                value: _vm.email,
+                expression: "email",
+                modifiers: { trim: true }
               }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "email" } }, [_vm._v("Adresse email")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "input-field" }, [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.password,
-                  expression: "password",
-                  modifiers: { trim: true }
-                }
-              ],
-              attrs: { id: "password", type: "password", required: "" },
-              domProps: { value: _vm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.password = $event.target.value.trim()
-                },
-                blur: function($event) {
-                  _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c("label", { attrs: { for: "email" } }, [_vm._v("Mot de passe")])
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-block form__actions" },
-            [
-              _c("router-link", { attrs: { to: "/password-reset" } }, [
-                _vm._v("Mot de passe oublié?")
-              ]),
-              _vm._v(" "),
-              _c("button", { staticClass: "submit_login" }, [
-                _vm._v("Connexion")
-              ])
             ],
-            1
-          )
-        ]
-      )
+            attrs: { id: "email", type: "email", required: "" },
+            domProps: { value: _vm.email },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.email = $event.target.value.trim()
+              },
+              blur: function($event) {
+                _vm.$forceUpdate()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Adresse email")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "input-field" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model.trim",
+                value: _vm.password,
+                expression: "password",
+                modifiers: { trim: true }
+              }
+            ],
+            attrs: { id: "password", type: "password", required: "" },
+            domProps: { value: _vm.password },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.password = $event.target.value.trim()
+              },
+              blur: function($event) {
+                _vm.$forceUpdate()
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c("label", { attrs: { for: "email" } }, [_vm._v("Mot de passe")])
+        ]),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "form-block form__actions" },
+          [
+            _c("router-link", { attrs: { to: "/password-reset" } }, [
+              _vm._v("Mot de passe oublié?")
+            ]),
+            _vm._v(" "),
+            _c("button", { staticClass: "submit_login" }, [_vm._v("Connexion")])
+          ],
+          1
+        )
+      ])
     ]
   )
 }
@@ -16660,7 +16683,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-01e7f602", module.exports)
   }
 }
 
