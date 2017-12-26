@@ -1,5 +1,5 @@
 <template>
-    <nav>
+    <div class="sidebar">
         <div class="user-data">
             <div class="user-picture">
                 <img src="https://image.flaticon.com/icons/svg/149/149074.svg" alt="">
@@ -16,13 +16,10 @@
                 <li>Supprimer</li>
             </ul>
         </div>
-    </nav>
+    </div>
 </template>
 
 <script>
     export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
     }
 </script>

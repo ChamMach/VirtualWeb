@@ -13,20 +13,14 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body class="{{ Route::currentRouteName() }}">
     <div id="app">
-        <div class="row">
-            <div class="col s12 m4 l3">
-                <sidebar-menu></sidebar-menu>
-            </div>
-            <div class="col s12 m8 l9">
-                <header-bar></header-bar>
-                @yield('content')
-            </div>
-        </div>
+
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/materialize.min.js') }}"></script>
 </body>
 </html>

@@ -1,23 +1,33 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+import App from './App.vue';
+//Importation des vues
+import Login from './components/Login.vue';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
+Vue.use(VueAxios, axios);
+Vue.use(VueRouter);
 
-require('./bootstrap');
+//Creation des routes
+const routes = [
+  {
+      name: 'Login',
+      path: '/login',
+      component: Login
+  },
+  {
+      name: 'Connexion',
+      path: 'connexion'
+  }
+];
 
-window.Vue = require('vue');
-
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('sidebar-menu', require('./components/Sidebar.vue'));
+Vue.component('header-bar', require('./components/Header.vue'));
 
-const app = new Vue({
-    el: '#app'
+//Creation de l'instance routeur
+const router = new VueRouter({
+    mode: 'history',
+    routes: routes
 });
+new Vue(Vue.util.extend({ router }, App)).$mount('#app');
