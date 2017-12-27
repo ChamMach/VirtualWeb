@@ -19,4 +19,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('connexion', 'LoginController@connexion');
+Route::post('connexion', array('uses' => 'Auth\LoginController@doLogin'));
