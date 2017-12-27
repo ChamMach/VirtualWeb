@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/accueil';
 
     /**
      * Create a new controller instance.
@@ -39,9 +39,15 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function doLogin(Request $request)
+    /**
+     * Gère la connexion de l'utilisateur
+     * @param  Request $request Données du formulaire
+     * @return array           Erreur ou suscès
+     */
+    public function connexion (Request $request)
     {
         $auth = false;
+        //On récupère les données du formulaire
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials, $request->has('remember'))) {
@@ -52,13 +58,19 @@ class LoginController extends Controller
         $return['succes'] = false;
         $return['erreur'] = false;
 
-        if ($auth == true) {
-            $return['succes'] == true;
-            $return['message'] = "Connexion réussie";
-        } else {
+        //Si on a une erreur on ajoute le message
+        if ($auth == false) {
             $return['erreur'] == true;
             $return['message'] = "Votre email ou mot de passe est incorrecte";
+        } else {
+            $return['succes'] = true;
         }
         return json_encode($return);
+    }
+    
+    public function deconnexion()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

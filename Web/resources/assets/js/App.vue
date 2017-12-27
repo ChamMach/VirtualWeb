@@ -1,12 +1,19 @@
 <template>
-    <div class="container">
+    <div v-if="$route.path == '/login'">
+        <router-view></router-view>
+    </div>
+    <div class="wrap" v-else>
         <div class="row">
-            <div class="col s12 m4 l3" v-if="$route.path !== '/login'">
+            <aside class="sidebar">
                 <sidebar-menu></sidebar-menu>
-            </div>                
-            <router-view></router-view>
-            <div class="col s12 m8 l9" v-if="$route.path !== '/login'">
+            </aside>
+            <div class="page-wrapper">
                 <header-bar></header-bar>
+                <div class="container">
+                    <div class="row">
+                        <router-view></router-view>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

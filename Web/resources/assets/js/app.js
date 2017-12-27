@@ -3,8 +3,10 @@ import VueRouter from 'vue-router';
 import VueAxios from 'vue-axios';
 import axios from 'axios';
 import App from './App.vue';
+
 //Importation des vues
 import Login from './components/Login.vue';
+import Accueil from './components/Accueil.vue';
 
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
@@ -17,8 +19,17 @@ const routes = [
       component: Login
   },
   {
+      name: 'logout',
+      path: 'deconnexion'
+  },
+  {
       name: 'Connexion',
       path: 'connexion'
+  },
+  {
+      name: 'accueil',
+      path: '/accueil',
+      component: Accueil
   }
 ];
 
