@@ -182,7 +182,7 @@ body.login a {
   background: #425973;
 }
 
-.mdl-layout__drawer.sidebar a.mdl-navigation__link.active {
+.mdl-layout__drawer.sidebar a.mdl-navigation__link.router-link-active {
   background: #425973;
 }
 

@@ -7,6 +7,8 @@ import App from './App.vue';
 //Importation des vues
 import Login from './components/Login.vue';
 import Accueil from './components/Accueil.vue';
+import Ajout from './components/Ajout.vue';
+import Supprimer from './components/Supprimer.vue';
 
 Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
@@ -30,6 +32,16 @@ const routes = [
       name: 'accueil',
       path: '/accueil',
       component: Accueil
+  },
+  {
+      name: 'ajouter',
+      path: '/ajouter',
+      component: Ajout
+  },
+  {
+      name: 'supprimer',
+      path: '/supprimer',
+      component: Supprimer
   }
 ];
 

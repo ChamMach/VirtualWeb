@@ -9,10 +9,10 @@
             </div>
         </div>
       <nav class="mdl-navigation menu-links">
-        <a class="mdl-navigation__link active" href="">Accueil</a>
+        <router-link to="accueil" class="mdl-navigation__link">Accueil</router-link>
         <a class="mdl-navigation__link" href="">Mes machines</a>
-        <a class="mdl-navigation__link" href="">Ajouter</a>
-        <a class="mdl-navigation__link" href="">Supprimer</a>
+        <router-link to="ajouter" class="mdl-navigation__link">Ajouter</router-link>
+        <router-link to="supprimer" class="mdl-navigation__link">Supprimer</router-link>
         <a class="mdl-navigation__link" href="deconnexion">Déconnexion</a>
       </nav>
     </div>

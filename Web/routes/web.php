@@ -18,9 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::middleware(['auth'])->group(function () 
+Route::middleware(['auth'])->group(function ()
 {
     Route::get('/accueil', 'UserController@index')->name('accueil');
+    Route::get('/ajouter', 'UserController@index')->name('accueil');
+    Route::get('/supprimer', 'UserController@index')->name('accueil');
 });
 
 Route::post('connexion', array('uses' => 'Auth\LoginController@connexion'));
