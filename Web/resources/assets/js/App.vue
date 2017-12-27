@@ -2,20 +2,15 @@
     <div v-if="$route.path == '/login'">
         <router-view></router-view>
     </div>
-    <div class="wrap" v-else>
-        <div class="row">
-            <aside class="sidebar">
-                <sidebar-menu></sidebar-menu>
-            </aside>
-            <div class="page-wrapper">
-                <header-bar></header-bar>
-                <div class="container">
-                    <div class="row">
-                        <router-view></router-view>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" v-else>
+            <header-bar></header-bar>
+            <sidebar-menu></sidebar-menu>
+
+            <main class="mdl-layout__content">
+              <div class="page-content mdl-grid">
+                  <router-view></router-view>
+              </div>
+            </main>
     </div>
 </template>
 
@@ -31,7 +26,7 @@
 <script>
     import Header from './components/Header.vue';
     import Sidebar from './components/Sidebar.vue';
-    
+
     export default{
     }
 </script>

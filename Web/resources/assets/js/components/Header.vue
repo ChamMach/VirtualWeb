@@ -1,16 +1,22 @@
 <template>
-    <nav>
-        <div class="nav-wrapper">
-            <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html"><i class="material-icons">search</i></a></li>
-                <li><a href="badges.html"><i class="material-icons">view_module</i></a></li>
-                <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
-                <li><a href="mobile.html"><i class="material-icons">more_vert</i></a></li>
-            </ul>
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Accueil</span>
+            <div class="mdl-layout-spacer"></div>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp">
+                <i class="material-icons">search</i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp">
+                </div>
+            </div>
+            <div class="more">
+                <i class="material-icons">more_vert</i>
+            </div>
         </div>
-    </nav>
+    </header>
 </template>
-
 <script>
     export default {
         mounted() {

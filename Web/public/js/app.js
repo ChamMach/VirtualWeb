@@ -1093,7 +1093,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Header.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Header.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1102,9 +1102,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1d126904", Component.options)
+    hotAPI.createRecord("data-v-1bc06644", Component.options)
   } else {
-    hotAPI.reload("data-v-1d126904", Component.options)
+    hotAPI.reload("data-v-1bc06644", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1140,7 +1140,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Sidebar.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Sidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1149,9 +1149,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-28cb1975", Component.options)
+    hotAPI.createRecord("data-v-00467796", Component.options)
   } else {
-    hotAPI.reload("data-v-28cb1975", Component.options)
+    hotAPI.reload("data-v-00467796", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -15855,7 +15855,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/App.vue"
+Component.options.__file = "resources\\assets\\js\\App.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -15864,9 +15864,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-66ab2f82", Component.options)
+    hotAPI.createRecord("data-v-6dd1125c", Component.options)
   } else {
-    hotAPI.reload("data-v-66ab2f82", Component.options)
+    hotAPI.reload("data-v-6dd1125c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -15887,13 +15887,13 @@ var content = __webpack_require__(40);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(42)("2d8a5e95", content, false);
+var update = __webpack_require__(42)("626c521a", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16287,11 +16287,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -16304,6 +16299,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -16339,34 +16340,43 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("nav", [
-      _c("div", { staticClass: "nav-wrapper" }, [
-        _c("ul", { staticClass: "right hide-on-med-and-down" }, [
-          _c("li", [
-            _c("a", { attrs: { href: "sass.html" } }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("search")])
+    return _c("header", { staticClass: "mdl-layout__header" }, [
+      _c("div", { staticClass: "mdl-layout__header-row" }, [
+        _c("span", { staticClass: "mdl-layout-title" }, [_vm._v("Accueil")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mdl-layout-spacer" }),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right"
+          },
+          [
+            _c(
+              "label",
+              {
+                staticClass: "mdl-button mdl-js-button mdl-button--icon",
+                attrs: { for: "fixed-header-drawer-exp" }
+              },
+              [_c("i", { staticClass: "material-icons" }, [_vm._v("search")])]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "mdl-textfield__expandable-holder" }, [
+              _c("input", {
+                staticClass: "mdl-textfield__input",
+                attrs: {
+                  type: "text",
+                  name: "sample",
+                  id: "fixed-header-drawer-exp"
+                }
+              })
             ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "badges.html" } }, [
-              _c("i", { staticClass: "material-icons" }, [
-                _vm._v("view_module")
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "collapsible.html" } }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("refresh")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "mobile.html" } }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("more_vert")])
-            ])
-          ])
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "more" }, [
+          _c("i", { staticClass: "material-icons" }, [_vm._v("more_vert")])
         ])
       ])
     ])
@@ -16377,7 +16387,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1d126904", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1bc06644", module.exports)
   }
 }
 
@@ -16387,8 +16397,6 @@ if (false) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -16427,7 +16435,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
+  return _c("div", { staticClass: "mdl-layout__drawer sidebar" }, [
     _c("div", { staticClass: "user-data" }, [
       _vm._m(0),
       _vm._v(" "),
@@ -16457,20 +16465,30 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "menu-links" }, [
-      _c("ul", [
-        _c("li", { staticClass: "active" }, [_vm._v("Accueil")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Mes machines")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Ajouter")]),
-        _vm._v(" "),
-        _c("li", [_vm._v("Supprimer")]),
-        _vm._v(" "),
-        _c("li", [
-          _c("a", { attrs: { href: "deconnexion" } }, [_vm._v("Déconnexion")])
-        ])
-      ])
+    return _c("nav", { staticClass: "mdl-navigation menu-links" }, [
+      _c(
+        "a",
+        { staticClass: "mdl-navigation__link active", attrs: { href: "" } },
+        [_vm._v("Accueil")]
+      ),
+      _vm._v(" "),
+      _c("a", { staticClass: "mdl-navigation__link", attrs: { href: "" } }, [
+        _vm._v("Mes machines")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "mdl-navigation__link", attrs: { href: "" } }, [
+        _vm._v("Ajouter")
+      ]),
+      _vm._v(" "),
+      _c("a", { staticClass: "mdl-navigation__link", attrs: { href: "" } }, [
+        _vm._v("Supprimer")
+      ]),
+      _vm._v(" "),
+      _c(
+        "a",
+        { staticClass: "mdl-navigation__link", attrs: { href: "deconnexion" } },
+        [_vm._v("Déconnexion")]
+      )
     ])
   }
 ]
@@ -16479,7 +16497,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-28cb1975", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-00467796", module.exports)
   }
 }
 
@@ -16493,24 +16511,28 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.$route.path == "/login"
     ? _c("div", [_c("router-view")], 1)
-    : _c("div", { staticClass: "wrap" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("aside", { staticClass: "sidebar" }, [_c("sidebar-menu")], 1),
+    : _c(
+        "div",
+        {
+          staticClass:
+            "mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"
+        },
+        [
+          _c("header-bar"),
           _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "page-wrapper" },
-            [
-              _c("header-bar"),
-              _vm._v(" "),
-              _c("div", { staticClass: "container" }, [
-                _c("div", { staticClass: "row" }, [_c("router-view")], 1)
-              ])
-            ],
-            1
-          )
-        ])
-      ])
+          _c("sidebar-menu"),
+          _vm._v(" "),
+          _c("main", { staticClass: "mdl-layout__content" }, [
+            _c(
+              "div",
+              { staticClass: "page-content mdl-grid" },
+              [_c("router-view")],
+              1
+            )
+          ])
+        ],
+        1
+      )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -16518,7 +16540,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-66ab2f82", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-6dd1125c", module.exports)
   }
 }
 
@@ -16548,7 +16570,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Login.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16557,9 +16579,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
+    hotAPI.createRecord("data-v-01e7f602", Component.options)
   } else {
-    hotAPI.reload("data-v-3e2ac97c", Component.options)
+    hotAPI.reload("data-v-01e7f602", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16575,6 +16597,10 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -16671,71 +16697,103 @@ var render = function() {
             )
           : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model.trim",
-                value: _vm.email,
-                expression: "email",
-                modifiers: { trim: true }
-              }
-            ],
-            attrs: { id: "email", type: "email", required: "" },
-            domProps: { value: _vm.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.email,
+                  expression: "email",
+                  modifiers: { trim: true }
                 }
-                _vm.email = $event.target.value.trim()
-              },
-              blur: function($event) {
-                _vm.$forceUpdate()
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: { type: "email", id: "email", required: "" },
+              domProps: { value: _vm.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.email = $event.target.value.trim()
+                },
+                blur: function($event) {
+                  _vm.$forceUpdate()
+                }
               }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Adresse email")])
-        ]),
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "mdl-textfield__label", attrs: { for: "email" } },
+              [_vm._v("Adresse email")]
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "input-field" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model.trim",
-                value: _vm.password,
-                expression: "password",
-                modifiers: { trim: true }
-              }
-            ],
-            attrs: { id: "password", type: "password", required: "" },
-            domProps: { value: _vm.password },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model.trim",
+                  value: _vm.password,
+                  expression: "password",
+                  modifiers: { trim: true }
                 }
-                _vm.password = $event.target.value.trim()
-              },
-              blur: function($event) {
-                _vm.$forceUpdate()
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: { type: "password", id: "password", required: "" },
+              domProps: { value: _vm.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.password = $event.target.value.trim()
+                },
+                blur: function($event) {
+                  _vm.$forceUpdate()
+                }
               }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "email" } }, [_vm._v("Mot de passe")])
-        ]),
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "mdl-textfield__label",
+                attrs: { for: "password" }
+              },
+              [_vm._v("Mot de passe")]
+            )
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
           { staticClass: "form-block" },
           [
-            _c("button", { staticClass: "submit_login" }, [
-              _vm._v("Connexion")
-            ]),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "mdl-button mdl-js-button mdl-button--raised mdl-button--colored submit_login"
+              },
+              [_vm._v("\n              Connexion\n            ")]
+            ),
             _vm._v(" "),
             _c("router-link", { attrs: { to: "/password-reset" } }, [
               _vm._v("Mot de passe oublié?")
@@ -16753,7 +16811,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-01e7f602", module.exports)
   }
 }
 
@@ -16783,7 +16841,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Accueil.vue"
+Component.options.__file = "resources\\assets\\js\\components\\Accueil.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16792,9 +16850,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e65dac66", Component.options)
+    hotAPI.createRecord("data-v-63e2d48d", Component.options)
   } else {
-    hotAPI.reload("data-v-e65dac66", Component.options)
+    hotAPI.reload("data-v-63e2d48d", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16864,66 +16922,68 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", [
-      _c("h2", { staticClass: "header" }, [_vm._v("Accueil")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "vm-list" }, [
-        _c("div", { staticClass: "vm col s4" }, [
-          _c("div", { staticClass: "img-vm" }, [
-            _c("img", {
-              attrs: {
-                src: "https://image.flaticon.com/icons/svg/148/148820.svg",
-                alt: ""
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "contenu" }, [
-            _c("ul", { staticClass: "menu" }, [
-              _c("li", { staticClass: "active" }, [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "material-icons" }, [
-                    _vm._v("info_outline")
-                  ])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "material-icons" }, [_vm._v("list")])
-                ])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [
-                  _c("i", { staticClass: "material-icons right" }, [
-                    _vm._v("more_vert")
-                  ])
-                ])
-              ])
+      _c("div", { staticClass: "vm-list mdl-grid" }, [
+        _c(
+          "div",
+          { staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
+          [
+            _c("div", { staticClass: "img-vm" }, [
+              _c("img", {
+                attrs: {
+                  src: "https://image.flaticon.com/icons/svg/148/148820.svg",
+                  alt: ""
+                }
+              })
             ]),
             _vm._v(" "),
-            _c("div", { staticClass: "infos" }, [
-              _c("div", { staticClass: "description" }, [
-                _c("span", { staticClass: "vm-titre" }, [
-                  _c("b", [_vm._v("Système :")]),
-                  _vm._v(" Windows 10 64bits")
+            _c("h6", [_vm._v('"VM Développement"')]),
+            _vm._v(" "),
+            _c("div", { staticClass: "contenu" }, [
+              _c("ul", { staticClass: "menu" }, [
+                _c("li", { staticClass: "active" }, [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v("info_outline")
+                    ])
+                  ])
                 ]),
                 _vm._v(" "),
-                _c("p", [
-                  _vm._v(
-                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                            Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.\n                        "
-                  )
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "material-icons" }, [_vm._v("list")])
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "#" } }, [
+                    _c("i", { staticClass: "material-icons right" }, [
+                      _vm._v("more_vert")
+                    ])
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "infos" }, [
+                _c("div", { staticClass: "description" }, [
+                  _c("span", { staticClass: "vm-titre" }, [
+                    _c("b", [_vm._v("Système :")]),
+                    _vm._v(" Ubuntu 16.04 64bits")
+                  ]),
+                  _vm._v(" "),
+                  _c("p", [
+                    _vm._v(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                            Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.\n                        "
+                    )
+                  ])
                 ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "status online" }, [
-                _vm._v(
-                  "\n                        En service\n                    "
-                )
+                _vm._v("\n                    En service\n                ")
               ])
             ])
-          ])
-        ])
+          ]
+        )
       ])
     ])
   }
@@ -16933,7 +16993,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e65dac66", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-63e2d48d", module.exports)
   }
 }
 

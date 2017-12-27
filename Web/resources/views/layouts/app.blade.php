@@ -11,8 +11,9 @@
     <title>{{ config('app.name', 'Virtual Web') }}</title>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{{ asset('css/material.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="{{ Route::currentRouteName() }}">
@@ -23,5 +24,5 @@
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-<script src="{{ asset('js/materialize.min.js') }}"></script>
+<script src="{{ asset('js/material.min.js') }}"></script>
 </html>
