@@ -13,7 +13,8 @@ Installation
 3. `npm install` pour installer tous les packages
 4. Créer une base de données nommée `virtual`
 5. Lancer la commande `php artisan migrate` pour faire la migration des tables
-6. `php artisan cache:clear`
+6. Puis `php artisan db:seed` pour avoir un jeu de données
+7. `php artisan cache:clear`
 
 
 Commandes utiles
