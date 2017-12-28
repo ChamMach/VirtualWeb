@@ -1,13 +1,11 @@
 <template>
-    <div class="">
-
-        Supprimer
+    <div class="mdl-grid">
     </div>
 </template>
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
+
         }
     }
 </script>

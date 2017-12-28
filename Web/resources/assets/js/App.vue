@@ -3,14 +3,14 @@
         <router-view></router-view>
     </div>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header" v-else>
-            <header-bar></header-bar>
-            <sidebar-menu></sidebar-menu>
-
-            <main class="mdl-layout__content">
-              <div class="page-content mdl-grid">
-                  <router-view></router-view>
-              </div>
-            </main>
+        <header-bar></header-bar>
+        <sidebar-menu></sidebar-menu>
+        
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <router-view></router-view>
+            </div>
+        </main>
     </div>
 </template>
 

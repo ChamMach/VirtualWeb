@@ -23,6 +23,8 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/accueil', 'UserController@index')->name('accueil');
     Route::get('/ajouter', 'UserController@index')->name('accueil');
     Route::get('/supprimer', 'UserController@index')->name('accueil');
+    Route::get('/vm', 'UserController@index')->name('accueil');
+    Route::get('/conteneur', 'UserController@index')->name('accueil');
 });
 
 Route::post('connexion', array('uses' => 'Auth\LoginController@connexion'));
