@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             'nom' => 'Bisson',
             'email'    => 'bbisson.baptiste@gmail.com',
             'password' => Hash::make('baptiste'),
+            'status' => 0,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
@@ -30,6 +31,16 @@ class DatabaseSeeder extends Seeder
             'nom' => 'Saadoune',
             'email'    => 'cham@gmail.com',
             'password' => Hash::make('chamseddine'),
+            'status' => 0,
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+        ]);
+        DB::table('users')->insert([
+            'prenom'     => 'Jean',
+            'nom' => 'Eude',
+            'email'    => 'jeaneude@gmail.com',
+            'password' => Hash::make('eude'),
+            'status' => 1,
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
