@@ -16857,7 +16857,7 @@ var staticRenderFns = [
               [
                 _c("input", {
                   staticClass: "mdl-checkbox__input",
-                  attrs: { type: "checkbox", id: "vm_date", checked: "" }
+                  attrs: { type: "checkbox", id: "vm_date" }
                 }),
                 _vm._v(" "),
                 _c("span", { staticClass: "mdl-checkbox__label" }, [
@@ -16871,12 +16871,12 @@ var staticRenderFns = [
               {
                 staticClass:
                   "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-                attrs: { for: "vm_favories" }
+                attrs: { for: "vm_favoris" }
               },
               [
                 _c("input", {
                   staticClass: "mdl-checkbox__input",
-                  attrs: { type: "checkbox", id: "vm_favories", checked: "" }
+                  attrs: { type: "checkbox", id: "vm_favories" }
                 }),
                 _vm._v(" "),
                 _c("span", { staticClass: "mdl-checkbox__label" }, [
