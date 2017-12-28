@@ -24,7 +24,7 @@ body.login h2.form-title {
   font-weight: 400;
   text-align: center;
   margin: 0;
-  background: #34495e;
+  background: #6191dc;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -40,7 +40,7 @@ body.login .form-block {
 
 body.login button.submit_login {
   float: right;
-  background: #34495e;
+  background: #6191dc;
   color: white;
   border: 0;
   width: 100%;
@@ -49,11 +49,11 @@ body.login button.submit_login {
 
 body.login .mdl-button--raised.mdl-button--colored:active,
 body.login .mdl-button--raised.mdl-button--colored:hover {
-  background-color: #415d79;
+  background-color: #699def;
 }
 
 body.login a {
-  color: #34495e;
+  color: #6191dc;
   font-weight: 600;
   text-decoration: none;
 }

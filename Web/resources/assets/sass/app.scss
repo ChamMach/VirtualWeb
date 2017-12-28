@@ -1,6 +1,8 @@
 @charset "UTF-8";
 $dark-blue: #34495e;
 $dark-blue-hover: #415d79;
+$light-blue: #6191dc;
+$light-blue-hover: #699def;
 
 
 body.login {
@@ -25,7 +27,7 @@ body.login {
         font-weight: 400;
         text-align: center;
         margin: 0;
-        background: $dark-blue;
+        background: $light-blue;
         padding-top: 10px;
         padding-bottom: 10px;
     }
@@ -38,17 +40,17 @@ body.login {
     }
     button.submit_login {
         float: right;
-        background: $dark-blue;
+        background: $light-blue;
         color: white;
         border: 0;
         width: 100%;
         margin-bottom: 10px;
     }
     .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:hover {
-        background-color: $dark-blue-hover;
+        background-color: $light-blue-hover;
     }
     a {
-        color: $dark-blue;
+        color: $light-blue;
         font-weight: 600;
         text-decoration: none;
     }

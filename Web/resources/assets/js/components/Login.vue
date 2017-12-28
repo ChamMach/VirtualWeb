@@ -7,12 +7,12 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" v-model.trim="email"  type="email" id="email" required>
+                <input class="mdl-textfield__input" v-model.trim="email"  type="email" id="email">
                 <label class="mdl-textfield__label" for="email">Adresse email</label>
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" v-model.trim="password"  type="password" id="password" required>
+                <input class="mdl-textfield__input" v-model.trim="password" type="password" id="password">
                 <label class="mdl-textfield__label" for="password">Mot de passe</label>
             </div>
 
@@ -42,21 +42,33 @@
             login () {
                 erreur: false
                 message: ''
-                this.$http.post('/connexion', {
-                    email: this.email,
-                    password: this.password
-                }).then((response) => {
-                    if (response.data.succes == true) {
-                        this.$router.go('/accueil')
-                    } else {
+                if (this.email == '') {
+                    document.getElementById('email').parentElement.classList.add('is-invalid')
+                    if (this.password == '') {
+                        document.getElementById('password').parentElement.classList.add('is-invalid')
+                    }
+                } else if (this.password == '') {
+                    document.getElementById('password').parentElement.classList.add('is-invalid')
+                    if (this.email == '') {
+                        document.getElementById('email').parentElement.classList.add('is-invalid')
+                    }
+                } else {
+                    this.$http.post('/connexion', {
+                        email: this.email,
+                        password: this.password
+                    }).then((response) => {
+                        if (response.data.succes == true) {
+                            this.$router.go('/accueil')
+                        } else {
+                            this.erreur = true
+                            this.password = ''
+                        }
+                        this.message = response.data.message
+                    }, () => {
                         this.erreur = true
                         this.password = ''
-                    }
-                    this.message = response.data.message
-                }, () => {
-                    this.erreur = true
-                    this.password = ''
-                })
+                    })                    
+                }
             }
         }
     }
