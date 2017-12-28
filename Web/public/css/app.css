@@ -272,7 +272,7 @@ h2.header {
 
 /* FIN ACCUEIL */
 
-/* ACCUEIL */
+/* VM */
 
 a {
   color: #6ea1ee;
@@ -327,35 +327,41 @@ a {
   padding: 0;
 }
 
-.vm-list .contenu ul.menu li {
+.vm-list .contenu ul.menu .mdl-button--icon {
+  height: 40px;
+  width: 40px;
+  color: #6da1ee;
+}
+
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) {
   text-align: center;
   height: 40px;
   width: 40px;
 }
 
-.vm-list .contenu ul.menu li a {
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) a {
   margin: auto;
   text-align: center;
   vertical-align: middle;
   display: block;
 }
 
-.vm-list .contenu ul.menu li i {
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) i {
   width: 40px;
   height: 40px;
   font-size: 28px !important;
   padding-top: 4px;
 }
 
-.vm-list .contenu ul.menu li i.material-icons.right {
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) i.material-icons.right {
   margin: 0;
 }
 
-.vm-list .contenu ul.menu li.active {
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item).active {
   background: #6da1ee;
 }
 
-.vm-list .contenu ul.menu li.active i {
+.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item).active i {
   color: white;
 }
 
@@ -405,7 +411,7 @@ a {
   display: flex;
 }
 
-/* FIN ACCUEIL */
+/* FIN VM */
 
 @media only screen and (min-width: 993px) {
   .container {

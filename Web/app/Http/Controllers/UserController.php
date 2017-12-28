@@ -26,9 +26,11 @@ class UserController extends Controller
     {
         // Get the currently authenticated user...
         $user = Auth::user();
+        $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
         $userData = array(
             'nom' => $nom,
+            'status' => $status[$user->status]
         );
         return view('home', [
             'dataToShow' => json_encode($userData)

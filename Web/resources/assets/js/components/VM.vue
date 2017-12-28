@@ -24,7 +24,19 @@
                         <ul class="menu">
                             <li class="active"><a href="#"><i class="material-icons">info_outline</i></a></li>
                             <li><a href="#"><i class="material-icons">list</i></a></li>
-                            <li><a href="#"><i class="material-icons right">more_vert</i></a></li>
+                            <li class="options">
+                                <button id="options_vm"
+                                        class="mdl-button mdl-js-button mdl-button--icon">
+                                  <i class="material-icons">more_vert</i>
+                                </button>
+
+                                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
+                                    for="options_vm">
+                                  <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Supprimer</li>
+                                  <li disabled class="mdl-menu__item">Allumer</li>
+                                  <li class="mdl-menu__item">Eteindre</li>
+                                </ul>
+                            </li>
                         </ul>
                         <div class="infos">
                             <div class="description">

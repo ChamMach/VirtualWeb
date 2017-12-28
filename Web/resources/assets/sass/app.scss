@@ -241,7 +241,7 @@ h2.header {
 }
 /* FIN ACCUEIL */
 
-/* ACCUEIL */
+/* VM */
 a {
     color: #6ea1ee;
 }
@@ -283,8 +283,14 @@ a {
             flex-direction: column;
             list-style: none;
             padding: 0;
+            
+            .mdl-button--icon {
+                height: 40px;
+                width: 40px;
+                color: #6da1ee;
+            }
 
-            li {
+            li:not(.options):not(.mdl-menu__item) {
                 text-align: center;
                 height: 40px;
                 width: 40px;
@@ -350,7 +356,7 @@ a {
         display: flex;
     }
 }
-/* FIN ACCUEIL */
+/* FIN VM */
 
 @media only screen and (min-width: 993px) {
   .container {

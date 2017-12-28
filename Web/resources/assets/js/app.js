@@ -45,8 +45,9 @@ const routes = [
   }
 ];
 
-Vue.component('sidebar-menu', require('./components/Sidebar.vue'));
+Vue.component('sidebar-menu', require('./components/user/Sidebar.vue'));
 Vue.component('header-bar', require('./components/Header.vue'));
+Vue.component('tab', require('./components/Tab.vue'));
 
 //Creation de l'instance routeur
 const router = new VueRouter({

@@ -1115,53 +1115,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(1)
-/* script */
-var __vue_script__ = __webpack_require__(47)
-/* template */
-var __vue_template__ = __webpack_require__(48)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Sidebar.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-28cb1975", Component.options)
-  } else {
-    hotAPI.reload("data-v-28cb1975", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 11 */,
 /* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1232,8 +1186,9 @@ var routes = [{
     component: __WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue___default.a
 }];
 
-__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('sidebar-menu', __webpack_require__(11));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('sidebar-menu', __webpack_require__(72));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header-bar', __webpack_require__(10));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('tab', __webpack_require__(78));
 
 //Creation de l'instance routeur
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
@@ -16272,10 +16227,6 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Header_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Header_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Sidebar_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_Sidebar_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_Sidebar_vue__);
 //
 //
 //
@@ -16301,9 +16252,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-
-
-
 
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
@@ -16412,134 +16360,8 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'sidebar',
-    data: function data() {
-        return {
-            user: dataArray.nom
-        };
-    }
-});
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-layout__drawer sidebar" }, [
-    _c("div", { staticClass: "user-data" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c("div", { staticClass: "user-name" }, [
-        _c("span", [_vm._v(_vm._s(_vm.user))])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "nav",
-      { staticClass: "mdl-navigation menu-links" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "accueil" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
-            _vm._v(" Accueil")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "vm" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
-            _vm._v(" Virtuals Machines")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "conteneur" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [
-              _vm._v("local_laundry_service")
-            ]),
-            _vm._v(" Conteneurs")
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(1)
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "user-picture" }, [
-      _c("img", {
-        attrs: {
-          src: "https://image.flaticon.com/icons/svg/149/149074.svg",
-          alt: ""
-        }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "mdl-navigation__link", attrs: { href: "deconnexion" } },
-      [
-        _c("i", { staticClass: "material-icons" }, [_vm._v("exit_to_app")]),
-        _vm._v(" Déconnexion")
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-28cb1975", module.exports)
-  }
-}
-
-/***/ }),
+/* 47 */,
+/* 48 */,
 /* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17204,6 +17026,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {}
@@ -17311,12 +17145,52 @@ var staticRenderFns = [
                     ])
                   ]),
                   _vm._v(" "),
-                  _c("li", [
-                    _c("a", { attrs: { href: "#" } }, [
-                      _c("i", { staticClass: "material-icons right" }, [
-                        _vm._v("more_vert")
-                      ])
-                    ])
+                  _c("li", { staticClass: "options" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "mdl-button mdl-js-button mdl-button--icon",
+                        attrs: { id: "options_vm" }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("more_vert")
+                        ])
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "ul",
+                      {
+                        staticClass:
+                          "mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect",
+                        attrs: { for: "options_vm" }
+                      },
+                      [
+                        _c(
+                          "li",
+                          {
+                            staticClass:
+                              "mdl-menu__item mdl-menu__item--full-bleed-divider"
+                          },
+                          [_vm._v("Supprimer")]
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "li",
+                          {
+                            staticClass: "mdl-menu__item",
+                            attrs: { disabled: "" }
+                          },
+                          [_vm._v("Allumer")]
+                        ),
+                        _vm._v(" "),
+                        _c("li", { staticClass: "mdl-menu__item" }, [
+                          _vm._v("Eteindre")
+                        ])
+                      ]
+                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -17355,6 +17229,301 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-724a878e", module.exports)
+  }
+}
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(73)
+/* template */
+var __vue_template__ = __webpack_require__(74)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/user/Sidebar.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-96633ae2", Component.options)
+  } else {
+    hotAPI.reload("data-v-96633ae2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'sidebar',
+    data: function data() {
+        return {
+            user: dataArray.nom
+        };
+    }
+});
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "mdl-layout__drawer sidebar" }, [
+    _c("div", { staticClass: "user-data" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "user-name" }, [
+        _c("span", [_vm._v(_vm._s(_vm.user))])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "nav",
+      { staticClass: "mdl-navigation menu-links" },
+      [
+        _c(
+          "router-link",
+          { staticClass: "mdl-navigation__link", attrs: { to: "accueil" } },
+          [
+            _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
+            _vm._v(" Accueil")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "mdl-navigation__link", attrs: { to: "vm" } },
+          [
+            _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
+            _vm._v(" Virtuals Machines")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          { staticClass: "mdl-navigation__link", attrs: { to: "conteneur" } },
+          [
+            _c("i", { staticClass: "material-icons" }, [
+              _vm._v("local_laundry_service")
+            ]),
+            _vm._v(" Conteneurs")
+          ]
+        ),
+        _vm._v(" "),
+        _vm._m(1)
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "user-picture" }, [
+      _c("img", {
+        attrs: {
+          src: "https://image.flaticon.com/icons/svg/149/149074.svg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      { staticClass: "mdl-navigation__link", attrs: { href: "deconnexion" } },
+      [
+        _c("i", { staticClass: "material-icons" }, [_vm._v("exit_to_app")]),
+        _vm._v(" Déconnexion")
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-96633ae2", module.exports)
+  }
+}
+
+/***/ }),
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(79)
+/* template */
+var __vue_template__ = __webpack_require__(80)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Tab.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-dbd21ca4", Component.options)
+  } else {
+    hotAPI.reload("data-v-dbd21ca4", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 79 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {}
+});
+
+/***/ }),
+/* 80 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "mdl-layout__tab-bar mdl-js-ripple-effect" },
+      [
+        _c(
+          "a",
+          {
+            staticClass: "mdl-layout__tab is-active",
+            attrs: { href: "#fixed-tab-1" }
+          },
+          [_vm._v("Tab 1")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "mdl-layout__tab", attrs: { href: "#fixed-tab-2" } },
+          [_vm._v("Tab 2")]
+        ),
+        _vm._v(" "),
+        _c(
+          "a",
+          { staticClass: "mdl-layout__tab", attrs: { href: "#fixed-tab-3" } },
+          [_vm._v("Tab 3")]
+        )
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-dbd21ca4", module.exports)
   }
 }
 
