@@ -3,6 +3,8 @@ $dark-blue: #34495e;
 $dark-blue-hover: #415d79;
 $light-blue: #6191dc;
 $light-blue-hover: #699def;
+$home-light-blue: #6ea1ee;
+$home-light-blue-hover: #6391d8;
 
 /* GENERAL */
 .alert {
@@ -202,7 +204,7 @@ h2.header {
 .count {
     display: flex;
     flex-direction: column;
-    
+
     &.conteneur {
         span.compteur {
             background: #6da1ee;
@@ -223,7 +225,7 @@ h2.header {
         line-height: 143px;
         text-align: center;
         padding: 20px 20px;
-        
+
         span.chiffre {
             width: 145px;
             height: 145px;
@@ -283,7 +285,7 @@ a {
             flex-direction: column;
             list-style: none;
             padding: 0;
-            
+
             .mdl-button--icon {
                 height: 40px;
                 width: 40px;
@@ -346,7 +348,7 @@ a {
 .filtres {
     display: flex;
     flex-direction: row;
-    
+
     h5 {
         margin: 7px;
     }
@@ -355,6 +357,18 @@ a {
         margin: 7px 7px 7px 15px;
         display: flex;
     }
+}
+
+.btn_creer {
+    background: $home-light-blue;
+    color: white;
+
+    &:hover {
+        background: $home-light-blue-hover;
+    }
+}
+.mdl-dialog {
+    width: 30%;
 }
 /* FIN VM */
 

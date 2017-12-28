@@ -21,5 +21,8 @@
     "vue-loader": "^13.6.1",
     "vue-router": "^3.0.1",
     "vue-template-compiler": "^2.5.13"
+  },
+  "dependencies": {
+    "getmdl-select": "^1.1.0"
   }
 }

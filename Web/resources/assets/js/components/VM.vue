@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="mdl-grid">
-            <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres">
-                <h5>Filtre</h5>
+            <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres">
+                <h5>Filtres</h5>
                 <div class="actions">
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vm_date">
                       <input type="checkbox" id="vm_date" class="mdl-checkbox__input" checked>
@@ -10,9 +10,14 @@
                     </label>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vm_favories">
                       <input type="checkbox" id="vm_favories" class="mdl-checkbox__input" checked>
-                      <span class="mdl-checkbox__label">Mes favories</span>
+                      <span class="mdl-checkbox__label">Mes favoris</span>
                     </label>
                 </div>
+            </div>
+            <div class="mdl-cell--12-col mdl-grid">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn_creer" id="show-modal-example">
+                    <i class="material-icons">add</i> Créer une VM
+                </button>
             </div>
             <div class="vm-list mdl-grid">
                 <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col">
@@ -53,12 +58,28 @@
                 </div>
             </div>
         </div>
+        <creation-vm></creation-vm>
     </div>
 </template>
 
 <script>
     export default {
         mounted() {
+            'use strict';
+            var dialog = document.querySelector('#modal-example');
+            var closeButton = dialog.querySelector('button');
+            var showButton = document.querySelector('#show-modal-example');
+            if (! dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            var closeClickHandler = function(event) {
+                dialog.close();
+            };
+            var showClickHandler = function(event) {
+                dialog.showModal();
+            };
+            showButton.addEventListener('click', showClickHandler);
+            closeButton.addEventListener('click', closeClickHandler);
         }
     }
 </script>

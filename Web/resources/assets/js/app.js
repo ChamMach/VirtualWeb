@@ -48,10 +48,16 @@ const routes = [
 Vue.component('sidebar-menu', require('./components/user/Sidebar.vue'));
 Vue.component('header-bar', require('./components/Header.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
+Vue.component('creation-vm', require('./components/user/CreationVM.vue'));
 
 //Creation de l'instance routeur
 const router = new VueRouter({
     mode: 'history',
     routes: routes
 });
+
+// router.beforeEach((to, from, next) => {
+//     console.log(document.getElementById('tab_vm'));
+// })
+
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');

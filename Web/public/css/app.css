@@ -411,6 +411,19 @@ a {
   display: flex;
 }
 
+.btn_creer {
+  background: #6ea1ee;
+  color: white;
+}
+
+.btn_creer:hover {
+  background: #6391d8;
+}
+
+.mdl-dialog {
+  width: 30%;
+}
+
 /* FIN VM */
 
 @media only screen and (min-width: 993px) {
