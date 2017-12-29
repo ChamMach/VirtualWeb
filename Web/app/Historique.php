@@ -15,6 +15,6 @@ class Historique extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_historique', 'date', 'action',
+        'id_user', 'date', 'action',
     ];
 }

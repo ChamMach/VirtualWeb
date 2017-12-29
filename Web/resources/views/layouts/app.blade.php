@@ -23,6 +23,10 @@
     </div>
 </body>
 <!-- Scripts -->
+
+<script type="text/javascript">
+var dataArray = {!! $dataToShow !!}
+</script>
 <script src="{{ asset('js/app.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/getmdl-select.min.js') }}"></script>

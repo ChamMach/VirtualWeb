@@ -7,7 +7,7 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" v-model.trim="email"  type="email" id="email">
+                <input class="mdl-textfield__input" v-model.trim="email" type="email" id="email">
                 <label class="mdl-textfield__label" for="email">Adresse email</label>
             </div>
 

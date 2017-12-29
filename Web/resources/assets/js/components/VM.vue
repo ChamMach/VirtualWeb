@@ -80,6 +80,13 @@
             };
             showButton.addEventListener('click', showClickHandler);
             closeButton.addEventListener('click', closeClickHandler);
+        },
+        //Fixe le problème du select non actualisé
+        created () {
+          this.$nextTick(() => {
+             componentHandler.upgradeDom();
+             getmdlSelect.init(".getmdl-select")
+          });
         }
     }
 </script>

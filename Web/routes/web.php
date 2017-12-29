@@ -25,8 +25,13 @@ Route::middleware(['auth'])->group(function ()
     Route::get('/supprimer', 'UserController@index')->name('accueil');
     Route::get('/vm', 'UserController@index')->name('accueil');
     Route::get('/conteneur', 'UserController@index')->name('accueil');
+    Route::get('/utilisateurs', 'UserController@index')->name('accueil');
+    
+    Route::post('get_users', array('uses' => 'UserController@getUsers'));
+    Route::post('create_user', array('uses' => 'UserController@createUser'));
 });
 
+Route::get('/connexion', array('uses' => 'Auth\LoginController@loginPage'))->name('connexion');
 Route::post('connexion', array('uses' => 'Auth\LoginController@connexion'));
 Route::get('/deconnexion', function()
 {

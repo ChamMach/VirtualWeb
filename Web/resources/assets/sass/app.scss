@@ -5,6 +5,8 @@ $light-blue: #6191dc;
 $light-blue-hover: #699def;
 $home-light-blue: #6ea1ee;
 $home-light-blue-hover: #6391d8;
+$red: #d04343;
+$red-hover: #b73939;
 
 /* GENERAL */
 .alert {
@@ -26,10 +28,75 @@ $home-light-blue-hover: #6391d8;
 .mdl-layout--fixed-drawer>.mdl-layout__content {
     margin-left: 320px !important;
 }
+.small-btn {
+    background: #34485d;
+    color: #FFFF;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 300ms;
+    
+    &.consulter {
+        background: $home-light-blue;
+        &:hover {
+            background: $home-light-blue-hover;
+        }
+    }
+    &.supprimer {
+        background: $red;
+        &:hover {
+            background: $red-hover;
+        }
+    }
+    &.modifier {
+        background: $dark-blue;
+        &:hover {
+            background: $dark-blue-hover;
+        }
+    }
+}
+
+h3 {
+    color: #34485d;
+    font-weight: 300;
+}
+
+.tableau {
+    th {
+        text-align: left;
+    }
+    td {
+        text-align: left;
+    }
+}
+
+.mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:hover {
+    background-color: $light-blue-hover;
+}
 /* FIN */
 
+/* CARD */
+
+.card {
+    padding: 0;
+    
+    .header {
+        margin: 0;
+        background: #6da1ee;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+    .contenu {
+        padding: 30px;        
+    }
+}
+
+/* FIN CARD */
+
 /* PAGE DE LOGIN */
-body.login {
+body.connexion {
     background: #6da1ee;
     background: -webkit-linear-gradient(to right, #6da1ee, #3d5e94);
     background: linear-gradient(to right, #6da1ee, #3d5e94);
@@ -69,9 +136,6 @@ body.login {
         border: 0;
         width: 100%;
         margin-bottom: 10px;
-    }
-    .mdl-button--raised.mdl-button--colored:active, .mdl-button--raised.mdl-button--colored:hover {
-        background-color: $light-blue-hover;
     }
     a {
         color: $light-blue;

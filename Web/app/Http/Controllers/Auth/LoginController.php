@@ -50,15 +50,15 @@ class LoginController extends Controller
         $auth = false;
         //On récupère les données du formulaire
         $credentials = $request->only('email', 'password');
-
+        
         if (Auth::attempt($credentials, $request->has('remember'))) {
             $auth = true; // Success
         }
-
+        
         //Initialise les valeurs à false
         $return['succes'] = false;
         $return['erreur'] = false;
-
+        
         //Si on a une erreur on ajoute le message
         if ($auth == false) {
             $return['erreur'] == true;
@@ -67,11 +67,22 @@ class LoginController extends Controller
             //On logue la connexion de l'utilisateur en BDD
             $user = Auth::user();
             DB::table('historique')->insert(
-                ['id_historique' => $user->id, 'date' => date("Y-m-d H:i:s"), 'action' => 1]
+                ['id_user' => $user->id, 'date' => date("Y-m-d H:i:s"), 'action' => 1]
             );
             $return['succes'] = true;
         }
         return json_encode($return);
+    }
+    
+    public function loginPage()
+    {
+        $userData = array(
+            'status' => 'user',
+            'verified' => false,
+        );
+        return view('connexion', [
+            'dataToShow' => json_encode($userData)
+        ]);
     }
 
     public function deconnexion()

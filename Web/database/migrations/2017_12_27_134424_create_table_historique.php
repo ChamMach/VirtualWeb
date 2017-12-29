@@ -15,8 +15,8 @@ class CreateTableHistorique extends Migration
     {
         Schema::create('historique', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_historique')->references('id')->on('users');
-            $table->date('date');
+            $table->integer('id_user')->references('id')->on('users');
+            $table->datetime('date');
             $table->integer('action')->references('id_action')->on('actions');
         });
     }
