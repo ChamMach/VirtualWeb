@@ -50,15 +50,15 @@ class LoginController extends Controller
         $auth = false;
         //On récupère les données du formulaire
         $credentials = $request->only('email', 'password');
-        
+
         if (Auth::attempt($credentials, $request->has('remember'))) {
             $auth = true; // Success
         }
-        
+
         //Initialise les valeurs à false
         $return['succes'] = false;
         $return['erreur'] = false;
-        
+
         //Si on a une erreur on ajoute le message
         if ($auth == false) {
             $return['erreur'] == true;
@@ -70,10 +70,15 @@ class LoginController extends Controller
                 ['id_user' => $user->id, 'date' => date("Y-m-d H:i:s"), 'action' => 1]
             );
             $return['succes'] = true;
+            if (Auth::user()->status == 1) {
+                $return['status'] = 'admin';
+            } else {
+                $return['status'] = 'user';
+            }
         }
         return json_encode($return);
     }
-    
+
     public function loginPage()
     {
         $userData = array(

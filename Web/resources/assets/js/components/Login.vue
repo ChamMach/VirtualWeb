@@ -58,7 +58,12 @@
                         password: this.password
                     }).then((response) => {
                         if (response.data.succes == true) {
-                            this.$router.go('/accueil')
+
+                            if (response.data.status == 'admin') {
+                                window.location.href = "/administration"
+                            } else {
+                                window.location.href = "/accueil"
+                            }
                         } else {
                             this.erreur = true
                             this.password = ''
@@ -67,7 +72,7 @@
                     }, () => {
                         this.erreur = true
                         this.password = ''
-                    })                    
+                    })
                 }
             }
         }

@@ -15,7 +15,6 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="{{ asset('css/material.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/getmdl-select.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/notyf.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="{{ Route::currentRouteName() }}">
@@ -26,14 +25,10 @@
 <!-- Scripts -->
 
 <script type="text/javascript">
-    var dataArray = {!! $dataToShow !!}
+var dataArray = {!! $dataToShow !!}
 </script>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/adminApp.js') }}"></script>
 <script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/getmdl-select.min.js') }}"></script>
-<script src="{{ asset('js/notyf.min.js') }}"></script>
-<script type="text/javascript">
-    var notyf = new Notyf();
-</script>
 <script src="{{ asset('js/material.min.js') }}"></script>
 </html>

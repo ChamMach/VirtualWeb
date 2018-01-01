@@ -66,25 +66,24 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('accueil') }}">Dashboard</a>
-                    @else
-                        <a href="{{ route('connexion') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
                     Virtual Web
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Connexion</a>
-                </div>
+                @if (Route::has('login'))
+                    <div class="links">
+                        @auth
+                            @if (Auth::user()->status == 1)
+                                <a href="{{ route('administration') }}">Tableau de bord</a>
+                            @else
+                                <a href="{{ route('accueil') }}">Tableau de bord</a>
+                            @endif
+                            <a href="{{ route('deconnexion') }}">Déconnexion</a>
+                        @else
+                            <a href="{{ route('connexion') }}">Connexion</a>
+                        @endauth
+                    </div>
+                @endif
             </div>
         </div>
     </body>

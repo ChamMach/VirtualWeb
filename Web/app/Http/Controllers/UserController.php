@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('isUser');
     }
 
     /**
@@ -28,6 +28,9 @@ class UserController extends Controller
     {
         // Get the currently authenticated user...
         $user = Auth::user();
+        // if ($user->status == 1) {
+        //     return redirect()->action('Admin\AdminController@index');
+        // }
         $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
         $userData = array(
@@ -39,7 +42,7 @@ class UserController extends Controller
             'dataToShow' => json_encode($userData)
         ]);
     }
-    
+
     /**
      * Récupération des données utilisateurs
      * @return array Liste de tous les utilisateurs
@@ -47,7 +50,7 @@ class UserController extends Controller
     public function getUsers()
     {
         $currentUser = Auth::user();
-        
+
         //If user is admin
         if ($currentUser->status == 1) {
             $users = DB::table('users')
@@ -65,7 +68,7 @@ class UserController extends Controller
         }
         return $return;
     }
-    
+
     public function createUser(Request $request)
     {
         $return = array(

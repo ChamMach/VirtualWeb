@@ -15,6 +15,8 @@ Vue.use(VueAxios, axios);
 Vue.use(VueRouter);
 
 //Creation des routes
+console.log(dataArray);
+
 const routes = [
   {
       name: 'Login',
@@ -42,7 +44,15 @@ const routes = [
   {
       name: 'Conteneurs',
       path: '/conteneur',
-      component: view('Conteneur')
+      component: view('Conteneur'),
+      meta: {
+          isAdmin: true
+      }
+  },
+  {
+      name: 'Administration',
+      path: '/administration',
+      component: view('admin/Accueil')
   },
   {
       name: 'Utilisateurs',
@@ -53,7 +63,6 @@ const routes = [
       }
   }
 ];
-
 /**
  * Asynchronously load view (Webpack Lazy loading compatible)
  * @param  {string}   name     the filename (basename) of the view to load.
@@ -69,6 +78,7 @@ Vue.component('sidebar-admin', require('./components/admin/Sidebar.vue'));
 Vue.component('header-bar', require('./components/Header.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('creation-vm', require('./components/user/CreationVM.vue'));
+Vue.component('creation-utilisateur', require('./components/admin/CreationUtilisateur.vue'));
 
 //Creation de l'instance routeur
 const router = new VueRouter({
@@ -85,7 +95,7 @@ const router = new VueRouter({
 //         }
 //     } else {
 //         //On redirige
-//         next()        
+//         next()
 //     }
 // })
 
