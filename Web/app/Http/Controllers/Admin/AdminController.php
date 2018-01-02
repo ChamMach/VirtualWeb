@@ -40,9 +40,14 @@ class AdminController extends Controller
         ->select('id', 'nom', 'prenom', 'email')
         ->orderBy('id')
         ->get();
+        
         $userData['users'] = array(
             'data' => $users,
             'error' => false
+        );
+
+        $userData['dashboard'] = array(
+            'utilisateurs' => $users->count(),
         );
 
         return view('home', [

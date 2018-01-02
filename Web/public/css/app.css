@@ -355,89 +355,104 @@ a {
   margin: auto;
 }
 
-.vm-list h6 {
-  margin: 15px 0 0px;
-  text-align: center;
+.vm {
+  position: relative;
 }
 
-.vm-list .img-vm {
-  text-align: center;
+.vm .vm-list {
+  font-family: "Roboto";
 }
 
-.vm-list .img-vm img {
-  width: 90px;
-  padding-top: 15px;
+.vm .vm-list .statut {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  color: white;
+  font-weight: 300;
+  border-radius: 30px;
+  padding: 3px 10px 3px 10px;
 }
 
-.vm-list .contenu {
-  padding: 20px;
+.vm .vm-list .statut.on {
+  background: #57b37e;
+}
+
+.vm .vm-list .statut.off {
+  background: #d02e26;
+}
+
+.vm .vm-list .ajouter_vm {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.vm-list .contenu .description {
-  border-left: 3px solid #6da1ee;
-  padding-left: 10px;
-}
-
-.vm-list .contenu ul.menu {
-  margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  list-style: none;
-  padding: 0;
+  background: #6ea1ee;
+  color: white;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+  cursor: pointer;
 }
 
-.vm-list .contenu ul.menu .mdl-button--icon {
-  height: 40px;
-  width: 40px;
-  color: #6da1ee;
-}
-
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) {
+.vm .vm-list .ajouter_vm .symbole {
+  width: 100%;
   text-align: center;
-  height: 40px;
-  width: 40px;
 }
 
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) a {
-  margin: auto;
-  text-align: center;
-  vertical-align: middle;
-  display: block;
+.vm .vm-list .ajouter_vm .symbole i {
+  font-size: 119px;
+  line-height: 119px;
 }
 
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) i {
-  width: 40px;
-  height: 40px;
-  font-size: 28px !important;
-  padding-top: 4px;
+.vm .vm-list .ajouter_vm .texte {
+  font-size: 38px;
+  font-weight: 300;
+  line-height: 38px;
+  margin-top: 25px;
 }
 
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item) i.material-icons.right {
+.vm .vm-list .ajouter_vm:hover {
+  -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.vm .vm-list.mdl-grid {
   margin: 0;
 }
 
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item).active {
-  background: #6da1ee;
+.vm .vm-list h6 {
+  margin: 15px 0 0px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 300;
 }
 
-.vm-list .contenu ul.menu li:not(.options):not(.mdl-menu__item).active i {
-  color: white;
+.vm .vm-list .img-vm {
+  text-align: center;
 }
 
-.vm-list .contenu .status.online {
+.vm .vm-list .img-vm img {
+  width: 90px;
+  padding-top: 15px;
+}
+
+.vm .vm-list .contenu {
+  padding: 20px;
+}
+
+.vm .vm-list .contenu i.material-icons {
+  vertical-align: bottom;
+}
+
+.vm .vm-list .contenu .status.online {
   text-align: center;
   width: 120px;
   margin: auto;
@@ -447,18 +462,49 @@ a {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
 }
 
-.vm-list .contenu .status.online.online {
+.vm .vm-list .contenu .status.online.online {
   background: #57b37e;
 }
 
-.vm-list .contenu .status.online.offline {
+.vm .vm-list .contenu .status.online.offline {
   background: #b35757;
 }
 
-.vm-list .infos {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 60%;
-          flex: 1 0 60%;
+.vm .vm-list .menu {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  padding: 0;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: #6191dc;
+}
+
+.vm .vm-list .menu a {
+  padding: 8px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.vm .vm-list .menu a.details-btn {
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.vm .vm-list .menu a.active {
+  background: #5b89ce;
+}
+
+.vm .vm-list .menu a:hover {
+  background: #5b89ce;
 }
 
 .filtres {

@@ -6,7 +6,7 @@
         <div class="mdl-grid">
             <div class="mdl-shadow--2dp mdl-cell mdl-cell--4-col">
                 <div class="count vm">
-                    <span class="compteur"><span class="chiffre">6</span> </span>
+                    <span class="compteur"><span class="chiffre">{{ utilisateurs }}</span> </span>
                     <span class="titre">Utilisateurs</span>
                 </div>
             </div>
@@ -27,8 +27,10 @@
 </template>
 <script>
     export default {
-        mounted() {
-
-        }
+        data () {
+            return {
+                utilisateurs: dataArray.dashboard.utilisateurs,
+            }
+        },
     }
 </script>

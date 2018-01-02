@@ -17309,8 +17309,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     mounted: function mounted() {
@@ -17408,26 +17406,33 @@ var staticRenderFns = [
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "mdl-cell--12-col mdl-grid" }, [
+      _c("div", { staticClass: "vm-list mdl-grid" }, [
         _c(
-          "button",
+          "div",
           {
             staticClass:
-              "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect btn_creer",
+              "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
             attrs: { id: "show-modal-example" }
           },
           [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("add")]),
-            _vm._v(" Créer une VM\n            ")
+            _c("div", { staticClass: "symbole" }, [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "texte" }, [
+              _c("span", [_vm._v("Créer une VM")])
+            ])
           ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "vm-list mdl-grid" }, [
+        ),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
           [
+            _c("div", { staticClass: "statut on" }, [
+              _vm._v("\n                    En service\n                ")
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "img-vm" }, [
               _c("img", {
                 attrs: {
@@ -17440,90 +17445,70 @@ var staticRenderFns = [
             _c("h6", [_vm._v('"VM Développement"')]),
             _vm._v(" "),
             _c("div", { staticClass: "contenu" }, [
-              _c("ul", { staticClass: "menu" }, [
-                _c("li", { staticClass: "active" }, [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "material-icons" }, [
-                      _vm._v("info_outline")
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "material-icons" }, [_vm._v("list")])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", { staticClass: "options" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "mdl-button mdl-js-button mdl-button--icon",
-                      attrs: { id: "options_vm" }
-                    },
-                    [
-                      _c("i", { staticClass: "material-icons" }, [
-                        _vm._v("more_vert")
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "ul",
-                    {
-                      staticClass:
-                        "mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect",
-                      attrs: { for: "options_vm" }
-                    },
-                    [
-                      _c(
-                        "li",
-                        {
-                          staticClass:
-                            "mdl-menu__item mdl-menu__item--full-bleed-divider"
-                        },
-                        [_vm._v("Supprimer")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "li",
-                        {
-                          staticClass: "mdl-menu__item",
-                          attrs: { disabled: "" }
-                        },
-                        [_vm._v("Allumer")]
-                      ),
-                      _vm._v(" "),
-                      _c("li", { staticClass: "mdl-menu__item" }, [
-                        _vm._v("Eteindre")
-                      ])
-                    ]
-                  )
-                ])
-              ]),
-              _vm._v(" "),
               _c("div", { staticClass: "infos" }, [
                 _c("div", { staticClass: "description" }, [
                   _c("span", { staticClass: "vm-titre" }, [
-                    _c("b", [_vm._v("Système :")]),
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v("computer")
+                    ]),
                     _vm._v(" Ubuntu 16.04 64bits")
                   ]),
                   _vm._v(" "),
+                  _c("hr"),
+                  _vm._v(" "),
                   _c("p", [
-                    _c("b", [_vm._v("Description :")]),
+                    _c("i", { staticClass: "material-icons" }, [
+                      _vm._v("list")
+                    ]),
                     _vm._v(
                       " Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                                Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.\n                            "
                     )
                   ])
                 ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "menu" }, [
+              _c("a", { staticClass: "active", attrs: { href: "#" } }, [
+                _vm._v("Infos")
               ]),
               _vm._v(" "),
-              _c("div", { staticClass: "status online" }, [
-                _vm._v(
-                  "\n                        En service\n                    "
-                )
-              ])
+              _c("a", { staticClass: "details-btn", attrs: { href: "#" } }, [
+                _vm._v("Détails")
+              ]),
+              _vm._v(" "),
+              _c("a", { attrs: { href: "#", id: "options_vm" } }, [
+                _vm._v("Options")
+              ]),
+              _vm._v(" "),
+              _c(
+                "ul",
+                {
+                  staticClass:
+                    "mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect",
+                  attrs: { for: "options_vm" }
+                },
+                [
+                  _c(
+                    "li",
+                    {
+                      staticClass:
+                        "mdl-menu__item mdl-menu__item--full-bleed-divider"
+                    },
+                    [_vm._v("Supprimer")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    { staticClass: "mdl-menu__item", attrs: { disabled: "" } },
+                    [_vm._v("Allumer")]
+                  ),
+                  _vm._v(" "),
+                  _c("li", { staticClass: "mdl-menu__item" }, [
+                    _vm._v("Eteindre")
+                  ])
+                ]
+              )
             ])
           ]
         )
@@ -17644,7 +17629,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }, function () {
                 console.log('erreur');
             });
-        }
+        },
+        verification: function verification() {}
     }
 });
 
@@ -17691,7 +17677,7 @@ var render = function() {
                     [_vm._v("Supprimer")]
                   ),
                   _vm._v(" "),
-                  _c("span", { staticClass: "small-btn modifier" }, [
+                  _c("span", { staticClass: "small-btn modifier show-modal" }, [
                     _vm._v("Modifier")
                   ])
                 ])
