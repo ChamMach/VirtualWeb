@@ -37,6 +37,7 @@ class UserController extends Controller
             'nom' => $nom,
             'status' => $status[$user->status],
             'verified' => Auth::check(),
+            'vm' => self::getVM('userId'),
         );
         return view('home', [
             'dataToShow' => json_encode($userData)
@@ -97,7 +98,58 @@ class UserController extends Controller
                 }
             }
         }
+        return $return;
+    }
 
+    private function getVM($userID)
+    {
+        $return = array(
+            'infos_vm' => '1',
+            'data' => array(
+                'vm_1'=> array(
+                    'nom'=> 'VM Développement',
+                    'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.',
+                    'statut'=> 'on',
+                    'caracteristiques'=> array(
+                        'os' => 'Ubuntu 16.04 64bits',
+                        'cpu' => '4',
+                        'ram' => array(
+                            'nb' => '3200',
+                            'unite' => 'mo',
+                        ),
+                        'sto_1' => array(
+                            'nb' => '35',
+                            'unite' => 'GO',
+                        ),
+                        'sto_2' => array(
+                            'nb' => '2',
+                            'unite' => 'mo',
+                        ),
+                    ),
+                ),
+                'vm_2'=> array(
+                    'nom'=> 'Serveur Web Apache',
+                    'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.',
+                    'statut'=> 'off',
+                    'caracteristiques'=> array(
+                        'os' => 'Ubuntu 16.04 64bits',
+                        'cpu' => '4',
+                        'ram' => array(
+                            'nb' => '3200',
+                            'unite' => 'mo',
+                        ),
+                        'sto_1' => array(
+                            'nb' => '35',
+                            'unite' => 'GO',
+                        ),
+                        'sto_2' => array(
+                            'nb' => '2',
+                            'unite' => 'mo',
+                        ),
+                    ),
+                ),
+            ),
+        );
         return $return;
     }
 }

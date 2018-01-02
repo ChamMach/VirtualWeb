@@ -6,7 +6,7 @@
         <header-bar></header-bar>
         <sidebar-admin v-if="status == 'admin'"></sidebar-admin>
         <sidebar-user v-else></sidebar-user>
-        
+
         <main class="mdl-layout__content">
             <div class="page-content">
                 <router-view></router-view>

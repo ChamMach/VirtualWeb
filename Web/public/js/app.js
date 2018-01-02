@@ -17309,8 +17309,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            vm: dataArray.vm.data,
+            isActive: false
+        };
+    },
     mounted: function mounted() {
         'use strict';
 
@@ -17336,6 +17361,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             componentHandler.upgradeDom();
             getmdlSelect.init(".getmdl-select");
         });
+    },
+
+    methods: {
+        showHide: function showHide(event) {
+            var key = event.target.parentElement.parentElement.attributes["0"].value;
+            var elementVm = $('.' + key);
+            var action = event.target.dataset.action;
+            elementVm.find('.active').removeClass('active');
+            elementVm.find('.current').removeClass('current');
+            elementVm.find('.' + action).addClass('current');
+            event.target.classList.add('active');
+        }
     }
 });
 
@@ -17347,172 +17384,301 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._m(0), _vm._v(" "), _c("creation-vm")], 1)
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "mdl-grid" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "vm-list mdl-grid" },
+          [
+            _vm._m(1),
+            _vm._v(" "),
+            _vm._l(_vm.vm, function(value, key, index) {
+              return _c(
+                "div",
+                {
+                  staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
+                  class: key,
+                  attrs: { "data-key": key }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "statut", class: value.statut },
+                    [
+                      value.statut === "on"
+                        ? [
+                            _vm._v(
+                              "\n                        En service\n                    "
+                            )
+                          ]
+                        : [
+                            _vm._v(
+                              "\n                        Éteint\n                    "
+                            )
+                          ]
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2, true),
+                  _vm._v(" "),
+                  _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "infos_bloc current bloc_interactif" },
+                    [
+                      _c("div", { staticClass: "contenu" }, [
+                        _c("div", { staticClass: "infos" }, [
+                          _c("div", { staticClass: "description" }, [
+                            _c("span", { staticClass: "vm-titre" }, [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("computer")
+                              ]),
+                              _vm._v(" " + _vm._s(value.caracteristiques.os))
+                            ]),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("list")
+                              ]),
+                              _vm._v(" " + _vm._s(value.description))
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "details_bloc bloc_interactif" }, [
+                    _c("ul", [
+                      _c("li", [
+                        _c("b", [_vm._v("OS : ")]),
+                        _vm._v(_vm._s(value.caracteristiques.os))
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("CPU : ")]),
+                        _vm._v(_vm._s(value.caracteristiques.cpu))
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("RAM : ")]),
+                        _vm._v(
+                          _vm._s(value.caracteristiques.ram.nb) +
+                            " (" +
+                            _vm._s(value.caracteristiques.ram.unite) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("Stockage 1 : ")]),
+                        _vm._v(
+                          _vm._s(value.caracteristiques.sto_1.nb) +
+                            " (" +
+                            _vm._s(value.caracteristiques.sto_1.unite) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("Stockage 2 : ")]),
+                        _vm._v(
+                          _vm._s(value.caracteristiques.sto_2.nb) +
+                            " (" +
+                            _vm._s(value.caracteristiques.sto_2.unite) +
+                            ")"
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _vm._m(3, true),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "menu" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "infos_btn active",
+                        attrs: { href: "#", "data-action": "infos_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Infos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "details_btn",
+                        attrs: { href: "#", "data-action": "details_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Détails")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "options_btn",
+                        attrs: { href: "#", "data-action": "options_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Options")]
+                    )
+                  ])
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("creation-vm")
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-grid" }, [
+    return _c(
+      "div",
+      {
+        staticClass:
+          "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres"
+      },
+      [
+        _c("h5", [_vm._v("Filtres")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "actions" }, [
+          _c(
+            "label",
+            {
+              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
+              attrs: { for: "vm_date" }
+            },
+            [
+              _c("input", {
+                staticClass: "mdl-checkbox__input",
+                attrs: { type: "checkbox", id: "vm_date" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "mdl-checkbox__label" }, [
+                _vm._v("Trier par date")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
+              attrs: { for: "vm_favoris" }
+            },
+            [
+              _c("input", {
+                staticClass: "mdl-checkbox__input",
+                attrs: { type: "checkbox", id: "vm_favories" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "mdl-checkbox__label" }, [
+                _vm._v("Mes favoris")
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
+        attrs: { id: "show-modal-example" }
+      },
+      [
+        _c("div", { staticClass: "symbole" }, [
+          _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "texte" }, [
+          _c("span", [_vm._v("Créer une VM")])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img-vm" }, [
+      _c("img", {
+        attrs: {
+          src: "https://image.flaticon.com/icons/svg/148/148820.svg",
+          alt: ""
+        }
+      })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "options_bloc bloc_interactif" }, [
       _c(
-        "div",
+        "button",
         {
           staticClass:
-            "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres"
+            "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer",
+          attrs: { "data-action": "supprimer" }
         },
         [
-          _c("h5", [_vm._v("Filtres")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "actions" }, [
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-                attrs: { for: "vm_date" }
-              },
-              [
-                _c("input", {
-                  staticClass: "mdl-checkbox__input",
-                  attrs: { type: "checkbox", id: "vm_date" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "mdl-checkbox__label" }, [
-                  _vm._v("Trier par date")
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass:
-                  "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-                attrs: { for: "vm_favoris" }
-              },
-              [
-                _c("input", {
-                  staticClass: "mdl-checkbox__input",
-                  attrs: { type: "checkbox", id: "vm_favories" }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "mdl-checkbox__label" }, [
-                  _vm._v("Mes favoris")
-                ])
-              ]
-            )
-          ])
+          _c("i", { staticClass: "material-icons" }, [_vm._v("delete")]),
+          _vm._v(" Supprimer\n                    ")
         ]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "vm-list mdl-grid" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-            attrs: { id: "show-modal-example" }
-          },
-          [
-            _c("div", { staticClass: "symbole" }, [
-              _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "texte" }, [
-              _c("span", [_vm._v("Créer une VM")])
-            ])
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
-          [
-            _c("div", { staticClass: "statut on" }, [
-              _vm._v("\n                    En service\n                ")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "img-vm" }, [
-              _c("img", {
-                attrs: {
-                  src: "https://image.flaticon.com/icons/svg/148/148820.svg",
-                  alt: ""
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c("h6", [_vm._v('"VM Développement"')]),
-            _vm._v(" "),
-            _c("div", { staticClass: "contenu" }, [
-              _c("div", { staticClass: "infos" }, [
-                _c("div", { staticClass: "description" }, [
-                  _c("span", { staticClass: "vm-titre" }, [
-                    _c("i", { staticClass: "material-icons" }, [
-                      _vm._v("computer")
-                    ]),
-                    _vm._v(" Ubuntu 16.04 64bits")
-                  ]),
-                  _vm._v(" "),
-                  _c("hr"),
-                  _vm._v(" "),
-                  _c("p", [
-                    _c("i", { staticClass: "material-icons" }, [
-                      _vm._v("list")
-                    ]),
-                    _vm._v(
-                      " Lorem ipsum dolor sit amet, consectetur adipiscing elit.\n                                Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.\n                            "
-                    )
-                  ])
-                ])
-              ])
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "menu" }, [
-              _c("a", { staticClass: "active", attrs: { href: "#" } }, [
-                _vm._v("Infos")
-              ]),
-              _vm._v(" "),
-              _c("a", { staticClass: "details-btn", attrs: { href: "#" } }, [
-                _vm._v("Détails")
-              ]),
-              _vm._v(" "),
-              _c("a", { attrs: { href: "#", id: "options_vm" } }, [
-                _vm._v("Options")
-              ]),
-              _vm._v(" "),
-              _c(
-                "ul",
-                {
-                  staticClass:
-                    "mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect",
-                  attrs: { for: "options_vm" }
-                },
-                [
-                  _c(
-                    "li",
-                    {
-                      staticClass:
-                        "mdl-menu__item mdl-menu__item--full-bleed-divider"
-                    },
-                    [_vm._v("Supprimer")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "li",
-                    { staticClass: "mdl-menu__item", attrs: { disabled: "" } },
-                    [_vm._v("Allumer")]
-                  ),
-                  _vm._v(" "),
-                  _c("li", { staticClass: "mdl-menu__item" }, [
-                    _vm._v("Eteindre")
-                  ])
-                ]
-              )
-            ])
-          ]
-        )
-      ])
+      _c(
+        "button",
+        {
+          staticClass:
+            "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer",
+          attrs: { "data-action": "allumer" }
+        },
+        [
+          _c("i", { staticClass: "material-icons" }, [_vm._v("play_arrow")]),
+          _vm._v(" Allumer\n                    ")
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass:
+            "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre",
+          attrs: { "data-action": "eteindre" }
+        },
+        [
+          _c("i", { staticClass: "material-icons" }, [
+            _vm._v("power_settings_new")
+          ]),
+          _vm._v(" Éteindre\n                    ")
+        ]
+      )
     ])
   }
 ]

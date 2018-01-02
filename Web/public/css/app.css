@@ -1,5 +1,9 @@
 /* GENERAL */
 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
 .alert:not(.notyf) {
   padding: 15px;
   margin-bottom: 20px;
@@ -371,6 +375,7 @@ a {
   font-weight: 300;
   border-radius: 30px;
   padding: 3px 10px 3px 10px;
+  font-size: 12px;
 }
 
 .vm .vm-list .statut.on {
@@ -444,6 +449,52 @@ a {
   padding-top: 15px;
 }
 
+.vm .vm-list .bloc_interactif {
+  height: 210px;
+}
+
+.vm .vm-list .bloc_interactif ul {
+  padding: 20px;
+  margin: 0;
+  list-style: none;
+}
+
+.vm .vm-list .bloc_interactif ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.vm .vm-list .bloc_interactif ul li:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+}
+
+.vm .vm-list .bloc_interactif.options_bloc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.vm .vm-list .bloc_interactif.options_bloc .mdl-button--raised {
+  background: #f4f6f9;
+}
+
+.vm .vm-list .bloc_interactif.options_bloc .mdl-button {
+  margin: 10px 20px 10px 20px;
+}
+
+.vm .vm-list .bloc_interactif.options_bloc .mdl-button:first-child {
+  margin-top: 20px;
+}
+
 .vm .vm-list .contenu {
   padding: 20px;
 }
@@ -494,7 +545,7 @@ a {
   transition: 300ms;
 }
 
-.vm .vm-list .menu a.details-btn {
+.vm .vm-list .menu a.details_btn {
   border-right: 1px solid rgba(0, 0, 0, 0.2);
   border-left: 1px solid rgba(0, 0, 0, 0.2);
 }
@@ -505,6 +556,12 @@ a {
 
 .vm .vm-list .menu a:hover {
   background: #5b89ce;
+}
+
+.vm .vm-list .infos_bloc:not(.current),
+.vm .vm-list .details_bloc:not(.current),
+.vm .vm-list .options_bloc:not(.current) {
+  display: none;
 }
 
 .filtres {

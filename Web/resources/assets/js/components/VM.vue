@@ -23,35 +23,54 @@
                         <span>Créer une VM</span>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col">
-                    <div class="statut on">
-                        En service
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="key" :data-key="key">
+                    <div class="statut" v-bind:class="value.statut">
+                        <template v-if="value.statut === 'on'">
+                            En service
+                        </template>
+                        <template v-else>
+                            Éteint
+                        </template>
                     </div>
                     <div class="img-vm">
                         <img src="https://image.flaticon.com/icons/svg/148/148820.svg" alt="">
                     </div>
-                    <h6>"VM Développement"</h6>
-                    <div class="contenu">
-                        <div class="infos">
-                            <div class="description">
-                                <span class="vm-titre"><i class="material-icons">computer</i> Ubuntu 16.04 64bits</span>
-                                <hr>
-                                <p><i class="material-icons">list</i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.
-                                </p>
+                    <h6>"{{ value.nom }}"</h6>
+                    <div class="infos_bloc current bloc_interactif">
+                        <div class="contenu">
+                            <div class="infos">
+                                <div class="description">
+                                    <span class="vm-titre"><i class="material-icons">computer</i> {{ value.caracteristiques.os }}</span>
+                                    <hr>
+                                    <p><i class="material-icons">list</i> {{ value.description }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="menu">
-                        <a href="#" class="active">Infos</a>
-                        <a href="#" class="details-btn">Détails</a>
-                        <a href="#" id="options_vm">Options</a>
-                        <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-                            for="options_vm">
-                          <li class="mdl-menu__item mdl-menu__item--full-bleed-divider">Supprimer</li>
-                          <li disabled class="mdl-menu__item">Allumer</li>
-                          <li class="mdl-menu__item">Eteindre</li>
+                    <div class="details_bloc bloc_interactif">
+                        <ul>
+                            <li><b>OS : </b>{{ value.caracteristiques.os }}</li>
+                            <li><b>CPU : </b>{{ value.caracteristiques.cpu }}</li>
+                            <li><b>RAM : </b>{{ value.caracteristiques.ram.nb }} ({{ value.caracteristiques.ram.unite }})</li>
+                            <li><b>Stockage 1 : </b>{{ value.caracteristiques.sto_1.nb }} ({{ value.caracteristiques.sto_1.unite }})</li>
+                            <li><b>Stockage 2 : </b>{{ value.caracteristiques.sto_2.nb }} ({{ value.caracteristiques.sto_2.unite }})</li>
                         </ul>
+                    </div>
+                    <div class="options_bloc bloc_interactif">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer" data-action="supprimer">
+                            <i class="material-icons">delete</i> Supprimer
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer" data-action="allumer">
+                            <i class="material-icons">play_arrow</i> Allumer
+                        </button>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre" data-action="eteindre">
+                            <i class="material-icons">power_settings_new</i> Éteindre
+                        </button>
+                    </div>
+                    <div class="menu">
+                        <a href="#" class="infos_btn active" @click="showHide" data-action="infos_bloc">Infos</a>
+                        <a href="#" class="details_btn" @click="showHide" data-action="details_bloc">Détails</a>
+                        <a href="#" class="options_btn" @click="showHide" data-action="options_bloc">Options</a>
                     </div>
                 </div>
             </div>
@@ -62,6 +81,12 @@
 
 <script>
     export default {
+        data: function () {
+            return {
+                vm: dataArray.vm.data,
+                isActive: false,
+            }
+        },
         mounted() {
             'use strict';
             var dialog = document.querySelector('#modal-example');
@@ -85,6 +110,18 @@
              componentHandler.upgradeDom();
              getmdlSelect.init(".getmdl-select")
           });
-        }
+      },
+      methods: {
+          showHide(event)
+          {
+              var key = event.target.parentElement.parentElement.attributes["0"].value
+              var elementVm = $('.'+key)
+              var action = event.target.dataset.action
+              elementVm.find('.active').removeClass('active')
+              elementVm.find('.current').removeClass('current')
+              elementVm.find('.'+action).addClass('current')
+              event.target.classList.add('active')
+          }
+      }
     }
 </script>
