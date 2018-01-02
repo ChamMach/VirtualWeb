@@ -44,11 +44,6 @@ class DatabaseSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
-        DB::table('historique')->insert([
-            'id_historique' => '1',
-            'date' => date("Y-m-d H:i:s"),
-            'action'    => '1',
-        ]);
         DB::table('action')->insert([
             'description' => 'Connexion'
         ]);

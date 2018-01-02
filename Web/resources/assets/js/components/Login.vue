@@ -7,7 +7,7 @@
             </div>
 
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" v-model.trim="email"  type="email" id="email">
+                <input class="mdl-textfield__input" v-model.trim="email" type="email" id="email">
                 <label class="mdl-textfield__label" for="email">Adresse email</label>
             </div>
 
@@ -58,7 +58,12 @@
                         password: this.password
                     }).then((response) => {
                         if (response.data.succes == true) {
-                            this.$router.go('/accueil')
+
+                            if (response.data.status == 'admin') {
+                                window.location.href = "/administration"
+                            } else {
+                                window.location.href = "/accueil"
+                            }
                         } else {
                             this.erreur = true
                             this.password = ''
@@ -67,7 +72,7 @@
                     }, () => {
                         this.erreur = true
                         this.password = ''
-                    })                    
+                    })
                 }
             }
         }

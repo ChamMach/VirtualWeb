@@ -1,10 +1,6 @@
 Documentation administrateur
 ================
 
-> The /.../Web/bootstrap/cache directory must be present and writable.
-
-    php artisan cache:clear
-    
 Installation
 -------------
 
@@ -22,3 +18,14 @@ Commandes utiles
 `npm run dev` afin de faire une compilation du code
 
 `npm run watch-poll` pour surveiller les fichiers (exemple : CSS, vue)
+
+
+> The /.../Web/bootstrap/cache directory must be present and writable.
+
+    php artisan cache:clear
+
+S'il y a un problème à la connexion, toujours vérifier que la structure de la base est à jour. Si ce n'est pas le cas :
+
+- Supprimer la base de données
+- Exécuter `php artisan migrate`
+- Puis `php artisan db:seed`

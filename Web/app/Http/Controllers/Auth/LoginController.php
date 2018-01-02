@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use DB;
 
 class LoginController extends Controller
 {
@@ -63,11 +64,32 @@ class LoginController extends Controller
             $return['erreur'] == true;
             $return['message'] = "Votre email ou mot de passe est incorrecte";
         } else {
+            //On logue la connexion de l'utilisateur en BDD
+            $user = Auth::user();
+            DB::table('historique')->insert(
+                ['id_user' => $user->id, 'date' => date("Y-m-d H:i:s"), 'action' => 1]
+            );
             $return['succes'] = true;
+            if (Auth::user()->status == 1) {
+                $return['status'] = 'admin';
+            } else {
+                $return['status'] = 'user';
+            }
         }
         return json_encode($return);
     }
-    
+
+    public function loginPage()
+    {
+        $userData = array(
+            'status' => 'user',
+            'verified' => false,
+        );
+        return view('connexion', [
+            'dataToShow' => json_encode($userData)
+        ]);
+    }
+
     public function deconnexion()
     {
         Auth::logout();

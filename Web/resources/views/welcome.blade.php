@@ -5,16 +5,19 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>VirtualWEB</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background: url({{ asset('img/background_home.jpg') }}) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+                color: white;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
@@ -50,13 +53,21 @@
             }
 
             .links > a {
-                color: #636b6f;
-                padding: 0 25px;
+                color: #ffffff;
+                padding: 10px 25px;
                 font-size: 12px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
+                border: 1px solid;
                 text-transform: uppercase;
+                transition: 300ms;
+            }
+
+            .links > a:hover {
+                background: white;
+                color: black;
+                border: solid 1px white;
             }
 
             .m-b-md {
@@ -66,25 +77,24 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ route('accueil') }}">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
-
             <div class="content">
                 <div class="title m-b-md">
                     Virtual Web
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Connexion</a>
-                </div>
+                @if (Route::has('login'))
+                    <div class="links">
+                        @auth
+                            @if (Auth::user()->status == 1)
+                                <a href="{{ route('administration') }}">Tableau de bord</a>
+                            @else
+                                <a href="{{ route('accueil') }}">Tableau de bord</a>
+                            @endif
+                            <a href="{{ route('deconnexion') }}">Déconnexion</a>
+                        @else
+                            <a href="{{ route('connexion') }}">Connexion</a>
+                        @endauth
+                    </div>
+                @endif
             </div>
         </div>
     </body>
