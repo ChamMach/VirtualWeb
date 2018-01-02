@@ -1779,17 +1779,13 @@ var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
 });
 
 //Avant chaque route
-// router.beforeEach((to, from, next) => {
-//     if (to.name !== 'Login') {
-//         if (dataArray.verified == false) {
-//             router.go('/connexion')
-//             next()
-//         }
-//     } else {
-//         //On redirige
-//         next()
-//     }
-// })
+router.beforeEach(function (to, from, next) {
+    if (from.name !== null) {
+        document.body.classList.remove(from.name.toLowerCase());
+        document.body.classList.add(to.name.toLowerCase());
+    }
+    next();
+});
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_0_vue___default.a.util.extend({ router: router }, __WEBPACK_IMPORTED_MODULE_4__App_vue___default.a)).$mount('#app');
 

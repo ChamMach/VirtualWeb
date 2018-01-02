@@ -87,16 +87,12 @@ const router = new VueRouter({
 });
 
 //Avant chaque route
-// router.beforeEach((to, from, next) => {
-//     if (to.name !== 'Login') {
-//         if (dataArray.verified == false) {
-//             router.go('/connexion')
-//             next()
-//         }
-//     } else {
-//         //On redirige
-//         next()
-//     }
-// })
+router.beforeEach((to, from, next) => {
+    if (from.name !== null) {
+        document.body.classList.remove(from.name.toLowerCase())
+        document.body.classList.add(to.name.toLowerCase())
+    }
+    next()
+})
 
 new Vue(Vue.util.extend({ router }, App)).$mount('#app');
