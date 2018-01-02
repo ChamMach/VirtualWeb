@@ -25,26 +25,6 @@ def listingvm(id):
             vmlisting['vm_' + str(vmnb)] = vmname
     return vmlisting #Envoi des informations
 
-#Renvoie la liste des vm et de leurs etats (en ligne, hors ligne)
-#"{"state_vm": "1", "nomvm: "etat", ...}" Si la fonction trouve une vm et son etat (on/off)
-#"{"state_vm": "1213"}" Sinon si la fonction ne trouve rien
-
-def statevm(id):
-    list1 = listingvm(id) #json
-    vmstate = collections.OrderedDict()
-    vmstate['state_vm'] = id
-    for key, value in list1.iteritems():
-        if 'vm_' in key: #S'il y a des vm
-            vmfind = vbox.find_machine(value) #recupere les infos de la vm
-            etat = vmfind.state #Recupere l'etat de la vm
-            if str(etat) == "FirstOnline": #Si la vm est en ligne
-                etat = "on"
-                vmstate[value] = etat
-            elif str(etat) == 'PoweredOff': #Si la vm est hors ligne
-                etat = "off"
-                vmstate[value] = etat
-    return vmstate
-
 #Creation du json et encodage en utf-8
 def jsondata(raw):
     jdata = json.dumps(raw)
@@ -85,6 +65,16 @@ def infosvm(id):
             vm['nom'] = vmfind.name
             vm['desc'] = vmfind.description
             vm['os'] = vmfind.os_type_id
+            etat = vmfind.state  # Recupere l'etat de la vm
+            if str(etat) == "FirstOnline":  # Si la vm est en ligne
+                etat = "on"
+                vm['statut'] = etat
+            elif str(etat) == 'PoweredOff':  # Si la vm est hors ligne
+                etat = "off"
+                vm['statut'] = etat
+            else: #Sinon
+                etat = "inconnu"
+                vm['statut'] = etat
             vm['cpu'] = vmfind.cpu_count
             ramsize = vmfind.memory_size
             vm['ram'] = convert(ramsize,'Mo') #Conversion Mo en Go/To
