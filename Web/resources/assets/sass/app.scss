@@ -343,6 +343,10 @@ a {
             &.off {
                 background: #d02e26;
             }
+
+            &.inconnu {
+                background: #808080;
+            }
         }
 
         .ajouter_vm {

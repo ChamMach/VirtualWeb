@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
+use App\Classes\SocketHelper;
 
 class UserController extends Controller
 {
@@ -28,9 +29,6 @@ class UserController extends Controller
     {
         // Get the currently authenticated user...
         $user = Auth::user();
-        // if ($user->status == 1) {
-        //     return redirect()->action('Admin\AdminController@index');
-        // }
         $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
         $userData = array(
@@ -117,11 +115,11 @@ class UserController extends Controller
                             'nb' => '3200',
                             'unite' => 'mo',
                         ),
-                        'sto_1' => array(
+                        'sto_l' => array(
                             'nb' => '35',
                             'unite' => 'GO',
                         ),
-                        'sto_2' => array(
+                        'sto_r' => array(
                             'nb' => '2',
                             'unite' => 'mo',
                         ),
@@ -134,15 +132,9 @@ class UserController extends Controller
                     'caracteristiques'=> array(
                         'os' => 'Ubuntu 16.04 64bits',
                         'cpu' => '4',
-                        'ram' => array(
-                            'nb' => '3200',
-                            'unite' => 'mo',
-                        ),
-                        'sto_1' => array(
-                            'nb' => '35',
-                            'unite' => 'GO',
-                        ),
-                        'sto_2' => array(
+                        'ram' => array('3200','mo'),
+                        'sto_l' => array('35','GO'),
+                        'sto_r' => array(
                             'nb' => '2',
                             'unite' => 'mo',
                         ),
@@ -150,6 +142,27 @@ class UserController extends Controller
                 ),
             ),
         );
-        return $return;
+
+        $socket = null;
+        $sockethelper = new sockethelper('172.31.0.50',1333);
+        $userID = '123';
+        if (1 == 1) {
+            $dataToGet = array(
+                'infos_vm' => $userID
+            );
+            $string = json_encode($dataToGet);
+            $sockethelper->send_data($string);
+            $socket = $sockethelper->read_data();
+            $sockethelper->close_socket();
+        } else {
+
+        }
+        $data = json_decode($socket);
+        foreach ($data->data as $key => $value) {
+           $data->data->$key->nom = preg_replace('/\d*_/', '', $data->data->$key->nom);
+        }
+
+        return $data;
+        //return $return;s
     }
 }

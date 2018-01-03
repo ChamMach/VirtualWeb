@@ -17324,6 +17324,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -17388,7 +17391,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "vm-list mdl-grid" },
+          { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
           [
             _vm._m(1),
             _vm._v(" "),
@@ -17411,11 +17414,17 @@ var render = function() {
                               "\n                        En service\n                    "
                             )
                           ]
-                        : [
-                            _vm._v(
-                              "\n                        Éteint\n                    "
-                            )
-                          ]
+                        : value.statut === "inconnu"
+                          ? [
+                              _vm._v(
+                                "\n                        Inconnu\n                    "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\n                        Éteint\n                    "
+                              )
+                            ]
                     ],
                     2
                   ),
@@ -17467,29 +17476,29 @@ var render = function() {
                       _c("li", [
                         _c("b", [_vm._v("RAM : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.ram.nb) +
+                          _vm._s(value.caracteristiques.ram["0"]) +
                             " (" +
-                            _vm._s(value.caracteristiques.ram.unite) +
+                            _vm._s(value.caracteristiques.ram["1"]) +
                             ")"
                         )
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _c("b", [_vm._v("Stockage 1 : ")]),
+                        _c("b", [_vm._v("Stockage logique : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_1.nb) +
+                          _vm._s(value.caracteristiques.sto_l["0"]) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_1.unite) +
+                            _vm._s(value.caracteristiques.sto_l["1"]) +
                             ")"
                         )
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _c("b", [_vm._v("Stockage 2 : ")]),
+                        _c("b", [_vm._v("Stockage réel : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_2.nb) +
+                          _vm._s(value.caracteristiques.sto_r["0"]) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_2.unite) +
+                            _vm._s(value.caracteristiques.sto_r["1"]) +
                             ")"
                         )
                       ])

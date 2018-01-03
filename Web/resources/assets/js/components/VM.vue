@@ -14,7 +14,7 @@
                     </label>
                 </div>
             </div>
-            <div class="vm-list mdl-grid">
+            <div class="vm-list mdl-grid mdl-cell--12-col">
                 <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example">
                     <div class="symbole">
                         <i class="material-icons">add</i>
@@ -27,6 +27,9 @@
                     <div class="statut" v-bind:class="value.statut">
                         <template v-if="value.statut === 'on'">
                             En service
+                        </template>
+                        <template v-else-if="value.statut === 'inconnu'">
+                            Inconnu
                         </template>
                         <template v-else>
                             Éteint
@@ -51,9 +54,9 @@
                         <ul>
                             <li><b>OS : </b>{{ value.caracteristiques.os }}</li>
                             <li><b>CPU : </b>{{ value.caracteristiques.cpu }}</li>
-                            <li><b>RAM : </b>{{ value.caracteristiques.ram.nb }} ({{ value.caracteristiques.ram.unite }})</li>
-                            <li><b>Stockage 1 : </b>{{ value.caracteristiques.sto_1.nb }} ({{ value.caracteristiques.sto_1.unite }})</li>
-                            <li><b>Stockage 2 : </b>{{ value.caracteristiques.sto_2.nb }} ({{ value.caracteristiques.sto_2.unite }})</li>
+                            <li><b>RAM : </b>{{ value.caracteristiques.ram["0"] }} ({{ value.caracteristiques.ram["1"] }})</li>
+                            <li><b>Stockage logique : </b>{{ value.caracteristiques.sto_l["0"] }} ({{ value.caracteristiques.sto_l["1"] }})</li>
+                            <li><b>Stockage réel : </b>{{ value.caracteristiques.sto_r["0"] }} ({{ value.caracteristiques.sto_r["1"] }})</li>
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">

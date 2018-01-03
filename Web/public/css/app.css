@@ -386,6 +386,10 @@ a {
   background: #d02e26;
 }
 
+.vm .vm-list .statut.inconnu {
+  background: #808080;
+}
+
 .vm .vm-list .ajouter_vm {
   display: -webkit-box;
   display: -ms-flexbox;

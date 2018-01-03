@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
+use App\Classes\SocketHelper;
 
 class AdminController extends Controller
 {
@@ -36,6 +37,7 @@ class AdminController extends Controller
             'status' => $status[$user->status],
             'verified' => Auth::check(),
         );
+
         $users = DB::table('users')
         ->select('id', 'nom', 'prenom', 'email')
         ->orderBy('id')
