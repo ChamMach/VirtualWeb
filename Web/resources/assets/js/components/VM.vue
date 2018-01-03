@@ -15,7 +15,16 @@
                 </div>
             </div>
             <div class="vm-list mdl-grid mdl-cell--12-col">
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example">
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data" v-if="vm == null">
+                    <div class="icon">
+                        <i class="material-icons">error_outline</i>
+                    </div>
+                    <div class="texte">
+                        <span>Le serveur n'est pas disponible pour le moment</span><br>
+                        <small>Nous faisons tout notre possible pour corriger ce problème</small>
+                    </div>
+                </div>
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example" v-else>
                     <div class="symbole">
                         <i class="material-icons">add</i>
                     </div>
@@ -83,29 +92,39 @@
 </template>
 
 <script>
+    var vmTmp
+    //On regarde s'il y a des VM
+    if (dataArray.vm == null) {
+        vmTmp = null
+    } else {
+        vmTmp = dataArray.vm.data
+    }
     export default {
         data: function () {
             return {
-                vm: dataArray.vm.data,
+                vm: vmTmp,
                 isActive: false,
             }
         },
         mounted() {
             'use strict';
-            var dialog = document.querySelector('#modal-example');
-            var closeButton = dialog.querySelector('button');
-            var showButton = document.querySelector('#show-modal-example');
-            if (! dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
+            //S'il n'y a pas de VM, pas besoin de modal
+            if (vmTmp !== null) {
+                var dialog = document.querySelector('#modal-example');
+                var closeButton = dialog.querySelector('button');
+                var showButton = document.querySelector('#show-modal-example');
+                if (! dialog.showModal) {
+                    dialogPolyfill.registerDialog(dialog);
+                }
+                var closeClickHandler = function(event) {
+                    dialog.close();
+                };
+                var showClickHandler = function(event) {
+                    dialog.showModal();
+                };
+                showButton.addEventListener('click', showClickHandler);
+                closeButton.addEventListener('click', closeClickHandler);
             }
-            var closeClickHandler = function(event) {
-                dialog.close();
-            };
-            var showClickHandler = function(event) {
-                dialog.showModal();
-            };
-            showButton.addEventListener('click', showClickHandler);
-            closeButton.addEventListener('click', closeClickHandler);
         },
         //Fixe le problème du select non actualisé
         created () {

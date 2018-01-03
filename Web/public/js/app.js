@@ -17327,31 +17327,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+var vmTmp;
+//On regarde s'il y a des VM
+if (dataArray.vm == null) {
+    vmTmp = null;
+} else {
+    vmTmp = dataArray.vm.data;
+}
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            vm: dataArray.vm.data,
+            vm: vmTmp,
             isActive: false
         };
     },
     mounted: function mounted() {
         'use strict';
+        //S'il n'y a pas de VM, pas besoin de modal
 
-        var dialog = document.querySelector('#modal-example');
-        var closeButton = dialog.querySelector('button');
-        var showButton = document.querySelector('#show-modal-example');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
+        if (vmTmp !== null) {
+            var dialog = document.querySelector('#modal-example');
+            var closeButton = dialog.querySelector('button');
+            var showButton = document.querySelector('#show-modal-example');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            var closeClickHandler = function closeClickHandler(event) {
+                dialog.close();
+            };
+            var showClickHandler = function showClickHandler(event) {
+                dialog.showModal();
+            };
+            showButton.addEventListener('click', showClickHandler);
+            closeButton.addEventListener('click', closeClickHandler);
         }
-        var closeClickHandler = function closeClickHandler(event) {
-            dialog.close();
-        };
-        var showClickHandler = function showClickHandler(event) {
-            dialog.showModal();
-        };
-        showButton.addEventListener('click', showClickHandler);
-        closeButton.addEventListener('click', closeClickHandler);
     },
 
     //Fixe le problème du select non actualisé
@@ -17393,7 +17412,24 @@ var render = function() {
           "div",
           { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
           [
-            _vm._m(1),
+            _vm.vm == null
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
+                  },
+                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
+                )
+              : _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
+                    attrs: { id: "show-modal-example" }
+                  },
+                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
+                ),
             _vm._v(" "),
             _vm._l(_vm.vm, function(value, key, index) {
               return _c(
@@ -17429,7 +17465,7 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
-                  _vm._m(2, true),
+                  _vm._m(5, true),
                   _vm._v(" "),
                   _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
                   _vm._v(" "),
@@ -17505,7 +17541,7 @@ var render = function() {
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(3, true),
+                  _vm._m(6, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "menu" }, [
                     _c(
@@ -17609,22 +17645,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-        attrs: { id: "show-modal-example" }
-      },
-      [
-        _c("div", { staticClass: "symbole" }, [
-          _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "texte" }, [
-          _c("span", [_vm._v("Créer une VM")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("small", [
+        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "symbole" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Créer une VM")])
+    ])
   },
   function() {
     var _vm = this

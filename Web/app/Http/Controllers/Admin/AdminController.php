@@ -22,7 +22,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Affichage de l'index
      *
      * @return \Illuminate\Http\Response
      */
@@ -38,16 +38,18 @@ class AdminController extends Controller
             'verified' => Auth::check(),
         );
 
+        //Récupère tous les utilisateurs
         $users = DB::table('users')
         ->select('id', 'nom', 'prenom', 'email')
         ->orderBy('id')
         ->get();
-        
+
         $userData['users'] = array(
             'data' => $users,
             'error' => false
         );
 
+        //Data pour le dashboard
         $userData['dashboard'] = array(
             'utilisateurs' => $users->count(),
         );
@@ -77,16 +79,22 @@ class AdminController extends Controller
         return $return;
     }
 
-
+    /**
+     * Création d'un utilisateurs
+     * @param  Request $request Données du formulaire
+     * @return Array            Erreur + message ou succes
+     */
     public function createUser(Request $request)
     {
         $return = array(
             'erreur' => true
         );
 
+        //On vérifie avant si l'utilisateur n'existe pas déjà
         $userExist = DB::table('users')
         ->where('email', $request->get('email'))
         ->get();
+        //Si ce n'est pas le cas, on peut créer un utilisateur
         if ($userExist->count() == 0) {
             $user = new User([
                 'nom' => $request->get('nom'),
@@ -97,6 +105,7 @@ class AdminController extends Controller
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s"),
             ]);
+            //On le sauvegarde en base
             $saved = $user->save();
             if ($saved) {
                 $return['erreur'] = false;
@@ -108,6 +117,11 @@ class AdminController extends Controller
         return $return;
     }
 
+    /**
+     * Suppression d'un utilisateurs
+     * @param  Request $request Id de l'utilisateur à Supprimer
+     * @return Array            Erreur + message ou message de succès
+     */
     public function deleteUser(Request $request)
     {
         $return = array(

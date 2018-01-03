@@ -17,11 +17,12 @@ class UserController extends Controller
      */
     public function __construct()
     {
+        //Accès au controlleur uniquement si utilisateur
         $this->middleware('isUser');
     }
 
     /**
-     * Show the application dashboard.
+     * Affichage de l'index
      *
      * @return \Illuminate\Http\Response
      */
@@ -43,64 +44,12 @@ class UserController extends Controller
     }
 
     /**
-     * Récupération des données utilisateurs
-     * @return array Liste de tous les utilisateurs
+     * Récupère les VM de l'utilisateur
+     * @return array Tableau contenant les VM
      */
-    public function getUsers()
+    private function getVM()
     {
-        $currentUser = Auth::user();
-
-        //If user is admin
-        if ($currentUser->status == 1) {
-            $users = DB::table('users')
-            ->select('id', 'nom', 'prenom', 'email')
-            ->orderBy('id')
-            ->get();
-            $return = array(
-                'users' => $users,
-                'error' => false
-            );
-        } else {
-            $return = array(
-                'error' => true
-            );
-        }
-        return $return;
-    }
-
-    public function createUser(Request $request)
-    {
-        $return = array(
-            'erreur' => true
-        );
-        $currentUser = Auth::user();
-        if ($currentUser->status == 1)  {
-            $userExist = DB::table('users')
-            ->where('email', $request->get('email'))
-            ->get();
-            if (!$userExist) {
-                $user = new User([
-                    'nom' => $request->get('nom'),
-                    'prenom' => $request->get('prenom'),
-                    'email' => $request->get('email'),
-                    'password' => \Hash::make($request->get('password')),
-                    'status' => $request->get('status'),
-                    'created_at' => date("Y-m-d H:i:s"),
-                    'updated_at' => date("Y-m-d H:i:s"),
-                ]);
-                $saved = $user->save();
-                if ($saved) {
-                    $return = array(
-                        'erreur' => false
-                    );
-                }
-            }
-        }
-        return $return;
-    }
-
-    private function getVM($userID)
-    {
+        //Array static
         $return = array(
             'infos_vm' => '1',
             'data' => array(
@@ -111,18 +60,9 @@ class UserController extends Controller
                     'caracteristiques'=> array(
                         'os' => 'Ubuntu 16.04 64bits',
                         'cpu' => '4',
-                        'ram' => array(
-                            'nb' => '3200',
-                            'unite' => 'mo',
-                        ),
-                        'sto_l' => array(
-                            'nb' => '35',
-                            'unite' => 'GO',
-                        ),
-                        'sto_r' => array(
-                            'nb' => '2',
-                            'unite' => 'mo',
-                        ),
+                        'ram' => array('3200','mo'),
+                        'sto_l' => array('35','GO'),
+                        'sto_r' => array('2','mo'),
                     ),
                 ),
                 'vm_2'=> array(
@@ -134,35 +74,37 @@ class UserController extends Controller
                         'cpu' => '4',
                         'ram' => array('3200','mo'),
                         'sto_l' => array('35','GO'),
-                        'sto_r' => array(
-                            'nb' => '2',
-                            'unite' => 'mo',
-                        ),
+                        'sto_r' => array('2','mo'),
                     ),
                 ),
             ),
         );
 
+        $socketJson = null;
         $socket = null;
         $sockethelper = new sockethelper('172.31.0.50',1333);
-        $userID = '123';
-        if (1 == 1) {
+        //Si la socket est ouverte
+        if ($sockethelper->isOnline() !== false) {
+            $userID = '123';
             $dataToGet = array(
                 'infos_vm' => $userID
             );
-            $string = json_encode($dataToGet);
-            $sockethelper->send_data($string);
+            $json = json_encode($dataToGet);
+            //On envoi le JSON au socket
+            $sockethelper->send_data($json);
+            //On récupère le retour
             $socket = $sockethelper->read_data();
+            //On ferme la socket
             $sockethelper->close_socket();
-        } else {
-
+            //Decode le JSON pour avoir un array et le traiter
+            $socketJson = json_decode($socket);
+            foreach ($socketJson->data as $key => $value) {
+                //Supprime l'ID de l'utilisateur dans le nom
+                $socketJson->data->$key->nom = preg_replace('/\d*_/', '', $socketJson->data->$key->nom);
+            }
         }
-        $data = json_decode($socket);
-        foreach ($data->data as $key => $value) {
-           $data->data->$key->nom = preg_replace('/\d*_/', '', $data->data->$key->nom);
-        }
 
-        return $data;
-        //return $return;s
+        return $socketJson;
+        //return $staticArray;
     }
 }
