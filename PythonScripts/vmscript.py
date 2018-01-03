@@ -6,7 +6,7 @@ import vmfonctions
 #####PROGRAMME PRINCIPAL######
 
 #Creation de la socket reseau
-sockethelper = SocketHelper("192.168.1.11",1333)
+sockethelper = SocketHelper("172.31.0.50",1333)
 
 #Tant que toujours vrai (afin d'etre toujours actif)
 while True:
@@ -14,8 +14,13 @@ while True:
     sockethelper.s_accept() #On accepte toutes les connexions
 
     data = sockethelper.read_data() #On lis le flux entrant
+    print data
 
-    python_obj = json.loads(data) #Chargement du json recu
+    try: #Empeche le "crash" du serveur lorsque le flux entrant n'est pas du json
+        python_obj = json.loads(data) #Chargement du json recu
+        print python_obj
+    except ValueError:
+        print "Erreur pas de JSON obtenu"
 
     #Listing des vms pour un utilisateur
     if 'listing_vm' in data:
@@ -26,19 +31,12 @@ while True:
         sockethelper.send_data(lvm) #Envoi des informations en json
         sockethelper.close_socket() #Fermeture de la socket
 
-    elif 'state_vm' in data:
-
-        iduser = python_obj['state_vm']
-        svm = vmfonctions.statevm(iduser)
-        svm = vmfonctions.jsondata(svm) #Appel de la fonction jsondata
-        sockethelper.send_data(svm) #Envoi des informations en json
-        sockethelper.close_socket() #Fermeture de la socket
-
     elif 'infos_vm' in data:
 
         iduser = python_obj['infos_vm']
         ivm = vmfonctions.infosvm(iduser)
         ivm = vmfonctions.jsondata(ivm)
+        print ivm
         sockethelper.send_data(ivm) #Envoi des informations en json
         sockethelper.close_socket() #Fermeture de la socket
 

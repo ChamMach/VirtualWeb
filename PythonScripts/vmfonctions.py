@@ -44,27 +44,29 @@ def convert(size, type):
         tmpSize /= 1024.0
         i+=1
     tmpSize *= 100
-    tmpSize = int(tmpSize + 0.5)
     tmpSize /= 100
+    tmpSize = format(tmpSize, '.2f') #Limitation a deux decimal apres la virgule
     return tmpSize, suffixes[i]
 
 #Renvoie la liste des vm et de leurs caracteristiques (nom,description,os,cpu,ram,stockage logique, stockage reel)
 #"{"infos_vm": "123", "vm_1": {"nom": "x", "desc": "x", "os": "x", "cpu": x, "ram": [x, "unit"], "sto_l": [x, "unit"], "sto_r": [x, "unit]}, "vm_2": { ... }}
-#"{"state_vm": "123"}" Sinon si la fonction ne trouve rien
+#"{"infos_vm": "123"}" Sinon si la fonction ne trouve rien
 
 def infosvm(id):
     vmlisting = listingvm(id)
     vminfos = collections.OrderedDict()
     vminfos['infos_vm'] = id
+    vmdata = collections.OrderedDict()
+    vminfos['data']=""
     vmnb = 0  # nombre de vm avec l'id
     for key, value in vmlisting.iteritems():
         if 'vm_' in key: #S'il y a des vm
-            vmnb +=1
+            vmnb+=1
             vm = collections.OrderedDict() #Creation d'un dictionnaire ordonnee pour cette vm
+            vmcar = collections.OrderedDict()
             vmfind = vbox.find_machine(value)  #Recupere les infos de la vm
             vm['nom'] = vmfind.name
-            vm['desc'] = vmfind.description
-            vm['os'] = vmfind.os_type_id
+            vm['description'] = vmfind.description
             etat = vmfind.state  # Recupere l'etat de la vm
             if str(etat) == "FirstOnline":  # Si la vm est en ligne
                 etat = "on"
@@ -75,9 +77,10 @@ def infosvm(id):
             else: #Sinon
                 etat = "inconnu"
                 vm['statut'] = etat
-            vm['cpu'] = vmfind.cpu_count
+            vmcar['os'] = vmfind.os_type_id
+            vmcar['cpu'] = vmfind.cpu_count
             ramsize = vmfind.memory_size
-            vm['ram'] = convert(ramsize,'Mo') #Conversion Mo en Go/To
+            vmcar['ram'] = convert(ramsize,'Mo') #Conversion Mo en Go/To
             mediums = vmfind.medium_attachments
             sizehddlog = 0 #Taille du stockage logique sur la vm
             sizehddreal = 0 #Taille reel du stockage de la vm
@@ -87,8 +90,10 @@ def infosvm(id):
                 if type == 'HardDisk':
                     sizehddlog = med.medium.logical_size + sizehddlog  # Totalite du stockage logique sur la vm, meme si plusieurs hdd
                     sizehddreal = med.medium.size + sizehddreal
-            vm['sto_l'] = convert(sizehddlog,'bytes')
-            vm['sto_r'] = convert(sizehddreal, 'bytes')
-            vminfos['vm_' + str(vmnb)] = vm #On ajoute les infos de la vm numero x dans le dictionnaire correspondant
+            vmcar['sto_l'] = convert(sizehddlog,'bytes')
+            vmcar['sto_r'] = convert(sizehddreal, 'bytes')
+            vm['caracteristiques'] = vmcar #On ajoute les caracteristique de la vm
+            vmdata['vm_' + str(vmnb)] = vm #On ajoute toutes les infos de la vm numero x dans le dictionnaire correspondant
+            print vmdata
+    vminfos['data'] = vmdata
     return vminfos #Envoi des informations
-
