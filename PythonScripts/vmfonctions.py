@@ -10,19 +10,25 @@ vbox = virtualbox.VirtualBox()
 #"{"listing_vm": "iduser", "vm_x":  "nomvm" ...}" si la fonction trouve quelque chose
 #"{"listing_vm": "iduser"}" si la fonction ne trouve aucune vm
 
-def listingvm(id):
+def listingvm(type):
     vmlisting = collections.OrderedDict()  # Dictionnaire ordonne
-    vmlisting['listing_vm'] = id #Premier element du dictionnaire
+    vmlisting['listing_vm'] = type #Premier element du dictionnaire
     vmnb = 0  # nombre de vm avec l'id
-    for vm in vbox.machines: # Pour chaque vm
-        vmname = vm.name
-        i = 0
-        if '_' in vmname: #Si le caractere _ est present dans le nom de la vm
-            while vmname[i] != "_":  # Tant que le caractere a la position "i" n'est pas _ alors
-                i += 1  # Incremente de 1 le compteur
-        if id == vmname[:i]:  # Si on trouve une vm avec l'id
-            vmnb += 1  # Incremente de 1 le nb de vm avec l'id
+    if type == 'all': #Si le type est de type all alors on retourne toutes les vm
+        for vm in vbox.machines:  # Pour chaque vm
+            vmname = vm.name
             vmlisting['vm_' + str(vmnb)] = vmname
+            vmnb += 1  # Incremente de 1 le nb de vm avec l'id
+    else: #Sinon cela signifie que c'est un id alors on renvoie toutes les vm associees a cet id
+        for vm in vbox.machines: # Pour chaque vm
+            vmname = vm.name
+            i = 0
+            if '_' in vmname: #Si le caractere _ est present dans le nom de la vm
+                while vmname[i] != "_":  # Tant que le caractere a la position "i" n'est pas _ alors
+                    i += 1  # Incremente de 1 le compteur
+            if type == vmname[:i]:  # Si on trouve une vm avec l'id
+                vmnb += 1  # Incremente de 1 le nb de vm avec l'id
+                vmlisting['vm_' + str(vmnb)] = vmname
     return vmlisting #Envoi des informations
 
 #Creation du json et encodage en utf-8
@@ -49,13 +55,13 @@ def convert(size, type):
     return tmpSize, suffixes[i]
 
 #Renvoie la liste des vm et de leurs caracteristiques (nom,description,os,cpu,ram,stockage logique, stockage reel)
-#"{"infos_vm": "123", "vm_1": {"nom": "x", "desc": "x", "os": "x", "cpu": x, "ram": [x, "unit"], "sto_l": [x, "unit"], "sto_r": [x, "unit]}, "vm_2": { ... }}
+#{"infos_vm": "123", "data": {"vm_1": {"nom": "", "description": "", "statut": "", "caracteristiques": {"os": "", "cpu":, "ram":, "sto_l":, "sto_r":}}}}
 #"{"infos_vm": "123"}" Sinon si la fonction ne trouve rien
 
-def infosvm(id):
-    vmlisting = listingvm(id)
+def infosvm(type):
+    vmlisting = listingvm(type)
     vminfos = collections.OrderedDict()
-    vminfos['infos_vm'] = id
+    vminfos['infos_vm'] = type
     vmdata = collections.OrderedDict()
     vminfos['data']=""
     vmnb = 0  # nombre de vm avec l'id
@@ -94,6 +100,5 @@ def infosvm(id):
             vmcar['sto_r'] = convert(sizehddreal, 'bytes')
             vm['caracteristiques'] = vmcar #On ajoute les caracteristique de la vm
             vmdata['vm_' + str(vmnb)] = vm #On ajoute toutes les infos de la vm numero x dans le dictionnaire correspondant
-            print vmdata
     vminfos['data'] = vmdata
     return vminfos #Envoi des informations
