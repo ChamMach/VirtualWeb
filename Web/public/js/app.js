@@ -17629,7 +17629,7 @@ var staticRenderFns = [
             [
               _c("input", {
                 staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_favories" }
+                attrs: { type: "checkbox", id: "vm_favoris" }
               }),
               _vm._v(" "),
               _c("span", { staticClass: "mdl-checkbox__label" }, [

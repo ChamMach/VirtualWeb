@@ -9,7 +9,7 @@
                       <span class="mdl-checkbox__label">Trier par date</span>
                     </label>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vm_favoris">
-                      <input type="checkbox" id="vm_favories" class="mdl-checkbox__input">
+                      <input type="checkbox" id="vm_favoris" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Mes favoris</span>
                     </label>
                 </div>
