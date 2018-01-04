@@ -50,9 +50,12 @@ class UserController extends Controller
      */
     private function getVM($id)
     {
-        $vm = VM::with('unite')
-        ->where('id_utilisateur', $id)
+        $vm = VM::where('id_utilisateur', $id)
         ->get();
+        //Si aucune VM pour l'utilisateur on remplace l'array par null
+        if (sizeof($vm) == 0) {
+            $vm = null;
+        }
         //Array static
         $staticArray = array(
             'infos_vm' => '1',

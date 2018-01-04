@@ -51,23 +51,6 @@ class Kernel extends ConsoleKernel
                     //Supprime l'ID de l'utilisateur dans le nom
                     $socketJson->data->$key->nom = preg_replace('/\d*_/', '', $socketJson->data->$key->nom);
 
-                    //On fait la correspondance string vers int
-                    if ($value->caracteristiques->ram["1"] == 'Mo') {
-                        $id_unite_ram = 1;
-                    } else {
-                        $id_unite_ram = 2;
-                    }
-                    if ($value->caracteristiques->sto_l["1"] == 'Mo') {
-                        $id_unite_sto_l = 1;
-                    } else {
-                        $id_unite_sto_l = 2;
-                    }
-                    if ($value->caracteristiques->sto_r["1"] == 'Mo') {
-                        $id_unite_sto_r = 1;
-                    } else {
-                        $id_unite_sto_r = 2;
-                    }
-
                     $vm_exist = VM::where('id_utilisateur',1)
                         ->where('nom',$value->nom)
                         ->first();
@@ -82,11 +65,11 @@ class Kernel extends ConsoleKernel
                             'os' => $value->caracteristiques->os,
                             'cpu' => $value->caracteristiques->cpu,
                             'ram' => $value->caracteristiques->ram["0"],
-                            'id_unite_ram' => $id_unite_ram,
+                            'unite_ram' => $value->caracteristiques->ram["1"],
                             'sto_l' => $value->caracteristiques->sto_l["0"],
-                            'id_unite_sto_l' => $id_unite_sto_l,
+                            'unite_sto_l' => $value->caracteristiques->sto_l["1"],
                             'sto_r' => $value->caracteristiques->sto_r["0"],
-                            'id_unite_sto_r' => $id_unite_sto_r,
+                            'unite_sto_r' => $value->caracteristiques->sto_r["1"],
                         ));
                         //Insertion des données
                         $vm->save();
@@ -98,11 +81,11 @@ class Kernel extends ConsoleKernel
                         $vm_exist->os = $value->caracteristiques->os;
                         $vm_exist->cpu = $value->caracteristiques->cpu;
                         $vm_exist->ram = $value->caracteristiques->ram["0"];
-                        $vm_exist->id_unite_ram = $id_unite_ram;
+                        $vm_exist->id_unite_ram = $value->caracteristiques->ram["1"];
                         $vm_exist->sto_l = $value->caracteristiques->sto_l["0"];
-                        $vm_exist->id_unite_sto_l = $id_unite_sto_l;
+                        $vm_exist->id_unite_sto_l = $value->caracteristiques->sto_l["1"];
                         $vm_exist->sto_r = $value->caracteristiques->sto_r["0"];
-                        $vm_exist->id_unite_sto_r = $id_unite_sto_r;
+                        $vm_exist->id_unite_sto_r = $value->caracteristiques->sto_r["1"];
                         //Mise à jour
                         $vm_exist->save();
                     }

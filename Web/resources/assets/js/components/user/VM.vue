@@ -63,9 +63,9 @@
                         <ul>
                             <li><b>OS : </b>{{ value.os }}</li>
                             <li><b>CPU : </b>{{ value.cpu }}</li>
-                            <li><b>RAM : </b>{{ value.ram }} ({{ value.id_unite_ram }})</li>
-                            <li><b>Stockage logique : </b>{{ value.sto_l }} ({{ value.id_unite_sto_l }})</li>
-                            <li><b>Stockage réel : </b>{{ value.sto_r }} ({{ value.id_unite_sto_r }})</li>
+                            <li><b>RAM : </b>{{ value.ram }} ({{ value.unite_ram }})</li>
+                            <li><b>Stockage logique : </b>{{ value.sto_l }} ({{ value.unite_sto_l }})</li>
+                            <li><b>Stockage réel : </b>{{ value.sto_r }} ({{ value.unite_sto_r }})</li>
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">
@@ -140,7 +140,6 @@
               var elementVm = $('.'+key)
               var action = event.target.dataset.action
               elementVm.find('.active').removeClass('active')
-              console.log(elementVm);
               elementVm.find('.current').removeClass('current')
               elementVm.find('.'+action).addClass('current')
               event.target.classList.add('active')

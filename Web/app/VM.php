@@ -26,8 +26,8 @@ class VM extends Model
      * @var array
      */
     protected $fillable = [
-        'id_utilisateur', 'date_creation', 'nom', 'description', 'statut', 'os', 'cpu', 'ram', 'id_unite_ram',
-        'sto_l', 'id_unite_sto_l', 'sto_r', 'id_unite_sto_r',
+        'id_utilisateur', 'date_creation', 'nom', 'description', 'statut', 'os', 'cpu', 'ram', 'unite_ram',
+        'sto_l', 'unite_sto_l', 'sto_r', 'unite_sto_r',
     ];
 
     /**

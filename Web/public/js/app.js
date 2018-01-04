@@ -17387,7 +17387,6 @@ if (dataArray.vm == null) {
             var elementVm = $('.' + key);
             var action = event.target.dataset.action;
             elementVm.find('.active').removeClass('active');
-            console.log(elementVm);
             elementVm.find('.current').removeClass('current');
             elementVm.find('.' + action).addClass('current');
             event.target.classList.add('active');
@@ -17515,7 +17514,7 @@ var render = function() {
                         _vm._v(
                           _vm._s(value.ram) +
                             " (" +
-                            _vm._s(value.id_unite_ram) +
+                            _vm._s(value.unite_ram) +
                             ")"
                         )
                       ]),
@@ -17525,7 +17524,7 @@ var render = function() {
                         _vm._v(
                           _vm._s(value.sto_l) +
                             " (" +
-                            _vm._s(value.id_unite_sto_l) +
+                            _vm._s(value.unite_sto_l) +
                             ")"
                         )
                       ]),
@@ -17535,7 +17534,7 @@ var render = function() {
                         _vm._v(
                           _vm._s(value.sto_r) +
                             " (" +
-                            _vm._s(value.id_unite_sto_r) +
+                            _vm._s(value.unite_sto_r) +
                             ")"
                         )
                       ])
