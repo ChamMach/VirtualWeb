@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('historique')->delete();
-        DB::table('action')->delete();
+        DB::table('actions')->delete();
         DB::table('users')->delete();
         DB::table('users')->insert([
             'prenom'     => 'Baptiste',
