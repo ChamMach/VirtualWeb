@@ -79,6 +79,7 @@ Vue.component('header-bar', require('./components/Header.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('creation-vm', require('./components/user/CreationVM.vue'));
 Vue.component('creation-utilisateur', require('./components/admin/CreationUtilisateur.vue'));
+Vue.component('modal-verification', require('./components/Verification.vue'));
 
 //Creation de l'instance routeur
 const router = new VueRouter({

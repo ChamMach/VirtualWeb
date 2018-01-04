@@ -69,13 +69,16 @@
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer" data-action="supprimer">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show-modal"
+                                data-action="supprimer" @click="set($event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer" data-action="allumer">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show-modal"
+                                data-action="allumer" @click="set($event)">
                             <i class="material-icons">play_arrow</i> Allumer
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre" data-action="eteindre">
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show-modal"
+                                data-action="eteindre" @click="set($event)">
                             <i class="material-icons">power_settings_new</i> Éteindre
                         </button>
                     </div>
@@ -88,6 +91,7 @@
             </div>
         </div>
         <creation-vm></creation-vm>
+        <modal-verification v-bind:message="message"></modal-verification>
     </div>
 </template>
 
@@ -104,6 +108,7 @@
             return {
                 vm: vmTmp,
                 isActive: false,
+                message: null,
             }
         },
         mounted() {
@@ -125,6 +130,21 @@
                 showButton.addEventListener('click', showClickHandler);
                 closeButton.addEventListener('click', closeClickHandler);
             }
+
+            var dialogButton = document.querySelectorAll('.show-modal');
+            var dialog = document.querySelector('#dialog');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            dialogButton.forEach(function(elem) {
+                elem.addEventListener("click", function() {
+                    dialog.showModal();
+                });
+            });
+            dialog.querySelector('button:not([disabled])')
+            .addEventListener('click', function() {
+                dialog.close();
+            });
         },
         //Fixe le problème du select non actualisé
         created () {
@@ -143,6 +163,18 @@
               elementVm.find('.current').removeClass('current')
               elementVm.find('.'+action).addClass('current')
               event.target.classList.add('active')
+          },
+          set(e) {
+              var texte = e.target.parentElement.parentElement.parentElement.children[2].outerText
+              var action = e.target.parentElement.dataset.action;
+              if (action == 'supprimer') {
+                  this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?'
+              } else if (action == 'allumer') {
+                  this.message = 'Voulez vous vraiment allumer la VM ' + texte + ' ?'
+              } else if (action == 'eteindre') {
+                  this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?'
+              }
+              //this.message = message
           }
       }
     }

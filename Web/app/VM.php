@@ -13,7 +13,7 @@ class VM extends Model
      *
      * @var string
      */
-    protected $table = 'VM';
+    protected $table = 'vm';
 
     public $timestamps = false;
 
