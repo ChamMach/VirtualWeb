@@ -1269,7 +1269,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\VM.vue"
+Component.options.__file = "resources\\assets\\js\\components\\user\\VM.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1278,9 +1278,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4fedb664", Component.options)
+    hotAPI.createRecord("data-v-4ccae93e", Component.options)
   } else {
-    hotAPI.reload("data-v-4fedb664", Component.options)
+    hotAPI.reload("data-v-4ccae93e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1316,7 +1316,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Conteneur.vue"
+Component.options.__file = "resources\\assets\\js\\components\\user\\Conteneur.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1325,9 +1325,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a16420c0", Component.options)
+    hotAPI.createRecord("data-v-56ca8dad", Component.options)
   } else {
-    hotAPI.reload("data-v-a16420c0", Component.options)
+    hotAPI.reload("data-v-56ca8dad", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1693,10 +1693,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Login_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_VM_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_VM_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_VM_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__);
 
@@ -1735,11 +1735,11 @@ var routes = [{
 }, {
     name: 'VM',
     path: '/vm',
-    component: view('VM')
+    component: view('user/VM')
 }, {
     name: 'Conteneurs',
     path: '/conteneur',
-    component: view('Conteneur'),
+    component: view('user/Conteneur'),
     meta: {
         isAdmin: true
     }
@@ -17342,7 +17342,7 @@ var vmTmp;
 if (dataArray.vm == null) {
     vmTmp = null;
 } else {
-    vmTmp = dataArray.vm.data;
+    vmTmp = dataArray.vm;
 }
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -17387,6 +17387,7 @@ if (dataArray.vm == null) {
             var elementVm = $('.' + key);
             var action = event.target.dataset.action;
             elementVm.find('.active').removeClass('active');
+            console.log(elementVm);
             elementVm.find('.current').removeClass('current');
             elementVm.find('.' + action).addClass('current');
             event.target.classList.add('active');
@@ -17436,8 +17437,8 @@ var render = function() {
                 "div",
                 {
                   staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
-                  class: key,
-                  attrs: { "data-key": key }
+                  class: "vm_" + key,
+                  attrs: { "data-key": "vm_" + key }
                 },
                 [
                   _c(
@@ -17480,7 +17481,7 @@ var render = function() {
                               _c("i", { staticClass: "material-icons" }, [
                                 _vm._v("computer")
                               ]),
-                              _vm._v(" " + _vm._s(value.caracteristiques.os))
+                              _vm._v(" " + _vm._s(value.os))
                             ]),
                             _vm._v(" "),
                             _c("hr"),
@@ -17501,20 +17502,20 @@ var render = function() {
                     _c("ul", [
                       _c("li", [
                         _c("b", [_vm._v("OS : ")]),
-                        _vm._v(_vm._s(value.caracteristiques.os))
+                        _vm._v(_vm._s(value.os))
                       ]),
                       _vm._v(" "),
                       _c("li", [
                         _c("b", [_vm._v("CPU : ")]),
-                        _vm._v(_vm._s(value.caracteristiques.cpu))
+                        _vm._v(_vm._s(value.cpu))
                       ]),
                       _vm._v(" "),
                       _c("li", [
                         _c("b", [_vm._v("RAM : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.ram["0"]) +
+                          _vm._s(value.ram) +
                             " (" +
-                            _vm._s(value.caracteristiques.ram["1"]) +
+                            _vm._s(value.id_unite_ram) +
                             ")"
                         )
                       ]),
@@ -17522,9 +17523,9 @@ var render = function() {
                       _c("li", [
                         _c("b", [_vm._v("Stockage logique : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_l["0"]) +
+                          _vm._s(value.sto_l) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_l["1"]) +
+                            _vm._s(value.id_unite_sto_l) +
                             ")"
                         )
                       ]),
@@ -17532,9 +17533,9 @@ var render = function() {
                       _c("li", [
                         _c("b", [_vm._v("Stockage réel : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_r["0"]) +
+                          _vm._s(value.sto_r) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_r["1"]) +
+                            _vm._s(value.id_unite_sto_r) +
                             ")"
                         )
                       ])
@@ -17744,7 +17745,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4fedb664", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4ccae93e", module.exports)
   }
 }
 
@@ -17779,7 +17780,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a16420c0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-56ca8dad", module.exports)
   }
 }
 

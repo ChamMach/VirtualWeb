@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
 use App\Classes\SocketHelper;
+use App\VM;
 
 class UserController extends Controller
 {
@@ -36,7 +37,7 @@ class UserController extends Controller
             'nom' => $nom,
             'status' => $status[$user->status],
             'verified' => Auth::check(),
-            'vm' => self::getVM('userId'),
+            'vm' => self::getVM($user->id),
         );
         return view('home', [
             'dataToShow' => json_encode($userData)
@@ -47,10 +48,13 @@ class UserController extends Controller
      * Récupère les VM de l'utilisateur
      * @return array Tableau contenant les VM
      */
-    private function getVM()
+    private function getVM($id)
     {
+        $vm = VM::with('unite')
+        ->where('id_utilisateur', $id)
+        ->get();
         //Array static
-        $return = array(
+        $staticArray = array(
             'infos_vm' => '1',
             'data' => array(
                 'vm_1'=> array(
@@ -80,31 +84,6 @@ class UserController extends Controller
             ),
         );
 
-        $socketJson = null;
-        $socket = null;
-        $sockethelper = new sockethelper('172.31.0.50',1333);
-        //Si la socket est ouverte
-        if ($sockethelper->isOnline() !== false) {
-            $userID = '123';
-            $dataToGet = array(
-                'infos_vm' => $userID
-            );
-            $json = json_encode($dataToGet);
-            //On envoi le JSON au socket
-            $sockethelper->send_data($json);
-            //On récupère le retour
-            $socket = $sockethelper->read_data();
-            //On ferme la socket
-            $sockethelper->close_socket();
-            //Decode le JSON pour avoir un array et le traiter
-            $socketJson = json_decode($socket);
-            foreach ($socketJson->data as $key => $value) {
-                //Supprime l'ID de l'utilisateur dans le nom
-                $socketJson->data->$key->nom = preg_replace('/\d*_/', '', $socketJson->data->$key->nom);
-            }
-        }
-
-        return $socketJson;
-        //return $staticArray;
+        return $vm;
     }
 }

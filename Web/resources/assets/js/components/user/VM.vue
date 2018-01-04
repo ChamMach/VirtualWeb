@@ -32,7 +32,7 @@
                         <span>Créer une VM</span>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="key" :data-key="key">
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="'vm_'+key" :data-key="'vm_'+key">
                     <div class="statut" v-bind:class="value.statut">
                         <template v-if="value.statut === 'on'">
                             En service
@@ -52,7 +52,7 @@
                         <div class="contenu">
                             <div class="infos">
                                 <div class="description">
-                                    <span class="vm-titre"><i class="material-icons">computer</i> {{ value.caracteristiques.os }}</span>
+                                    <span class="vm-titre"><i class="material-icons">computer</i> {{ value.os }}</span>
                                     <hr>
                                     <p><i class="material-icons">list</i> {{ value.description }}</p>
                                 </div>
@@ -61,11 +61,11 @@
                     </div>
                     <div class="details_bloc bloc_interactif">
                         <ul>
-                            <li><b>OS : </b>{{ value.caracteristiques.os }}</li>
-                            <li><b>CPU : </b>{{ value.caracteristiques.cpu }}</li>
-                            <li><b>RAM : </b>{{ value.caracteristiques.ram["0"] }} ({{ value.caracteristiques.ram["1"] }})</li>
-                            <li><b>Stockage logique : </b>{{ value.caracteristiques.sto_l["0"] }} ({{ value.caracteristiques.sto_l["1"] }})</li>
-                            <li><b>Stockage réel : </b>{{ value.caracteristiques.sto_r["0"] }} ({{ value.caracteristiques.sto_r["1"] }})</li>
+                            <li><b>OS : </b>{{ value.os }}</li>
+                            <li><b>CPU : </b>{{ value.cpu }}</li>
+                            <li><b>RAM : </b>{{ value.ram }} ({{ value.id_unite_ram }})</li>
+                            <li><b>Stockage logique : </b>{{ value.sto_l }} ({{ value.id_unite_sto_l }})</li>
+                            <li><b>Stockage réel : </b>{{ value.sto_r }} ({{ value.id_unite_sto_r }})</li>
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">
@@ -97,7 +97,7 @@
     if (dataArray.vm == null) {
         vmTmp = null
     } else {
-        vmTmp = dataArray.vm.data
+        vmTmp = dataArray.vm
     }
     export default {
         data: function () {
@@ -140,6 +140,7 @@
               var elementVm = $('.'+key)
               var action = event.target.dataset.action
               elementVm.find('.active').removeClass('active')
+              console.log(elementVm);
               elementVm.find('.current').removeClass('current')
               elementVm.find('.'+action).addClass('current')
               event.target.classList.add('active')

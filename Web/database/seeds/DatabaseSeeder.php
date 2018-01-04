@@ -44,10 +44,33 @@ class DatabaseSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
         ]);
-        DB::table('action')->insert([
+        // DB::table('unite')->insert([
+        //     'id' => 1,
+        //     'type' => 'mo'
+        // ]);
+        // DB::table('unite')->insert([
+        //     'id' => 2,
+        //     'type' => 'go'
+        // ]);
+        // DB::table('vm')->insert([
+        //     'id_utilisateur'     => 1,
+        //     'date_creation' => date("Y-m-d H:i:s"),
+        //     'nom'    => 'VM Développement',
+        //     'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.',
+        //     'statut' => 'on',
+        //     'os' => 'Ubuntu 16.04',
+        //     'cpu' => 4,
+        //     'ram' => 3000,
+        //     'id_unite_ram' => 1,
+        //     'sto_l' => 20,
+        //     'id_unite_sto_l' => 1,
+        //     'sto_r' => 2,
+        //     'id_unite_sto_r' => 2,
+        // ]);
+        DB::table('actions')->insert([
             'description' => 'Connexion'
         ]);
-        DB::table('action')->insert([
+        DB::table('actions')->insert([
             'description' => 'Déconnexion'
         ]);
     }

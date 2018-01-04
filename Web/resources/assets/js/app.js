@@ -7,8 +7,8 @@ import App from './App.vue';
 //Importation des vues
 import Login from './components/Login.vue';
 import Accueil from './components/Accueil.vue';
-import VM from './components/VM.vue';
-import Conteneur from './components/Conteneur.vue';
+import VM from './components/user/VM.vue';
+import Conteneur from './components/user/Conteneur.vue';
 import Utilisateurs from './components/admin/Utilisateurs.vue';
 
 Vue.use(VueAxios, axios);
@@ -39,12 +39,12 @@ const routes = [
   {
       name: 'VM',
       path: '/vm',
-      component: view('VM')
+      component: view('user/VM')
   },
   {
       name: 'Conteneurs',
       path: '/conteneur',
-      component: view('Conteneur'),
+      component: view('user/Conteneur'),
       meta: {
           isAdmin: true
       }
