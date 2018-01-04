@@ -5,18 +5,18 @@ webpackJsonp([0],{
 
 var map = {
 	"./Accueil.vue": 11,
-	"./Conteneur.vue": 13,
 	"./Header.vue": 17,
 	"./Login.vue": 10,
 	"./Tab.vue": 18,
-	"./VM.vue": 12,
 	"./Verification.vue": 79,
 	"./admin/Accueil.vue": 82,
 	"./admin/CreationUtilisateur.vue": 20,
 	"./admin/Sidebar.vue": 16,
 	"./admin/Utilisateurs.vue": 14,
+	"./user/Conteneur.vue": 13,
 	"./user/CreationVM.vue": 19,
-	"./user/Sidebar.vue": 15
+	"./user/Sidebar.vue": 15,
+	"./user/VM.vue": 12
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));

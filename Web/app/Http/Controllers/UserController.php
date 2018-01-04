@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
+use App\Classes\SocketHelper;
+use App\VM;
 
 class UserController extends Controller
 {
@@ -16,11 +18,12 @@ class UserController extends Controller
      */
     public function __construct()
     {
+        //Accès au controlleur uniquement si utilisateur
         $this->middleware('isUser');
     }
 
     /**
-     * Show the application dashboard.
+     * Affichage de l'index
      *
      * @return \Illuminate\Http\Response
      */
@@ -28,16 +31,13 @@ class UserController extends Controller
     {
         // Get the currently authenticated user...
         $user = Auth::user();
-        // if ($user->status == 1) {
-        //     return redirect()->action('Admin\AdminController@index');
-        // }
         $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
         $userData = array(
             'nom' => $nom,
             'status' => $status[$user->status],
             'verified' => Auth::check(),
-            'vm' => self::getVM('userId'),
+            'vm' => self::getVM($user->id),
         );
         return view('home', [
             'dataToShow' => json_encode($userData)
@@ -45,65 +45,19 @@ class UserController extends Controller
     }
 
     /**
-     * Récupération des données utilisateurs
-     * @return array Liste de tous les utilisateurs
+     * Récupère les VM de l'utilisateur
+     * @return array Tableau contenant les VM
      */
-    public function getUsers()
+    private function getVM($id)
     {
-        $currentUser = Auth::user();
-
-        //If user is admin
-        if ($currentUser->status == 1) {
-            $users = DB::table('users')
-            ->select('id', 'nom', 'prenom', 'email')
-            ->orderBy('id')
-            ->get();
-            $return = array(
-                'users' => $users,
-                'error' => false
-            );
-        } else {
-            $return = array(
-                'error' => true
-            );
+        $vm = VM::where('id_utilisateur', $id)
+        ->get();
+        //Si aucune VM pour l'utilisateur on remplace l'array par null
+        if (sizeof($vm) == 0) {
+            $vm = null;
         }
-        return $return;
-    }
-
-    public function createUser(Request $request)
-    {
-        $return = array(
-            'erreur' => true
-        );
-        $currentUser = Auth::user();
-        if ($currentUser->status == 1)  {
-            $userExist = DB::table('users')
-            ->where('email', $request->get('email'))
-            ->get();
-            if (!$userExist) {
-                $user = new User([
-                    'nom' => $request->get('nom'),
-                    'prenom' => $request->get('prenom'),
-                    'email' => $request->get('email'),
-                    'password' => \Hash::make($request->get('password')),
-                    'status' => $request->get('status'),
-                    'created_at' => date("Y-m-d H:i:s"),
-                    'updated_at' => date("Y-m-d H:i:s"),
-                ]);
-                $saved = $user->save();
-                if ($saved) {
-                    $return = array(
-                        'erreur' => false
-                    );
-                }
-            }
-        }
-        return $return;
-    }
-
-    private function getVM($userID)
-    {
-        $return = array(
+        //Array static
+        $staticArray = array(
             'infos_vm' => '1',
             'data' => array(
                 'vm_1'=> array(
@@ -113,18 +67,9 @@ class UserController extends Controller
                     'caracteristiques'=> array(
                         'os' => 'Ubuntu 16.04 64bits',
                         'cpu' => '4',
-                        'ram' => array(
-                            'nb' => '3200',
-                            'unite' => 'mo',
-                        ),
-                        'sto_1' => array(
-                            'nb' => '35',
-                            'unite' => 'GO',
-                        ),
-                        'sto_2' => array(
-                            'nb' => '2',
-                            'unite' => 'mo',
-                        ),
+                        'ram' => array('3200','mo'),
+                        'sto_l' => array('35','GO'),
+                        'sto_r' => array('2','mo'),
                     ),
                 ),
                 'vm_2'=> array(
@@ -134,22 +79,14 @@ class UserController extends Controller
                     'caracteristiques'=> array(
                         'os' => 'Ubuntu 16.04 64bits',
                         'cpu' => '4',
-                        'ram' => array(
-                            'nb' => '3200',
-                            'unite' => 'mo',
-                        ),
-                        'sto_1' => array(
-                            'nb' => '35',
-                            'unite' => 'GO',
-                        ),
-                        'sto_2' => array(
-                            'nb' => '2',
-                            'unite' => 'mo',
-                        ),
+                        'ram' => array('3200','mo'),
+                        'sto_l' => array('35','GO'),
+                        'sto_r' => array('2','mo'),
                     ),
                 ),
             ),
         );
-        return $return;
+
+        return $vm;
     }
 }

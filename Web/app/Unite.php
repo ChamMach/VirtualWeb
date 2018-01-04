@@ -2,11 +2,12 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Action extends Authenticatable
+class Unite extends Model
 {
+	protected $table = 'unite';
     use Notifiable;
 
     /**
@@ -15,6 +16,6 @@ class Action extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'description',
+        'type',
     ];
 }

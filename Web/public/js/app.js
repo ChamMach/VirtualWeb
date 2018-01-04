@@ -1269,7 +1269,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\VM.vue"
+Component.options.__file = "resources\\assets\\js\\components\\user\\VM.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1278,9 +1278,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4fedb664", Component.options)
+    hotAPI.createRecord("data-v-4ccae93e", Component.options)
   } else {
-    hotAPI.reload("data-v-4fedb664", Component.options)
+    hotAPI.reload("data-v-4ccae93e", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1316,7 +1316,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Conteneur.vue"
+Component.options.__file = "resources\\assets\\js\\components\\user\\Conteneur.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1325,9 +1325,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-a16420c0", Component.options)
+    hotAPI.createRecord("data-v-56ca8dad", Component.options)
   } else {
-    hotAPI.reload("data-v-a16420c0", Component.options)
+    hotAPI.reload("data-v-56ca8dad", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1693,10 +1693,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Login_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_VM_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_VM_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_VM_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Conteneur_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__);
 
@@ -1735,11 +1735,11 @@ var routes = [{
 }, {
     name: 'VM',
     path: '/vm',
-    component: view('VM')
+    component: view('user/VM')
 }, {
     name: 'Conteneurs',
     path: '/conteneur',
-    component: view('Conteneur'),
+    component: view('user/Conteneur'),
     meta: {
         isAdmin: true
     }
@@ -17324,31 +17324,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
+var vmTmp;
+//On regarde s'il y a des VM
+if (dataArray.vm == null) {
+    vmTmp = null;
+} else {
+    vmTmp = dataArray.vm;
+}
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            vm: dataArray.vm.data,
+            vm: vmTmp,
             isActive: false
         };
     },
     mounted: function mounted() {
         'use strict';
+        //S'il n'y a pas de VM, pas besoin de modal
 
-        var dialog = document.querySelector('#modal-example');
-        var closeButton = dialog.querySelector('button');
-        var showButton = document.querySelector('#show-modal-example');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
+        if (vmTmp !== null) {
+            var dialog = document.querySelector('#modal-example');
+            var closeButton = dialog.querySelector('button');
+            var showButton = document.querySelector('#show-modal-example');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            var closeClickHandler = function closeClickHandler(event) {
+                dialog.close();
+            };
+            var showClickHandler = function showClickHandler(event) {
+                dialog.showModal();
+            };
+            showButton.addEventListener('click', showClickHandler);
+            closeButton.addEventListener('click', closeClickHandler);
         }
-        var closeClickHandler = function closeClickHandler(event) {
-            dialog.close();
-        };
-        var showClickHandler = function showClickHandler(event) {
-            dialog.showModal();
-        };
-        showButton.addEventListener('click', showClickHandler);
-        closeButton.addEventListener('click', closeClickHandler);
     },
 
     //Fixe le problème du select non actualisé
@@ -17388,17 +17410,34 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "vm-list mdl-grid" },
+          { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
           [
-            _vm._m(1),
+            _vm.vm == null
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
+                  },
+                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
+                )
+              : _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
+                    attrs: { id: "show-modal-example" }
+                  },
+                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
+                ),
             _vm._v(" "),
             _vm._l(_vm.vm, function(value, key, index) {
               return _c(
                 "div",
                 {
                   staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
-                  class: key,
-                  attrs: { "data-key": key }
+                  class: "vm_" + key,
+                  attrs: { "data-key": "vm_" + key }
                 },
                 [
                   _c(
@@ -17411,16 +17450,22 @@ var render = function() {
                               "\n                        En service\n                    "
                             )
                           ]
-                        : [
-                            _vm._v(
-                              "\n                        Éteint\n                    "
-                            )
-                          ]
+                        : value.statut === "inconnu"
+                          ? [
+                              _vm._v(
+                                "\n                        Inconnu\n                    "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\n                        Éteint\n                    "
+                              )
+                            ]
                     ],
                     2
                   ),
                   _vm._v(" "),
-                  _vm._m(2, true),
+                  _vm._m(5, true),
                   _vm._v(" "),
                   _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
                   _vm._v(" "),
@@ -17435,7 +17480,7 @@ var render = function() {
                               _c("i", { staticClass: "material-icons" }, [
                                 _vm._v("computer")
                               ]),
-                              _vm._v(" " + _vm._s(value.caracteristiques.os))
+                              _vm._v(" " + _vm._s(value.os))
                             ]),
                             _vm._v(" "),
                             _c("hr"),
@@ -17456,47 +17501,47 @@ var render = function() {
                     _c("ul", [
                       _c("li", [
                         _c("b", [_vm._v("OS : ")]),
-                        _vm._v(_vm._s(value.caracteristiques.os))
+                        _vm._v(_vm._s(value.os))
                       ]),
                       _vm._v(" "),
                       _c("li", [
                         _c("b", [_vm._v("CPU : ")]),
-                        _vm._v(_vm._s(value.caracteristiques.cpu))
+                        _vm._v(_vm._s(value.cpu))
                       ]),
                       _vm._v(" "),
                       _c("li", [
                         _c("b", [_vm._v("RAM : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.ram.nb) +
+                          _vm._s(value.ram) +
                             " (" +
-                            _vm._s(value.caracteristiques.ram.unite) +
+                            _vm._s(value.unite_ram) +
                             ")"
                         )
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _c("b", [_vm._v("Stockage 1 : ")]),
+                        _c("b", [_vm._v("Stockage logique : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_1.nb) +
+                          _vm._s(value.sto_l) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_1.unite) +
+                            _vm._s(value.unite_sto_l) +
                             ")"
                         )
                       ]),
                       _vm._v(" "),
                       _c("li", [
-                        _c("b", [_vm._v("Stockage 2 : ")]),
+                        _c("b", [_vm._v("Stockage réel : ")]),
                         _vm._v(
-                          _vm._s(value.caracteristiques.sto_2.nb) +
+                          _vm._s(value.sto_r) +
                             " (" +
-                            _vm._s(value.caracteristiques.sto_2.unite) +
+                            _vm._s(value.unite_sto_r) +
                             ")"
                         )
                       ])
                     ])
                   ]),
                   _vm._v(" "),
-                  _vm._m(3, true),
+                  _vm._m(6, true),
                   _vm._v(" "),
                   _c("div", { staticClass: "menu" }, [
                     _c(
@@ -17584,7 +17629,7 @@ var staticRenderFns = [
             [
               _c("input", {
                 staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_favories" }
+                attrs: { type: "checkbox", id: "vm_favoris" }
               }),
               _vm._v(" "),
               _c("span", { staticClass: "mdl-checkbox__label" }, [
@@ -17600,22 +17645,38 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-        attrs: { id: "show-modal-example" }
-      },
-      [
-        _c("div", { staticClass: "symbole" }, [
-          _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "texte" }, [
-          _c("span", [_vm._v("Créer une VM")])
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("small", [
+        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "symbole" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Créer une VM")])
+    ])
   },
   function() {
     var _vm = this
@@ -17683,7 +17744,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4fedb664", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4ccae93e", module.exports)
   }
 }
 
@@ -17718,7 +17779,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-a16420c0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-56ca8dad", module.exports)
   }
 }
 
@@ -18371,6 +18432,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'creation_vm',
@@ -18378,6 +18444,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             node: {
                 sum: 100
+            },
+            vm: {
+                ram: 100,
+                cpu: 1
             }
         };
     },
@@ -18406,14 +18476,115 @@ var render = function() {
         _vm._v(" "),
         _c("form", { attrs: { action: "#" } }, [
           _c("div", { staticClass: "mdl-grid" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "mdl-cell--5-col" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.nom,
+                        expression: "vm.nom"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input",
+                    attrs: {
+                      type: "text",
+                      id: "nom",
+                      pattern: "[^_()/><\\][\\\\\\x22,;|]+",
+                      required: ""
+                    },
+                    domProps: { value: _vm.vm.nom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vm, "nom", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "nom" }
+                    },
+                    [_vm._v("Nom de la VM")]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "mdl-cell--5-col mdl-cell--1-offset" }, [
+              _c(
+                "div",
+                { staticClass: "mdl-textfield mdl-js-textfield getmdl-select" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.systeme,
+                        expression: "vm.systeme"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input",
+                    attrs: {
+                      value: "",
+                      id: "systeme",
+                      readonly: "",
+                      required: ""
+                    },
+                    domProps: { value: _vm.vm.systeme },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vm, "systeme", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { value: "", type: "hidden", name: "systeme" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "systeme" }
+                    },
+                    [_vm._v("Système")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "ram_input" }, [
-              _c("label", {}, [_vm._v("Ram")]),
+            _c("div", { staticClass: "ram_input mdl-cell--5-col" }, [
+              _c("label", {}, [_vm._v("Ram (" + _vm._s(_vm.vm.ram) + " Mo)")]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.vm.ram,
+                    expression: "vm.ram"
+                  }
+                ],
                 staticClass: "mdl-slider mdl-js-slider",
                 attrs: {
                   type: "range",
@@ -18421,20 +18592,54 @@ var render = function() {
                   step: "100",
                   max: "3000",
                   value: "200",
-                  tabindex: "0"
+                  tabindex: "0",
+                  required: ""
                 },
-                domProps: { value: _vm.node.sum },
+                domProps: { value: _vm.vm.ram },
                 on: {
-                  input: function($event) {
-                    _vm.onChange($event)
+                  __r: function($event) {
+                    _vm.$set(_vm.vm, "ram", $event.target.value)
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "qte_ram" }, [
-                _vm._v(_vm._s(_vm.node.sum) + " MO")
-              ])
-            ])
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ram_input mdl-cell--5-col mdl-cell--1-offset" },
+              [
+                _c("label", {}, [_vm._v("CPU (" + _vm._s(_vm.vm.cpu) + ")")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.vm.cpu,
+                      expression: "vm.cpu"
+                    }
+                  ],
+                  staticClass: "mdl-slider mdl-js-slider",
+                  attrs: {
+                    type: "range",
+                    min: "1",
+                    step: "1",
+                    max: "4",
+                    value: "1",
+                    tabindex: "0",
+                    required: ""
+                  },
+                  domProps: { value: _vm.vm.cpu },
+                  on: {
+                    __r: function($event) {
+                      _vm.$set(_vm.vm, "cpu", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
           ])
         ])
       ]),
@@ -18448,81 +18653,53 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-cell--5-col" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-        },
-        [
-          _c("input", {
-            staticClass: "mdl-textfield__input",
-            attrs: { type: "text", id: "nom" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "mdl-textfield__label", attrs: { for: "nom" } },
-            [_vm._v("Nom de la VM")]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "ul",
+      {
+        staticClass: "mdl-menu mdl-menu--bottom-left mdl-js-menu",
+        attrs: { for: "systeme" }
+      },
+      [
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "WI" } },
+          [_vm._v("Windows")]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "UB" } },
+          [_vm._v("Ubuntu")]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "CE" } },
+          [_vm._v("Centos")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-cell--5-col mdl-cell--1-offset" }, [
-      _c(
-        "div",
-        { staticClass: "mdl-textfield mdl-js-textfield getmdl-select" },
-        [
-          _c("input", {
-            staticClass: "mdl-textfield__input",
-            attrs: { value: "", id: "systeme", readonly: "" }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { value: "", type: "hidden", name: "systeme" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "mdl-textfield__label", attrs: { for: "systeme" } },
-            [_vm._v("Système")]
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass: "mdl-menu mdl-menu--bottom-left mdl-js-menu",
-              attrs: { for: "systeme" }
-            },
-            [
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "WI" } },
-                [_vm._v("Windows")]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "UB" } },
-                [_vm._v("Ubuntu")]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "CE" } },
-                [_vm._v("Centos")]
-              )
-            ]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "mdl-textfield mdl-js-textfield mdl-cell--12-col" },
+      [
+        _c("textarea", {
+          staticClass: "mdl-textfield__input",
+          attrs: { type: "text", rows: "3", id: "sample5", required: "" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "mdl-textfield__label", attrs: { for: "sample5" } },
+          [_vm._v("Description")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this

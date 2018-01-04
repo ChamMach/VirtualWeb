@@ -386,6 +386,10 @@ a {
   background: #d02e26;
 }
 
+.vm .vm-list .statut.inconnu {
+  background: #808080;
+}
+
 .vm .vm-list .ajouter_vm {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -597,6 +601,20 @@ a {
 
 .mdl-dialog {
   width: 30%;
+}
+
+.no_data {
+  padding: 10px;
+  background: #e6e6e6;
+  margin-left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 /* FIN VM */

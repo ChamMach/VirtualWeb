@@ -9,13 +9,22 @@
                       <span class="mdl-checkbox__label">Trier par date</span>
                     </label>
                     <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="vm_favoris">
-                      <input type="checkbox" id="vm_favories" class="mdl-checkbox__input">
+                      <input type="checkbox" id="vm_favoris" class="mdl-checkbox__input">
                       <span class="mdl-checkbox__label">Mes favoris</span>
                     </label>
                 </div>
             </div>
-            <div class="vm-list mdl-grid">
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example">
+            <div class="vm-list mdl-grid mdl-cell--12-col">
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data" v-if="vm == null">
+                    <div class="icon">
+                        <i class="material-icons">error_outline</i>
+                    </div>
+                    <div class="texte">
+                        <span>Le serveur n'est pas disponible pour le moment</span><br>
+                        <small>Nous faisons tout notre possible pour corriger ce problème</small>
+                    </div>
+                </div>
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example" v-else>
                     <div class="symbole">
                         <i class="material-icons">add</i>
                     </div>
@@ -23,10 +32,13 @@
                         <span>Créer une VM</span>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="key" :data-key="key">
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="'vm_'+key" :data-key="'vm_'+key">
                     <div class="statut" v-bind:class="value.statut">
                         <template v-if="value.statut === 'on'">
                             En service
+                        </template>
+                        <template v-else-if="value.statut === 'inconnu'">
+                            Inconnu
                         </template>
                         <template v-else>
                             Éteint
@@ -40,7 +52,7 @@
                         <div class="contenu">
                             <div class="infos">
                                 <div class="description">
-                                    <span class="vm-titre"><i class="material-icons">computer</i> {{ value.caracteristiques.os }}</span>
+                                    <span class="vm-titre"><i class="material-icons">computer</i> {{ value.os }}</span>
                                     <hr>
                                     <p><i class="material-icons">list</i> {{ value.description }}</p>
                                 </div>
@@ -49,11 +61,11 @@
                     </div>
                     <div class="details_bloc bloc_interactif">
                         <ul>
-                            <li><b>OS : </b>{{ value.caracteristiques.os }}</li>
-                            <li><b>CPU : </b>{{ value.caracteristiques.cpu }}</li>
-                            <li><b>RAM : </b>{{ value.caracteristiques.ram.nb }} ({{ value.caracteristiques.ram.unite }})</li>
-                            <li><b>Stockage 1 : </b>{{ value.caracteristiques.sto_1.nb }} ({{ value.caracteristiques.sto_1.unite }})</li>
-                            <li><b>Stockage 2 : </b>{{ value.caracteristiques.sto_2.nb }} ({{ value.caracteristiques.sto_2.unite }})</li>
+                            <li><b>OS : </b>{{ value.os }}</li>
+                            <li><b>CPU : </b>{{ value.cpu }}</li>
+                            <li><b>RAM : </b>{{ value.ram }} ({{ value.unite_ram }})</li>
+                            <li><b>Stockage logique : </b>{{ value.sto_l }} ({{ value.unite_sto_l }})</li>
+                            <li><b>Stockage réel : </b>{{ value.sto_r }} ({{ value.unite_sto_r }})</li>
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">
@@ -80,29 +92,39 @@
 </template>
 
 <script>
+    var vmTmp
+    //On regarde s'il y a des VM
+    if (dataArray.vm == null) {
+        vmTmp = null
+    } else {
+        vmTmp = dataArray.vm
+    }
     export default {
         data: function () {
             return {
-                vm: dataArray.vm.data,
+                vm: vmTmp,
                 isActive: false,
             }
         },
         mounted() {
             'use strict';
-            var dialog = document.querySelector('#modal-example');
-            var closeButton = dialog.querySelector('button');
-            var showButton = document.querySelector('#show-modal-example');
-            if (! dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
+            //S'il n'y a pas de VM, pas besoin de modal
+            if (vmTmp !== null) {
+                var dialog = document.querySelector('#modal-example');
+                var closeButton = dialog.querySelector('button');
+                var showButton = document.querySelector('#show-modal-example');
+                if (! dialog.showModal) {
+                    dialogPolyfill.registerDialog(dialog);
+                }
+                var closeClickHandler = function(event) {
+                    dialog.close();
+                };
+                var showClickHandler = function(event) {
+                    dialog.showModal();
+                };
+                showButton.addEventListener('click', showClickHandler);
+                closeButton.addEventListener('click', closeClickHandler);
             }
-            var closeClickHandler = function(event) {
-                dialog.close();
-            };
-            var showClickHandler = function(event) {
-                dialog.showModal();
-            };
-            showButton.addEventListener('click', showClickHandler);
-            closeButton.addEventListener('click', closeClickHandler);
         },
         //Fixe le problème du select non actualisé
         created () {
