@@ -18432,6 +18432,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'creation_vm',
@@ -18439,6 +18444,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         return {
             node: {
                 sum: 100
+            },
+            vm: {
+                ram: 100,
+                cpu: 1
             }
         };
     },
@@ -18467,14 +18476,115 @@ var render = function() {
         _vm._v(" "),
         _c("form", { attrs: { action: "#" } }, [
           _c("div", { staticClass: "mdl-grid" }, [
-            _vm._m(0),
+            _c("div", { staticClass: "mdl-cell--5-col" }, [
+              _c(
+                "div",
+                {
+                  staticClass:
+                    "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.nom,
+                        expression: "vm.nom"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input",
+                    attrs: {
+                      type: "text",
+                      id: "nom",
+                      pattern: "[^_()/><\\][\\\\\\x22,;|]+",
+                      required: ""
+                    },
+                    domProps: { value: _vm.vm.nom },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vm, "nom", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "nom" }
+                    },
+                    [_vm._v("Nom de la VM")]
+                  )
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("div", { staticClass: "mdl-cell--5-col mdl-cell--1-offset" }, [
+              _c(
+                "div",
+                { staticClass: "mdl-textfield mdl-js-textfield getmdl-select" },
+                [
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.systeme,
+                        expression: "vm.systeme"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input",
+                    attrs: {
+                      value: "",
+                      id: "systeme",
+                      readonly: "",
+                      required: ""
+                    },
+                    domProps: { value: _vm.vm.systeme },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vm, "systeme", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("input", {
+                    attrs: { value: "", type: "hidden", name: "systeme" }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "systeme" }
+                    },
+                    [_vm._v("Système")]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(0)
+                ]
+              )
+            ]),
             _vm._v(" "),
-            _c("div", { staticClass: "ram_input" }, [
-              _c("label", {}, [_vm._v("Ram")]),
+            _c("div", { staticClass: "ram_input mdl-cell--5-col" }, [
+              _c("label", {}, [_vm._v("Ram (" + _vm._s(_vm.vm.ram) + " Mo)")]),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.vm.ram,
+                    expression: "vm.ram"
+                  }
+                ],
                 staticClass: "mdl-slider mdl-js-slider",
                 attrs: {
                   type: "range",
@@ -18482,20 +18592,54 @@ var render = function() {
                   step: "100",
                   max: "3000",
                   value: "200",
-                  tabindex: "0"
+                  tabindex: "0",
+                  required: ""
                 },
-                domProps: { value: _vm.node.sum },
+                domProps: { value: _vm.vm.ram },
                 on: {
-                  input: function($event) {
-                    _vm.onChange($event)
+                  __r: function($event) {
+                    _vm.$set(_vm.vm, "ram", $event.target.value)
                   }
                 }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "qte_ram" }, [
-                _vm._v(_vm._s(_vm.node.sum) + " MO")
-              ])
-            ])
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "ram_input mdl-cell--5-col mdl-cell--1-offset" },
+              [
+                _c("label", {}, [_vm._v("CPU (" + _vm._s(_vm.vm.cpu) + ")")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.vm.cpu,
+                      expression: "vm.cpu"
+                    }
+                  ],
+                  staticClass: "mdl-slider mdl-js-slider",
+                  attrs: {
+                    type: "range",
+                    min: "1",
+                    step: "1",
+                    max: "4",
+                    value: "1",
+                    tabindex: "0",
+                    required: ""
+                  },
+                  domProps: { value: _vm.vm.cpu },
+                  on: {
+                    __r: function($event) {
+                      _vm.$set(_vm.vm, "cpu", $event.target.value)
+                    }
+                  }
+                })
+              ]
+            ),
+            _vm._v(" "),
+            _vm._m(1)
           ])
         ])
       ]),
@@ -18509,81 +18653,53 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-cell--5-col" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-        },
-        [
-          _c("input", {
-            staticClass: "mdl-textfield__input",
-            attrs: { type: "text", id: "nom" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "mdl-textfield__label", attrs: { for: "nom" } },
-            [_vm._v("Nom de la VM")]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "ul",
+      {
+        staticClass: "mdl-menu mdl-menu--bottom-left mdl-js-menu",
+        attrs: { for: "systeme" }
+      },
+      [
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "WI" } },
+          [_vm._v("Windows")]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "UB" } },
+          [_vm._v("Ubuntu")]
+        ),
+        _vm._v(" "),
+        _c(
+          "li",
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "CE" } },
+          [_vm._v("Centos")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-cell--5-col mdl-cell--1-offset" }, [
-      _c(
-        "div",
-        { staticClass: "mdl-textfield mdl-js-textfield getmdl-select" },
-        [
-          _c("input", {
-            staticClass: "mdl-textfield__input",
-            attrs: { value: "", id: "systeme", readonly: "" }
-          }),
-          _vm._v(" "),
-          _c("input", {
-            attrs: { value: "", type: "hidden", name: "systeme" }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            { staticClass: "mdl-textfield__label", attrs: { for: "systeme" } },
-            [_vm._v("Système")]
-          ),
-          _vm._v(" "),
-          _c(
-            "ul",
-            {
-              staticClass: "mdl-menu mdl-menu--bottom-left mdl-js-menu",
-              attrs: { for: "systeme" }
-            },
-            [
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "WI" } },
-                [_vm._v("Windows")]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "UB" } },
-                [_vm._v("Ubuntu")]
-              ),
-              _vm._v(" "),
-              _c(
-                "li",
-                { staticClass: "mdl-menu__item", attrs: { "data-val": "CE" } },
-                [_vm._v("Centos")]
-              )
-            ]
-          )
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      { staticClass: "mdl-textfield mdl-js-textfield mdl-cell--12-col" },
+      [
+        _c("textarea", {
+          staticClass: "mdl-textfield__input",
+          attrs: { type: "text", rows: "3", id: "sample5", required: "" }
+        }),
+        _vm._v(" "),
+        _c(
+          "label",
+          { staticClass: "mdl-textfield__label", attrs: { for: "sample5" } },
+          [_vm._v("Description")]
+        )
+      ]
+    )
   },
   function() {
     var _vm = this
