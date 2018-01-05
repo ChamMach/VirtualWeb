@@ -81,11 +81,11 @@ class Kernel extends ConsoleKernel
                         $vm_exist->os = $value->caracteristiques->os;
                         $vm_exist->cpu = $value->caracteristiques->cpu;
                         $vm_exist->ram = $value->caracteristiques->ram["0"];
-                        $vm_exist->id_unite_ram = $value->caracteristiques->ram["1"];
+                        $vm_exist->unite_ram = $value->caracteristiques->ram["1"];
                         $vm_exist->sto_l = $value->caracteristiques->sto_l["0"];
-                        $vm_exist->id_unite_sto_l = $value->caracteristiques->sto_l["1"];
+                        $vm_exist->unite_sto_l = $value->caracteristiques->sto_l["1"];
                         $vm_exist->sto_r = $value->caracteristiques->sto_r["0"];
-                        $vm_exist->id_unite_sto_r = $value->caracteristiques->sto_r["1"];
+                        $vm_exist->unite_sto_r = $value->caracteristiques->sto_r["1"];
                         //Mise à jour
                         $vm_exist->save();
                     }

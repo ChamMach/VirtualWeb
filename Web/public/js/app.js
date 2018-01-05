@@ -17409,24 +17409,24 @@ if (dataArray.vm == null) {
         //S'il n'y a pas de VM, pas besoin de modal
 
         if (vmTmp !== null) {
-            var dialog = document.querySelector('#modal-example');
-            var closeButton = dialog.querySelector('button');
-            var showButton = document.querySelector('#show-modal-example');
-            if (!dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
+            var dialog_create = document.querySelector('#modal_create');
+            var closeButton = dialog_create.querySelector('.close_modal_creation');
+            var showButton = document.querySelector('#show_modal_creation');
+            if (!dialog_create.showModal) {
+                dialogPolyfill.registerDialog(dialog_create);
             }
             var closeClickHandler = function closeClickHandler(event) {
-                dialog.close();
+                dialog_create.close();
             };
             var showClickHandler = function showClickHandler(event) {
-                dialog.showModal();
+                dialog_create.showModal();
             };
             showButton.addEventListener('click', showClickHandler);
             closeButton.addEventListener('click', closeClickHandler);
         }
 
-        var dialogButton = document.querySelectorAll('.show-modal');
-        var dialog = document.querySelector('#dialog');
+        var dialogButton = document.querySelectorAll('.show_modal_verif');
+        var dialog = document.querySelector('#dialog_verif');
         if (!dialog.showModal) {
             dialogPolyfill.registerDialog(dialog);
         }
@@ -17435,7 +17435,7 @@ if (dataArray.vm == null) {
                 dialog.showModal();
             });
         });
-        dialog.querySelector('button:not([disabled])').addEventListener('click', function () {
+        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
             dialog.close();
         });
     },
@@ -17505,7 +17505,7 @@ var render = function() {
                   {
                     staticClass:
                       "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-                    attrs: { id: "show-modal-example" }
+                    attrs: { id: "show_modal_creation" }
                   },
                   [_vm._m(3), _vm._v(" "), _vm._m(4)]
                 ),
@@ -17625,7 +17625,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show-modal",
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif",
                         attrs: { "data-action": "supprimer" },
                         on: {
                           click: function($event) {
@@ -17645,7 +17645,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show-modal",
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
                         attrs: { "data-action": "allumer" },
                         on: {
                           click: function($event) {
@@ -17665,7 +17665,7 @@ var render = function() {
                       "button",
                       {
                         staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show-modal",
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
                         attrs: { "data-action": "eteindre" },
                         on: {
                           click: function($event) {
@@ -18531,6 +18531,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'creation_vm',
@@ -18541,7 +18545,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             },
             vm: {
                 ram: 100,
-                cpu: 1
+                cpu: 1,
+                stockage: 100
             }
         };
     },
@@ -18563,7 +18568,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "dialog",
-    { staticClass: "mdl-dialog", attrs: { id: "modal-example" } },
+    { staticClass: "mdl-dialog", attrs: { id: "modal_create" } },
     [
       _c("div", { staticClass: "mdl-dialog__content" }, [
         _c("h3", [_vm._v("Création d'une machine virtuelle")]),
@@ -18733,6 +18738,39 @@ var render = function() {
               ]
             ),
             _vm._v(" "),
+            _c("div", { staticClass: "ram_input mdl-cell--12-col" }, [
+              _c("label", {}, [
+                _vm._v("Stockage (" + _vm._s(_vm.vm.stockage) + ")")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.vm.stockage,
+                    expression: "vm.stockage"
+                  }
+                ],
+                staticClass: "mdl-slider mdl-js-slider",
+                attrs: {
+                  type: "range",
+                  min: "100",
+                  step: "100",
+                  max: "60000",
+                  value: "100",
+                  tabindex: "0",
+                  required: ""
+                },
+                domProps: { value: _vm.vm.stockage },
+                on: {
+                  __r: function($event) {
+                    _vm.$set(_vm.vm, "stockage", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
             _vm._m(1)
           ])
         ])
@@ -18800,9 +18838,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mdl-dialog__actions" }, [
-      _c("button", { staticClass: "mdl-button", attrs: { type: "button" } }, [
-        _vm._v("Fermer")
-      ]),
+      _c(
+        "button",
+        {
+          staticClass: "mdl-button close_modal_creation",
+          attrs: { type: "button" }
+        },
+        [_vm._v("Fermer")]
+      ),
       _vm._v(" "),
       _c(
         "button",
@@ -19209,15 +19252,19 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("dialog", { staticClass: "mdl-dialog", attrs: { id: "dialog" } }, [
-    _c("h3", { staticClass: "mdl-dialog__title" }, [_vm._v("Vérification")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mdl-dialog__content" }, [
-      _c("p", [_vm._v(_vm._s(_vm.message))])
-    ]),
-    _vm._v(" "),
-    _vm._m(0)
-  ])
+  return _c(
+    "dialog",
+    { staticClass: "mdl-dialog", attrs: { id: "dialog_verif" } },
+    [
+      _c("h3", { staticClass: "mdl-dialog__title" }, [_vm._v("Vérification")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mdl-dialog__content" }, [
+        _c("p", [_vm._v(_vm._s(_vm.message))])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -19233,7 +19280,10 @@ var staticRenderFns = [
       _vm._v(" "),
       _c(
         "button",
-        { staticClass: "mdl-button non", attrs: { type: "button" } },
+        {
+          staticClass: "mdl-button non close_modal_verif",
+          attrs: { type: "button" }
+        },
         [_vm._v("Non")]
       )
     ])

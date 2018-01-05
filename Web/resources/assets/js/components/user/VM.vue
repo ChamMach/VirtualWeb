@@ -24,7 +24,7 @@
                         <small>Nous faisons tout notre possible pour corriger ce problème</small>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show-modal-example" v-else>
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show_modal_creation" v-else>
                     <div class="symbole">
                         <i class="material-icons">add</i>
                     </div>
@@ -69,15 +69,15 @@
                         </ul>
                     </div>
                     <div class="options_bloc bloc_interactif">
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show-modal"
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif"
                                 data-action="supprimer" @click="set($event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show-modal"
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
                                 data-action="allumer" @click="set($event)">
                             <i class="material-icons">play_arrow</i> Allumer
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show-modal"
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif"
                                 data-action="eteindre" @click="set($event)">
                             <i class="material-icons">power_settings_new</i> Éteindre
                         </button>
@@ -115,24 +115,24 @@
             'use strict';
             //S'il n'y a pas de VM, pas besoin de modal
             if (vmTmp !== null) {
-                var dialog = document.querySelector('#modal-example');
-                var closeButton = dialog.querySelector('button');
-                var showButton = document.querySelector('#show-modal-example');
-                if (! dialog.showModal) {
-                    dialogPolyfill.registerDialog(dialog);
+                var dialog_create = document.querySelector('#modal_create');
+                var closeButton = dialog_create.querySelector('.close_modal_creation');
+                var showButton = document.querySelector('#show_modal_creation');
+                if (! dialog_create.showModal) {
+                    dialogPolyfill.registerDialog(dialog_create);
                 }
                 var closeClickHandler = function(event) {
-                    dialog.close();
+                    dialog_create.close();
                 };
                 var showClickHandler = function(event) {
-                    dialog.showModal();
+                    dialog_create.showModal();
                 };
                 showButton.addEventListener('click', showClickHandler);
                 closeButton.addEventListener('click', closeClickHandler);
             }
 
-            var dialogButton = document.querySelectorAll('.show-modal');
-            var dialog = document.querySelector('#dialog');
+            var dialogButton = document.querySelectorAll('.show_modal_verif');
+            var dialog = document.querySelector('#dialog_verif');
             if (!dialog.showModal) {
                 dialogPolyfill.registerDialog(dialog);
             }
@@ -141,7 +141,7 @@
                     dialog.showModal();
                 });
             });
-            dialog.querySelector('button:not([disabled])')
+            dialog.querySelector('.close_modal_verif')
             .addEventListener('click', function() {
                 dialog.close();
             });

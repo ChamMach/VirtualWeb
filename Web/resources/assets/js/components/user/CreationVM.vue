@@ -1,5 +1,5 @@
 <template>
-    <dialog class="mdl-dialog" id="modal-example">
+    <dialog class="mdl-dialog" id="modal_create">
         <div class="mdl-dialog__content">
             <h3>Création d'une machine virtuelle</h3>
             <form action="#">
@@ -30,6 +30,10 @@
                         <label class="">CPU ({{ vm.cpu }})</label>
                         <input class="mdl-slider mdl-js-slider" type="range" min="1" step="1" max="4" value="1" tabindex="0" v-model="vm.cpu" required>
                     </div>
+                    <div class="ram_input mdl-cell--12-col">
+                        <label class="">Stockage ({{ vm.stockage }})</label>
+                        <input class="mdl-slider mdl-js-slider" type="range" min="100" step="100" max="60000" value="100" tabindex="0" v-model="vm.stockage" required>
+                    </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
                       <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" required></textarea>
                       <label class="mdl-textfield__label" for="sample5">Description</label>
@@ -39,7 +43,7 @@
 
         </div>
         <div class="mdl-dialog__actions">
-            <button type="button" class="mdl-button">Fermer</button>
+            <button type="button" class="mdl-button close_modal_creation">Fermer</button>
             <button type="button" class="mdl-button" disabled>Créer</button>
         </div>
     </dialog>
@@ -56,6 +60,7 @@
                 vm: {
                     ram: 100,
                     cpu: 1,
+                    stockage: 100,
                 },
             }
         },
