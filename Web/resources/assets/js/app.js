@@ -96,4 +96,5 @@ router.beforeEach((to, from, next) => {
     next()
 })
 
-new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+var vm = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
+global.vm = vm;

@@ -5,7 +5,7 @@
                 <p>{{ message }}</p>
             </div>
             <div class="mdl-dialog__actions">
-                <button type="button" class="mdl-button oui">Oui</button>
+                <button type="button" class="mdl-button oui yes_modal_verif" @click="verification">Oui</button>
                 <button type="button" class="mdl-button non close_modal_verif">Non</button>
             </div>
     </dialog>
@@ -13,11 +13,16 @@
 
 <script>
     export default {
-        props: ["message"],
+        props: ["message", "method"],
         data () {
             return {
                 //message: this.message,
             }
         },
+        methods: {
+            verification() {
+                this.method()
+            }
+        }
     }
 </script>

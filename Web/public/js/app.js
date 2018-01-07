@@ -1727,7 +1727,7 @@ module.exports = __webpack_require__(80);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(24);
+/* WEBPACK VAR INJECTION */(function(global) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vue_axios__ = __webpack_require__(28);
@@ -1835,7 +1835,9 @@ router.beforeEach(function (to, from, next) {
     next();
 });
 
-new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_0_vue___default.a.util.extend({ router: router }, __WEBPACK_IMPORTED_MODULE_4__App_vue___default.a)).$mount('#app');
+var vm = new __WEBPACK_IMPORTED_MODULE_0_vue___default.a(__WEBPACK_IMPORTED_MODULE_0_vue___default.a.util.extend({ router: router }, __WEBPACK_IMPORTED_MODULE_4__App_vue___default.a)).$mount('#app');
+global.vm = vm;
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
 /* 24 */
@@ -17917,14 +17919,78 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'utilisateurs',
     data: function data() {
         return {
-            users: dataArray.users.data
+            users: dataArray.users.data,
+            message: null,
+            methods: {
+                action: null,
+                idUser: null
+            },
+            editUser: false,
+            userEditData: {}
         };
     },
+    mounted: function mounted() {
+        var dialogButton = document.querySelectorAll('.show_modal_verif');
+        var dialog = document.querySelector('#dialog_verif');
+        if (!dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        dialogButton.forEach(function (elem) {
+            elem.addEventListener("click", function () {
+                dialog.showModal();
+            });
+        });
+        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
+            dialog.close();
+        });
+        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
+            dialog.close();
+        });
+    },
+
     //Fixe le problème du select non actualisé
     created: function created() {
         this.$nextTick(function () {
@@ -17947,7 +18013,51 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 console.log('erreur');
             });
         },
-        verification: function verification() {}
+        set: function set(user, click) {
+            this.methods.idUser = user.id;
+            this.methods.action = "delete";
+            this.message = "Voulez vous vraiment supprimer l'utilisateur " + user.nom + " " + user.prenom;
+        },
+        verification: function verification() {
+            if (this.methods.action == "delete") {
+                this.deleteUser(this.methods.idUser);
+            }
+            this.methods.action = null;
+            this.methods.idUser = null;
+        },
+        modifierUser: function modifierUser(user, click) {
+            this.editUser = true;
+            this.$nextTick(function () {
+                componentHandler.upgradeDom();
+                getmdlSelect.init(".getmdl-select");
+            });
+            this.userEditData.id = user.id;
+            this.userEditData.nom = user.nom;
+            this.userEditData.prenom = user.prenom;
+            this.userEditData.email = user.email;
+        },
+        addUser: function addUser() {
+            var _this = this;
+
+            this.$http.post('/edit_user', {
+                id: this.userEditData.id,
+                nom: this.userEditData.nom,
+                prenom: this.userEditData.prenom,
+                email: this.userEditData.email,
+                password: this.userEditData.password,
+                status: this.userEditData.status
+            }).then(function (response) {
+                if (response.data.erreur == true) {
+                    notyf.alert(response.data.message);
+                } else if (response.data.erreur == false) {
+                    notyf.confirm(response.data.message);
+                    _this.editUser = false;
+                    _this.userEditData = {};
+                }
+            }, function () {
+                console.log('erreur');
+            });
+        }
     }
 });
 
@@ -17959,70 +18069,403 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "mdl-grid" }, [
-      _c(
-        "table",
-        {
-          staticClass:
-            "mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col tableau"
-        },
-        [
-          _vm._m(0),
-          _vm._v(" "),
-          _c(
-            "tbody",
-            _vm._l(_vm.users, function(value) {
-              return _c("tr", { attrs: { "data-id": value.id } }, [
-                _c("td", [_vm._v(_vm._s(value.nom))]),
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "mdl-grid" }, [
+        _c(
+          "table",
+          {
+            staticClass:
+              "mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col tableau"
+          },
+          [
+            _vm._m(0),
+            _vm._v(" "),
+            _c(
+              "tbody",
+              _vm._l(_vm.users, function(value) {
+                return _c("tr", { attrs: { "data-id": value.id } }, [
+                  _c("td", [_vm._v(_vm._s(value.nom))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(value.prenom))]),
+                  _vm._v(" "),
+                  _c("td", [_vm._v(_vm._s(value.email))]),
+                  _vm._v(" "),
+                  _c("td", [
+                    _c(
+                      "span",
+                      {
+                        staticClass: "small-btn supprimer show_modal_verif",
+                        on: {
+                          click: function($event) {
+                            _vm.set(value, $event)
+                          }
+                        }
+                      },
+                      [_vm._v("Supprimer")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      {
+                        staticClass: "small-btn modifier show-modal",
+                        on: {
+                          click: function($event) {
+                            _vm.modifierUser(value, $event)
+                          }
+                        }
+                      },
+                      [_vm._v("Modifier")]
+                    )
+                  ])
+                ])
+              })
+            )
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mdl-grid" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid card"
+          },
+          [
+            _c("h3", { staticClass: "mdl-cell--12-col header" }, [
+              _vm._v("Créer un utilisateur")
+            ]),
+            _vm._v(" "),
+            _c("creation-utilisateur")
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _vm.editUser
+          ? _c(
+              "div",
+              {
+                staticClass:
+                  "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid card"
+              },
+              [
+                _c("h3", { staticClass: "mdl-cell--12-col header" }, [
+                  _vm._v("Modifier un utilisateur")
+                ]),
                 _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(value.prenom))]),
-                _vm._v(" "),
-                _c("td", [_vm._v(_vm._s(value.email))]),
-                _vm._v(" "),
-                _c("td", [
+                _c("div", { staticClass: "mdl-cell--12-col contenu" }, [
                   _c(
-                    "span",
+                    "form",
                     {
-                      staticClass: "small-btn supprimer",
+                      staticClass: "form form-creation-user",
                       on: {
-                        click: function($event) {
-                          _vm.deleteUser(value.id)
+                        submit: function($event) {
+                          $event.preventDefault()
+                          _vm.addUser($event)
                         }
                       }
                     },
-                    [_vm._v("Supprimer")]
-                  ),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "small-btn modifier show-modal" }, [
-                    _vm._v("Modifier")
-                  ])
+                    [
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.userEditData.nom,
+                                expression: "userEditData.nom"
+                              }
+                            ],
+                            staticClass: "mdl-textfield__input",
+                            attrs: {
+                              type: "text",
+                              id: "nomEdit",
+                              required: ""
+                            },
+                            domProps: { value: _vm.userEditData.nom },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.userEditData,
+                                  "nom",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "mdl-textfield__label",
+                              attrs: { for: "nomEdit" }
+                            },
+                            [_vm._v("Nom")]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.userEditData.prenom,
+                                expression: "userEditData.prenom"
+                              }
+                            ],
+                            staticClass: "mdl-textfield__input",
+                            attrs: {
+                              type: "text",
+                              id: "prenomEdit",
+                              required: ""
+                            },
+                            domProps: { value: _vm.userEditData.prenom },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.userEditData,
+                                  "prenom",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "mdl-textfield__label",
+                              attrs: { for: "prenomEdit" }
+                            },
+                            [_vm._v("Prénom")]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.userEditData.email,
+                                expression: "userEditData.email"
+                              }
+                            ],
+                            staticClass: "mdl-textfield__input",
+                            attrs: {
+                              type: "email",
+                              id: "emailEdit",
+                              required: ""
+                            },
+                            domProps: { value: _vm.userEditData.email },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.userEditData,
+                                  "email",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "mdl-textfield__label",
+                              attrs: { for: "emailEdit" }
+                            },
+                            [_vm._v("Email")]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass:
+                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                        },
+                        [
+                          _c("input", {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.userEditData.password,
+                                expression: "userEditData.password"
+                              }
+                            ],
+                            staticClass: "mdl-textfield__input",
+                            attrs: {
+                              type: "password",
+                              id: "passwordEdit",
+                              pattern: ".{6,}",
+                              required: ""
+                            },
+                            domProps: { value: _vm.userEditData.password },
+                            on: {
+                              input: function($event) {
+                                if ($event.target.composing) {
+                                  return
+                                }
+                                _vm.$set(
+                                  _vm.userEditData,
+                                  "password",
+                                  $event.target.value
+                                )
+                              }
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass: "mdl-textfield__label",
+                              attrs: { for: "passwordEdit" }
+                            },
+                            [_vm._v("Mot de passe")]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "mdl-cell--12-col",
+                          attrs: { id: "radio" }
+                        },
+                        [
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "mdl-radio mdl-js-radio mdl-js-ripple-effect",
+                              attrs: { for: "utilisateurEdit" }
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.userEditData.status,
+                                    expression: "userEditData.status"
+                                  }
+                                ],
+                                staticClass: "mdl-radio__button",
+                                attrs: {
+                                  type: "radio",
+                                  id: "utilisateurEdit",
+                                  name: "options",
+                                  checked: "",
+                                  value: "0"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.userEditData.status, "0")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    _vm.$set(_vm.userEditData, "status", "0")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "mdl-radio__label" }, [
+                                _vm._v("Utilisateur")
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "label",
+                            {
+                              staticClass:
+                                "mdl-radio mdl-js-radio mdl-js-ripple-effect",
+                              attrs: { for: "administrateurEdit" }
+                            },
+                            [
+                              _c("input", {
+                                directives: [
+                                  {
+                                    name: "model",
+                                    rawName: "v-model",
+                                    value: _vm.userEditData.status,
+                                    expression: "userEditData.status"
+                                  }
+                                ],
+                                staticClass: "mdl-radio__button",
+                                attrs: {
+                                  type: "radio",
+                                  id: "administrateurEdit",
+                                  name: "options",
+                                  value: "1"
+                                },
+                                domProps: {
+                                  checked: _vm._q(_vm.userEditData.status, "1")
+                                },
+                                on: {
+                                  change: function($event) {
+                                    _vm.$set(_vm.userEditData, "status", "1")
+                                  }
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("span", { staticClass: "mdl-radio__label" }, [
+                                _vm._v("Administrateur")
+                              ])
+                            ]
+                          )
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _vm._m(1)
+                    ]
+                  )
                 ])
-              ])
-            })
-          )
-        ]
-      )
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "mdl-grid" }, [
-      _c(
-        "div",
-        {
-          staticClass:
-            "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid card"
-        },
-        [
-          _c("h3", { staticClass: "mdl-cell--12-col header" }, [
-            _vm._v("Créer un utilisateur")
-          ]),
-          _vm._v(" "),
-          _c("creation-utilisateur")
-        ],
-        1
-      )
-    ])
-  ])
+              ]
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _c("modal-verification", {
+        attrs: { message: _vm.message, method: _vm.verification }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -18038,6 +18481,16 @@ var staticRenderFns = [
         _c("th", [_vm._v("Email")]),
         _vm._v(" "),
         _c("th", [_vm._v("Options")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mdl-dialog__actions" }, [
+      _c("button", { staticClass: "mdl-button submit_create" }, [
+        _vm._v("Modifier")
       ])
     ])
   }
@@ -19236,11 +19689,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["message"],
+    props: ["message", "method"],
     data: function data() {
         return {
             //message: this.message,
         };
+    },
+
+    methods: {
+        verification: function verification() {
+            this.method();
+        }
     }
 });
 
@@ -19262,33 +19721,30 @@ var render = function() {
         _c("p", [_vm._v(_vm._s(_vm.message))])
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "mdl-dialog__actions" }, [
+        _c(
+          "button",
+          {
+            staticClass: "mdl-button oui yes_modal_verif",
+            attrs: { type: "button" },
+            on: { click: _vm.verification }
+          },
+          [_vm._v("Oui")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "mdl-button non close_modal_verif",
+            attrs: { type: "button" }
+          },
+          [_vm._v("Non")]
+        )
+      ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-dialog__actions" }, [
-      _c(
-        "button",
-        { staticClass: "mdl-button oui", attrs: { type: "button" } },
-        [_vm._v("Oui")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "mdl-button non close_modal_verif",
-          attrs: { type: "button" }
-        },
-        [_vm._v("Non")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

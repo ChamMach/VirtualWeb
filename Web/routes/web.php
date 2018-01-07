@@ -33,6 +33,7 @@ Route::group(['middleware' => ['isAdmin']], function ()
     //Route::post('get_users', array('uses' => 'UserController@getUsers'));
     Route::post('create_user', array('uses' => 'Admin\AdminController@createUser'));
     Route::post('delete_user', array('uses' => 'Admin\AdminController@deleteUser'));
+    Route::post('edit_user', array('uses' => 'Admin\AdminController@editUser'));
 });
 
 Route::get('/connexion', array('uses' => 'Auth\LoginController@loginPage'))->name('connexion');

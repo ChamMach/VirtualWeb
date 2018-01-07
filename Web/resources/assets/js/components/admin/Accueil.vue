@@ -12,7 +12,7 @@
             </div>
             <div class="mdl-shadow--2dp mdl-cell mdl-cell--4-col">
                 <div class="count conteneur">
-                    <span class="compteur"><span class="chiffre">3</span> </span>
+                    <span class="compteur"><span class="chiffre">{{ vm }}</span> </span>
                     <span class="titre">VM</span>
                 </div>
             </div>
@@ -30,6 +30,7 @@
         data () {
             return {
                 utilisateurs: dataArray.dashboard.utilisateurs,
+                vm: dataArray.dashboard.vm,
             }
         },
     }

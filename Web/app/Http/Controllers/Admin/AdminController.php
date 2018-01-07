@@ -44,6 +44,9 @@ class AdminController extends Controller
         ->orderBy('id')
         ->get();
 
+        //Récupère nombre de VM
+        $vmTotal = DB::table('vm')->count();
+
         $userData['users'] = array(
             'data' => $users,
             'error' => false
@@ -52,6 +55,7 @@ class AdminController extends Controller
         //Data pour le dashboard
         $userData['dashboard'] = array(
             'utilisateurs' => $users->count(),
+            'vm' => $vmTotal
         );
 
         return view('home', [
@@ -113,6 +117,44 @@ class AdminController extends Controller
             }
         } else {
             $return['message'] = 'L\'utilisateur existe déjà';
+        }
+        return $return;
+    }
+
+    /**
+     * Modification d'un utilisateurs
+     * @param  Request $request Données du formulaire
+     * @return Array            Erreur + message ou succes
+     */
+    public function editUser(Request $request)
+    {
+        $return = array(
+            'erreur' => true
+        );
+
+        //On vérifie avant si l'utilisateur n'existe pas déjà
+        $userExist = DB::table('users')
+        ->where('email', $request->get('email'))
+        ->get();
+        //Si ce n'est pas le cas, on peut créer un utilisateur
+        if ($userExist->count() == 1) {
+            $modif = DB::table('users')->where('id', $request->get('id'))
+            ->update([
+                'nom' => $request->get('nom'),
+                'prenom' => $request->get('prenom'),
+                'email' => $request->get('email'),
+                'password' => \Hash::make($request->get('password')),
+                'status' => $request->get('status'),
+                'updated_at' => date("Y-m-d H:i:s"),
+            ]);
+            if (!is_null($modif)) {
+                $return['erreur'] = false;
+                $return['message'] = 'Utilisateur modifié en base';
+            } else {
+                $return['message'] = 'Impossible de modifier l\'utilisateur';
+            }
+        } else {
+            $return['message'] = 'L\'utilisateur n\'existe pas';
         }
         return $return;
     }
