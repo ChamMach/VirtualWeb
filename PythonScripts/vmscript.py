@@ -2,11 +2,13 @@
 from shelper import SocketHelper
 import json
 import vmfonctions
+# coding: utf8
 
 #####PROGRAMME PRINCIPAL######
+ip = raw_input('Entrez l\'adresse IP de la machine : ')
 
 #Creation de la socket reseau
-sockethelper = SocketHelper("localhost",1333)
+sockethelper = SocketHelper(ip,1333)
 print 'En attente ...'
 
 #Tant que toujours vrai (afin d'etre toujours actif)
@@ -21,7 +23,7 @@ while True:
     try:
         python_obj = json.loads(data) #Chargement du json recu
     except ValueError:
-        print "Erreur pas de JSON obtenu "
+        print "Erreur pas de JSON obtenu. Arret ..."
 
     #Listing des vms pour un utilisateur
     if 'listing_vm' in data:
