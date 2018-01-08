@@ -35,12 +35,19 @@ class UserController extends Controller
         $user = Auth::user();
         $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
+        $vm = self::getVM($user->id);
         $userData = array(
             'nom' => $nom,
             'status' => $status[$user->status],
             'verified' => Auth::check(),
-            'vm' => self::getVM($user->id),
+            'vm' => $vm,
         );
+
+        //Data pour le dashboard
+        $userData['dashboard'] = array(
+            'vm' => sizeof($vm),
+        );
+
         return view('home', [
             'dataToShow' => json_encode($userData)
         ]);
@@ -91,7 +98,7 @@ class UserController extends Controller
 
         return $vm;
     }
-    
+
     /**
      * Création d'une VM
      * @param  Request $request Données du formulaire
@@ -102,7 +109,7 @@ class UserController extends Controller
         $return = array(
             'erreur' => true
         );
-        
+
         //On récupère l'id de l'utilisateur qui fait la demande
         $user = Auth::user();
         $userID = $user->id;
@@ -142,7 +149,7 @@ class UserController extends Controller
         }
         return $return;
     }
-    
+
     /**
      * Exécute les actions sur les VM (supprimer, allumer, ééteindre)
      * @param  Request $request Données du formulaire
@@ -156,7 +163,7 @@ class UserController extends Controller
         //Récupère l'action à réaliser
         $action = $request->get('action');
         $vmID = $request->get('id');
-        
+
         $socketJson = null;
         $socket = null;
         $sockethelper = new sockethelper('localhost',1333);
@@ -188,16 +195,16 @@ class UserController extends Controller
             //Decode le JSON pour avoir un array et le traiter
             $socketJson = json_decode($socket);
             //Tester ici le retour du JSON afin de savoir si l'action a été réalisée
-            
+
             $return['erreur'] = false;
             $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
         } else {
             $return['message'] = 'Problème de connexion, merci de réessayer plus tard';
         }
-        
+
         return $return;
     }
-    
+
     /**
      * Gère la déconnexion d'un utilisateur
      * @return Route Redirige vers l'accueil

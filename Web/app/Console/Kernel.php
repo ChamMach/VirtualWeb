@@ -30,12 +30,11 @@ class Kernel extends ConsoleKernel
         $schedule->call(function(){
             $socketJson = null;
             $socket = null;
-            $sockethelper = new sockethelper('localhost',1333);
+            $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
             //Si la socket est ouverte
             if ($sockethelper->isOnline() !== false) {
-                $userID = '1';
                 $dataToGet = array(
-                    'infos_vm' => $userID
+                    'infos_vm' => 'all'
                 );
                 $json = json_encode($dataToGet);
                 //On envoi le JSON au socket
@@ -49,17 +48,23 @@ class Kernel extends ConsoleKernel
                 //Pour chaque VM
                 foreach ($socketJson->data as $key => $value) {
                     //Supprime l'ID de l'utilisateur dans le nom
-                    $socketJson->data->$key->nom = preg_replace('/\d*_/', '', $socketJson->data->$key->nom);
+                    //$socketJson->data->$key->nom = preg_replace('/\d*_/', '', $socketJson->data->$key->nom);
 
-                    $vm_exist = VM::where('id_utilisateur',1)
-                        ->where('nom',$value->nom)
-                        ->first();
+                    //On coupe une chaîne en segment grâce au délimiteur _
+                    $explodeUser = explode("_", $value->nom);
+                    $idUser = $explodeUser[0];
+                    $nomVm = $explodeUser[1];
+
+                    //On recherche si la VM existe déjà
+                    $vm_exist = VM::where('id_utilisateur', $idUser)
+                    ->where('nom', $explodeUser[1])
+                    ->first();
 
                     //Si la VM n'existe pas, on la crée
                     if (is_null($vm_exist)) {
                         $vm = VM::create(array(
-                            'id_utilisateur'     => 1,
-                            'nom'    => $value->nom,
+                            'id_utilisateur'     => $idUser,
+                            'nom'    => $nomVm,
                             'description' => $value->description,
                             'statut' => $value->statut,
                             'os' => $value->caracteristiques->os,
@@ -74,8 +79,7 @@ class Kernel extends ConsoleKernel
                         //Insertion des données
                         $vm->save();
                     } else {
-                        //On la met à jour
-                        $vm_exist->nom = $value->nom;
+                        //Sinon on la met à jour
                         $vm_exist->description = $value->description;
                         $vm_exist->statut = $value->statut;
                         $vm_exist->os = $value->caracteristiques->os;

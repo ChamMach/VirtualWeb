@@ -46,7 +46,7 @@
                             <label class="mdl-textfield__label" for="emailEdit">Email</label>
                         </div>
                         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <input class="mdl-textfield__input" type="password" id="passwordEdit" pattern=".{6,}" v-model="userEditData.password" required>
+                            <input class="mdl-textfield__input" type="password" id="passwordEdit" pattern=".{6,}" v-model="userEditData.password">
                             <label class="mdl-textfield__label" for="passwordEdit">Mot de passe</label>
                         </div>
                         <div class="mdl-cell--12-col" id="radio">
