@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\User;
 use App\Classes\SocketHelper;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 
 class AdminController extends Controller
 {
@@ -138,15 +140,28 @@ class AdminController extends Controller
         ->get();
         //Si ce n'est pas le cas, on peut créer un utilisateur
         if ($userExist->count() == 1) {
-            $modif = DB::table('users')->where('id', $request->get('id'))
-            ->update([
-                'nom' => $request->get('nom'),
-                'prenom' => $request->get('prenom'),
-                'email' => $request->get('email'),
-                'password' => \Hash::make($request->get('password')),
-                'status' => $request->get('status'),
-                'updated_at' => date("Y-m-d H:i:s"),
-            ]);
+            //Si il y a un nouveau mot de passe dans le formulaire, sinon on garde le même
+            if (!is_null($request->get('password'))) {
+                $modif = DB::table('users')->where('id', $request->get('id'))
+                ->update([
+                    'nom' => $request->get('nom'),
+                    'prenom' => $request->get('prenom'),
+                    'email' => $request->get('email'),
+                    'password' => \Hash::make($request->get('password')),
+                    'status' => $request->get('status'),
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+            } else {
+                $modif = DB::table('users')->where('id', $request->get('id'))
+                ->update([
+                    'nom' => $request->get('nom'),
+                    'prenom' => $request->get('prenom'),
+                    'email' => $request->get('email'),
+                    'status' => $request->get('status'),
+                    'updated_at' => date("Y-m-d H:i:s"),
+                ]);
+            }
+            //On vérifie le retour
             if (!is_null($modif)) {
                 $return['erreur'] = false;
                 $return['message'] = 'Utilisateur modifié en base';
@@ -182,5 +197,20 @@ class AdminController extends Controller
             $return['message'] = 'L\'utilisateur n\'existe pas';
         }
         return $return;
+    }
+    
+    /**
+     * Gère la déconnexion d'un utilisateur
+     * @return Route Redirige vers l'accueil
+     */
+    public function deconnexion()
+    {
+        $user = Auth::user();
+        DB::table('historique')->insert(
+            ['id_user' => $user->id, 'date' => date("Y-m-d H:i:s"), 'action' => 2]
+        );
+        Auth::logout();
+        Session::flush();
+        return Redirect::to('/');
     }
 }

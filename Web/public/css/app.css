@@ -120,7 +120,7 @@ body.connexion .mdl-textfield__input {
 
 body.connexion .form-login {
   background: #fff;
-  width: 18%;
+  width: 350px;
   margin: 9% auto 4% auto;
   position: relative;
   -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
@@ -357,6 +357,8 @@ a {
 .page-content {
   max-width: 1280px;
   margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .vm {

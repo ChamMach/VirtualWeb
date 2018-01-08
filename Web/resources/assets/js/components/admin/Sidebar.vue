@@ -11,7 +11,7 @@
       <nav class="mdl-navigation menu-links">
         <router-link to="administration" class="mdl-navigation__link"><i class="material-icons">home</i> Accueil</router-link>
         <router-link to="utilisateurs" class="mdl-navigation__link"><i class="material-icons">dvr</i> Utilisateurs</router-link>
-        <a class="mdl-navigation__link" href="deconnexion"><i class="material-icons">exit_to_app</i> Déconnexion</a>
+        <a class="mdl-navigation__link" href="deconnexion_admin"><i class="material-icons">exit_to_app</i> Déconnexion</a>
       </nav>
     </div>
 </template>

@@ -73,5 +73,8 @@ class DatabaseSeeder extends Seeder
         DB::table('actions')->insert([
             'description' => 'Déconnexion'
         ]);
+        DB::table('actions')->insert([
+            'description' => 'Création VM'
+        ]);
     }
 }

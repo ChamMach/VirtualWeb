@@ -10,17 +10,6 @@ use DB;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -45,7 +34,7 @@ class LoginController extends Controller
      * @param  Request $request Données du formulaire
      * @return array           Erreur ou suscès
      */
-    public function connexion (Request $request)
+    public function connexion(Request $request)
     {
         $auth = false;
         //On récupère les données du formulaire
@@ -88,11 +77,5 @@ class LoginController extends Controller
         return view('connexion', [
             'dataToShow' => json_encode($userData)
         ]);
-    }
-
-    public function deconnexion()
-    {
-        Auth::logout();
-        return redirect('/');
     }
 }

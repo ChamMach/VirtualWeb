@@ -16,6 +16,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//S'il s'agit d'un user
 Route::group(['middleware' => ['isUser']], function ()
 {
     Route::get('/accueil', 'UserController@index')->name('accueil');
@@ -23,9 +24,14 @@ Route::group(['middleware' => ['isUser']], function ()
     Route::get('/supprimer', 'UserController@index')->name('supprimer');
     Route::get('/vm', 'UserController@index')->name('vm');
     Route::get('/conteneur', 'UserController@index')->name('contenuer');
+    Route::post('create_vm', array('uses' => 'UserController@createVM'));
+    Route::post('send_action', array('uses' => 'UserController@sendAction'));
+    
+    Route::get('/deconnexion_user', array('uses' => 'UserController@deconnexion'));
 });
 
 //Middleware déclaré dans Http/Kernel.php
+//S'il s'agit d'un admin
 Route::group(['middleware' => ['isAdmin']], function ()
 {
     Route::get('/administration', 'Admin\AdminController@index')->name('administration');
@@ -34,13 +40,17 @@ Route::group(['middleware' => ['isAdmin']], function ()
     Route::post('create_user', array('uses' => 'Admin\AdminController@createUser'));
     Route::post('delete_user', array('uses' => 'Admin\AdminController@deleteUser'));
     Route::post('edit_user', array('uses' => 'Admin\AdminController@editUser'));
+    
+    Route::get('/deconnexion_admin', array('uses' => 'Admin\AdminController@deconnexion'));
 });
 
+//Route de connexion et déconnexion
 Route::get('/connexion', array('uses' => 'Auth\LoginController@loginPage'))->name('connexion');
 Route::post('connexion', array('uses' => 'Auth\LoginController@connexion'));
-Route::get('/deconnexion', function()
-{
-    Auth::logout();
-    Session::flush();
-    return Redirect::to('/');
-})->name('deconnexion');
+//Route::get('/deconnexion', array('uses' => 'Auth\LogoutController@deconnexion'));
+// Route::get('/deconnexion', function()
+// {
+//     Auth::logout();
+//     Session::flush();
+//     return Redirect::to('/');
+// })->name('deconnexion');
