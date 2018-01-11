@@ -7,6 +7,7 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Classes\SocketHelper;
 use App\VM;
+use Log;
 
 class Kernel extends ConsoleKernel
 {

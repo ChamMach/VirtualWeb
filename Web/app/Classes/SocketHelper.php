@@ -9,6 +9,9 @@ class SocketHelper{
 
     public function __construct($host,$port){
         $this->socket = @socket_create(AF_INET,SOCK_STREAM,SOL_TCP);
+        //Ajout d'un timeout de 2s pour le socket read afin d'éviter qu'il attende trop longtemps
+        //si jamais il n'y a pas de retour
+        socket_set_option($this->socket,SOL_SOCKET, SO_RCVTIMEO, array("sec"=>2, "usec"=>0));
         $result = @socket_connect($this->socket,$host,$port);
         //On rend le retour accessible pour la fonction isOnline()
         global $retourSocket;

@@ -10,6 +10,7 @@ use App\User;
 use App\Classes\SocketHelper;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use Log;
 
 class AdminController extends Controller
 {

@@ -70,15 +70,15 @@
                     </div>
                     <div class="options_bloc bloc_interactif">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif"
-                                data-action="supprimer" @click="set($event)">
+                                data-action="delete" @click="set(value, $event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
-                                data-action="allumer" @click="set($event)">
+                                data-action="start" @click="set(value, $event)">
                             <i class="material-icons">play_arrow</i> Allumer
                         </button>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif"
-                                data-action="eteindre" @click="set($event)">
+                                data-action="shutdown" @click="set(value, $event)">
                             <i class="material-icons">power_settings_new</i> Éteindre
                         </button>
                     </div>
@@ -91,7 +91,7 @@
             </div>
         </div>
         <creation-vm></creation-vm>
-        <modal-verification v-bind:message="message"></modal-verification>
+        <modal-verification v-bind:message="message" v-bind:method="verification"></modal-verification>
     </div>
 </template>
 
@@ -109,12 +109,18 @@
                 vm: vmTmp,
                 isActive: false,
                 message: null,
+                methods: {
+                    action: null,
+                    idUser: null,
+                    vm: null,
+                },
             }
         },
         mounted() {
             'use strict';
             //S'il n'y a pas de VM, pas besoin de modal
             if (vmTmp !== null) {
+                //Correspond à la modale de création d'une VM
                 var dialog_create = document.querySelector('#modal_create');
                 var closeButton = dialog_create.querySelector('.close_modal_creation');
                 var showButton = document.querySelector('#show_modal_creation');
@@ -136,14 +142,20 @@
             if (!dialog.showModal) {
                 dialogPolyfill.registerDialog(dialog);
             }
+            //Ajout listener sur le bouton au clique pour afficher la modale
             dialogButton.forEach(function(elem) {
                 elem.addEventListener("click", function() {
                     dialog.showModal();
                 });
             });
+            //Pareil mais pour quitter la modale
             dialog.querySelector('.close_modal_verif')
             .addEventListener('click', function() {
                 dialog.close();
+            });
+            dialog.querySelector('.yes_modal_verif')
+            .addEventListener('click', function() {
+                dialog.close()
             });
         },
         //Fixe le problème du select non actualisé
@@ -154,6 +166,7 @@
           });
       },
       methods: {
+          //Gestion des onglets de la card
           showHide(event)
           {
               var key = event.target.parentElement.parentElement.attributes["0"].value
@@ -164,18 +177,49 @@
               elementVm.find('.'+action).addClass('current')
               event.target.classList.add('active')
           },
-          set(e) {
-              var texte = e.target.parentElement.parentElement.parentElement.children[2].outerText
-              var action = e.target.parentElement.dataset.action;
-              if (action == 'supprimer') {
+          //Initilise les valeurs au clique sur une action
+          set(user, click) {
+              var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText
+              //On récupère l'action
+              var action = click.target.parentElement.dataset.action;
+              //On affecte ces valeurs aux variables
+              this.methods.action = action
+              this.methods.idUser = user.id_utilisateur
+              //On concatène le nom de la VM pour le script
+              this.methods.vm = user.id_utilisateur + '_' + user.nom
+              console.log(this.methods);
+              if (action == 'delete') {
+                  //Message qui sera visible dans la modale
                   this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?'
-              } else if (action == 'allumer') {
+              } else if (action == 'start') {
                   this.message = 'Voulez vous vraiment allumer la VM ' + texte + ' ?'
-              } else if (action == 'eteindre') {
+              } else if (action == 'shutdown') {
                   this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?'
               }
               //this.message = message
-          }
+          },
+          //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
+          verification() {
+              console.log(this.methods);
+              //On exécute la requête ajax
+              this.$http.post('/send_action', {
+                  action: this.methods.action,
+                  nomVM: this.methods.vm,
+                  id: this.methods.idUser,
+              }).then((response) => {
+                  if (response.data.erreur == true) {
+                      notyf.alert(response.data.message);
+                  } else if (response.data.erreur == false) {
+                      notyf.confirm(response.data.message);
+                  }
+              }, () => {
+                  console.log('erreur');
+              })
+              //On réinitialise les valeurs
+              this.methods.action = null;
+              this.methods.idUser = null;
+              this.methods.vm = null;
+          },
       }
     }
 </script>

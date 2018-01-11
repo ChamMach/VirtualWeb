@@ -10,6 +10,7 @@ use App\Classes\SocketHelper;
 use App\VM;
 use Session;
 use Illuminate\Support\Facades\Redirect;
+use Log;
 
 class UserController extends Controller
 {
@@ -151,7 +152,7 @@ class UserController extends Controller
     }
 
     /**
-     * Exécute les actions sur les VM (supprimer, allumer, ééteindre)
+     * Exécute les actions sur les VM (supprimer, allumer, éteindre)
      * @param  Request $request Données du formulaire
      * @return Array           Erreur + message ou succes
      */
@@ -163,44 +164,122 @@ class UserController extends Controller
         //Récupère l'action à réaliser
         $action = $request->get('action');
         $vmID = $request->get('id');
-
-        $socketJson = null;
-        $socket = null;
-        $sockethelper = new sockethelper('localhost',1333);
-        //Si la socket est ouverte
-        if ($sockethelper->isOnline() !== false) {
-            if ($action == 'delete') {
-                $dataToGet = array(
-                    'delete_vm' => $vmID
-                );
-                $actionFR = 'supprimer la VM : ' . $request->get('id');
-            } elseif ($action == 'start') {
-                $dataToGet = array(
-                    'start_vm' => $vmID
-                );
-                $actionFR = 'démarrer la VM : ' . $request->get('id');
-            } elseif ($action == 'shutdown') {
-                $dataToGet = array(
-                    'shutdown_vm' => $vmID
-                );
-                $actionFR = 'éteindre la VM : ' . $request->get('id');
+        $nomVM = $request->get('nomVM');
+        
+        //Récupère le nom de la VM
+        $vm = VM::where('nom', explode("_", $nomVM)[1])
+        ->first();
+        
+        //Si la VM existe bien
+        if (!is_null($vm)) {
+            $socketJson = null;
+            $socket = null;
+            $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
+            //Si la socket est ouverte
+            if ($sockethelper->isOnline() !== false) {
+                if ($action == 'delete') {
+                    //Création du JSON à envoyer au script
+                    $dataToGet = array(
+                        'delete_vm' => $nomVM
+                    );
+                    $actionFR = 'supprimer la VM : ' . $vm->nom;
+                } elseif ($action == 'start') {
+                    $dataToGet = array(
+                        'start_vm' => $nomVM
+                    );
+                    $actionFR = 'démarrer la VM : ' . $vm->nom;
+                } elseif ($action == 'shutdown') {
+                    $dataToGet = array(
+                        'stop_vm' => $nomVM
+                    );
+                    $actionFR = 'éteindre la VM : ' . $vm->nom;
+                }
+                
+                $json = json_encode($dataToGet);
+                //On envoi le JSON au socket
+                $sockethelper->send_data($json);
+                //On récupère le retour
+                $socket = $sockethelper->read_data();
+                //On ferme la socket
+                $sockethelper->close_socket();
+                //Decode le JSON pour avoir un array et le traiter
+                $socketJson = json_decode($socket);
+                //Teste du retour JSON afin de savoir si l'action a été réalisée
+                if (isset($socketJson['start_vm']) or isset($socketJson['stop_vm'])) {
+                    //Si on est dans le cas démarrer une VM
+                    if (isset($socketJson['start_vm'])) {
+                        switch ($socketJson['start_vm']) {
+                            case true:
+                                $return['erreur'] = false;
+                                $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
+                                //Actualise l'état de la VM en base
+                                $vm->statut = 'on';
+                                $vm->save();
+                                //On met à jour l'historique
+                                DB::table('historique')->insert(
+                                    ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 4]
+                                );
+                                break;
+                            case 'false_vmalreadyonline':
+                                $return['message'] = 'La VM '. $vm->nom .' est déjà allumée';
+                                break;
+                            case 'false_sessionlocked':
+                                $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
+                                break;
+                            case 'false_sessionunknown':
+                                $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
+                                break;
+                            case 'false_startfailed':
+                                $return['message'] = 'Impossible de démarrer la VM ' . $vm->nom;
+                                break;
+                            case 'false_statevmunknown':
+                                $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de la démarrer';
+                                break;
+                        }
+                    } elseif (isset($socketJson['stop_vm'])) {
+                        switch ($socketJson['start_vm']) {
+                            case true:
+                                $return['erreur'] = false;
+                                $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
+                                //Actualise l'état de la VM en base
+                                $vm->statut = 'on';
+                                $vm->save();
+                                //On met à jour l'historique
+                                DB::table('historique')->insert(
+                                    ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 5]
+                                );
+                                break;
+                            case 'false_vmalreadyoff':
+                                $return['message'] = 'La VM '. $vm->nom .' est déjà éteinte';
+                                break;
+                            case 'false_sessionlocked':
+                                $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
+                                break;
+                            case 'false_sessionunknown':
+                                $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
+                                break;
+                            case 'false_stopfailed':
+                                $return['message'] = 'Impossible d\'éteindre la VM ' . $vm->nom;
+                                break;
+                            case 'false_statevmunknown':
+                                $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de l\'éteindre';
+                                break;
+                        }
+                    }
+                } else {
+                    //Il est possible que le socket ne renvoie rien. Actuellement on attend 2s
+                    //Si aucun retour, on arrive dans ce cas
+                    $return['message'] = 'Problème de connexion, merci de réessayer plus tard';
+                }
+            } else {
+                $return['message'] = 'Problème de connexion, merci de réessayer plus tard';
             }
-            $json = json_encode($dataToGet);
-            //On envoi le JSON au socket
-            $sockethelper->send_data($json);
-            //On récupère le retour
-            $socket = $sockethelper->read_data();
-            //On ferme la socket
-            $sockethelper->close_socket();
-            //Decode le JSON pour avoir un array et le traiter
-            $socketJson = json_decode($socket);
-            //Tester ici le retour du JSON afin de savoir si l'action a été réalisée
-
-            $return['erreur'] = false;
-            $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
         } else {
-            $return['message'] = 'Problème de connexion, merci de réessayer plus tard';
+            $return['message'] = 'La VM n\'existe pas';
         }
+
+        //On ajoute au fichier log ce qu'il c'est passé ici pour garder un historique
+        Log::debug('Action VM '. $nomVM .' : ' . json_encode($return));
 
         return $return;
     }
