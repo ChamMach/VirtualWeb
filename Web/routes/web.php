@@ -48,9 +48,9 @@ Route::group(['middleware' => ['isAdmin']], function ()
 Route::get('/connexion', array('uses' => 'Auth\LoginController@loginPage'))->name('connexion');
 Route::post('connexion', array('uses' => 'Auth\LoginController@connexion'));
 //Route::get('/deconnexion', array('uses' => 'Auth\LogoutController@deconnexion'));
-// Route::get('/deconnexion', function()
-// {
-//     Auth::logout();
-//     Session::flush();
-//     return Redirect::to('/');
-// })->name('deconnexion');
+Route::get('/deconnexion', function()
+{
+    Auth::logout();
+    Session::flush();
+    return Redirect::to('/');
+})->name('deconnexion');

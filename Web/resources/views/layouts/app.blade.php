@@ -16,6 +16,8 @@
     <link href="{{ asset('css/material.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/getmdl-select.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/notyf.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="{{ Route::currentRouteName() }}">

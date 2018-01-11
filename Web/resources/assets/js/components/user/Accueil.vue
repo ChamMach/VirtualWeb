@@ -18,7 +18,7 @@
             </div>
             <div class="mdl-shadow--2dp mdl-cell mdl-cell--4-col">
                 <div class="count status on">
-                    <span class="compteur"><span class="chiffre">0</span> </span>
+                    <span class="compteur"><span class="chiffre">{{ on }}</span> </span>
                     <span class="titre">VM allumée</span>
                 </div>
             </div>
@@ -29,7 +29,8 @@
     export default {
         data () {
             return {
-                vm: dataArray.dashboard.vm,
+                vm: dataArray.dashboard.vm.nb,
+                on: dataArray.dashboard.vm.on,
             }
         },
     }

@@ -9,6 +9,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
         <!-- Styles -->
         <style>
             html, body {
@@ -78,11 +79,11 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
-                <div class="title m-b-md">
+                <div class="title m-b-md fadeInDown animated">
                     Virtual Web
                 </div>
                 @if (Route::has('login'))
-                    <div class="links">
+                    <div class="links fadeIn animated">
                         @auth
                             @if (Auth::user()->status == 1)
                                 <a href="{{ route('administration') }}">Tableau de bord</a>

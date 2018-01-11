@@ -1,5 +1,5 @@
 <template>
-    <div class="mdl-layout__drawer sidebar">
+    <div class="mdl-layout__drawer sidebar mdl-shadow--4dp">
         <div class="user-data">
             <div class="user-picture">
                 <img src="https://image.flaticon.com/icons/svg/149/149074.svg" alt="">

@@ -36,7 +36,19 @@ class UserController extends Controller
         $user = Auth::user();
         $status = array('user', 'admin');
         $nom = $user->prenom . ' ' . $user->nom;
-        $vm = self::getVM($user->id);
+        $vm = VM::where('id_utilisateur', $user->id)->get();
+        if (sizeof($vm) == 0) {
+            $vmData = array(
+                'nb' => 0,
+                'on' => 0,
+            );
+        } else {
+            $vmAllume = VM::where('statut', 'on')->count();
+            $vmData = array(
+                'nb' => sizeof($vm),
+                'on' => $vmAllume,
+            );
+        }
         $userData = array(
             'nom' => $nom,
             'status' => $status[$user->status],
@@ -46,7 +58,7 @@ class UserController extends Controller
 
         //Data pour le dashboard
         $userData['dashboard'] = array(
-            'vm' => sizeof($vm),
+            'vm' => $vmData,
         );
 
         return view('home', [

@@ -1150,241 +1150,11 @@ module.exports = Cancel;
 
 
 /***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(56)
-/* template */
-var __vue_template__ = __webpack_require__(57)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Login.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
-  } else {
-    hotAPI.reload("data-v-3e2ac97c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(58)
-/* template */
-var __vue_template__ = __webpack_require__(59)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/Accueil.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-e65dac66", Component.options)
-  } else {
-    hotAPI.reload("data-v-e65dac66", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(60)
-/* template */
-var __vue_template__ = __webpack_require__(61)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/user/VM.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-93df1398", Component.options)
-  } else {
-    hotAPI.reload("data-v-93df1398", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(62)
-/* template */
-var __vue_template__ = __webpack_require__(63)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/user/Conteneur.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-235d410c", Component.options)
-  } else {
-    hotAPI.reload("data-v-235d410c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(64)
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/admin/Utilisateurs.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-be0cdaf2", Component.options)
-  } else {
-    hotAPI.reload("data-v-be0cdaf2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
+/* 10 */,
+/* 11 */,
+/* 12 */,
+/* 13 */,
+/* 14 */,
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1736,16 +1506,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__App_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__App_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Login_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Accueil_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_user_VM_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__ = __webpack_require__(13);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_user_Conteneur_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_admin_Utilisateurs_vue__);
 
 
 
@@ -1753,11 +1513,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 //Importation des vues
-
-
-
-
-
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_2_vue_axios___default.a, __WEBPACK_IMPORTED_MODULE_3_axios___default.a);
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
@@ -1768,7 +1523,7 @@ console.log(dataArray);
 var routes = [{
     name: 'Login',
     path: '/connexion',
-    component: __WEBPACK_IMPORTED_MODULE_5__components_Login_vue___default.a
+    component: view('Login')
 }, {
     name: 'logout',
     path: 'deconnexion'
@@ -1778,7 +1533,7 @@ var routes = [{
 }, {
     name: 'Accueil',
     path: '/accueil',
-    component: view('Accueil')
+    component: view('user/Accueil')
 }, {
     name: 'VM',
     path: '/vm',
@@ -16946,1635 +16701,16 @@ if (false) {
 }
 
 /***/ }),
-/* 56 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'login',
-    data: function data() {
-        return {
-            loader: false,
-            erreur: false,
-            email: '',
-            password: '',
-            message: ''
-        };
-    },
-
-    methods: {
-        login: function login() {
-            var _this = this;
-
-            erreur: false;
-            message: '';
-            if (this.email == '') {
-                document.getElementById('email').parentElement.classList.add('is-invalid');
-                if (this.password == '') {
-                    document.getElementById('password').parentElement.classList.add('is-invalid');
-                }
-            } else if (this.password == '') {
-                document.getElementById('password').parentElement.classList.add('is-invalid');
-                if (this.email == '') {
-                    document.getElementById('email').parentElement.classList.add('is-invalid');
-                }
-            } else {
-                this.$http.post('/connexion', {
-                    email: this.email,
-                    password: this.password
-                }).then(function (response) {
-                    if (response.data.succes == true) {
-
-                        if (response.data.status == 'admin') {
-                            window.location.href = "/administration";
-                        } else {
-                            window.location.href = "/accueil";
-                        }
-                    } else {
-                        _this.erreur = true;
-                        _this.password = '';
-                    }
-                    _this.message = response.data.message;
-                }, function () {
-                    _this.erreur = true;
-                    _this.password = '';
-                });
-            }
-        }
-    }
-});
-
-/***/ }),
-/* 57 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      staticClass: "form form-login",
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          _vm.login($event)
-        }
-      }
-    },
-    [
-      _c("h2", { staticClass: "form-title" }, [_vm._v("Connexion")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "container-login" }, [
-        _vm.message
-          ? _c(
-              "div",
-              { staticClass: "alert", class: { "alert-danger": _vm.erreur } },
-              [
-                _c("strong", [_vm._v("Erreur !")]),
-                _vm._v(" " + _vm._s(_vm.message) + "\n        ")
-              ]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.email,
-                  expression: "email",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: { type: "email", id: "email" },
-              domProps: { value: _vm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.email = $event.target.value.trim()
-                },
-                blur: function($event) {
-                  _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "mdl-textfield__label", attrs: { for: "email" } },
-              [_vm._v("Adresse email")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model.trim",
-                  value: _vm.password,
-                  expression: "password",
-                  modifiers: { trim: true }
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: { type: "password", id: "password" },
-              domProps: { value: _vm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.password = $event.target.value.trim()
-                },
-                blur: function($event) {
-                  _vm.$forceUpdate()
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "mdl-textfield__label",
-                attrs: { for: "password" }
-              },
-              [_vm._v("Mot de passe")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "form-block" },
-          [
-            _c(
-              "button",
-              {
-                staticClass:
-                  "mdl-button mdl-js-button mdl-button--raised mdl-button--colored submit_login"
-              },
-              [_vm._v("\n              Connexion\n            ")]
-            ),
-            _vm._v(" "),
-            _c("router-link", { attrs: { to: "/password-reset" } }, [
-              _vm._v("Mot de passe oublié?")
-            ])
-          ],
-          1
-        )
-      ])
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
-  }
-}
-
-/***/ }),
-/* 58 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            vm: dataArray.dashboard.vm
-        };
-    }
-});
-
-/***/ }),
-/* 59 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "mdl-grid" }, [
-      _c("div", { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" }, [
-        _c("div", { staticClass: "count vm" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [_vm._v(_vm._s(_vm.vm))])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("VM")])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _vm._m(2)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-grid" }, [
-      _c("h3", { staticClass: "titre" }, [_vm._v("Espace utilisateur")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
-      [
-        _c("div", { staticClass: "count conteneur" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [_vm._v("0")])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("Conteneurs")])
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
-      [
-        _c("div", { staticClass: "count status on" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [_vm._v("0")])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("VM allumée")])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-e65dac66", module.exports)
-  }
-}
-
-/***/ }),
-/* 60 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var vmTmp;
-//On regarde s'il y a des VM
-if (dataArray.vm == null) {
-    vmTmp = null;
-} else {
-    vmTmp = dataArray.vm;
-}
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            vm: vmTmp,
-            isActive: false,
-            message: null,
-            methods: {
-                action: null,
-                idUser: null,
-                vm: null
-            }
-        };
-    },
-    mounted: function mounted() {
-        'use strict';
-        //S'il n'y a pas de VM, pas besoin de modal
-
-        if (vmTmp !== null) {
-            //Correspond à la modale de création d'une VM
-            var dialog_create = document.querySelector('#modal_create');
-            var closeButton = dialog_create.querySelector('.close_modal_creation');
-            var showButton = document.querySelector('#show_modal_creation');
-            if (!dialog_create.showModal) {
-                dialogPolyfill.registerDialog(dialog_create);
-            }
-            var closeClickHandler = function closeClickHandler(event) {
-                dialog_create.close();
-            };
-            var showClickHandler = function showClickHandler(event) {
-                dialog_create.showModal();
-            };
-            showButton.addEventListener('click', showClickHandler);
-            closeButton.addEventListener('click', closeClickHandler);
-        }
-
-        var dialogButton = document.querySelectorAll('.show_modal_verif');
-        var dialog = document.querySelector('#dialog_verif');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        //Ajout listener sur le bouton au clique pour afficher la modale
-        dialogButton.forEach(function (elem) {
-            elem.addEventListener("click", function () {
-                dialog.showModal();
-            });
-        });
-        //Pareil mais pour quitter la modale
-        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-    },
-
-    //Fixe le problème du select non actualisé
-    created: function created() {
-        this.$nextTick(function () {
-            componentHandler.upgradeDom();
-            getmdlSelect.init(".getmdl-select");
-        });
-    },
-
-    methods: {
-        //Gestion des onglets de la card
-        showHide: function showHide(event) {
-            var key = event.target.parentElement.parentElement.attributes["0"].value;
-            var elementVm = $('.' + key);
-            var action = event.target.dataset.action;
-            elementVm.find('.active').removeClass('active');
-            elementVm.find('.current').removeClass('current');
-            elementVm.find('.' + action).addClass('current');
-            event.target.classList.add('active');
-        },
-
-        //Initilise les valeurs au clique sur une action
-        set: function set(user, click) {
-            var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText;
-            //On récupère l'action
-            var action = click.target.parentElement.dataset.action;
-            //On affecte ces valeurs aux variables
-            this.methods.action = action;
-            this.methods.idUser = user.id_utilisateur;
-            //On concatène le nom de la VM pour le script
-            this.methods.vm = user.id_utilisateur + '_' + user.nom;
-            console.log(this.methods);
-            if (action == 'delete') {
-                //Message qui sera visible dans la modale
-                this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?';
-            } else if (action == 'start') {
-                this.message = 'Voulez vous vraiment allumer la VM ' + texte + ' ?';
-            } else if (action == 'shutdown') {
-                this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?';
-            }
-            //this.message = message
-        },
-
-        //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
-        verification: function verification() {
-            console.log(this.methods);
-            //On exécute la requête ajax
-            this.$http.post('/send_action', {
-                action: this.methods.action,
-                nomVM: this.methods.vm,
-                id: this.methods.idUser
-            }).then(function (response) {
-                if (response.data.erreur == true) {
-                    notyf.alert(response.data.message);
-                } else if (response.data.erreur == false) {
-                    notyf.confirm(response.data.message);
-                }
-            }, function () {
-                console.log('erreur');
-            });
-            //On réinitialise les valeurs
-            this.methods.action = null;
-            this.methods.idUser = null;
-            this.methods.vm = null;
-        }
-    }
-});
-
-/***/ }),
-/* 61 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "mdl-grid" }, [
-        _vm._m(0),
-        _vm._v(" "),
-        _c(
-          "div",
-          { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
-          [
-            _vm.vm == null
-              ? _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
-                  },
-                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
-                )
-              : _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-                    attrs: { id: "show_modal_creation" }
-                  },
-                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
-                ),
-            _vm._v(" "),
-            _vm._l(_vm.vm, function(value, key, index) {
-              return _c(
-                "div",
-                {
-                  staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
-                  class: "vm_" + key,
-                  attrs: { "data-key": "vm_" + key }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "statut", class: value.statut },
-                    [
-                      value.statut === "on"
-                        ? [
-                            _vm._v(
-                              "\n                        En service\n                    "
-                            )
-                          ]
-                        : value.statut === "inconnu"
-                          ? [
-                              _vm._v(
-                                "\n                        Inconnu\n                    "
-                              )
-                            ]
-                          : [
-                              _vm._v(
-                                "\n                        Éteint\n                    "
-                              )
-                            ]
-                    ],
-                    2
-                  ),
-                  _vm._v(" "),
-                  _vm._m(5, true),
-                  _vm._v(" "),
-                  _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "infos_bloc current bloc_interactif" },
-                    [
-                      _c("div", { staticClass: "contenu" }, [
-                        _c("div", { staticClass: "infos" }, [
-                          _c("div", { staticClass: "description" }, [
-                            _c("span", { staticClass: "vm-titre" }, [
-                              _c("i", { staticClass: "material-icons" }, [
-                                _vm._v("computer")
-                              ]),
-                              _vm._v(" " + _vm._s(value.os))
-                            ]),
-                            _vm._v(" "),
-                            _c("hr"),
-                            _vm._v(" "),
-                            _c("p", [
-                              _c("i", { staticClass: "material-icons" }, [
-                                _vm._v("list")
-                              ]),
-                              _vm._v(" " + _vm._s(value.description))
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "details_bloc bloc_interactif" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _c("b", [_vm._v("OS : ")]),
-                        _vm._v(_vm._s(value.os))
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("CPU : ")]),
-                        _vm._v(_vm._s(value.cpu))
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("RAM : ")]),
-                        _vm._v(
-                          _vm._s(value.ram) +
-                            " (" +
-                            _vm._s(value.unite_ram) +
-                            ")"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("Stockage logique : ")]),
-                        _vm._v(
-                          _vm._s(value.sto_l) +
-                            " (" +
-                            _vm._s(value.unite_sto_l) +
-                            ")"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("Stockage réel : ")]),
-                        _vm._v(
-                          _vm._s(value.sto_r) +
-                            " (" +
-                            _vm._s(value.unite_sto_r) +
-                            ")"
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "options_bloc bloc_interactif" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif",
-                        attrs: { "data-action": "delete" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("delete")
-                        ]),
-                        _vm._v(" Supprimer\n                    ")
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
-                        attrs: { "data-action": "start" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("play_arrow")
-                        ]),
-                        _vm._v(" Allumer\n                    ")
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
-                        attrs: { "data-action": "shutdown" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("power_settings_new")
-                        ]),
-                        _vm._v(" Éteindre\n                    ")
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "menu" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "infos_btn active",
-                        attrs: { href: "#", "data-action": "infos_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Infos")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "details_btn",
-                        attrs: { href: "#", "data-action": "details_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Détails")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "options_btn",
-                        attrs: { href: "#", "data-action": "options_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Options")]
-                    )
-                  ])
-                ]
-              )
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("creation-vm"),
-      _vm._v(" "),
-      _c("modal-verification", {
-        attrs: { message: _vm.message, method: _vm.verification }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres"
-      },
-      [
-        _c("h5", [_vm._v("Filtres")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "actions" }, [
-          _c(
-            "label",
-            {
-              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-              attrs: { for: "vm_date" }
-            },
-            [
-              _c("input", {
-                staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_date" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "mdl-checkbox__label" }, [
-                _vm._v("Trier par date")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-              attrs: { for: "vm_favoris" }
-            },
-            [
-              _c("input", {
-                staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_favoris" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "mdl-checkbox__label" }, [
-                _vm._v("Mes favoris")
-              ])
-            ]
-          )
-        ])
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("small", [
-        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "symbole" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Créer une VM")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "img-vm" }, [
-      _c("img", {
-        attrs: {
-          src: "https://image.flaticon.com/icons/svg/148/148820.svg",
-          alt: ""
-        }
-      })
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-93df1398", module.exports)
-  }
-}
-
-/***/ }),
-/* 62 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {}
-});
-
-/***/ }),
-/* 63 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-grid" })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-235d410c", module.exports)
-  }
-}
-
-/***/ }),
-/* 64 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'utilisateurs',
-    data: function data() {
-        return {
-            users: dataArray.users.data,
-            message: null,
-            methods: {
-                action: null,
-                idUser: null
-            },
-            editUser: false,
-            userEditData: {}
-        };
-    },
-    mounted: function mounted() {
-        var dialogButton = document.querySelectorAll('.show_modal_verif');
-        var dialog = document.querySelector('#dialog_verif');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        dialogButton.forEach(function (elem) {
-            elem.addEventListener("click", function () {
-                dialog.showModal();
-            });
-        });
-        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-    },
-
-    //Fixe le problème du select non actualisé
-    created: function created() {
-        this.$nextTick(function () {
-            componentHandler.upgradeDom();
-            getmdlSelect.init(".getmdl-select");
-        });
-    },
-
-    methods: {
-        deleteUser: function deleteUser(userId) {
-            this.$http.post('/delete_user', {
-                id: userId
-            }).then(function (response) {
-                if (response.data.erreur == true) {
-                    notyf.alert(response.data.message);
-                } else if (response.data.erreur == false) {
-                    notyf.confirm(response.data.message);
-                }
-            }, function () {
-                console.log('erreur');
-            });
-        },
-        set: function set(user, click) {
-            this.methods.idUser = user.id;
-            this.methods.action = "delete";
-            this.message = "Voulez vous vraiment supprimer l'utilisateur " + user.nom + " " + user.prenom;
-        },
-        verification: function verification() {
-            if (this.methods.action == "delete") {
-                this.deleteUser(this.methods.idUser);
-            }
-            this.methods.action = null;
-            this.methods.idUser = null;
-        },
-        modifierUser: function modifierUser(user, click) {
-            this.editUser = true;
-            this.$nextTick(function () {
-                componentHandler.upgradeDom();
-                getmdlSelect.init(".getmdl-select");
-            });
-            this.userEditData.id = user.id;
-            this.userEditData.nom = user.nom;
-            this.userEditData.prenom = user.prenom;
-            this.userEditData.email = user.email;
-        },
-        addUser: function addUser() {
-            var _this = this;
-
-            this.$http.post('/edit_user', {
-                id: this.userEditData.id,
-                nom: this.userEditData.nom,
-                prenom: this.userEditData.prenom,
-                email: this.userEditData.email,
-                password: this.userEditData.password,
-                status: this.userEditData.status
-            }).then(function (response) {
-                if (response.data.erreur == true) {
-                    notyf.alert(response.data.message);
-                } else if (response.data.erreur == false) {
-                    notyf.confirm(response.data.message);
-                    _this.editUser = false;
-                    _this.userEditData = {};
-                }
-            }, function () {
-                console.log('erreur');
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 65 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "mdl-grid" }, [
-        _c(
-          "table",
-          {
-            staticClass:
-              "mdl-data-table mdl-js-data-table mdl-shadow--2dp mdl-cell mdl-cell--12-col tableau"
-          },
-          [
-            _vm._m(0),
-            _vm._v(" "),
-            _c(
-              "tbody",
-              _vm._l(_vm.users, function(value) {
-                return _c("tr", { attrs: { "data-id": value.id } }, [
-                  _c("td", [_vm._v(_vm._s(value.nom))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(value.prenom))]),
-                  _vm._v(" "),
-                  _c("td", [_vm._v(_vm._s(value.email))]),
-                  _vm._v(" "),
-                  _c("td", [
-                    _c(
-                      "span",
-                      {
-                        staticClass: "small-btn supprimer show_modal_verif",
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [_vm._v("Supprimer")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "small-btn modifier show-modal",
-                        on: {
-                          click: function($event) {
-                            _vm.modifierUser(value, $event)
-                          }
-                        }
-                      },
-                      [_vm._v("Modifier")]
-                    )
-                  ])
-                ])
-              })
-            )
-          ]
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mdl-grid" }, [
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid card"
-          },
-          [
-            _c("h3", { staticClass: "mdl-cell--12-col header" }, [
-              _vm._v("Créer un utilisateur")
-            ]),
-            _vm._v(" "),
-            _c("creation-utilisateur")
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _vm.editUser
-          ? _c(
-              "div",
-              {
-                staticClass:
-                  "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid card"
-              },
-              [
-                _c("h3", { staticClass: "mdl-cell--12-col header" }, [
-                  _vm._v("Modifier un utilisateur")
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "mdl-cell--12-col contenu" }, [
-                  _c(
-                    "form",
-                    {
-                      staticClass: "form form-creation-user",
-                      on: {
-                        submit: function($event) {
-                          $event.preventDefault()
-                          _vm.addUser($event)
-                        }
-                      }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.userEditData.nom,
-                                expression: "userEditData.nom"
-                              }
-                            ],
-                            staticClass: "mdl-textfield__input",
-                            attrs: {
-                              type: "text",
-                              id: "nomEdit",
-                              required: ""
-                            },
-                            domProps: { value: _vm.userEditData.nom },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.userEditData,
-                                  "nom",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "mdl-textfield__label",
-                              attrs: { for: "nomEdit" }
-                            },
-                            [_vm._v("Nom")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.userEditData.prenom,
-                                expression: "userEditData.prenom"
-                              }
-                            ],
-                            staticClass: "mdl-textfield__input",
-                            attrs: {
-                              type: "text",
-                              id: "prenomEdit",
-                              required: ""
-                            },
-                            domProps: { value: _vm.userEditData.prenom },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.userEditData,
-                                  "prenom",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "mdl-textfield__label",
-                              attrs: { for: "prenomEdit" }
-                            },
-                            [_vm._v("Prénom")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.userEditData.email,
-                                expression: "userEditData.email"
-                              }
-                            ],
-                            staticClass: "mdl-textfield__input",
-                            attrs: {
-                              type: "email",
-                              id: "emailEdit",
-                              required: ""
-                            },
-                            domProps: { value: _vm.userEditData.email },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.userEditData,
-                                  "email",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "mdl-textfield__label",
-                              attrs: { for: "emailEdit" }
-                            },
-                            [_vm._v("Email")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass:
-                            "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-                        },
-                        [
-                          _c("input", {
-                            directives: [
-                              {
-                                name: "model",
-                                rawName: "v-model",
-                                value: _vm.userEditData.password,
-                                expression: "userEditData.password"
-                              }
-                            ],
-                            staticClass: "mdl-textfield__input",
-                            attrs: {
-                              type: "password",
-                              id: "passwordEdit",
-                              pattern: ".{6,}"
-                            },
-                            domProps: { value: _vm.userEditData.password },
-                            on: {
-                              input: function($event) {
-                                if ($event.target.composing) {
-                                  return
-                                }
-                                _vm.$set(
-                                  _vm.userEditData,
-                                  "password",
-                                  $event.target.value
-                                )
-                              }
-                            }
-                          }),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass: "mdl-textfield__label",
-                              attrs: { for: "passwordEdit" }
-                            },
-                            [_vm._v("Mot de passe")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "mdl-cell--12-col",
-                          attrs: { id: "radio" }
-                        },
-                        [
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "mdl-radio mdl-js-radio mdl-js-ripple-effect",
-                              attrs: { for: "utilisateurEdit" }
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.userEditData.status,
-                                    expression: "userEditData.status"
-                                  }
-                                ],
-                                staticClass: "mdl-radio__button",
-                                attrs: {
-                                  type: "radio",
-                                  id: "utilisateurEdit",
-                                  name: "options",
-                                  checked: "",
-                                  value: "0"
-                                },
-                                domProps: {
-                                  checked: _vm._q(_vm.userEditData.status, "0")
-                                },
-                                on: {
-                                  change: function($event) {
-                                    _vm.$set(_vm.userEditData, "status", "0")
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "mdl-radio__label" }, [
-                                _vm._v("Utilisateur")
-                              ])
-                            ]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "label",
-                            {
-                              staticClass:
-                                "mdl-radio mdl-js-radio mdl-js-ripple-effect",
-                              attrs: { for: "administrateurEdit" }
-                            },
-                            [
-                              _c("input", {
-                                directives: [
-                                  {
-                                    name: "model",
-                                    rawName: "v-model",
-                                    value: _vm.userEditData.status,
-                                    expression: "userEditData.status"
-                                  }
-                                ],
-                                staticClass: "mdl-radio__button",
-                                attrs: {
-                                  type: "radio",
-                                  id: "administrateurEdit",
-                                  name: "options",
-                                  value: "1"
-                                },
-                                domProps: {
-                                  checked: _vm._q(_vm.userEditData.status, "1")
-                                },
-                                on: {
-                                  change: function($event) {
-                                    _vm.$set(_vm.userEditData, "status", "1")
-                                  }
-                                }
-                              }),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "mdl-radio__label" }, [
-                                _vm._v("Administrateur")
-                              ])
-                            ]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _vm._m(1)
-                    ]
-                  )
-                ])
-              ]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _c("modal-verification", {
-        attrs: { message: _vm.message, method: _vm.verification }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("thead", [
-      _c("tr", [
-        _c("th", [_vm._v("Nom")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Prénom")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Email")]),
-        _vm._v(" "),
-        _c("th", [_vm._v("Options")])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-dialog__actions" }, [
-      _c("button", { staticClass: "mdl-button submit_create" }, [
-        _vm._v("Modifier")
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-be0cdaf2", module.exports)
-  }
-}
-
-/***/ }),
+/* 56 */,
+/* 57 */,
+/* 58 */,
+/* 59 */,
+/* 60 */,
+/* 61 */,
+/* 62 */,
+/* 63 */,
+/* 64 */,
+/* 65 */,
 /* 66 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -18617,53 +16753,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-layout__drawer sidebar" }, [
-    _c("div", { staticClass: "user-data" }, [
-      _vm._m(0),
+  return _c(
+    "div",
+    { staticClass: "mdl-layout__drawer sidebar mdl-shadow--4dp" },
+    [
+      _c("div", { staticClass: "user-data" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-name" }, [
+          _c("span", [_vm._v(_vm._s(_vm.user))])
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user-name" }, [
-        _c("span", [_vm._v(_vm._s(_vm.user))])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "nav",
-      { staticClass: "mdl-navigation menu-links" },
-      [
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "accueil" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
-            _vm._v(" Accueil")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "vm" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
-            _vm._v(" Virtuals Machines")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "mdl-navigation__link", attrs: { to: "conteneur" } },
-          [
-            _c("i", { staticClass: "material-icons" }, [
-              _vm._v("local_laundry_service")
-            ]),
-            _vm._v(" Conteneurs")
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(1)
-      ],
-      1
-    )
-  ])
+      _c(
+        "nav",
+        { staticClass: "mdl-navigation menu-links fadeInLeft animated" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "mdl-navigation__link", attrs: { to: "accueil" } },
+            [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
+              _vm._v(" Accueil")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "mdl-navigation__link", attrs: { to: "vm" } },
+            [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
+              _vm._v(" Virtuals Machines")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            { staticClass: "mdl-navigation__link", attrs: { to: "conteneur" } },
+            [
+              _c("i", { staticClass: "material-icons" }, [
+                _vm._v("local_laundry_service")
+              ]),
+              _vm._v(" Conteneurs")
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -18747,48 +16887,52 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-layout__drawer sidebar" }, [
-    _c("div", { staticClass: "user-data" }, [
-      _vm._m(0),
+  return _c(
+    "div",
+    { staticClass: "mdl-layout__drawer sidebar mdl-shadow--4dp" },
+    [
+      _c("div", { staticClass: "user-data" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-name" }, [
+          _c("span", [_vm._v(_vm._s(_vm.user))])
+        ])
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "user-name" }, [
-        _c("span", [_vm._v(_vm._s(_vm.user))])
-      ])
-    ]),
-    _vm._v(" "),
-    _c(
-      "nav",
-      { staticClass: "mdl-navigation menu-links" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "mdl-navigation__link",
-            attrs: { to: "administration" }
-          },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
-            _vm._v(" Accueil")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          {
-            staticClass: "mdl-navigation__link",
-            attrs: { to: "utilisateurs" }
-          },
-          [
-            _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
-            _vm._v(" Utilisateurs")
-          ]
-        ),
-        _vm._v(" "),
-        _vm._m(1)
-      ],
-      1
-    )
-  ])
+      _c(
+        "nav",
+        { staticClass: "mdl-navigation menu-links" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "mdl-navigation__link",
+              attrs: { to: "administration" }
+            },
+            [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("home")]),
+              _vm._v(" Accueil")
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "router-link",
+            {
+              staticClass: "mdl-navigation__link",
+              attrs: { to: "utilisateurs" }
+            },
+            [
+              _c("i", { staticClass: "material-icons" }, [_vm._v("dvr")]),
+              _vm._v(" Utilisateurs")
+            ]
+          ),
+          _vm._v(" "),
+          _vm._m(1)
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
@@ -19064,6 +17208,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'creation_vm',
@@ -19083,6 +17229,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         onChange: function onChange(e) {
             this.node.sum = e.target.value;
+        },
+        createVM: function createVM() {
+            $("#modal_create :input").each(function () {
+                console.log(this);
+            });
+            // this.$http.post('/create_vm', {
+            //     nom: this.vm.nom,
+            //     systeme: this.vm.systeme,
+            //     ram: this.vm.ram,
+            //     cpu: this.vm.cpu,
+            //     stockage: this.vm.stockage,
+            //     description: this.vm.description,
+            // }).then((response) => {
+            //     if (response.data.erreur == true) {
+            //         notyf.alert(response.data.message);
+            //     } else if (response.data.erreur == false) {
+            //         notyf.confirm(response.data.message);
+            //     }
+            // }, () => {
+            //     console.log('erreur');
+            // })
         }
     }
 });
@@ -19102,210 +17269,214 @@ var render = function() {
       _c("div", { staticClass: "mdl-dialog__content" }, [
         _c("h3", [_vm._v("Création d'une machine virtuelle")]),
         _vm._v(" "),
-        _c("form", { attrs: { action: "#" } }, [
-          _c("div", { staticClass: "mdl-grid" }, [
-            _c("div", { staticClass: "mdl-cell--5-col" }, [
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-                },
-                [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.vm.nom,
-                        expression: "vm.nom"
-                      }
-                    ],
-                    staticClass: "mdl-textfield__input",
-                    attrs: {
-                      type: "text",
-                      id: "nom",
-                      pattern: "[^_()/><\\][\\\\\\x22,;|]+",
-                      required: ""
-                    },
-                    domProps: { value: _vm.vm.nom },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.vm, "nom", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "mdl-textfield__label",
-                      attrs: { for: "nom" }
-                    },
-                    [_vm._v("Nom de la VM")]
-                  )
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "mdl-cell--5-col mdl-cell--1-offset" }, [
-              _c(
-                "div",
-                { staticClass: "mdl-textfield mdl-js-textfield getmdl-select" },
-                [
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.vm.systeme,
-                        expression: "vm.systeme"
-                      }
-                    ],
-                    staticClass: "mdl-textfield__input",
-                    attrs: {
-                      value: "",
-                      id: "systeme",
-                      readonly: "",
-                      required: ""
-                    },
-                    domProps: { value: _vm.vm.systeme },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(_vm.vm, "systeme", $event.target.value)
-                      }
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c("input", {
-                    attrs: { value: "", type: "hidden", name: "systeme" }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "label",
-                    {
-                      staticClass: "mdl-textfield__label",
-                      attrs: { for: "systeme" }
-                    },
-                    [_vm._v("Système")]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(0)
-                ]
-              )
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "ram_input mdl-cell--5-col" }, [
-              _c("label", {}, [_vm._v("Ram (" + _vm._s(_vm.vm.ram) + " Mo)")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.createVM($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "mdl-grid" }, [
+              _c("div", { staticClass: "mdl-cell--12-col" }, [
+                _c(
+                  "div",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.vm.ram,
-                    expression: "vm.ram"
-                  }
-                ],
-                staticClass: "mdl-slider mdl-js-slider",
-                attrs: {
-                  type: "range",
-                  min: "100",
-                  step: "100",
-                  max: "3000",
-                  value: "200",
-                  tabindex: "0",
-                  required: ""
-                },
-                domProps: { value: _vm.vm.ram },
-                on: {
-                  __r: function($event) {
-                    _vm.$set(_vm.vm, "ram", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "ram_input mdl-cell--5-col mdl-cell--1-offset" },
-              [
-                _c("label", {}, [_vm._v("CPU (" + _vm._s(_vm.vm.cpu) + ")")]),
-                _vm._v(" "),
-                _c("input", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.vm.cpu,
-                      expression: "vm.cpu"
-                    }
-                  ],
-                  staticClass: "mdl-slider mdl-js-slider",
-                  attrs: {
-                    type: "range",
-                    min: "1",
-                    step: "1",
-                    max: "4",
-                    value: "1",
-                    tabindex: "0",
-                    required: ""
+                    staticClass:
+                      "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
                   },
-                  domProps: { value: _vm.vm.cpu },
-                  on: {
-                    __r: function($event) {
-                      _vm.$set(_vm.vm, "cpu", $event.target.value)
-                    }
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "ram_input mdl-cell--12-col" }, [
-              _c("label", {}, [
-                _vm._v("Stockage (" + _vm._s(_vm.vm.stockage) + ")")
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.vm.nom,
+                          expression: "vm.nom"
+                        }
+                      ],
+                      staticClass: "mdl-textfield__input",
+                      attrs: {
+                        type: "text",
+                        id: "nom",
+                        pattern: "[^_()/><\\][\\\\\\x22,;|]+"
+                      },
+                      domProps: { value: _vm.vm.nom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.vm, "nom", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "mdl-textfield__label",
+                        attrs: { for: "nom" }
+                      },
+                      [_vm._v("Nom de la VM")]
+                    )
+                  ]
+                )
               ]),
               _vm._v(" "),
-              _c("input", {
-                directives: [
+              _c("div", { staticClass: "mdl-cell--12-col" }, [
+                _c(
+                  "div",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.vm.stockage,
-                    expression: "vm.stockage"
-                  }
-                ],
-                staticClass: "mdl-slider mdl-js-slider",
-                attrs: {
-                  type: "range",
-                  min: "100",
-                  step: "100",
-                  max: "60000",
-                  value: "100",
-                  tabindex: "0",
-                  required: ""
-                },
-                domProps: { value: _vm.vm.stockage },
-                on: {
-                  __r: function($event) {
-                    _vm.$set(_vm.vm, "stockage", $event.target.value)
-                  }
-                }
-              })
+                    staticClass: "mdl-textfield mdl-js-textfield getmdl-select"
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.vm.systeme,
+                          expression: "vm.systeme"
+                        }
+                      ],
+                      staticClass: "mdl-textfield__input",
+                      attrs: { value: "", id: "systeme", readonly: "" },
+                      domProps: { value: _vm.vm.systeme },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.vm, "systeme", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", {
+                      attrs: { value: "", type: "hidden", name: "systeme" }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "mdl-textfield__label",
+                        attrs: { for: "systeme" }
+                      },
+                      [_vm._v("Système")]
+                    ),
+                    _vm._v(" "),
+                    _vm._m(0)
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "slider" }, [
+                _c("div", { staticClass: "ram_input" }, [
+                  _c("label", {}, [
+                    _vm._v("Ram (" + _vm._s(_vm.vm.ram) + " Mo)")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.ram,
+                        expression: "vm.ram"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider",
+                    attrs: {
+                      type: "range",
+                      min: "100",
+                      step: "100",
+                      max: "3000",
+                      value: "200",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vm.ram },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vm, "ram", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cpu_input mt16" }, [
+                  _c("label", {}, [_vm._v("CPU (" + _vm._s(_vm.vm.cpu) + ")")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.cpu,
+                        expression: "vm.cpu"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider",
+                    attrs: {
+                      type: "range",
+                      min: "1",
+                      step: "1",
+                      max: "4",
+                      value: "1",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vm.cpu },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vm, "cpu", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "stockage_input mt16" }, [
+                  _c("label", {}, [
+                    _vm._v("Stockage (" + _vm._s(_vm.vm.stockage) + ")")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.stockage,
+                        expression: "vm.stockage"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider",
+                    attrs: {
+                      type: "range",
+                      min: "100",
+                      step: "100",
+                      max: "60000",
+                      value: "100",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vm.stockage },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vm, "stockage", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _vm._m(1)
             ]),
             _vm._v(" "),
-            _vm._m(1)
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(2)
+            _vm._m(2)
+          ]
+        )
+      ])
     ]
   )
 }
@@ -19351,7 +17522,7 @@ var staticRenderFns = [
       [
         _c("textarea", {
           staticClass: "mdl-textfield__input",
-          attrs: { type: "text", rows: "3", id: "sample5", required: "" }
+          attrs: { type: "text", rows: "3", id: "sample5" }
         }),
         _vm._v(" "),
         _c(
@@ -19376,11 +17547,9 @@ var staticRenderFns = [
         [_vm._v("Fermer")]
       ),
       _vm._v(" "),
-      _c(
-        "button",
-        { staticClass: "mdl-button", attrs: { type: "button", disabled: "" } },
-        [_vm._v("Créer")]
-      )
+      _c("button", { staticClass: "mdl-button submit_create" }, [
+        _vm._v("Créer")
+      ])
     ])
   }
 ]
