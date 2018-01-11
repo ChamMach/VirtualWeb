@@ -1,6 +1,7 @@
 import collections
 import json
 import virtualbox #pyvbox
+import time
 
 vbox = virtualbox.VirtualBox()
 
@@ -102,3 +103,50 @@ def infosvm(type):
             vmdata['vm_' + str(vmnb)] = vm #On ajoute toutes les infos de la vm numero x dans le dictionnaire correspondant
     vminfos['data'] = vmdata
     return vminfos #Envoi des informations
+
+
+def startvm(id):
+    idvm = id
+    vm = vbox.find_machine(idvm)
+    infos = collections.OrderedDict()
+    if str(vm.state) == 'FirstOnline': #Si la vm est lancee
+        infos['start_vm'] = 'false_vmalreadyonline'
+    elif str(vm.state) == 'PoweredOff': #Si la vm est a l'arret
+        if str(vm.session_state) == 'Locked':  # Si la session est lock
+            infos['start_vm'] = 'false_sessionlocked'
+        elif str(vm.session_state) == 'Unlocked': #Si session debloque alors on lance la vm
+            session = virtualbox.Session()
+            vm.launch_vm_process(session, 'headless', '')  #Pas d'affiche de l'ecran lors du demarrage
+            time.sleep(5) #Attente de cinq secondes
+            if str(vm.state) == 'FirstOnline': #On reverifie
+                infos['start_vm'] = 'true'
+            else:
+                infos['start_vm'] = 'false_startfailed'
+        else:
+            infos['start_vm'] = 'false_sessionunknown'
+    else:
+        infos['start_vm'] = 'false_statevmunknown'
+    return infos
+
+def stopvm(id):
+    idvm = id
+    vm = vbox.find_machine(idvm)
+    infos = collections.OrderedDict()
+    if str(vm.state) == 'PoweredOff':
+        infos['stop_vm'] = 'false_vmalreadyoff' #VM deja eteinte
+    elif str(vm.state) == 'FirstOnline':
+        session = vm.create_session() #Creation d'une session, meme si une autre existe deja
+        if str(vm.session_state) == 'Unlocked':  # Si la session est lock
+            infos['stop_vm'] = 'false_sessionlocked'
+        elif str(vm.session_state) == 'Locked':  # Si la session est lock
+            session.console.power_down()  # Eteindre la vm
+            time.sleep(5)  # Attente de cinq secondes
+            if str(vm.state) == 'PoweredOff': #On reverifie
+                infos['stop_vm'] = 'true'
+            else:
+                infos['stop_vm'] = 'false_stopfailed'
+        else:
+            infos['stop_vm'] = 'false_sessionunknown'
+    else:
+        infos['stop_vm'] = 'false_statevmunknown'
+    return infos

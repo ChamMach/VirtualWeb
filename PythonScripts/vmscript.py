@@ -46,6 +46,23 @@ while True:
         sockethelper.send_data(ivm) #Envoi des informations en json
         sockethelper.close_socket() #Fermeture de la socket
 
+    elif 'start_vm' in data:
+        type = python_obj['start_vm']
+        svm = vmfonctions.startvm(type)
+        svm = vmfonctions.jsondata(svm)
+        print 'Json envoyee : '
+        print svm
+        sockethelper.send_data(svm) #Envoi des informations en json
+        sockethelper.close_socket() #Fermeture de la socket
+
+    elif 'stop_vm' in data:
+        type = python_obj['stop_vm']
+        stvm = vmfonctions.stopvm(type)
+        stvm = vmfonctions.jsondata(stvm)
+        print 'Json envoyee : '
+        print stvm
+        sockethelper.send_data(stvm)  # Envoi des informations en json
+        sockethelper.close_socket()  # Fermeture de la socket
     else:
         sockethelper.send_data("Erreur")
         sockethelper.close_socket()
