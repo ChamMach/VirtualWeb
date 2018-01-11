@@ -177,11 +177,11 @@ class UserController extends Controller
         $action = $request->get('action');
         $vmID = $request->get('id');
         $nomVM = $request->get('nomVM');
-        
+
         //Récupère le nom de la VM
         $vm = VM::where('nom', explode("_", $nomVM)[1])
         ->first();
-        
+
         //Si la VM existe bien
         if (!is_null($vm)) {
             $socketJson = null;
@@ -206,7 +206,7 @@ class UserController extends Controller
                     );
                     $actionFR = 'éteindre la VM : ' . $vm->nom;
                 }
-                
+
                 $json = json_encode($dataToGet);
                 //On envoi le JSON au socket
                 $sockethelper->send_data($json);
@@ -215,7 +215,7 @@ class UserController extends Controller
                 //On ferme la socket
                 $sockethelper->close_socket();
                 //Decode le JSON pour avoir un array et le traiter
-                $socketJson = json_decode($socket);
+                $socketJson = json_decode($socket, true);
                 //Teste du retour JSON afin de savoir si l'action a été réalisée
                 if (isset($socketJson['start_vm']) or isset($socketJson['stop_vm'])) {
                     //Si on est dans le cas démarrer une VM
@@ -249,7 +249,7 @@ class UserController extends Controller
                                 break;
                         }
                     } elseif (isset($socketJson['stop_vm'])) {
-                        switch ($socketJson['start_vm']) {
+                        switch ($socketJson['stop_vm']) {
                             case true:
                                 $return['erreur'] = false;
                                 $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';

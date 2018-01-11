@@ -8,6 +8,7 @@ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Classes\SocketHelper;
 use App\VM;
 use Log;
+use App\User;
 
 class Kernel extends ConsoleKernel
 {
@@ -29,8 +30,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->call(function(){
-            $socketJson = null;
-            $socket = null;
+            $socketJson = $socket = null;
             $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
             //Si la socket est ouverte
             if ($sockethelper->isOnline() !== false) {
@@ -46,35 +46,40 @@ class Kernel extends ConsoleKernel
                 $sockethelper->close_socket();
                 //Decode le JSON pour avoir un array et le traiter
                 $socketJson = json_decode($socket);
-                
-                
+
                 //Pour chaque VM en BDD
-                $vm_base = DB::table('vm')->select('id', 'nom')->get();
-                foreach ($vm_base as $key => $value) {
-                    //Si la vm n'existe pas dans le json récupérer avec le script
-                    if (!in_array($value->nom, $socketJson->data)) {
-                        //On supprime la VM de la base
-                        DB::table('vm'->where('id', $value->id))->delete();
-                        Log::info('Script import : La vm '. $value->nom .' n\'existe pas en base, suppresion effectuée');
+                $vm_base = DB::table('vm')->select('id_vm', 'id_utilisateur', 'nom')->get();
+                if (sizeof($vm_base) !== 0) {
+                    foreach ($socketJson->data as $key => $value) {
+                        $explodeUser = explode("_", $value->nom);
+                        $listeNomsVM[] = $explodeUser[1];
+                    }
+                    foreach ($vm_base as $key => $value) {
+                        //Si la vm n'existe pas dans le json récupérer avec le script
+                        if (!in_array($value->nom, $listeNomsVM)) {
+                            //On supprime la VM de la base
+                            DB::table('vm')->where('id_vm', $value->id_vm)->delete();
+                            Log::info('Script import : La vm '. $value->nom .' n\'existe pas en base, suppression effectuée');
+                        }
                     }
                 }
-                
+
                 //Pour chaque VM
                 foreach ($socketJson->data as $key => $value) {
                     //On coupe une chaîne en segment grâce au délimiteur _
                     $explodeUser = explode("_", $value->nom);
                     $idUser = $explodeUser[0];
                     $nomVm = $explodeUser[1];
-                    
+
                     //On regarde si l'utilisateur existe en base
-                    $user_exist = VM::where('id_utilisateur', $idUser)
+                    $user_exist = User::where('id', $idUser)
                     ->first();
                     if (!is_null($user_exist)) {
                         //On recherche si la VM existe déjà
                         $vm_exist = VM::where('id_utilisateur', $idUser)
                         ->where('nom', $explodeUser[1])
                         ->first();
-                        
+
                         //Si la VM n'existe pas, on la crée
                         if (is_null($vm_exist)) {
                             $vm = VM::create(array(
@@ -93,7 +98,7 @@ class Kernel extends ConsoleKernel
                             ));
                             //Insertion des données
                             $vm->save();
-                            Log::info('Script import : Nouvelle VM '. $nomVM);
+                            Log::info('Script import : Nouvelle VM '. $nomVm);
                         } else {
                             //Sinon on la met à jour
                             $vm_exist->description = $value->description;
@@ -108,7 +113,7 @@ class Kernel extends ConsoleKernel
                             $vm_exist->unite_sto_r = $value->caracteristiques->sto_r["1"];
                             //Mise à jour
                             $vm_exist->save();
-                            Log::info('Script import : Mise à jour VM '. $nomVM);
+                            Log::info('Script import : Mise à jour VM '. $nomVm);
                         }
                     } else {
                         Log::info('Script import : L\'utilisateur '. $idUser .' n\'existe pas en base, impossible d\'importer cette ligne');
