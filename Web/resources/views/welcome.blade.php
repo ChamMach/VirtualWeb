@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" href="img/favicon.ico">
 
         <title>VirtualWEB</title>
 
@@ -13,11 +14,9 @@
         <!-- Styles -->
         <style>
             html, body {
-                background: url({{ asset('img/background_home.jpg') }}) no-repeat center center fixed;
-                -webkit-background-size: cover;
-                -moz-background-size: cover;
-                -o-background-size: cover;
-                background-size: cover;
+                background: #6da1ee;
+                background: -webkit-linear-gradient(to right, #6da1ee, #3d5e94);
+                background: linear-gradient(to right, #6da1ee, #3d5e94);
                 color: white;
                 font-family: 'Raleway', sans-serif;
                 font-weight: 100;
@@ -44,7 +43,9 @@
                 right: 10px;
                 top: 18px;
             }
-
+            canvas.pg-canvas {
+                position: absolute;
+            }
             .content {
                 text-align: center;
             }
@@ -77,7 +78,7 @@
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
+        <div id="particles" class="flex-center position-ref full-height">
             <div class="content">
                 <div class="title m-b-md fadeInDown animated">
                     Virtual Web
@@ -99,4 +100,15 @@
             </div>
         </div>
     </body>
+
+<script type="text/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/particule.min.js') }}"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function () {
+    particleground(document.getElementById('particles'), {
+        dotColor: '#FFFF',
+        lineColor: '#FFFF'
+    });
+}, false);
+</script>
 </html>

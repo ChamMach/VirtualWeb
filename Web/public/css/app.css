@@ -52,6 +52,10 @@ body {
           align-items: flex-end;
 }
 
+.is-invalid .mdl-textfield__label {
+  color: #d50000;
+}
+
 .small-btn {
   background: #34485d;
   color: #FFFF;

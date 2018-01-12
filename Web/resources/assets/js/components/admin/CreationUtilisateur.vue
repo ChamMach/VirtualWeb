@@ -2,19 +2,19 @@
     <div class="mdl-cell--12-col contenu">
         <form class="form form-creation-user" v-on:submit.prevent="addUser">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="nom" v-model="user.nom" required>
+                <input class="mdl-textfield__input input_form" type="text" id="nom" v-model="user.nom">
                 <label class="mdl-textfield__label" for="nom">Nom</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="text" id="prenom" v-model="user.prenom" required>
+                <input class="mdl-textfield__input input_form" type="text" id="prenom" v-model="user.prenom">
                 <label class="mdl-textfield__label" for="prenom">Prénom</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="email" id="email" v-model="user.email" required>
+                <input class="mdl-textfield__input input_form" type="email" id="email" v-model="user.email">
                 <label class="mdl-textfield__label" for="email">Email</label>
             </div>
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input class="mdl-textfield__input" type="password" id="password" pattern=".{6,}" v-model="user.password" required>
+                <input class="mdl-textfield__input input_form" type="password" id="password" pattern=".{6,}" v-model="user.password">
                 <label class="mdl-textfield__label" for="password">Mot de passe</label>
             </div>
             <div class="mdl-cell--12-col" id="radio">
@@ -43,22 +43,32 @@
         },
         methods: {
             addUser() {
-                this.$http.post('/create_user', {
-                    nom: this.user.nom,
-                    prenom: this.user.prenom,
-                    email: this.user.email,
-                    password: this.user.password,
-                    status: this.user.status,
-                }).then((response) => {
-
-                    if (response.data.erreur == true) {
-                        notyf.alert(response.data.message);
-                    } else if (response.data.erreur == false) {
-                        notyf.confirm(response.data.message);
+                var error = false
+                $(".input_form").each(function() {
+                    //Si on n'a pas de valeur dans l'input
+                    if (!$(this).val()) {
+                        $(this).parent().addClass('is-invalid')
+                        error = true
                     }
-                }, () => {
-                    console.log('erreur');
-                })
+                });
+                if (error == false) {
+                    this.$http.post('/create_user', {
+                        nom: this.user.nom,
+                        prenom: this.user.prenom,
+                        email: this.user.email,
+                        password: this.user.password,
+                        status: this.user.status,
+                    }).then((response) => {
+                        
+                        if (response.data.erreur == true) {
+                            notyf.alert(response.data.message);
+                        } else if (response.data.erreur == false) {
+                            notyf.confirm(response.data.message);
+                        }
+                    }, () => {
+                        console.log('erreur');
+                    })
+                }
             }
         },
     }

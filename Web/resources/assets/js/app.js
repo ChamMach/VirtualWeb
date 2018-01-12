@@ -86,6 +86,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
     if (from.name !== null) {
         document.body.classList.remove(from.name.toLowerCase())
+        //On ajoute le nom de la route au body
         document.body.classList.add(to.name.toLowerCase())
     }
     next()

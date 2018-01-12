@@ -1,14 +1,51 @@
 webpackJsonp([0],{
 
-/***/ 10:
+/***/ 66:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./Header.vue": 12,
+	"./Login.vue": 67,
+	"./Tab.vue": 13,
+	"./Verification.vue": 16,
+	"./admin/Accueil.vue": 70,
+	"./admin/CreationUtilisateur.vue": 15,
+	"./admin/ModifierUtilisateur.vue": 73,
+	"./admin/Sidebar.vue": 11,
+	"./admin/Utilisateurs.vue": 76,
+	"./user/Accueil.vue": 79,
+	"./user/Conteneur.vue": 82,
+	"./user/CreationVM.vue": 14,
+	"./user/Sidebar.vue": 10,
+	"./user/VM.vue": 85
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number or string
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = 66;
+
+/***/ }),
+
+/***/ 67:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(56)
+var __vue_script__ = __webpack_require__(68)
 /* template */
-var __vue_template__ = __webpack_require__(57)
+var __vue_template__ = __webpack_require__(69)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -48,151 +85,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 12:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(60)
-/* template */
-var __vue_template__ = __webpack_require__(61)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/user/VM.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-93df1398", Component.options)
-  } else {
-    hotAPI.reload("data-v-93df1398", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 13:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(62)
-/* template */
-var __vue_template__ = __webpack_require__(63)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/user/Conteneur.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-235d410c", Component.options)
-  } else {
-    hotAPI.reload("data-v-235d410c", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 14:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(64)
-/* template */
-var __vue_template__ = __webpack_require__(65)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/admin/Utilisateurs.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-be0cdaf2", Component.options)
-  } else {
-    hotAPI.reload("data-v-be0cdaf2", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 56:
+/***/ 68:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -282,7 +175,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 57:
+/***/ 69:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -435,7 +328,223 @@ if (false) {
 
 /***/ }),
 
-/***/ 60:
+/***/ 70:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(71)
+/* template */
+var __vue_template__ = __webpack_require__(72)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/admin/Accueil.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0fa4e366", Component.options)
+  } else {
+    hotAPI.reload("data-v-0fa4e366", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 71:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            utilisateurs: dataArray.dashboard.utilisateurs,
+            vm: dataArray.dashboard.vm
+        };
+    }
+});
+
+/***/ }),
+
+/***/ 72:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "mdl-grid" }, [
+      _c("div", { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" }, [
+        _c("div", { staticClass: "count vm" }, [
+          _c("span", { staticClass: "compteur" }, [
+            _c("span", { staticClass: "chiffre" }, [
+              _vm._v(_vm._s(_vm.utilisateurs))
+            ])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "titre" }, [_vm._v("Utilisateurs")])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" }, [
+        _c("div", { staticClass: "count conteneur" }, [
+          _c("span", { staticClass: "compteur" }, [
+            _c("span", { staticClass: "chiffre" }, [_vm._v(_vm._s(_vm.vm))])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "titre" }, [_vm._v("VM")])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mdl-grid" }, [
+      _c("h3", { staticClass: "titre" }, [_vm._v("Espace administrateur")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
+      [
+        _c("div", { staticClass: "count status on" }, [
+          _c("span", { staticClass: "compteur" }, [
+            _c("span", { staticClass: "chiffre" }, [_vm._v("1")])
+          ]),
+          _vm._v(" "),
+          _c("span", { staticClass: "titre" }, [_vm._v("Conteneurs")])
+        ])
+      ]
+    )
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0fa4e366", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 73:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(74)
+/* template */
+var __vue_template__ = __webpack_require__(75)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/admin/ModifierUtilisateur.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-42830d45", Component.options)
+  } else {
+    hotAPI.reload("data-v-42830d45", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 74:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -476,181 +585,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
-var vmTmp;
-//On regarde s'il y a des VM
-if (dataArray.vm == null) {
-    vmTmp = null;
-} else {
-    vmTmp = dataArray.vm;
-}
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
-            vm: vmTmp,
-            isActive: false,
-            message: null,
-            methods: {
-                action: null,
-                idUser: null,
-                vm: null
-            }
+            user: {}
         };
     },
-    mounted: function mounted() {
-        'use strict';
-        //S'il n'y a pas de VM, pas besoin de modal
-
-        if (vmTmp !== null) {
-            //Correspond à la modale de création d'une VM
-            var dialog_create = document.querySelector('#modal_create');
-            var closeButton = dialog_create.querySelector('.close_modal_creation');
-            var showButton = document.querySelector('#show_modal_creation');
-            if (!dialog_create.showModal) {
-                dialogPolyfill.registerDialog(dialog_create);
-            }
-            var closeClickHandler = function closeClickHandler(event) {
-                dialog_create.close();
-            };
-            var showClickHandler = function showClickHandler(event) {
-                dialog_create.showModal();
-            };
-            showButton.addEventListener('click', showClickHandler);
-            closeButton.addEventListener('click', closeClickHandler);
-        }
-
-        var dialogButton = document.querySelectorAll('.show_modal_verif');
-        var dialog = document.querySelector('#dialog_verif');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        //Ajout listener sur le bouton au clique pour afficher la modale
-        dialogButton.forEach(function (elem) {
-            elem.addEventListener("click", function () {
-                dialog.showModal();
-            });
-        });
-        //Pareil mais pour quitter la modale
-        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-    },
-
-    //Fixe le problème du select non actualisé
-    created: function created() {
-        this.$nextTick(function () {
-            componentHandler.upgradeDom();
-            getmdlSelect.init(".getmdl-select");
-        });
-    },
-
     methods: {
-        //Gestion des onglets de la card
-        showHide: function showHide(event) {
-            var key = event.target.parentElement.parentElement.attributes["0"].value;
-            var elementVm = $('.' + key);
-            var action = event.target.dataset.action;
-            elementVm.find('.active').removeClass('active');
-            elementVm.find('.current').removeClass('current');
-            elementVm.find('.' + action).addClass('current');
-            event.target.classList.add('active');
-        },
-
-        //Initilise les valeurs au clique sur une action
-        set: function set(user, click) {
-            var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText;
-            //On récupère l'action
-            var action = click.target.parentElement.dataset.action;
-            //On affecte ces valeurs aux variables
-            this.methods.action = action;
-            this.methods.idUser = user.id_utilisateur;
-            //On concatène le nom de la VM pour le script
-            this.methods.vm = user.id_utilisateur + '_' + user.nom;
-            console.log(this.methods);
-            if (action == 'delete') {
-                //Message qui sera visible dans la modale
-                this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?';
-            } else if (action == 'start') {
-                this.message = 'Voulez vous vraiment allumer la VM ' + texte + ' ?';
-            } else if (action == 'shutdown') {
-                this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?';
-            }
-            //this.message = message
-        },
-
-        //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
-        verification: function verification() {
-            console.log(this.methods);
-            //On exécute la requête ajax
-            this.$http.post('/send_action', {
-                action: this.methods.action,
-                nomVM: this.methods.vm,
-                id: this.methods.idUser
+        addUser: function addUser() {
+            this.$http.post('/edit_user', {
+                nom: this.user.nom,
+                prenom: this.user.prenom,
+                email: this.user.email,
+                password: this.user.password,
+                status: this.user.status
             }).then(function (response) {
+
                 if (response.data.erreur == true) {
                     notyf.alert(response.data.message);
                 } else if (response.data.erreur == false) {
@@ -659,301 +610,223 @@ if (dataArray.vm == null) {
             }, function () {
                 console.log('erreur');
             });
-            //On réinitialise les valeurs
-            this.methods.action = null;
-            this.methods.idUser = null;
-            this.methods.vm = null;
         }
     }
 });
 
 /***/ }),
 
-/***/ 61:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("div", { staticClass: "mdl-grid" }, [
-        _vm._m(0),
+  return _c("div", { staticClass: "mdl-cell--12-col contenu" }, [
+    _c(
+      "form",
+      {
+        staticClass: "form form-creation-user",
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            _vm.addUser($event)
+          }
+        }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.user.nom,
+                  expression: "user.nom"
+                }
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: { type: "text", id: "nom", required: "" },
+              domProps: { value: _vm.user.nom },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.user, "nom", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "mdl-textfield__label", attrs: { for: "nom" } },
+              [_vm._v("Nom")]
+            )
+          ]
+        ),
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
           [
-            _vm.vm == null
-              ? _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
-                  },
-                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
-                )
-              : _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-                    attrs: { id: "show_modal_creation" }
-                  },
-                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
-                ),
-            _vm._v(" "),
-            _vm._l(_vm.vm, function(value, key, index) {
-              return _c(
-                "div",
+            _c("input", {
+              directives: [
                 {
-                  staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
-                  class: "vm_" + key,
-                  attrs: { "data-key": "vm_" + key }
-                },
-                [
-                  _c(
-                    "div",
-                    { staticClass: "statut", class: value.statut },
-                    [
-                      value.statut === "on"
-                        ? [
-                            _vm._v(
-                              "\n                        En service\n                    "
-                            )
-                          ]
-                        : value.statut === "inconnu"
-                          ? [
-                              _vm._v(
-                                "\n                        Inconnu\n                    "
-                              )
-                            ]
-                          : [
-                              _vm._v(
-                                "\n                        Éteint\n                    "
-                              )
-                            ]
-                    ],
-                    2
-                  ),
-                  _vm._v(" "),
-                  _vm._m(5, true),
-                  _vm._v(" "),
-                  _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "infos_bloc current bloc_interactif" },
-                    [
-                      _c("div", { staticClass: "contenu" }, [
-                        _c("div", { staticClass: "infos" }, [
-                          _c("div", { staticClass: "description" }, [
-                            _c("span", { staticClass: "vm-titre" }, [
-                              _c("i", { staticClass: "material-icons" }, [
-                                _vm._v("computer")
-                              ]),
-                              _vm._v(" " + _vm._s(value.os))
-                            ]),
-                            _vm._v(" "),
-                            _c("hr"),
-                            _vm._v(" "),
-                            _c("p", [
-                              _c("i", { staticClass: "material-icons" }, [
-                                _vm._v("list")
-                              ]),
-                              _vm._v(" " + _vm._s(value.description))
-                            ])
-                          ])
-                        ])
-                      ])
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "details_bloc bloc_interactif" }, [
-                    _c("ul", [
-                      _c("li", [
-                        _c("b", [_vm._v("OS : ")]),
-                        _vm._v(_vm._s(value.os))
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("CPU : ")]),
-                        _vm._v(_vm._s(value.cpu))
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("RAM : ")]),
-                        _vm._v(
-                          _vm._s(value.ram) +
-                            " (" +
-                            _vm._s(value.unite_ram) +
-                            ")"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("Stockage logique : ")]),
-                        _vm._v(
-                          _vm._s(value.sto_l) +
-                            " (" +
-                            _vm._s(value.unite_sto_l) +
-                            ")"
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c("li", [
-                        _c("b", [_vm._v("Stockage réel : ")]),
-                        _vm._v(
-                          _vm._s(value.sto_r) +
-                            " (" +
-                            _vm._s(value.unite_sto_r) +
-                            ")"
-                        )
-                      ])
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "options_bloc bloc_interactif" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif",
-                        attrs: { "data-action": "delete" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("delete")
-                        ]),
-                        _vm._v(" Supprimer\n                    ")
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
-                        attrs: { "data-action": "start" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("play_arrow")
-                        ]),
-                        _vm._v(" Allumer\n                    ")
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
-                        attrs: { "data-action": "shutdown" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
-                          }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("power_settings_new")
-                        ]),
-                        _vm._v(" Éteindre\n                    ")
-                      ]
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "menu" }, [
-                    _c(
-                      "a",
-                      {
-                        staticClass: "infos_btn active",
-                        attrs: { href: "#", "data-action": "infos_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Infos")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "details_btn",
-                        attrs: { href: "#", "data-action": "details_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Détails")]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "a",
-                      {
-                        staticClass: "options_btn",
-                        attrs: { href: "#", "data-action": "options_bloc" },
-                        on: { click: _vm.showHide }
-                      },
-                      [_vm._v("Options")]
-                    )
-                  ])
-                ]
-              )
-            })
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c("creation-vm"),
-      _vm._v(" "),
-      _c("modal-verification", {
-        attrs: { message: _vm.message, method: _vm.verification }
-      })
-    ],
-    1
-  )
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres"
-      },
-      [
-        _c("h5", [_vm._v("Filtres")]),
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.user.prenom,
+                  expression: "user.prenom"
+                }
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: { type: "text", id: "prenom", required: "" },
+              domProps: { value: _vm.user.prenom },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.user, "prenom", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "mdl-textfield__label", attrs: { for: "prenom" } },
+              [_vm._v("Prénom")]
+            )
+          ]
+        ),
         _vm._v(" "),
-        _c("div", { staticClass: "actions" }, [
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.user.email,
+                  expression: "user.email"
+                }
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: { type: "email", id: "email", required: "" },
+              domProps: { value: _vm.user.email },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.user, "email", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              { staticClass: "mdl-textfield__label", attrs: { for: "email" } },
+              [_vm._v("Email")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass:
+              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.user.password,
+                  expression: "user.password"
+                }
+              ],
+              staticClass: "mdl-textfield__input",
+              attrs: {
+                type: "password",
+                id: "password",
+                pattern: ".{6,}",
+                required: ""
+              },
+              domProps: { value: _vm.user.password },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.user, "password", $event.target.value)
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "label",
+              {
+                staticClass: "mdl-textfield__label",
+                attrs: { for: "password" }
+              },
+              [_vm._v("Mot de passe")]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "mdl-cell--12-col", attrs: { id: "radio" } }, [
           _c(
             "label",
             {
-              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-              attrs: { for: "vm_date" }
+              staticClass: "mdl-radio mdl-js-radio mdl-js-ripple-effect",
+              attrs: { for: "utilisateur" }
             },
             [
               _c("input", {
-                staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_date" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.status,
+                    expression: "user.status"
+                  }
+                ],
+                staticClass: "mdl-radio__button",
+                attrs: {
+                  type: "radio",
+                  id: "utilisateur",
+                  name: "options",
+                  checked: "",
+                  value: "0"
+                },
+                domProps: { checked: _vm._q(_vm.user.status, "0") },
+                on: {
+                  change: function($event) {
+                    _vm.$set(_vm.user, "status", "0")
+                  }
+                }
               }),
               _vm._v(" "),
-              _c("span", { staticClass: "mdl-checkbox__label" }, [
-                _vm._v("Trier par date")
+              _c("span", { staticClass: "mdl-radio__label" }, [
+                _vm._v("Utilisateur")
               ])
             ]
           ),
@@ -961,72 +834,55 @@ var staticRenderFns = [
           _c(
             "label",
             {
-              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
-              attrs: { for: "vm_favoris" }
+              staticClass: "mdl-radio mdl-js-radio mdl-js-ripple-effect",
+              attrs: { for: "administrateur" }
             },
             [
               _c("input", {
-                staticClass: "mdl-checkbox__input",
-                attrs: { type: "checkbox", id: "vm_favoris" }
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.user.status,
+                    expression: "user.status"
+                  }
+                ],
+                staticClass: "mdl-radio__button",
+                attrs: {
+                  type: "radio",
+                  id: "administrateur",
+                  name: "options",
+                  value: "1"
+                },
+                domProps: { checked: _vm._q(_vm.user.status, "1") },
+                on: {
+                  change: function($event) {
+                    _vm.$set(_vm.user, "status", "1")
+                  }
+                }
               }),
               _vm._v(" "),
-              _c("span", { staticClass: "mdl-checkbox__label" }, [
-                _vm._v("Mes favoris")
+              _c("span", { staticClass: "mdl-radio__label" }, [
+                _vm._v("Administrateur")
               ])
             ]
           )
-        ])
+        ]),
+        _vm._v(" "),
+        _vm._m(0)
       ]
     )
-  },
+  ])
+}
+var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("small", [
-        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
+    return _c("div", { staticClass: "mdl-dialog__actions" }, [
+      _c("button", { staticClass: "mdl-button submit_create" }, [
+        _vm._v("Créer")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "symbole" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Créer une VM")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "img-vm" }, [
-      _c("img", {
-        attrs: {
-          src: "https://image.flaticon.com/icons/svg/148/148820.svg",
-          alt: ""
-        }
-      })
     ])
   }
 ]
@@ -1035,50 +891,61 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-93df1398", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-42830d45", module.exports)
   }
 }
 
 /***/ }),
 
-/***/ 62:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    mounted: function mounted() {}
-});
-
-/***/ }),
-
-/***/ 63:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-grid" })
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(77)
+/* template */
+var __vue_template__ = __webpack_require__(78)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/admin/Utilisateurs.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
   module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-235d410c", module.exports)
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-be0cdaf2", Component.options)
+  } else {
+    hotAPI.reload("data-v-be0cdaf2", Component.options)
   }
-}
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
 
 /***/ }),
 
-/***/ 64:
+/***/ 77:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1261,7 +1128,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 65:
+/***/ 78:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1704,621 +1571,15 @@ if (false) {
 
 /***/ }),
 
-/***/ 81:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./Header.vue": 17,
-	"./Login.vue": 10,
-	"./Tab.vue": 18,
-	"./Verification.vue": 21,
-	"./admin/Accueil.vue": 82,
-	"./admin/CreationUtilisateur.vue": 20,
-	"./admin/ModifierUtilisateur.vue": 85,
-	"./admin/Sidebar.vue": 16,
-	"./admin/Utilisateurs.vue": 14,
-	"./user/Accueil.vue": 91,
-	"./user/Conteneur.vue": 13,
-	"./user/CreationVM.vue": 19,
-	"./user/Sidebar.vue": 15,
-	"./user/VM.vue": 12
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number or string
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = 81;
-
-/***/ }),
-
-/***/ 82:
+/***/ 79:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(0)
+var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(83)
+var __vue_script__ = __webpack_require__(80)
 /* template */
-var __vue_template__ = __webpack_require__(84)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/admin/Accueil.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-0fa4e366", Component.options)
-  } else {
-    hotAPI.reload("data-v-0fa4e366", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 83:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            utilisateurs: dataArray.dashboard.utilisateurs,
-            vm: dataArray.dashboard.vm
-        };
-    }
-});
-
-/***/ }),
-
-/***/ 84:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", [
-    _vm._m(0),
-    _vm._v(" "),
-    _c("div", { staticClass: "mdl-grid" }, [
-      _c("div", { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" }, [
-        _c("div", { staticClass: "count vm" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [
-              _vm._v(_vm._s(_vm.utilisateurs))
-            ])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("Utilisateurs")])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" }, [
-        _c("div", { staticClass: "count conteneur" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [_vm._v(_vm._s(_vm.vm))])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("VM")])
-        ])
-      ]),
-      _vm._v(" "),
-      _vm._m(1)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-grid" }, [
-      _c("h3", { staticClass: "titre" }, [_vm._v("Espace administrateur")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdl-shadow--2dp mdl-cell mdl-cell--4-col" },
-      [
-        _c("div", { staticClass: "count status on" }, [
-          _c("span", { staticClass: "compteur" }, [
-            _c("span", { staticClass: "chiffre" }, [_vm._v("1")])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "titre" }, [_vm._v("Conteneurs")])
-        ])
-      ]
-    )
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-0fa4e366", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 85:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(86)
-/* template */
-var __vue_template__ = __webpack_require__(87)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/admin/ModifierUtilisateur.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-42830d45", Component.options)
-  } else {
-    hotAPI.reload("data-v-42830d45", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ 86:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            user: {}
-        };
-    },
-    methods: {
-        addUser: function addUser() {
-            this.$http.post('/edit_user', {
-                nom: this.user.nom,
-                prenom: this.user.prenom,
-                email: this.user.email,
-                password: this.user.password,
-                status: this.user.status
-            }).then(function (response) {
-
-                if (response.data.erreur == true) {
-                    notyf.alert(response.data.message);
-                } else if (response.data.erreur == false) {
-                    notyf.confirm(response.data.message);
-                }
-            }, function () {
-                console.log('erreur');
-            });
-        }
-    }
-});
-
-/***/ }),
-
-/***/ 87:
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "mdl-cell--12-col contenu" }, [
-    _c(
-      "form",
-      {
-        staticClass: "form form-creation-user",
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            _vm.addUser($event)
-          }
-        }
-      },
-      [
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.nom,
-                  expression: "user.nom"
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: { type: "text", id: "nom", required: "" },
-              domProps: { value: _vm.user.nom },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "nom", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "mdl-textfield__label", attrs: { for: "nom" } },
-              [_vm._v("Nom")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.prenom,
-                  expression: "user.prenom"
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: { type: "text", id: "prenom", required: "" },
-              domProps: { value: _vm.user.prenom },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "prenom", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "mdl-textfield__label", attrs: { for: "prenom" } },
-              [_vm._v("Prénom")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.email,
-                  expression: "user.email"
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: { type: "email", id: "email", required: "" },
-              domProps: { value: _vm.user.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "email", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              { staticClass: "mdl-textfield__label", attrs: { for: "email" } },
-              [_vm._v("Email")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
-          },
-          [
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.user.password,
-                  expression: "user.password"
-                }
-              ],
-              staticClass: "mdl-textfield__input",
-              attrs: {
-                type: "password",
-                id: "password",
-                pattern: ".{6,}",
-                required: ""
-              },
-              domProps: { value: _vm.user.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.user, "password", $event.target.value)
-                }
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "label",
-              {
-                staticClass: "mdl-textfield__label",
-                attrs: { for: "password" }
-              },
-              [_vm._v("Mot de passe")]
-            )
-          ]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "mdl-cell--12-col", attrs: { id: "radio" } }, [
-          _c(
-            "label",
-            {
-              staticClass: "mdl-radio mdl-js-radio mdl-js-ripple-effect",
-              attrs: { for: "utilisateur" }
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.status,
-                    expression: "user.status"
-                  }
-                ],
-                staticClass: "mdl-radio__button",
-                attrs: {
-                  type: "radio",
-                  id: "utilisateur",
-                  name: "options",
-                  checked: "",
-                  value: "0"
-                },
-                domProps: { checked: _vm._q(_vm.user.status, "0") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.user, "status", "0")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "mdl-radio__label" }, [
-                _vm._v("Utilisateur")
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "mdl-radio mdl-js-radio mdl-js-ripple-effect",
-              attrs: { for: "administrateur" }
-            },
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.user.status,
-                    expression: "user.status"
-                  }
-                ],
-                staticClass: "mdl-radio__button",
-                attrs: {
-                  type: "radio",
-                  id: "administrateur",
-                  name: "options",
-                  value: "1"
-                },
-                domProps: { checked: _vm._q(_vm.user.status, "1") },
-                on: {
-                  change: function($event) {
-                    _vm.$set(_vm.user, "status", "1")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "mdl-radio__label" }, [
-                _vm._v("Administrateur")
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _vm._m(0)
-      ]
-    )
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mdl-dialog__actions" }, [
-      _c("button", { staticClass: "mdl-button submit_create" }, [
-        _vm._v("Créer")
-      ])
-    ])
-  }
-]
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-42830d45", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ 91:
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(0)
-/* script */
-var __vue_script__ = __webpack_require__(92)
-/* template */
-var __vue_template__ = __webpack_require__(93)
+var __vue_template__ = __webpack_require__(81)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -2358,7 +1619,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 92:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -2402,7 +1663,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
-/***/ 93:
+/***/ 81:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -2471,6 +1732,745 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-18d472e7", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 82:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(83)
+/* template */
+var __vue_template__ = __webpack_require__(84)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/user/Conteneur.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-235d410c", Component.options)
+  } else {
+    hotAPI.reload("data-v-235d410c", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 83:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    mounted: function mounted() {}
+});
+
+/***/ }),
+
+/***/ 84:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "mdl-grid" })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-235d410c", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ 85:
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(86)
+/* template */
+var __vue_template__ = __webpack_require__(87)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/user/VM.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-93df1398", Component.options)
+  } else {
+    hotAPI.reload("data-v-93df1398", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ 86:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var vmTmp;
+//On regarde s'il y a des VM
+if (dataArray.vm == null) {
+    vmTmp = null;
+} else {
+    vmTmp = dataArray.vm;
+}
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            vm: vmTmp,
+            isActive: false,
+            message: null,
+            methods: {
+                action: null,
+                idUser: null,
+                vm: null
+            }
+        };
+    },
+    mounted: function mounted() {
+        'use strict';
+        //S'il n'y a pas de VM, pas besoin de modal
+
+        if (vmTmp !== null) {
+            //Correspond à la modale de création d'une VM
+            var dialog_create = document.querySelector('#modal_create');
+            var closeButton = dialog_create.querySelector('.close_modal_creation');
+            var showButton = document.querySelector('#show_modal_creation');
+            if (!dialog_create.showModal) {
+                dialogPolyfill.registerDialog(dialog_create);
+            }
+            var closeClickHandler = function closeClickHandler(event) {
+                dialog_create.close();
+            };
+            var showClickHandler = function showClickHandler(event) {
+                dialog_create.showModal();
+            };
+            showButton.addEventListener('click', showClickHandler);
+            closeButton.addEventListener('click', closeClickHandler);
+        }
+
+        var dialogButton = document.querySelectorAll('.show_modal_verif');
+        var dialog = document.querySelector('#dialog_verif');
+        if (!dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
+        //Ajout listener sur le bouton au clique pour afficher la modale
+        dialogButton.forEach(function (elem) {
+            elem.addEventListener("click", function () {
+                dialog.showModal();
+            });
+        });
+        //Pareil mais pour quitter la modale
+        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
+            dialog.close();
+        });
+        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
+            dialog.close();
+        });
+    },
+
+    //Fixe le problème du select non actualisé
+    created: function created() {
+        this.$nextTick(function () {
+            componentHandler.upgradeDom();
+            getmdlSelect.init(".getmdl-select");
+        });
+    },
+
+    methods: {
+        //Gestion des onglets de la card
+        showHide: function showHide(event) {
+            var key = event.target.parentElement.parentElement.attributes["0"].value;
+            var elementVm = $('.' + key);
+            var action = event.target.dataset.action;
+            elementVm.find('.active').removeClass('active');
+            elementVm.find('.current').removeClass('current');
+            elementVm.find('.' + action).addClass('current');
+            event.target.classList.add('active');
+        },
+
+        //Initilise les valeurs au clique sur une action
+        set: function set(user, click) {
+            var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText;
+            //On récupère l'action
+            var action = click.target.parentElement.dataset.action;
+            //On affecte ces valeurs aux variables
+            this.methods.action = action;
+            this.methods.idUser = user.id_utilisateur;
+            //On concatène le nom de la VM pour le script
+            this.methods.vm = user.id_utilisateur + '_' + user.nom;
+            console.log(this.methods);
+            if (action == 'delete') {
+                //Message qui sera visible dans la modale
+                this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?';
+            } else if (action == 'start') {
+                this.message = 'Voulez vous vraiment allumer la VM ' + texte + ' ?';
+            } else if (action == 'shutdown') {
+                this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?';
+            }
+            //this.message = message
+        },
+
+        //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
+        verification: function verification() {
+            console.log(this.methods);
+            //On exécute la requête ajax
+            this.$http.post('/send_action', {
+                action: this.methods.action,
+                nomVM: this.methods.vm,
+                id: this.methods.idUser
+            }).then(function (response) {
+                if (response.data.erreur == true) {
+                    notyf.alert(response.data.message);
+                } else if (response.data.erreur == false) {
+                    notyf.confirm(response.data.message);
+                }
+            }, function () {
+                console.log('erreur');
+            });
+            //On réinitialise les valeurs
+            this.methods.action = null;
+            this.methods.idUser = null;
+            this.methods.vm = null;
+        }
+    }
+});
+
+/***/ }),
+
+/***/ 87:
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c("div", { staticClass: "mdl-grid" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
+          [
+            _vm.vm == null
+              ? _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
+                  },
+                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
+                )
+              : _c(
+                  "div",
+                  {
+                    staticClass:
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
+                    attrs: { id: "show_modal_creation" }
+                  },
+                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
+                ),
+            _vm._v(" "),
+            _vm._l(_vm.vm, function(value, key, index) {
+              return _c(
+                "div",
+                {
+                  staticClass: "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col",
+                  class: "vm_" + key,
+                  attrs: { "data-key": "vm_" + key }
+                },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "statut", class: value.statut },
+                    [
+                      value.statut === "on"
+                        ? [
+                            _vm._v(
+                              "\n                        En service\n                    "
+                            )
+                          ]
+                        : value.statut === "inconnu"
+                          ? [
+                              _vm._v(
+                                "\n                        Inconnu\n                    "
+                              )
+                            ]
+                          : [
+                              _vm._v(
+                                "\n                        Éteint\n                    "
+                              )
+                            ]
+                    ],
+                    2
+                  ),
+                  _vm._v(" "),
+                  _vm._m(5, true),
+                  _vm._v(" "),
+                  _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "infos_bloc current bloc_interactif" },
+                    [
+                      _c("div", { staticClass: "contenu" }, [
+                        _c("div", { staticClass: "infos" }, [
+                          _c("div", { staticClass: "description" }, [
+                            _c("span", { staticClass: "vm-titre" }, [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("computer")
+                              ]),
+                              _vm._v(" " + _vm._s(value.os))
+                            ]),
+                            _vm._v(" "),
+                            _c("hr"),
+                            _vm._v(" "),
+                            _c("p", [
+                              _c("i", { staticClass: "material-icons" }, [
+                                _vm._v("list")
+                              ]),
+                              _vm._v(" " + _vm._s(value.description))
+                            ])
+                          ])
+                        ])
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "details_bloc bloc_interactif" }, [
+                    _c("ul", [
+                      _c("li", [
+                        _c("b", [_vm._v("OS : ")]),
+                        _vm._v(_vm._s(value.os))
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("CPU : ")]),
+                        _vm._v(_vm._s(value.cpu))
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("RAM : ")]),
+                        _vm._v(
+                          _vm._s(value.ram) +
+                            " (" +
+                            _vm._s(value.unite_ram) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("Stockage logique : ")]),
+                        _vm._v(
+                          _vm._s(value.sto_l) +
+                            " (" +
+                            _vm._s(value.unite_sto_l) +
+                            ")"
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("b", [_vm._v("Stockage réel : ")]),
+                        _vm._v(
+                          _vm._s(value.sto_r) +
+                            " (" +
+                            _vm._s(value.unite_sto_r) +
+                            ")"
+                        )
+                      ])
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "options_bloc bloc_interactif" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif",
+                        attrs: { "data-action": "delete" },
+                        on: {
+                          click: function($event) {
+                            _vm.set(value, $event)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("delete")
+                        ]),
+                        _vm._v(" Supprimer\n                    ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
+                        attrs: { "data-action": "start" },
+                        on: {
+                          click: function($event) {
+                            _vm.set(value, $event)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("play_arrow")
+                        ]),
+                        _vm._v(" Allumer\n                    ")
+                      ]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "button",
+                      {
+                        staticClass:
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
+                        attrs: { "data-action": "shutdown" },
+                        on: {
+                          click: function($event) {
+                            _vm.set(value, $event)
+                          }
+                        }
+                      },
+                      [
+                        _c("i", { staticClass: "material-icons" }, [
+                          _vm._v("power_settings_new")
+                        ]),
+                        _vm._v(" Éteindre\n                    ")
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "menu" }, [
+                    _c(
+                      "a",
+                      {
+                        staticClass: "infos_btn active",
+                        attrs: { href: "#", "data-action": "infos_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Infos")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "details_btn",
+                        attrs: { href: "#", "data-action": "details_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Détails")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "a",
+                      {
+                        staticClass: "options_btn",
+                        attrs: { href: "#", "data-action": "options_bloc" },
+                        on: { click: _vm.showHide }
+                      },
+                      [_vm._v("Options")]
+                    )
+                  ])
+                ]
+              )
+            })
+          ],
+          2
+        )
+      ]),
+      _vm._v(" "),
+      _c("creation-vm"),
+      _vm._v(" "),
+      _c("modal-verification", {
+        attrs: { message: _vm.message, method: _vm.verification }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      {
+        staticClass:
+          "mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid filtres"
+      },
+      [
+        _c("h5", [_vm._v("Filtres")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "actions" }, [
+          _c(
+            "label",
+            {
+              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
+              attrs: { for: "vm_date" }
+            },
+            [
+              _c("input", {
+                staticClass: "mdl-checkbox__input",
+                attrs: { type: "checkbox", id: "vm_date" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "mdl-checkbox__label" }, [
+                _vm._v("Trier par date")
+              ])
+            ]
+          ),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect",
+              attrs: { for: "vm_favoris" }
+            },
+            [
+              _c("input", {
+                staticClass: "mdl-checkbox__input",
+                attrs: { type: "checkbox", id: "vm_favoris" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "mdl-checkbox__label" }, [
+                _vm._v("Mes favoris")
+              ])
+            ]
+          )
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "icon" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
+      _c("br"),
+      _vm._v(" "),
+      _c("small", [
+        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "symbole" }, [
+      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "texte" }, [
+      _c("span", [_vm._v("Créer une VM")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "img-vm" }, [
+      _c("img", {
+        attrs: {
+          src: "https://image.flaticon.com/icons/svg/148/148820.svg",
+          alt: ""
+        }
+      })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-93df1398", module.exports)
   }
 }
 

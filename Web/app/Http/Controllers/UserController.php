@@ -128,9 +128,14 @@ class UserController extends Controller
         $userID = $user->id;
         //On vérifie avant si la VM n'existe pas déjà
         $vmExist = DB::table('vm')
-        ->where('nom', $userID. '_' .$request->get('nom'))
+        ->where('id_utilisateur', $userID)
+        ->where('nom', $request->get('nom'))
         ->get();
-        //Si ce n'est pas le cas, on peut créer un utilisateur
+        
+        //Fonction non disponible pour le moment
+        $return['message'] = 'Fonctionnalité non disponible pour le moment';
+        return $return;
+        //Si ce n'est pas le cas, on peut créer une VM
         if ($vmExist->count() == 0) {
             $vm = new VM([
                 'id_utilisateur'     => $userID,
@@ -194,17 +199,17 @@ class UserController extends Controller
                     $dataToGet = array(
                         'delete_vm' => $nomVM
                     );
-                    $actionFR = 'supprimer la VM : ' . $vm->nom;
+                    $actionFR = '"'. $vm->nom .'" supprimée';
                 } elseif ($action == 'start') {
                     $dataToGet = array(
                         'start_vm' => $nomVM
                     );
-                    $actionFR = 'démarrer la VM : ' . $vm->nom;
+                    $actionFR = '"'. $vm->nom .'" allumée';
                 } elseif ($action == 'shutdown') {
                     $dataToGet = array(
                         'stop_vm' => $nomVM
                     );
-                    $actionFR = 'éteindre la VM : ' . $vm->nom;
+                    $actionFR = '"'. $vm->nom .'" éteinte';
                 }
 
                 $json = json_encode($dataToGet);
@@ -223,7 +228,7 @@ class UserController extends Controller
                         switch ($socketJson['start_vm']) {
                             case true:
                                 $return['erreur'] = false;
-                                $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
+                                $return['message'] = $actionFR;
                                 //Actualise l'état de la VM en base
                                 $vm->statut = 'on';
                                 $vm->save();
