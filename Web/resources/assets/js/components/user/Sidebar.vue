@@ -2,7 +2,7 @@
     <div class="mdl-layout__drawer sidebar mdl-shadow--4dp">
         <div class="user-data">
             <div class="user-picture">
-                <img src="https://image.flaticon.com/icons/svg/149/149074.svg" alt="">
+                <img src="/img/user.svg" alt="">
             </div>
             <div class="user-name">
                 <span>{{ user }}</span>

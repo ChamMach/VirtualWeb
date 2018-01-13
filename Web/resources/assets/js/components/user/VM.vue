@@ -32,7 +32,7 @@
                         <span>Créer une VM</span>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="'vm_'+key" :data-key="'vm_'+key">
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col" v-for="(value, key, index) in vm" v-bind:class="'vm_'+value.id_vm" :data-key="'vm_'+value.id_vm">
                     <div class="statut" v-bind:class="value.statut">
                         <template v-if="value.statut === 'on'">
                             En service
@@ -45,7 +45,7 @@
                         </template>
                     </div>
                     <div class="img-vm">
-                        <img src="https://image.flaticon.com/icons/svg/148/148820.svg" alt="">
+                        <img src="/img/server.svg" alt="">
                     </div>
                     <h6>"{{ value.nom }}"</h6>
                     <div class="infos_bloc current bloc_interactif">
@@ -113,6 +113,7 @@
                     action: null,
                     idUser: null,
                     vm: null,
+                    id: null,
                 },
             }
         },
@@ -185,9 +186,9 @@
               //On affecte ces valeurs aux variables
               this.methods.action = action
               this.methods.idUser = user.id_utilisateur
+              this.methods.id = user.id_vm
               //On concatène le nom de la VM pour le script
               this.methods.vm = user.id_utilisateur + '_' + user.nom
-              console.log(this.methods);
               if (action == 'delete') {
                   //Message qui sera visible dans la modale
                   this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?'
@@ -198,9 +199,24 @@
               }
               //this.message = message
           },
+          getVM() {
+              this.$http.post('/get_vm').then((response) => {
+                  this.vm = response.data
+              }, () => {
+                  console.log('erreur')
+              })
+              var divVM = $('.vm_' + this.methods.id);
+              divVM.removeClass('spinner')
+              //On réinitialise les valeurs
+              this.methods.action = null
+              this.methods.idUser = null
+              this.methods.vm = null
+              this.methods.id = null
+          },
           //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
           verification() {
-              console.log(this.methods);
+              var divVM = $('.vm_' + this.methods.id);
+              divVM.addClass('spinner')
               //On exécute la requête ajax
               this.$http.post('/send_action', {
                   action: this.methods.action,
@@ -208,17 +224,20 @@
                   id: this.methods.idUser,
               }).then((response) => {
                   if (response.data.erreur == true) {
-                      notyf.alert(response.data.message);
+                      notyf.alert(response.data.message)
+                      divVM.removeClass('spinner')
+                      //On réinitialise les valeurs
+                      this.methods.action = null
+                      this.methods.idUser = null
+                      this.methods.vm = null
+                      this.methods.id = null
                   } else if (response.data.erreur == false) {
-                      notyf.confirm(response.data.message);
+                      notyf.confirm(response.data.message)
+                      this.getVM()
                   }
               }, () => {
-                  console.log('erreur');
+                  console.log('erreur')
               })
-              //On réinitialise les valeurs
-              this.methods.action = null;
-              this.methods.idUser = null;
-              this.methods.vm = null;
           },
       }
     }

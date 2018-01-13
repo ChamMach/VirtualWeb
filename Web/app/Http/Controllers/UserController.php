@@ -11,6 +11,7 @@ use App\VM;
 use Session;
 use Illuminate\Support\Facades\Redirect;
 use Log;
+use Artisan;
 
 class UserController extends Controller
 {
@@ -70,45 +71,10 @@ class UserController extends Controller
      * Récupère les VM de l'utilisateur
      * @return array Tableau contenant les VM
      */
-    private function getVM($id)
+    public function getVM()
     {
-        $vm = VM::where('id_utilisateur', $id)
-        ->get();
-        //Si aucune VM pour l'utilisateur on remplace l'array par null
-        if (sizeof($vm) == 0) {
-            $vm = null;
-        }
-        //Array static
-        $staticArray = array(
-            'infos_vm' => '1',
-            'data' => array(
-                'vm_1'=> array(
-                    'nom'=> 'VM Développement',
-                    'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.',
-                    'statut'=> 'on',
-                    'caracteristiques'=> array(
-                        'os' => 'Ubuntu 16.04 64bits',
-                        'cpu' => '4',
-                        'ram' => array('3200','mo'),
-                        'sto_l' => array('35','GO'),
-                        'sto_r' => array('2','mo'),
-                    ),
-                ),
-                'vm_2'=> array(
-                    'nom'=> 'Serveur Web Apache',
-                    'description'=> 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin libero purus, tempus eu venenatis eu, ullamcorper in elit. Nulla auctor nisl eu diam lacinia rutrum.',
-                    'statut'=> 'off',
-                    'caracteristiques'=> array(
-                        'os' => 'Ubuntu 16.04 64bits',
-                        'cpu' => '4',
-                        'ram' => array('3200','mo'),
-                        'sto_l' => array('35','GO'),
-                        'sto_r' => array('2','mo'),
-                    ),
-                ),
-            ),
-        );
-
+        $user = Auth::user();
+        $vm = VM::where('id_utilisateur', $user->id)->get();
         return $vm;
     }
 
@@ -131,7 +97,7 @@ class UserController extends Controller
         ->where('id_utilisateur', $userID)
         ->where('nom', $request->get('nom'))
         ->get();
-        
+
         //Fonction non disponible pour le moment
         $return['message'] = 'Fonctionnalité non disponible pour le moment';
         return $return;
@@ -257,7 +223,7 @@ class UserController extends Controller
                         switch ($socketJson['stop_vm']) {
                             case true:
                                 $return['erreur'] = false;
-                                $return['message'] = 'L\'action '. $actionFR . ' a été réalisée';
+                                $return['message'] = $actionFR;
                                 //Actualise l'état de la VM en base
                                 $vm->statut = 'on';
                                 $vm->save();
@@ -297,6 +263,10 @@ class UserController extends Controller
 
         //On ajoute au fichier log ce qu'il c'est passé ici pour garder un historique
         Log::debug('Action VM '. $nomVM .' : ' . json_encode($return));
+
+        if ($return['erreur'] == false) {
+            Artisan::call('schedule:run');
+        }
 
         return $return;
     }

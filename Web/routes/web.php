@@ -26,7 +26,8 @@ Route::group(['middleware' => ['isUser']], function ()
     Route::get('/conteneur', 'UserController@index')->name('contenuer');
     Route::post('create_vm', array('uses' => 'UserController@createVM'));
     Route::post('send_action', array('uses' => 'UserController@sendAction'));
-    
+    Route::post('get_vm', array('uses' => 'UserController@getVM'));
+
     Route::get('/deconnexion_user', array('uses' => 'UserController@deconnexion'));
 });
 
@@ -40,7 +41,7 @@ Route::group(['middleware' => ['isAdmin']], function ()
     Route::post('create_user', array('uses' => 'Admin\AdminController@createUser'));
     Route::post('delete_user', array('uses' => 'Admin\AdminController@deleteUser'));
     Route::post('edit_user', array('uses' => 'Admin\AdminController@editUser'));
-    
+
     Route::get('/deconnexion_admin', array('uses' => 'Admin\AdminController@deconnexion'));
 });
 

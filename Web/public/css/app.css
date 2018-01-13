@@ -56,6 +56,18 @@ body {
   color: #d50000;
 }
 
+.spinner:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: #6ea1ee;
+  position: absolute;
+  top: 0;
+  background-image: url(/img/spinner.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .small-btn {
   background: #34485d;
   color: #FFFF;
