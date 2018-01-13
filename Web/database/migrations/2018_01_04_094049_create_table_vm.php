@@ -18,7 +18,7 @@ class CreateTableVm extends Migration
             $table->integer('id_utilisateur')->unsigned();
             $table->foreign('id_utilisateur')->references('id')->on('users')->onDelete('cascade');
             $table->datetime('date_creation')->default(null)->nullable();
-            $table->string('nom')->unique();
+            $table->string('nom');
             $table->string('description');
             $table->string('statut');
             $table->string('os');
