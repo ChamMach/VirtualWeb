@@ -39,6 +39,7 @@ def jsondata(raw):
     return jdata
 
 #Conversion bytes/Mo en octets et equivalent
+#Retourne une valeur suivis de son suffixe
 def convert(size, type):
     suffixes = 0
     if type == 'bytes':
@@ -54,6 +55,17 @@ def convert(size, type):
     tmpSize /= 100
     tmpSize = format(tmpSize, '.2f') #Limitation a deux decimal apres la virgule
     return tmpSize, suffixes[i]
+
+#Fonction qui concverti les Mo en bytes. Par exemple 25600Mo = 26843545600 bytes (octets)
+#Retourne une valeur en bytes
+def convertmegaoctetstobytes(size):
+    tmpSize = size
+    tmpSize *= 1024.0
+    tmpSize *= 100
+    tmpSize /= 100
+    tmpSize *= 1024 #passer de kb en bytes (octets)
+    tmpSize = format(tmpSize, '.0f') #pas de virgule
+    return tmpSize
 
 #Renvoie la liste des vm et de leurs caracteristiques (nom,description,os,cpu,ram,stockage logique, stockage reel)
 #{"infos_vm": "123", "data": {"vm_1": {"nom": "", "description": "", "statut": "", "caracteristiques": {"os": "", "cpu":, "ram":, "sto_l":, "sto_r":}}}}
@@ -104,7 +116,8 @@ def infosvm(type):
     vminfos['data'] = vmdata
     return vminfos #Envoi des informations
 
-
+#Demarre une VM en indiquant en parametre le nom de celle-ci
+#Retourne un etat sur l'execution de cette fonction
 def startvm(id):
     idvm = id
     vm = vbox.find_machine(idvm)
@@ -128,6 +141,8 @@ def startvm(id):
         infos['start_vm'] = 'false_statevmunknown'
     return infos
 
+#Eteint une VM en indiquant en parametre le nom de celle-ci
+#Retourne un etat sur l'execution de cette fonction
 def stopvm(id):
     idvm = id
     vm = vbox.find_machine(idvm)
@@ -149,4 +164,122 @@ def stopvm(id):
             infos['stop_vm'] = 'false_sessionunknown'
     else:
         infos['stop_vm'] = 'false_statevmunknown'
+    return infos
+
+#Cherche une VM en indiquant le nom de celle-ci
+#Retourne la VM et tout ses attributs si elle existe, sinon 0
+def vmfind(nom):
+    name = nom
+    try:
+        vmfind = vbox.find_machine(name)
+    except:
+        vmfind = 0
+    return vmfind
+
+#Modifie un attribut d'une VM
+#Retourne un etat sur l'execution de cette fonction
+def modifyvm(nom,attribut,valeur):
+    vmf = vmfind(nom) #On recupere la vm
+    attr = attribut
+    val = valeur
+    infos = collections.OrderedDict()
+    locktypevm = virtualbox.library.LockType(3) #Locktype de type vm
+    if str(vmf.state) == 'PoweredOff': #Si la VM est hors-ligne
+        with vmf.create_session(locktypevm) as session: #Creation d'une session
+            sess = session.machine
+            if attr == 'nom':
+                sess.name = val
+            if attr == 'ram':
+                sess.memory_size = val
+            if attr == 'cpu':
+                sess.cpu_count = val
+            if attr == 'desc':
+                sess.description = val
+            if attr == 'sto':
+                hdd = virtualbox.library.DeviceType(3)  # harddisk
+                stobytes = convertmegaoctetstobytes(val) #On converti les Mo en bytes
+                mediums = sess.medium_attachments #Recupere la liste des mediums attache a la VM
+                controller = mediums[0].controller #Recupere le controlleur de stockage (SATA/IDE) du premier medium (un hdd)
+                controllerport = mediums[0].port #Recupere le port du premier medium (un hdd)
+                device = mediums[0].device #Recupere le device du premier medium (un hdd)
+                vmm = sess.get_medium(controller,controllerport,device) #On recupere le premier medium
+                sess.detach_device(controller,controllerport,device) #On le detache de la VM temporairement
+                resize = long(stobytes)
+                vmm.resize(resize) #On resize le medium
+                sess.attach_device(name=controller,controller_port=controllerport,device=device,type_p=hdd,medium=vmm) #On le reattache
+            sess.save_settings()
+            infos['modify_vm'] = 'true'
+    elif str(vmf.state) == 'FirstOnline': #Si la VM est en ligne
+        infos['modify_vm'] = 'false_vmonline'
+    else: #Si la VM est dans un autre etat
+        infos['modify_vm'] = 'false_vmstateunknown'
+    return infos
+
+#Clone une vm en direction d'une autre vm cree pour l'occasion (utilisation pour la fonction create_vm)
+#Retourne un etat sur l'execution de cette fonction
+def clonevm(vm,vmc): #vm,vmcible
+    infos = collections.OrderedDict()
+    lavm = virtualbox.library_ext.IMachine
+    mode = virtualbox.library.CloneMode(3) #Clonage de la totalite de la VM
+    opt = []
+    lavm.clone_to(vm, target=vmc, mode=mode, options=opt) #Processus plus ou moins long suivant la VM que l'on clone
+    vbox.register_machine(vmc) #On enregistre la vm cree dans virtualbox
+    if vmfind(vmc.name) != 0: #Si la vm clonee existe
+        infos['clone_vm'] = 'true'
+    else:
+        infos['clone_vm'] = 'false'
+    return infos
+
+#Creation d'une VM.
+#Processus de creation : Creation d'une vm vierge, clonage d'une vm template dans cette VM vierge, modification des attributs de bases (optionnel, enregistrement de la VM clonee dans VirtualBox
+#OS supporte : Windows7 (64 bits), Centos (64 bits)
+#Retourne un etat sur l'execution de cette fonction
+def createvm(nom,os,ram,cpu,sto,desc):
+    arr = []
+    infos = collections.OrderedDict()
+    if vmfind(nom) == 0: #On verifie que la vm n'existe pas (avec cet id utilisateur)
+        if os == 'Windows7_64':
+            vm = vbox.find_machine('0_Windows7') #Recherche de la vm template
+            nomt = '0_Windows7' + nom #nom temporaire (afin d'eviter le bug lors du clonage complet de la vm)
+            vmc = vbox.create_machine(name=nomt,groups=arr, os_type_id='Windows7_64', flags='/', settings_file='')
+            clone = clonevm(vm,vmc)
+            if clone['clone_vm'] == 'true':
+                try:
+                    modifyvm(nomt, 'nom', nom)  # Renommage de la vm avec le nom choisi par l'utilisateur
+                    if ram != 2048:
+                        modifyvm(nom, 'ram', ram)
+                    if cpu != 1:
+                        modifyvm(nom, 'cpu', cpu)
+                    if sto != 25600:  # 25600Mo = 25Go
+                        modifyvm(nom, 'sto', sto)
+                    if desc != '':
+                        modifyvm(nom, 'desc', desc)
+                except:
+                    infos['create_vm'] = 'false_modifyvmfailed'
+            else:
+                infos['create_vm'] = 'false_cloningfailed' #Probleme lors du clonage de la vm template
+        elif os == 'RedHat_64':
+            vm = vbox.find_machine('0_Centos')  # Recherche de la vm template
+            nomt = '1_Centos' + nom  # nom temporaire (afin d'eviter le bug lors du clonage complet de la vm)
+            vmc = vbox.create_machine(name=nomt, groups=arr, os_type_id='RedHat_64', flags='/', settings_file='')
+            clone = clonevm(vm, vmc)
+            if clone['clone_vm'] == 'true':
+                try:
+                    modifyvm(nomt, 'nom', nom)  # Renommage de la vm avec le nom choisi par l'utilisateur
+                    if ram != 1024:
+                        modifyvm(nom,'ram', ram)
+                    if cpu != 1:
+                        modifyvm(nom,'cpu', cpu)
+                    if sto != 8192:  # 8192Mo = 8Go
+                        print 'ok'
+                        modifyvm(nom,'sto', sto)
+                    if desc != '':
+                        modifyvm(nom,'desc', desc)
+                    infos['create_vm'] = 'true'
+                except:
+                    infos['create_vm'] = 'false_modifyvmfailed'
+        else:
+            infos['create_vm'] = 'false_osunknown' #OS inconnu du programme python
+    else:
+        infos['create_vm'] = 'false_vmalreadyexist' #La vm existe deja
     return infos

@@ -6,7 +6,6 @@ import vmfonctions
 
 #####PROGRAMME PRINCIPAL######
 ip = raw_input('Entrez l\'adresse IP de la machine : ')
-
 #Creation de la socket reseau
 sockethelper = SocketHelper(ip,1333)
 print 'En attente ...'
@@ -62,6 +61,20 @@ while True:
         print 'Json envoyee : '
         print stvm
         sockethelper.send_data(stvm)  # Envoi des informations en json
+        sockethelper.close_socket()  # Fermeture de la socket
+
+    elif 'create_vm' in data:
+        nom = python_obj['create_vm']
+        os = python_obj['os']
+        ram = python_obj['ram']
+        cpu = python_obj['cpu']
+        sto = python_obj['sto']
+        desc = python_obj['desc']
+        create = vmfonctions.createvm(nom,os,ram,cpu,sto,desc)
+        cvm = vmfonctions.jsondata(create)
+        print 'Json envoyee : '
+        print cvm
+        sockethelper.send_data(cvm)  # Envoi des informations en json
         sockethelper.close_socket()  # Fermeture de la socket
     else:
         sockethelper.send_data("Erreur")
