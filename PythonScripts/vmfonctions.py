@@ -120,9 +120,11 @@ def infosvm(type):
 #Retourne un etat sur l'execution de cette fonction
 def startvm(id):
     idvm = id
-    vm = vbox.find_machine(idvm)
+    vm = vmfind(idvm)  # On recupere la vm
     infos = collections.OrderedDict()
-    if str(vm.state) == 'FirstOnline': #Si la vm est lancee
+    if vm == 0:
+        infos['start_vm'] = 'false_vmdoesntexist'
+    elif str(vm.state) == 'FirstOnline': #Si la vm est lancee
         infos['start_vm'] = 'false_vmalreadyonline'
     elif str(vm.state) == 'PoweredOff': #Si la vm est a l'arret
         if str(vm.session_state) == 'Locked':  # Si la session est lock
@@ -145,9 +147,11 @@ def startvm(id):
 #Retourne un etat sur l'execution de cette fonction
 def stopvm(id):
     idvm = id
-    vm = vbox.find_machine(idvm)
+    vm = vmfind(idvm)  # On recupere la vm
     infos = collections.OrderedDict()
-    if str(vm.state) == 'PoweredOff':
+    if vm == 0:
+        infos['stop_vm'] = 'false_vmdoesntexist'
+    elif str(vm.state) == 'PoweredOff':
         infos['stop_vm'] = 'false_vmalreadyoff' #VM deja eteinte
     elif str(vm.state) == 'FirstOnline':
         session = vm.create_session() #Creation d'une session, meme si une autre existe deja
@@ -178,26 +182,27 @@ def vmfind(nom):
 
 #Modifie un attribut d'une VM
 #Retourne un etat sur l'execution de cette fonction
-def modifyvm(nom,attribut,valeur):
+def modifyvm(nom,attributs):
     vmf = vmfind(nom) #On recupere la vm
-    attr = attribut
-    val = valeur
+    attr = attributs
     infos = collections.OrderedDict()
     locktypevm = virtualbox.library.LockType(3) #Locktype de type vm
-    if str(vmf.state) == 'PoweredOff': #Si la VM est hors-ligne
+    if vmf == 0:
+        infos['modify_vm'] = 'false_vmdoesntexist'
+    elif str(vmf.state) == 'PoweredOff': #Si la VM est hors-ligne
         with vmf.create_session(locktypevm) as session: #Creation d'une session
             sess = session.machine
-            if attr == 'nom':
-                sess.name = val
-            if attr == 'ram':
-                sess.memory_size = val
-            if attr == 'cpu':
-                sess.cpu_count = val
-            if attr == 'desc':
-                sess.description = val
-            if attr == 'sto':
+            if 'nom' in attr:
+                sess.name = attr['nom']
+            if 'ram' in attr:
+                sess.memory_size = attr['ram']
+            if 'cpu' in attr:
+                sess.cpu_count = attr['cpu']
+            if 'desc' in attr:
+                sess.description = attr['desc']
+            if 'sto' in attr:
                 hdd = virtualbox.library.DeviceType(3)  # harddisk
-                stobytes = convertmegaoctetstobytes(val) #On converti les Mo en bytes
+                stobytes = convertmegaoctetstobytes(attr['sto']) #On converti les Mo en bytes
                 mediums = sess.medium_attachments #Recupere la liste des mediums attache a la VM
                 controller = mediums[0].controller #Recupere le controlleur de stockage (SATA/IDE) du premier medium (un hdd)
                 controllerport = mediums[0].port #Recupere le port du premier medium (un hdd)
@@ -237,6 +242,7 @@ def clonevm(vm,vmc): #vm,vmcible
 def createvm(nom,os,ram,cpu,sto,desc):
     arr = []
     infos = collections.OrderedDict()
+    attributs = collections.OrderedDict()
     if vmfind(nom) == 0: #On verifie que la vm n'existe pas (avec cet id utilisateur)
         if os == 'Windows7_64':
             vm = vbox.find_machine('0_Windows7') #Recherche de la vm template
@@ -245,15 +251,18 @@ def createvm(nom,os,ram,cpu,sto,desc):
             clone = clonevm(vm,vmc)
             if clone['clone_vm'] == 'true':
                 try:
-                    modifyvm(nomt, 'nom', nom)  # Renommage de la vm avec le nom choisi par l'utilisateur
+                    attributs['nom'] = nom
+                    modifyvm(nomt, attributs)
+                    attributs.clear() #On clear la liste pour pouvoir modifier d'autre attributs si besoin
                     if ram != 2048:
-                        modifyvm(nom, 'ram', ram)
+                        attributs['ram'] = ram
                     if cpu != 1:
-                        modifyvm(nom, 'cpu', cpu)
+                        attributs['cpu'] = cpu
                     if sto != 25600:  # 25600Mo = 25Go
-                        modifyvm(nom, 'sto', sto)
+                        attributs['sto'] = sto
                     if desc != '':
-                        modifyvm(nom, 'desc', desc)
+                        attributs['desc'] = desc
+                    modifyvm(nom, attributs)  # Renommage de la vm avec le nom choisi par l'utilisateur et modification des autres attributs de la vm si necessaire
                     infos['create_vm'] = 'true'
                 except:
                     infos['create_vm'] = 'false_modifyvmfailed'
@@ -266,19 +275,21 @@ def createvm(nom,os,ram,cpu,sto,desc):
             clone = clonevm(vm, vmc)
             if clone['clone_vm'] == 'true':
                 try:
-                    modifyvm(nomt, 'nom', nom)  # Renommage de la vm avec le nom choisi par l'utilisateur
+                    attributs['nom'] = nom
+                    modifyvm(nomt, attributs)
+                    attributs.clear() #On clear la liste pour pouvoir modifier d'autre attributs si besoin
                     if ram != 1024:
-                        modifyvm(nom,'ram', ram)
+                        attributs['ram'] = ram
                     if cpu != 1:
-                        modifyvm(nom,'cpu', cpu)
+                        attributs['cpu'] = cpu
                     if sto != 8192:  # 8192Mo = 8Go
-                        print 'ok'
-                        modifyvm(nom,'sto', sto)
+                        attributs['sto'] = sto
                     if desc != '':
-                        modifyvm(nom,'desc', desc)
+                        attributs['desc'] = desc
+                    modifyvm(nom, attributs)
                     infos['create_vm'] = 'true'
                 except:
-                    infos['create_vm'] = 'false_modifyvmfailed'
+                   infos['create_vm'] = 'false_modifyvmfailed'
             else:
                 infos['create_vm'] = 'false_cloningfailed' #Probleme lors du clonage de la vm template
         else:

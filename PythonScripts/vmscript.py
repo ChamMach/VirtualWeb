@@ -76,6 +76,15 @@ while True:
         print cvm
         sockethelper.send_data(cvm)  # Envoi des informations en json
         sockethelper.close_socket()  # Fermeture de la socket
+
+    elif 'modify_vm' in data:
+        modify = vmfonctions.modifyvm(python_obj['modify_vm'],python_obj)
+        mvm = vmfonctions.jsondata(modify)
+        print 'Json envoyee : '
+        print mvm
+        sockethelper.send_data(mvm)  # Envoi des informations en json
+        sockethelper.close_socket()  # Fermeture de la socket
+
     else:
         sockethelper.send_data("Erreur")
         sockethelper.close_socket()
