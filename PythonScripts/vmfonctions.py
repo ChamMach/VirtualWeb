@@ -254,13 +254,14 @@ def createvm(nom,os,ram,cpu,sto,desc):
                         modifyvm(nom, 'sto', sto)
                     if desc != '':
                         modifyvm(nom, 'desc', desc)
+                    infos['create_vm'] = 'true'
                 except:
                     infos['create_vm'] = 'false_modifyvmfailed'
             else:
                 infos['create_vm'] = 'false_cloningfailed' #Probleme lors du clonage de la vm template
         elif os == 'RedHat_64':
             vm = vbox.find_machine('0_Centos')  # Recherche de la vm template
-            nomt = '1_Centos' + nom  # nom temporaire (afin d'eviter le bug lors du clonage complet de la vm)
+            nomt = '0_Centos' + nom  # nom temporaire (afin d'eviter le bug lors du clonage complet de la vm)
             vmc = vbox.create_machine(name=nomt, groups=arr, os_type_id='RedHat_64', flags='/', settings_file='')
             clone = clonevm(vm, vmc)
             if clone['clone_vm'] == 'true':
@@ -278,6 +279,8 @@ def createvm(nom,os,ram,cpu,sto,desc):
                     infos['create_vm'] = 'true'
                 except:
                     infos['create_vm'] = 'false_modifyvmfailed'
+            else:
+                infos['create_vm'] = 'false_cloningfailed' #Probleme lors du clonage de la vm template
         else:
             infos['create_vm'] = 'false_osunknown' #OS inconnu du programme python
     else:
