@@ -194,6 +194,7 @@ def modifyvm(nom,attributs):
             sess = session.machine
             if 'nom' in attr:
                 sess.name = attr['nom']
+                sess.save_settings()
             if 'ram' in attr:
                 sess.memory_size = attr['ram']
             if 'cpu' in attr:
@@ -252,8 +253,6 @@ def createvm(nom,os,ram,cpu,sto,desc):
             if clone['clone_vm'] == 'true':
                 try:
                     attributs['nom'] = nom
-                    modifyvm(nomt, attributs)
-                    attributs.clear() #On clear la liste pour pouvoir modifier d'autre attributs si besoin
                     if ram != 2048:
                         attributs['ram'] = ram
                     if cpu != 1:
@@ -262,7 +261,7 @@ def createvm(nom,os,ram,cpu,sto,desc):
                         attributs['sto'] = sto
                     if desc != '':
                         attributs['desc'] = desc
-                    modifyvm(nom, attributs)  # Renommage de la vm avec le nom choisi par l'utilisateur et modification des autres attributs de la vm si necessaire
+                    modifyvm(nomt, attributs)  # Renommage de la vm avec le nom choisi par l'utilisateur et modification des autres attributs de la vm si necessaire
                     infos['create_vm'] = 'true'
                 except:
                     infos['create_vm'] = 'false_modifyvmfailed'
@@ -276,8 +275,6 @@ def createvm(nom,os,ram,cpu,sto,desc):
             if clone['clone_vm'] == 'true':
                 try:
                     attributs['nom'] = nom
-                    modifyvm(nomt, attributs)
-                    attributs.clear() #On clear la liste pour pouvoir modifier d'autre attributs si besoin
                     if ram != 1024:
                         attributs['ram'] = ram
                     if cpu != 1:
@@ -286,7 +283,7 @@ def createvm(nom,os,ram,cpu,sto,desc):
                         attributs['sto'] = sto
                     if desc != '':
                         attributs['desc'] = desc
-                    modifyvm(nom, attributs)
+                    modifyvm(nomt, attributs)
                     infos['create_vm'] = 'true'
                 except:
                    infos['create_vm'] = 'false_modifyvmfailed'
