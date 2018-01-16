@@ -297,3 +297,22 @@ def createvm(nom,os,ram,cpu,sto,desc):
     else:
         infos['create_vm'] = 'false_vmalreadyexist' #La vm existe deja
     return infos
+
+#Suppression d'une VM
+#Retourne un etat sur l'execution de cette fonction
+def removevm(nom):
+    vmf = vmfind(nom)
+    infos = collections.OrderedDict()
+    if vmf == 0: #Si la vm n'existe pas
+        infos['remove_vm'] = 'false_vmdoesntexist'
+    elif str(vmf.state) == 'FirstOnline':  # Si la VM est en ligne
+        infos['modify_vm'] = 'false_vmonline'
+    else: #Sinon
+        lavm = virtualbox.library_ext.IMachine
+        lavm.remove(vmf)  # Supprime la vm
+        vmf = vmfind(nom) #On reverifie
+        if vmf != 0: #Si la VM est toujours presente
+            infos['remove_vm'] = 'false_removefailed'
+        else:
+            infos['remove_vm'] = 'true'
+    return infos

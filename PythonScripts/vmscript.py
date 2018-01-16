@@ -85,6 +85,14 @@ while True:
         sockethelper.send_data(mvm)  # Envoi des informations en json
         sockethelper.close_socket()  # Fermeture de la socket
 
+    elif 'remove_vm' in data:
+        remove = vmfonctions.removevm(python_obj['remove_vm'])
+        rvm = vmfonctions.jsondata(remove)
+        print 'Json envoyee : '
+        print rvm
+        sockethelper.send_data(rvm)  # Envoi des informations en json
+        sockethelper.close_socket()  # Fermeture de la socket
+
     else:
         sockethelper.send_data("Erreur")
         sockethelper.close_socket()
