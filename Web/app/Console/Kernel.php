@@ -61,7 +61,7 @@ class Kernel extends ConsoleKernel
                         if (!in_array($value->id_utilisateur . '_' . $value->nom, $listeNomsVM)) {
                             //On supprime la VM de la base
                             DB::table('vm')->where('id_vm', $value->id_vm)->delete();
-                            Log::info('Script import : La vm '. $value->id_utilisateur . '_' . $value->nom, $listeNomsVM .' n\'existe pas en base, suppression effectuée');
+                            Log::info('Script import : La vm '. $value->id_utilisateur . '_' . $value->nom .' n\'existe pas en base, suppression effectuée');
                         }
                     }
                 }

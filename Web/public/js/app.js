@@ -17185,19 +17185,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'creation_vm',
     data: function data() {
         return {
-            node: {
-                sum: 100
-            },
             vm: {
+                nom: null,
                 ram: 100,
                 cpu: 1,
-                stockage: 100
+                stockage: 100,
+                systeme: null,
+                description: null
+            },
+            range: {
+                min: 100
             }
         };
     },
@@ -17206,11 +17208,23 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         onChange: function onChange(e) {
             this.node.sum = e.target.value;
         },
+        selectChange: function selectChange(e) {
+            if (e.target.nextElementSibling.attributes["0"].value == "CE") {
+                this.range.min = 8000;
+                this.vm.stockage = 8000;
+            } else if (e.target.nextElementSibling.attributes["0"].value == "WI7") {
+                this.range.min = 25600;
+                this.vm.stockage = 25600;
+            }
+        },
         createVM: function createVM() {
+            var _this = this;
+
+            this.vm.systeme = $('#systeme').val();
             var error = false;
             $(".input_form").each(function () {
                 //Si on n'a pas de valeur dans l'input
-                if (!$(this).val()) {
+                if (!$(this).val() || this.vm == "") {
                     $(this).parent().addClass('is-invalid');
                     error = true;
                 }
@@ -17225,10 +17239,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     stockage: this.vm.stockage,
                     description: this.vm.description
                 }).then(function (response) {
-                    if (response.data.erreur == true) {
-                        notyf.alert(response.data.message);
-                    } else if (response.data.erreur == false) {
+                    if (response.data.erreur == false) {
                         notyf.confirm(response.data.message);
+                        //Reset les données du formulaire à l'original
+                        Object.assign(_this.$data, _this.$options.data());
+                        $('.text-zone').parent().removeClass('is-dirty');
+                    } else if (response.data.erreur == true) {
+                        notyf.alert(response.data.message);
                     }
                 }, function () {
                     console.log('erreur');
@@ -17282,7 +17299,7 @@ var render = function() {
                           expression: "vm.nom"
                         }
                       ],
-                      staticClass: "mdl-textfield__input input_form",
+                      staticClass: "mdl-textfield__input input_form text-zone",
                       attrs: {
                         type: "text",
                         id: "nom",
@@ -17319,29 +17336,19 @@ var render = function() {
                   },
                   [
                     _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.vm.systeme,
-                          expression: "vm.systeme"
-                        }
-                      ],
-                      staticClass: "mdl-textfield__input input_form",
-                      attrs: { value: "", id: "systeme", readonly: "" },
-                      domProps: { value: _vm.vm.systeme },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.vm, "systeme", $event.target.value)
-                        }
-                      }
+                      staticClass:
+                        "mdl-textfield__input input_form select-systeme",
+                      attrs: { value: "", readonly: "" },
+                      on: { change: _vm.selectChange }
                     }),
                     _vm._v(" "),
                     _c("input", {
-                      attrs: { value: "", type: "hidden", name: "systeme" }
+                      attrs: {
+                        value: "",
+                        type: "hidden",
+                        id: "systeme",
+                        name: "systeme"
+                      }
                     }),
                     _vm._v(" "),
                     _c(
@@ -17438,7 +17445,7 @@ var render = function() {
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
-                      min: "100",
+                      min: _vm.range.min,
                       step: "100",
                       max: "60000",
                       value: "100",
@@ -17454,10 +17461,52 @@ var render = function() {
                 ])
               ]),
               _vm._v(" "),
-              _vm._m(1)
+              _c(
+                "div",
+                {
+                  staticClass: "mdl-textfield mdl-js-textfield mdl-cell--12-col"
+                },
+                [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vm.description,
+                        expression: "vm.description"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input input_form text-zone",
+                    attrs: {
+                      minlength: "5",
+                      type: "text",
+                      rows: "3",
+                      id: "description"
+                    },
+                    domProps: { value: _vm.vm.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vm, "description", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "description" }
+                    },
+                    [_vm._v("Description")]
+                  )
+                ]
+              )
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _vm._m(1)
           ]
         )
       ])
@@ -17478,44 +17527,14 @@ var staticRenderFns = [
       [
         _c(
           "li",
-          { staticClass: "mdl-menu__item", attrs: { "data-val": "WI" } },
-          [_vm._v("Windows")]
-        ),
-        _vm._v(" "),
-        _c(
-          "li",
-          { staticClass: "mdl-menu__item", attrs: { "data-val": "UB" } },
-          [_vm._v("Ubuntu")]
+          { staticClass: "mdl-menu__item", attrs: { "data-val": "WI7" } },
+          [_vm._v("Windows 7")]
         ),
         _vm._v(" "),
         _c(
           "li",
           { staticClass: "mdl-menu__item", attrs: { "data-val": "CE" } },
           [_vm._v("Centos")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "mdl-textfield mdl-js-textfield mdl-cell--12-col" },
-      [
-        _c("textarea", {
-          staticClass: "mdl-textfield__input input_form",
-          attrs: { minlength: "5", type: "text", rows: "3", id: "description" }
-        }),
-        _vm._v(" "),
-        _c(
-          "label",
-          {
-            staticClass: "mdl-textfield__label",
-            attrs: { for: "description" }
-          },
-          [_vm._v("Description")]
         )
       ]
     )
