@@ -70,7 +70,7 @@
                     </div>
                     <div class="options_bloc bloc_interactif">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif"
-                                data-action="delete" @click="set(value, $event)">
+                                data-action="remove" @click="set(value, $event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
@@ -189,7 +189,7 @@
               this.methods.id = user.id_vm
               //On concatène le nom de la VM pour le script
               this.methods.vm = user.id_utilisateur + '_' + user.nom
-              if (action == 'delete') {
+              if (action == 'remove') {
                   //Message qui sera visible dans la modale
                   this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?'
               } else if (action == 'start') {
@@ -223,7 +223,10 @@
                   nomVM: this.methods.vm,
                   id: this.methods.idUser,
               }).then((response) => {
-                  if (response.data.erreur == true) {
+                  if (response.data.erreur == false) {
+                      notyf.confirm(response.data.message)
+                      this.getVM()
+                  } else if (response.data.erreur == true) {
                       notyf.alert(response.data.message)
                       divVM.removeClass('spinner')
                       //On réinitialise les valeurs
@@ -231,9 +234,6 @@
                       this.methods.idUser = null
                       this.methods.vm = null
                       this.methods.id = null
-                  } else if (response.data.erreur == false) {
-                      notyf.confirm(response.data.message)
-                      this.getVM()
                   }
               }, () => {
                   console.log('erreur')

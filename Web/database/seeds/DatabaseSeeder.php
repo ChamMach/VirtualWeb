@@ -82,5 +82,11 @@ class DatabaseSeeder extends Seeder
         DB::table('actions')->insert([
             'description' => 'Extinction VM'
         ]);
+        DB::table('actions')->insert([
+            'description' => 'Suppression VM'
+        ]);
+        DB::table('actions')->insert([
+            'description' => 'Mise à jour VM'
+        ]);
     }
 }

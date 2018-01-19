@@ -216,10 +216,10 @@ class UserController extends Controller
                 $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
                 //Si la socket est ouverte
                 if ($sockethelper->isOnline() !== false) {
-                    if ($action == 'delete') {
+                    if ($action == 'remove') {
                         //Création du JSON à envoyer au script
                         $dataToGet = array(
-                            'delete_vm' => $nomVM
+                            'remove_vm' => $nomVM
                         );
                         $actionFR = '"'. $vm->nom .'" supprimée';
                     } elseif ($action == 'start') {
@@ -243,67 +243,86 @@ class UserController extends Controller
                     $sockethelper->close_socket();
                     //Decode le JSON pour avoir un array et le traiter
                     $socketJson = json_decode($socket, true);
-                    //Teste du retour JSON afin de savoir si l'action a été réalisée
-                    if (isset($socketJson['start_vm']) or isset($socketJson['stop_vm'])) {
-                        //Si on est dans le cas démarrer une VM
-                        if (isset($socketJson['start_vm'])) {
-                            switch ($socketJson['start_vm']) {
-                                case 'true':
-                                $return['erreur'] = false;
-                                $return['message'] = $actionFR;
-                                //Actualise l'état de la VM en base
-                                $vm->statut = 'on';
-                                $vm->save();
-                                //On met à jour l'historique
-                                DB::table('historique')->insert(
-                                    ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 4]
-                                );
-                                break;
-                                case 'false_vmalreadyonline':
-                                $return['message'] = 'La VM '. $vm->nom .' est déjà allumée';
-                                break;
-                                case 'false_sessionlocked':
-                                $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
-                                break;
-                                case 'false_sessionunknown':
-                                $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
-                                break;
-                                case 'false_startfailed':
-                                $return['message'] = 'Impossible de démarrer la VM ' . $vm->nom;
-                                break;
-                                case 'false_statevmunknown':
-                                $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de la démarrer';
-                                break;
-                            }
-                        } elseif (isset($socketJson['stop_vm'])) {
-                            switch ($socketJson['stop_vm']) {
-                                case true:
-                                $return['erreur'] = false;
-                                $return['message'] = $actionFR;
-                                //Actualise l'état de la VM en base
-                                $vm->statut = 'on';
-                                $vm->save();
-                                //On met à jour l'historique
-                                DB::table('historique')->insert(
-                                    ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 5]
-                                );
-                                break;
-                                case 'false_vmalreadyoff':
-                                $return['message'] = 'La VM '. $vm->nom .' est déjà éteinte';
-                                break;
-                                case 'false_sessionlocked':
-                                $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
-                                break;
-                                case 'false_sessionunknown':
-                                $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
-                                break;
-                                case 'false_stopfailed':
-                                $return['message'] = 'Impossible d\'éteindre la VM ' . $vm->nom;
-                                break;
-                                case 'false_statevmunknown':
-                                $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de l\'éteindre';
-                                break;
-                            }
+                    //Si on est dans le cas démarrer une VM
+                    if (isset($socketJson['start_vm'])) {
+                        switch ($socketJson['start_vm']) {
+                            case 'true':
+                            $return['erreur'] = false;
+                            $return['message'] = $actionFR;
+                            //Actualise l'état de la VM en base
+                            $vm->statut = 'on';
+                            $vm->save();
+                            //On met à jour l'historique
+                            DB::table('historique')->insert(
+                                ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 4]
+                            );
+                            break;
+                            case 'false_vmalreadyonline':
+                            $return['message'] = 'La VM '. $vm->nom .' est déjà allumée';
+                            break;
+                            case 'false_sessionlocked':
+                            $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
+                            break;
+                            case 'false_sessionunknown':
+                            $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
+                            break;
+                            case 'false_startfailed':
+                            $return['message'] = 'Impossible de démarrer la VM ' . $vm->nom;
+                            break;
+                            case 'false_statevmunknown':
+                            $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de la démarrer';
+                            break;
+                        }
+                    } elseif (isset($socketJson['stop_vm'])) {
+                        switch ($socketJson['stop_vm']) {
+                            case true:
+                            $return['erreur'] = false;
+                            $return['message'] = $actionFR;
+                            //Actualise l'état de la VM en base
+                            $vm->statut = 'off';
+                            $vm->save();
+                            //On met à jour l'historique
+                            DB::table('historique')->insert(
+                                ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 5]
+                            );
+                            break;
+                            case 'false_vmalreadyoff':
+                            $return['message'] = 'La VM '. $vm->nom .' est déjà éteinte';
+                            break;
+                            case 'false_sessionlocked':
+                            $return['message'] = 'La VM '. $vm->nom .' dispose d\'une session inutilisable';
+                            break;
+                            case 'false_sessionunknown':
+                            $return['message'] = 'L\'état de la VM '. $vm->nom .' est inconnu';
+                            break;
+                            case 'false_stopfailed':
+                            $return['message'] = 'Impossible d\'éteindre la VM ' . $vm->nom;
+                            break;
+                            case 'false_statevmunknown':
+                            $return['message'] = 'Etat inconnu de la VM '. $vm->nom .', impossible de l\'éteindre';
+                            break;
+                        }
+                    } elseif (isset($socketJson['remove_vm'])) {
+                        switch ($socketJson['remove_vm']) {
+                            case true:
+                            $return['erreur'] = false;
+                            $return['message'] = $actionFR;
+                            //Supprime la VM de la base
+                            $vm->delete();
+                            //On met à jour l'historique
+                            DB::table('historique')->insert(
+                                ['id_user' => $vm->id_utilisateur, 'date' => date("Y-m-d H:i:s"), 'action' => 6]
+                            );
+                            break;
+                            case 'false_vmdoesntexist':
+                            $return['message'] = 'La VM '. $vm->nom .' n\'existe pas';
+                            break;
+                            case 'false_vmonline':
+                            $return['message'] = 'La VM '. $vm->nom .' est en ligne';
+                            break;
+                            case 'false_removefailed':
+                            $return['message'] = 'Impossible de supprimer la VM  '. $vm->nom;
+                            break;
                         }
                     } else {
                         //Il est possible que le socket ne renvoie rien. Actuellement on attend 2s
@@ -321,6 +340,8 @@ class UserController extends Controller
             Log::debug('Action VM '. $nomVM .' : ' . json_encode($return));
 
             if ($return['erreur'] == false) {
+                //Permet de mettre à jour la BDD au lieu d'attendre que les cript s'exécute
+                //tout seul
                 Artisan::call('schedule:run');
             }
 
