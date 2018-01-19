@@ -1175,7 +1175,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\user\\Sidebar.vue"
+Component.options.__file = "resources/assets/js/components/user/Sidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1184,9 +1184,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5a138182", Component.options)
+    hotAPI.createRecord("data-v-96633ae2", Component.options)
   } else {
-    hotAPI.reload("data-v-5a138182", Component.options)
+    hotAPI.reload("data-v-96633ae2", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1222,7 +1222,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\Sidebar.vue"
+Component.options.__file = "resources/assets/js/components/admin/Sidebar.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1231,9 +1231,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-04b82a68", Component.options)
+    hotAPI.createRecord("data-v-d7b10416", Component.options)
   } else {
-    hotAPI.reload("data-v-04b82a68", Component.options)
+    hotAPI.reload("data-v-d7b10416", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1269,7 +1269,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Header.vue"
+Component.options.__file = "resources/assets/js/components/Header.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1278,9 +1278,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1bc06644", Component.options)
+    hotAPI.createRecord("data-v-1d126904", Component.options)
   } else {
-    hotAPI.reload("data-v-1bc06644", Component.options)
+    hotAPI.reload("data-v-1d126904", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1316,7 +1316,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Tab.vue"
+Component.options.__file = "resources/assets/js/components/Tab.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1325,9 +1325,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-37a80724", Component.options)
+    hotAPI.createRecord("data-v-dbd21ca4", Component.options)
   } else {
-    hotAPI.reload("data-v-37a80724", Component.options)
+    hotAPI.reload("data-v-dbd21ca4", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1363,7 +1363,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\user\\CreationVM.vue"
+Component.options.__file = "resources/assets/js/components/user/CreationVM.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1372,9 +1372,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-55c79dc0", Component.options)
+    hotAPI.createRecord("data-v-2e6f98f3", Component.options)
   } else {
-    hotAPI.reload("data-v-55c79dc0", Component.options)
+    hotAPI.reload("data-v-2e6f98f3", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1410,7 +1410,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\CreationUtilisateur.vue"
+Component.options.__file = "resources/assets/js/components/admin/CreationUtilisateur.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1419,9 +1419,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-35b4afa0", Component.options)
+    hotAPI.createRecord("data-v-c149df86", Component.options)
   } else {
-    hotAPI.reload("data-v-35b4afa0", Component.options)
+    hotAPI.reload("data-v-c149df86", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1457,7 +1457,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Verification.vue"
+Component.options.__file = "resources/assets/js/components/Verification.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1466,9 +1466,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-774c6f92", Component.options)
+    hotAPI.createRecord("data-v-2c416252", Component.options)
   } else {
-    hotAPI.reload("data-v-774c6f92", Component.options)
+    hotAPI.reload("data-v-2c416252", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1567,6 +1567,7 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('sidebar-admin', __webpack
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('header-bar', __webpack_require__(12));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('tab', __webpack_require__(13));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('creation-vm', __webpack_require__(14));
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('modification-vm', __webpack_require__(91));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('creation-utilisateur', __webpack_require__(15));
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('modal-verification', __webpack_require__(16));
 
@@ -16217,7 +16218,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\App.vue"
+Component.options.__file = "resources/assets/js/App.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -16226,9 +16227,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-6dd1125c", Component.options)
+    hotAPI.createRecord("data-v-66ab2f82", Component.options)
   } else {
-    hotAPI.reload("data-v-6dd1125c", Component.options)
+    hotAPI.reload("data-v-66ab2f82", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -16249,13 +16250,13 @@ var content = __webpack_require__(45);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(47)("626c521a", content, false);
+var update = __webpack_require__(47)("2d8a5e95", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
-     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-6dd1125c\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-66ab2f82\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./App.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -16692,7 +16693,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-6dd1125c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-66ab2f82", module.exports)
   }
 }
 
@@ -16822,7 +16823,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5a138182", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-96633ae2", module.exports)
   }
 }
 
@@ -16946,7 +16947,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-04b82a68", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-d7b10416", module.exports)
   }
 }
 
@@ -17050,7 +17051,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-1bc06644", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-1d126904", module.exports)
   }
 }
 
@@ -17123,7 +17124,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-37a80724", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-dbd21ca4", module.exports)
   }
 }
 
@@ -17222,7 +17223,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             this.vm.systeme = $('#systeme').val();
             var error = false;
-            $(".input_form").each(function () {
+            $("#modal_create .input_form").each(function () {
                 //Si on n'a pas de valeur dans l'input
                 if (!$(this).val() || this.vm == "") {
                     $(this).parent().addClass('is-invalid');
@@ -17265,7 +17266,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "dialog",
-    { staticClass: "mdl-dialog", attrs: { id: "modal_create" } },
+    { staticClass: "mdl-dialog modal", attrs: { id: "modal_create" } },
     [
       _c("div", { staticClass: "mdl-dialog__content" }, [
         _c("h3", [_vm._v("Création d'une machine virtuelle")]),
@@ -17547,8 +17548,8 @@ var staticRenderFns = [
       _c(
         "button",
         {
-          staticClass: "mdl-button close_modal_creation",
-          attrs: { type: "button" }
+          staticClass: "mdl-button close_modal",
+          attrs: { type: "button", "data-modal": "create" }
         },
         [_vm._v("Fermer")]
       ),
@@ -17564,7 +17565,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-55c79dc0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2e6f98f3", module.exports)
   }
 }
 
@@ -17920,7 +17921,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-35b4afa0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-c149df86", module.exports)
   }
 }
 
@@ -18006,7 +18007,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-774c6f92", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-2c416252", module.exports)
   }
 }
 
@@ -18015,6 +18016,425 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 66 */,
+/* 67 */,
+/* 68 */,
+/* 69 */,
+/* 70 */,
+/* 71 */,
+/* 72 */,
+/* 73 */,
+/* 74 */,
+/* 75 */,
+/* 76 */,
+/* 77 */,
+/* 78 */,
+/* 79 */,
+/* 80 */,
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */,
+/* 85 */,
+/* 86 */,
+/* 87 */,
+/* 88 */,
+/* 89 */,
+/* 90 */,
+/* 91 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(92)
+/* template */
+var __vue_template__ = __webpack_require__(93)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/user/ModificationVM.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-efbe2120", Component.options)
+  } else {
+    hotAPI.reload("data-v-efbe2120", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 92 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["vm"],
+    data: function data() {
+        return {
+            vmEdit: Object.assign({}, this.vm)
+        };
+    },
+
+    watch: {
+        vm: function vm(newVm) {
+            this.vmEdit = Object.assign({}, newVm);
+        }
+    },
+    methods: {
+        editVM: function editVM() {
+            var error = false;
+            $("#modal_edit .input_form").each(function () {
+                //Si on n'a pas de valeur dans l'input
+                if (!$(this).val() || this.vmEdit == "") {
+                    $(this).parent().addClass('is-invalid');
+                    error = true;
+                }
+            });
+            //Si le formulaire est bien remplit
+            if (error == false) {
+                this.$http.post('/edit_vm', {
+                    nom: this.vmEdit.nom,
+                    ram: this.vmEdit.ram,
+                    cpu: this.vmEdit.cpu,
+                    stockage: this.vmEdit.stockage,
+                    description: this.vmEdit.description
+                }).then(function (response) {
+                    if (response.data.erreur == false) {
+                        notyf.confirm(response.data.message);
+                        //Reset les données du formulaire à l'original
+                    } else if (response.data.erreur == true) {
+                        notyf.alert(response.data.message);
+                    }
+                }, function () {
+                    console.log('erreur');
+                });
+            }
+        }
+    }
+});
+
+/***/ }),
+/* 93 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "dialog",
+    { staticClass: "mdl-dialog modal", attrs: { id: "modal_edit" } },
+    [
+      _c("div", { staticClass: "mdl-dialog__content" }, [
+        _c("h3", [_vm._v("Modification d'une machine virtuelle")]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                _vm.editVM($event)
+              }
+            }
+          },
+          [
+            _c("div", { staticClass: "mdl-grid" }, [
+              _c("div", { staticClass: "mdl-cell--12-col" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass:
+                      "mdl-textfield mdl-js-textfield mdl-textfield--floating-label"
+                  },
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.vmEdit.nom,
+                          expression: "vmEdit.nom"
+                        }
+                      ],
+                      staticClass: "mdl-textfield__input input_form text-zone",
+                      attrs: {
+                        type: "text",
+                        id: "nom",
+                        pattern: "[^_()/><\\][\\\\\\x22,;|]+"
+                      },
+                      domProps: { value: _vm.vmEdit.nom },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.vmEdit, "nom", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c(
+                      "label",
+                      {
+                        staticClass: "mdl-textfield__label",
+                        attrs: { for: "nom" }
+                      },
+                      [_vm._v("Nom de la VM")]
+                    )
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "slider" }, [
+                _c("div", { staticClass: "ram_input" }, [
+                  _c("label", {}, [
+                    _vm._v("Ram (" + _vm._s(_vm.vmEdit.ram) + " Mo)")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vmEdit.ram,
+                        expression: "vmEdit.ram"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider input_form",
+                    attrs: {
+                      type: "range",
+                      min: "100",
+                      step: "100",
+                      max: "3000",
+                      value: "200",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vmEdit.ram },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vmEdit, "ram", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "cpu_input mt16" }, [
+                  _c("label", {}, [
+                    _vm._v("CPU (" + _vm._s(_vm.vmEdit.cpu) + ")")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vmEdit.cpu,
+                        expression: "vmEdit.cpu"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider input_form",
+                    attrs: {
+                      type: "range",
+                      min: "1",
+                      step: "1",
+                      max: "4",
+                      value: "1",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vmEdit.cpu },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vmEdit, "cpu", $event.target.value)
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "stockage_input mt16" }, [
+                  _c("label", {}, [
+                    _vm._v("Stockage (" + _vm._s(_vm.vmEdit.sto_l) + ")")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vmEdit.sto_l,
+                        expression: "vmEdit.sto_l"
+                      }
+                    ],
+                    staticClass: "mdl-slider mdl-js-slider input_form",
+                    attrs: {
+                      type: "range",
+                      min: _vm.vmEdit.sto_l,
+                      step: "100",
+                      max: "60000",
+                      value: "100",
+                      tabindex: "0"
+                    },
+                    domProps: { value: _vm.vmEdit.sto_l },
+                    on: {
+                      __r: function($event) {
+                        _vm.$set(_vm.vmEdit, "sto_l", $event.target.value)
+                      }
+                    }
+                  })
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "mdl-textfield mdl-js-textfield mdl-cell--12-col"
+                },
+                [
+                  _c("textarea", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.vmEdit.description,
+                        expression: "vmEdit.description"
+                      }
+                    ],
+                    staticClass: "mdl-textfield__input input_form text-zone",
+                    attrs: {
+                      minlength: "5",
+                      type: "text",
+                      rows: "3",
+                      id: "description"
+                    },
+                    domProps: { value: _vm.vmEdit.description },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.vmEdit, "description", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "label",
+                    {
+                      staticClass: "mdl-textfield__label",
+                      attrs: { for: "description" }
+                    },
+                    [_vm._v("Description")]
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
+      ])
+    ]
+  )
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mdl-dialog__actions" }, [
+      _c(
+        "button",
+        {
+          staticClass: "mdl-button close_modal",
+          attrs: { type: "button", "data-modal": "edit" }
+        },
+        [_vm._v("Fermer")]
+      ),
+      _vm._v(" "),
+      _c("button", { staticClass: "mdl-button submit_create" }, [
+        _vm._v("Modifier")
+      ])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-efbe2120", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -452,6 +452,18 @@ a {
             &.options_bloc {
                 display: flex;
                 flex-direction: column;
+                
+                .power {
+                    display: flex;
+                    align-self: center;
+                    width: 100%;
+                    
+                    .mdl-button {
+                        width: 45%;
+                        margin-top: 0px !important;
+                        margin-bottom: 0px !important;
+                    }
+                }
 
                 .mdl-button--raised {
                     background: rgb(244, 246, 249);

@@ -1,5 +1,5 @@
 <template>
-    <dialog class="mdl-dialog" id="modal_create">
+    <dialog class="mdl-dialog modal" id="modal_create">
         <div class="mdl-dialog__content">
             <h3>Création d'une machine virtuelle</h3>
             <form v-on:submit.prevent="createVM">
@@ -41,7 +41,7 @@
                     </div>
                 </div>
                 <div class="mdl-dialog__actions">
-                    <button type="button" class="mdl-button close_modal_creation">Fermer</button>
+                    <button type="button" class="mdl-button close_modal" data-modal="create">Fermer</button>
                     <button class="mdl-button submit_create">Créer</button>
                 </div>
             </form>
@@ -84,7 +84,7 @@
             createVM() {
                 this.vm.systeme = $('#systeme').val();
                 var error = false
-                $(".input_form").each(function() {
+                $("#modal_create .input_form").each(function() {
                     //Si on n'a pas de valeur dans l'input
                     if (!$(this).val() || this.vm == "") {
                         $(this).parent().addClass('is-invalid')

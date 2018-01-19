@@ -24,7 +24,7 @@
                         <small>Nous faisons tout notre possible pour corriger ce problème</small>
                     </div>
                 </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm" id="show_modal_creation" v-else>
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal" data-modal="create" v-else>
                     <div class="symbole">
                         <i class="material-icons">add</i>
                     </div>
@@ -73,13 +73,19 @@
                                 data-action="remove" @click="set(value, $event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
+                        <div class="power">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
                                 data-action="start" @click="set(value, $event)">
-                            <i class="material-icons">play_arrow</i> Allumer
-                        </button>
-                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif"
+                                <i class="material-icons">play_arrow</i> Allumer
+                            </button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif"
                                 data-action="shutdown" @click="set(value, $event)">
-                            <i class="material-icons">power_settings_new</i> Éteindre
+                                <i class="material-icons">power_settings_new</i> Éteindre
+                            </button>                            
+                        </div>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect edit"
+                                data-modal="edit" @click="editVM(value, $event)">
+                            <i class="material-icons">power_settings_new</i> Modifier
                         </button>
                     </div>
                     <div class="menu">
@@ -87,6 +93,7 @@
                         <a href="#" class="details_btn" @click="showHide" data-action="details_bloc">Détails</a>
                         <a href="#" class="options_btn" @click="showHide" data-action="options_bloc">Options</a>
                     </div>
+                    <modification-vm :vm="editData"></modification-vm>
                 </div>
             </div>
         </div>
@@ -115,6 +122,7 @@
                     vm: null,
                     id: null,
                 },
+                editData: [],
             }
         },
         mounted() {
@@ -123,19 +131,25 @@
             if (vmTmp !== null) {
                 //Correspond à la modale de création d'une VM
                 var dialog_create = document.querySelector('#modal_create');
-                var closeButton = dialog_create.querySelector('.close_modal_creation');
-                var showButton = document.querySelector('#show_modal_creation');
-                if (! dialog_create.showModal) {
+                var dialog_edit = document.querySelector('#modal_edit');
+                
+                if (!dialog_create.showModal) {
                     dialogPolyfill.registerDialog(dialog_create);
                 }
-                var closeClickHandler = function(event) {
-                    dialog_create.close();
-                };
-                var showClickHandler = function(event) {
-                    dialog_create.showModal();
-                };
-                showButton.addEventListener('click', showClickHandler);
-                closeButton.addEventListener('click', closeClickHandler);
+                if (!dialog_edit.showModal) {
+                    dialogPolyfill.registerDialog(dialog_edit);
+                }
+                
+                $('.show_modal').each(function() {
+                    $(this).on('click', function() {
+                        $('#modal_'+$(this).attr("data-modal"))[0].showModal()
+                    })
+                })
+                $('.close_modal').each(function() {
+                    $(this).on('click', function() {
+                        $('#modal_'+$(this).attr("data-modal"))[0].close()
+                    })
+                })
             }
 
             var dialogButton = document.querySelectorAll('.show_modal_verif');
@@ -180,7 +194,7 @@
           },
           //Initilise les valeurs au clique sur une action
           set(user, click) {
-              var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText
+              var texte = user.nom
               //On récupère l'action
               var action = click.target.parentElement.dataset.action;
               //On affecte ces valeurs aux variables
@@ -198,6 +212,12 @@
                   this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?'
               }
               //this.message = message
+          },
+          editVM(vm, click) {
+              this.editData = vm
+              $('#modal_edit')[0].showModal()
+              //Fix input
+              $('#modal_edit .text-zone').parent().addClass('is-dirty');
           },
           getVM() {
               this.$http.post('/get_vm').then((response) => {

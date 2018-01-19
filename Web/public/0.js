@@ -16,6 +16,7 @@ var map = {
 	"./user/Accueil.vue": 79,
 	"./user/Conteneur.vue": 82,
 	"./user/CreationVM.vue": 14,
+	"./user/ModificationVM.vue": 91,
 	"./user/Sidebar.vue": 10,
 	"./user/VM.vue": 85
 };
@@ -62,7 +63,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\Login.vue"
+Component.options.__file = "resources/assets/js/components/Login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -71,9 +72,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-01e7f602", Component.options)
+    hotAPI.createRecord("data-v-3e2ac97c", Component.options)
   } else {
-    hotAPI.reload("data-v-01e7f602", Component.options)
+    hotAPI.reload("data-v-3e2ac97c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -322,7 +323,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-01e7f602", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3e2ac97c", module.exports)
   }
 }
 
@@ -353,7 +354,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\Accueil.vue"
+Component.options.__file = "resources/assets/js/components/admin/Accueil.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -362,9 +363,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-68be3ac0", Component.options)
+    hotAPI.createRecord("data-v-0fa4e366", Component.options)
   } else {
-    hotAPI.reload("data-v-68be3ac0", Component.options)
+    hotAPI.reload("data-v-0fa4e366", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -490,7 +491,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-68be3ac0", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-0fa4e366", module.exports)
   }
 }
 
@@ -521,7 +522,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\ModifierUtilisateur.vue"
+Component.options.__file = "resources/assets/js/components/admin/ModifierUtilisateur.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -530,9 +531,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-ef64b590", Component.options)
+    hotAPI.createRecord("data-v-42830d45", Component.options)
   } else {
-    hotAPI.reload("data-v-ef64b590", Component.options)
+    hotAPI.reload("data-v-42830d45", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -891,7 +892,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-ef64b590", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-42830d45", module.exports)
   }
 }
 
@@ -922,7 +923,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\admin\\Utilisateurs.vue"
+Component.options.__file = "resources/assets/js/components/admin/Utilisateurs.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -931,9 +932,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-5031b5f4", Component.options)
+    hotAPI.createRecord("data-v-be0cdaf2", Component.options)
   } else {
-    hotAPI.reload("data-v-5031b5f4", Component.options)
+    hotAPI.reload("data-v-be0cdaf2", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1565,7 +1566,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-5031b5f4", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-be0cdaf2", module.exports)
   }
 }
 
@@ -1596,7 +1597,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\user\\Accueil.vue"
+Component.options.__file = "resources/assets/js/components/user/Accueil.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1605,9 +1606,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-83ccdc4c", Component.options)
+    hotAPI.createRecord("data-v-18d472e7", Component.options)
   } else {
-    hotAPI.reload("data-v-83ccdc4c", Component.options)
+    hotAPI.reload("data-v-18d472e7", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1731,7 +1732,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-83ccdc4c", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-18d472e7", module.exports)
   }
 }
 
@@ -1762,7 +1763,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\user\\Conteneur.vue"
+Component.options.__file = "resources/assets/js/components/user/Conteneur.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1771,9 +1772,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-56ca8dad", Component.options)
+    hotAPI.createRecord("data-v-235d410c", Component.options)
   } else {
-    hotAPI.reload("data-v-56ca8dad", Component.options)
+    hotAPI.reload("data-v-235d410c", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1816,7 +1817,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-56ca8dad", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-235d410c", module.exports)
   }
 }
 
@@ -1847,7 +1848,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\js\\components\\user\\VM.vue"
+Component.options.__file = "resources/assets/js/components/user/VM.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -1856,9 +1857,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-4ccae93e", Component.options)
+    hotAPI.createRecord("data-v-93df1398", Component.options)
   } else {
-    hotAPI.reload("data-v-4ccae93e", Component.options)
+    hotAPI.reload("data-v-93df1398", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -1875,6 +1876,13 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1991,7 +1999,8 @@ if (dataArray.vm == null) {
                 idUser: null,
                 vm: null,
                 id: null
-            }
+            },
+            editData: []
         };
     },
     mounted: function mounted() {
@@ -2001,19 +2010,25 @@ if (dataArray.vm == null) {
         if (vmTmp !== null) {
             //Correspond à la modale de création d'une VM
             var dialog_create = document.querySelector('#modal_create');
-            var closeButton = dialog_create.querySelector('.close_modal_creation');
-            var showButton = document.querySelector('#show_modal_creation');
+            var dialog_edit = document.querySelector('#modal_edit');
+
             if (!dialog_create.showModal) {
                 dialogPolyfill.registerDialog(dialog_create);
             }
-            var closeClickHandler = function closeClickHandler(event) {
-                dialog_create.close();
-            };
-            var showClickHandler = function showClickHandler(event) {
-                dialog_create.showModal();
-            };
-            showButton.addEventListener('click', showClickHandler);
-            closeButton.addEventListener('click', closeClickHandler);
+            if (!dialog_edit.showModal) {
+                dialogPolyfill.registerDialog(dialog_edit);
+            }
+
+            $('.show_modal').each(function () {
+                $(this).on('click', function () {
+                    $('#modal_' + $(this).attr("data-modal"))[0].showModal();
+                });
+            });
+            $('.close_modal').each(function () {
+                $(this).on('click', function () {
+                    $('#modal_' + $(this).attr("data-modal"))[0].close();
+                });
+            });
         }
 
         var dialogButton = document.querySelectorAll('.show_modal_verif');
@@ -2058,7 +2073,7 @@ if (dataArray.vm == null) {
 
         //Initilise les valeurs au clique sur une action
         set: function set(user, click) {
-            var texte = click.target.parentElement.parentElement.parentElement.children[2].outerText;
+            var texte = user.nom;
             //On récupère l'action
             var action = click.target.parentElement.dataset.action;
             //On affecte ces valeurs aux variables
@@ -2067,7 +2082,7 @@ if (dataArray.vm == null) {
             this.methods.id = user.id_vm;
             //On concatène le nom de la VM pour le script
             this.methods.vm = user.id_utilisateur + '_' + user.nom;
-            if (action == 'delete') {
+            if (action == 'remove') {
                 //Message qui sera visible dans la modale
                 this.message = 'Voulez vous vraiment supprimer la VM ' + texte + ' ?';
             } else if (action == 'start') {
@@ -2076,6 +2091,12 @@ if (dataArray.vm == null) {
                 this.message = 'Voulez vous vraiment éteindre la VM ' + texte + ' ?';
             }
             //this.message = message
+        },
+        editVM: function editVM(vm, click) {
+            this.editData = vm;
+            $('#modal_edit')[0].showModal();
+            //Fix input
+            $('#modal_edit .text-zone').parent().addClass('is-dirty');
         },
         getVM: function getVM() {
             var _this = this;
@@ -2106,7 +2127,10 @@ if (dataArray.vm == null) {
                 nomVM: this.methods.vm,
                 id: this.methods.idUser
             }).then(function (response) {
-                if (response.data.erreur == true) {
+                if (response.data.erreur == false) {
+                    notyf.confirm(response.data.message);
+                    _this2.getVM();
+                } else if (response.data.erreur == true) {
                     notyf.alert(response.data.message);
                     divVM.removeClass('spinner');
                     //On réinitialise les valeurs
@@ -2114,9 +2138,6 @@ if (dataArray.vm == null) {
                     _this2.methods.idUser = null;
                     _this2.methods.vm = null;
                     _this2.methods.id = null;
-                } else if (response.data.erreur == false) {
-                    notyf.confirm(response.data.message);
-                    _this2.getVM();
                 }
             }, function () {
                 console.log('erreur');
@@ -2157,8 +2178,8 @@ var render = function() {
                   "div",
                   {
                     staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm",
-                    attrs: { id: "show_modal_creation" }
+                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal",
+                    attrs: { "data-modal": "create" }
                   },
                   [_vm._m(3), _vm._v(" "), _vm._m(4)]
                 ),
@@ -2279,7 +2300,7 @@ var render = function() {
                       {
                         staticClass:
                           "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif",
-                        attrs: { "data-action": "delete" },
+                        attrs: { "data-action": "remove" },
                         on: {
                           click: function($event) {
                             _vm.set(value, $event)
@@ -2294,35 +2315,57 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c(
-                      "button",
-                      {
-                        staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
-                        attrs: { "data-action": "start" },
-                        on: {
-                          click: function($event) {
-                            _vm.set(value, $event)
+                    _c("div", { staticClass: "power" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif",
+                          attrs: { "data-action": "start" },
+                          on: {
+                            click: function($event) {
+                              _vm.set(value, $event)
+                            }
                           }
-                        }
-                      },
-                      [
-                        _c("i", { staticClass: "material-icons" }, [
-                          _vm._v("play_arrow")
-                        ]),
-                        _vm._v(" Allumer\n                    ")
-                      ]
-                    ),
+                        },
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("play_arrow")
+                          ]),
+                          _vm._v(" Allumer\n                        ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "button",
+                        {
+                          staticClass:
+                            "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
+                          attrs: { "data-action": "shutdown" },
+                          on: {
+                            click: function($event) {
+                              _vm.set(value, $event)
+                            }
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "material-icons" }, [
+                            _vm._v("power_settings_new")
+                          ]),
+                          _vm._v(" Éteindre\n                        ")
+                        ]
+                      )
+                    ]),
                     _vm._v(" "),
                     _c(
                       "button",
                       {
                         staticClass:
-                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif",
-                        attrs: { "data-action": "shutdown" },
+                          "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect edit",
+                        attrs: { "data-modal": "edit" },
                         on: {
                           click: function($event) {
-                            _vm.set(value, $event)
+                            _vm.editVM(value, $event)
                           }
                         }
                       },
@@ -2330,7 +2373,7 @@ var render = function() {
                         _c("i", { staticClass: "material-icons" }, [
                           _vm._v("power_settings_new")
                         ]),
-                        _vm._v(" Éteindre\n                    ")
+                        _vm._v(" Modifier\n                    ")
                       ]
                     )
                   ]),
@@ -2365,8 +2408,11 @@ var render = function() {
                       },
                       [_vm._v("Options")]
                     )
-                  ])
-                ]
+                  ]),
+                  _vm._v(" "),
+                  _c("modification-vm", { attrs: { vm: _vm.editData } })
+                ],
+                1
               )
             })
           ],
@@ -2488,7 +2534,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-4ccae93e", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-93df1398", module.exports)
   }
 }
 

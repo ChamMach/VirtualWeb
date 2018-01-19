@@ -73,6 +73,7 @@ Vue.component('sidebar-admin', require('./components/admin/Sidebar.vue'));
 Vue.component('header-bar', require('./components/Header.vue'));
 Vue.component('tab', require('./components/Tab.vue'));
 Vue.component('creation-vm', require('./components/user/CreationVM.vue'));
+Vue.component('modification-vm', require('./components/user/ModificationVM.vue'));
 Vue.component('creation-utilisateur', require('./components/admin/CreationUtilisateur.vue'));
 Vue.component('modal-verification', require('./components/Verification.vue'));
 

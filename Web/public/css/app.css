@@ -524,6 +524,21 @@ a {
           flex-direction: column;
 }
 
+.vm .vm-list .bloc_interactif.options_bloc .power {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+}
+
+.vm .vm-list .bloc_interactif.options_bloc .power .mdl-button {
+  width: 45%;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
 .vm .vm-list .bloc_interactif.options_bloc .mdl-button--raised {
   background: #f4f6f9;
 }
