@@ -455,6 +455,7 @@ a {
   -webkit-transition: 300ms;
   transition: 300ms;
   cursor: pointer;
+  min-height: 390px;
 }
 
 .vm .vm-list .ajouter_vm .symbole {

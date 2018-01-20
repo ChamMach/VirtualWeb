@@ -15,16 +15,7 @@
                 </div>
             </div>
             <div class="vm-list mdl-grid mdl-cell--12-col">
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data" v-if="vm == null">
-                    <div class="icon">
-                        <i class="material-icons">error_outline</i>
-                    </div>
-                    <div class="texte">
-                        <span>Le serveur n'est pas disponible pour le moment</span><br>
-                        <small>Nous faisons tout notre possible pour corriger ce problème</small>
-                    </div>
-                </div>
-                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal" data-modal="create" v-else>
+                <div class="vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal" data-modal="create">
                     <div class="symbole">
                         <i class="material-icons">add</i>
                     </div>
@@ -105,7 +96,7 @@
 <script>
     var vmTmp
     //On regarde s'il y a des VM
-    if (dataArray.vm == null) {
+    if (dataArray.vm.length == 0) {
         vmTmp = null
     } else {
         vmTmp = dataArray.vm
@@ -127,51 +118,50 @@
         },
         mounted() {
             'use strict';
-            //S'il n'y a pas de VM, pas besoin de modal
-            if (vmTmp !== null) {
-                //Correspond à la modale de création d'une VM
-                var dialog_create = document.querySelector('#modal_create');
-                var dialog_edit = document.querySelector('#modal_edit');
+            //Correspond à la modale de création d'une VM
+            var dialog_create = document.querySelector('#modal_create');
+            if (!dialog_create.showModal) {
+                dialogPolyfill.registerDialog(dialog_create);
+            }
 
-                if (!dialog_create.showModal) {
-                    dialogPolyfill.registerDialog(dialog_create);
-                }
+            $('.show_modal').each(function() {
+                $(this).on('click', function() {
+                    $('#modal_'+$(this).attr("data-modal"))[0].showModal()
+                })
+            })
+            $('.close_modal').each(function() {
+                $(this).on('click', function() {
+                    $('#modal_'+$(this).attr("data-modal"))[0].close()
+                })
+            })
+
+            if (vmTmp !== null) {
+                var dialog_edit = document.querySelector('#modal_edit');
                 if (!dialog_edit.showModal) {
                     dialogPolyfill.registerDialog(dialog_edit);
                 }
 
-                $('.show_modal').each(function() {
-                    $(this).on('click', function() {
-                        $('#modal_'+$(this).attr("data-modal"))[0].showModal()
-                    })
-                })
-                $('.close_modal').each(function() {
-                    $(this).on('click', function() {
-                        $('#modal_'+$(this).attr("data-modal"))[0].close()
-                    })
-                })
-            }
-
-            var dialogButton = document.querySelectorAll('.show_modal_verif');
-            var dialog = document.querySelector('#dialog_verif');
-            if (!dialog.showModal) {
-                dialogPolyfill.registerDialog(dialog);
-            }
-            //Ajout listener sur le bouton au clique pour afficher la modale
-            dialogButton.forEach(function(elem) {
-                elem.addEventListener("click", function() {
-                    dialog.showModal();
+                var dialogButton = document.querySelectorAll('.show_modal_verif');
+                var dialog = document.querySelector('#dialog_verif');
+                if (!dialog.showModal) {
+                    dialogPolyfill.registerDialog(dialog);
+                }
+                //Ajout listener sur le bouton au clique pour afficher la modale
+                dialogButton.forEach(function(elem) {
+                    elem.addEventListener("click", function() {
+                        dialog.showModal();
+                    });
                 });
-            });
-            //Pareil mais pour quitter la modale
-            dialog.querySelector('.close_modal_verif')
-            .addEventListener('click', function() {
-                dialog.close();
-            });
-            dialog.querySelector('.yes_modal_verif')
-            .addEventListener('click', function() {
-                dialog.close()
-            });
+                //Pareil mais pour quitter la modale
+                dialog.querySelector('.close_modal_verif')
+                .addEventListener('click', function() {
+                    dialog.close();
+                });
+                dialog.querySelector('.yes_modal_verif')
+                .addEventListener('click', function() {
+                    dialog.close()
+                });
+            }
         },
         //Fixe le problème du select non actualisé
         created () {

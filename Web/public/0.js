@@ -1971,19 +1971,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 var vmTmp;
 //On regarde s'il y a des VM
-if (dataArray.vm == null) {
+if (dataArray.vm.length == 0) {
     vmTmp = null;
 } else {
     vmTmp = dataArray.vm;
@@ -2005,50 +1996,49 @@ if (dataArray.vm == null) {
     },
     mounted: function mounted() {
         'use strict';
-        //S'il n'y a pas de VM, pas besoin de modal
+        //Correspond à la modale de création d'une VM
+
+        var dialog_create = document.querySelector('#modal_create');
+        if (!dialog_create.showModal) {
+            dialogPolyfill.registerDialog(dialog_create);
+        }
+
+        $('.show_modal').each(function () {
+            $(this).on('click', function () {
+                $('#modal_' + $(this).attr("data-modal"))[0].showModal();
+            });
+        });
+        $('.close_modal').each(function () {
+            $(this).on('click', function () {
+                $('#modal_' + $(this).attr("data-modal"))[0].close();
+            });
+        });
 
         if (vmTmp !== null) {
-            //Correspond à la modale de création d'une VM
-            var dialog_create = document.querySelector('#modal_create');
             var dialog_edit = document.querySelector('#modal_edit');
-
-            if (!dialog_create.showModal) {
-                dialogPolyfill.registerDialog(dialog_create);
-            }
             if (!dialog_edit.showModal) {
                 dialogPolyfill.registerDialog(dialog_edit);
             }
 
-            $('.show_modal').each(function () {
-                $(this).on('click', function () {
-                    $('#modal_' + $(this).attr("data-modal"))[0].showModal();
+            var dialogButton = document.querySelectorAll('.show_modal_verif');
+            var dialog = document.querySelector('#dialog_verif');
+            if (!dialog.showModal) {
+                dialogPolyfill.registerDialog(dialog);
+            }
+            //Ajout listener sur le bouton au clique pour afficher la modale
+            dialogButton.forEach(function (elem) {
+                elem.addEventListener("click", function () {
+                    dialog.showModal();
                 });
             });
-            $('.close_modal').each(function () {
-                $(this).on('click', function () {
-                    $('#modal_' + $(this).attr("data-modal"))[0].close();
-                });
+            //Pareil mais pour quitter la modale
+            dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
+                dialog.close();
+            });
+            dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
+                dialog.close();
             });
         }
-
-        var dialogButton = document.querySelectorAll('.show_modal_verif');
-        var dialog = document.querySelector('#dialog_verif');
-        if (!dialog.showModal) {
-            dialogPolyfill.registerDialog(dialog);
-        }
-        //Ajout listener sur le bouton au clique pour afficher la modale
-        dialogButton.forEach(function (elem) {
-            elem.addEventListener("click", function () {
-                dialog.showModal();
-            });
-        });
-        //Pareil mais pour quitter la modale
-        dialog.querySelector('.close_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
-        dialog.querySelector('.yes_modal_verif').addEventListener('click', function () {
-            dialog.close();
-        });
     },
 
     //Fixe le problème du select non actualisé
@@ -2165,24 +2155,7 @@ var render = function() {
           "div",
           { staticClass: "vm-list mdl-grid mdl-cell--12-col" },
           [
-            _vm.vm == null
-              ? _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col no_data"
-                  },
-                  [_vm._m(1), _vm._v(" "), _vm._m(2)]
-                )
-              : _c(
-                  "div",
-                  {
-                    staticClass:
-                      "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal",
-                    attrs: { "data-modal": "create" }
-                  },
-                  [_vm._m(3), _vm._v(" "), _vm._m(4)]
-                ),
+            _vm._m(1),
             _vm._v(" "),
             _vm._l(_vm.vm, function(value, key, index) {
               return _c(
@@ -2218,7 +2191,7 @@ var render = function() {
                     2
                   ),
                   _vm._v(" "),
-                  _vm._m(5, true),
+                  _vm._m(2, true),
                   _vm._v(" "),
                   _c("h6", [_vm._v('"' + _vm._s(value.nom) + '"')]),
                   _vm._v(" "),
@@ -2496,38 +2469,23 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "icon" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("error_outline")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Le serveur n'est pas disponible pour le moment")]),
-      _c("br"),
-      _vm._v(" "),
-      _c("small", [
-        _vm._v("Nous faisons tout notre possible pour corriger ce problème")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "symbole" }, [
-      _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "texte" }, [
-      _c("span", [_vm._v("Créer une VM")])
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "vm mdl-shadow--2dp mdl-cell mdl-cell--4-col ajouter_vm show_modal",
+        attrs: { "data-modal": "create" }
+      },
+      [
+        _c("div", { staticClass: "symbole" }, [
+          _c("i", { staticClass: "material-icons" }, [_vm._v("add")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "texte" }, [
+          _c("span", [_vm._v("Créer une VM")])
+        ])
+      ]
+    )
   },
   function() {
     var _vm = this
