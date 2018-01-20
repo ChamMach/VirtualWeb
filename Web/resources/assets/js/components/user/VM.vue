@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-        <creation-vm></creation-vm>
+        <creation-vm v-bind:refresh="refreshVM"></creation-vm>
         <modal-verification v-bind:message="message" v-bind:method="verification"></modal-verification>
     </div>
 </template>
@@ -210,11 +210,7 @@
               $('#modal_edit .text-zone').parent().addClass('is-dirty');
           },
           getVM() {
-              this.$http.post('/get_vm').then((response) => {
-                  this.vm = response.data
-              }, () => {
-                  console.log('erreur')
-              })
+              this.refreshVM()
               var divVM = $('.vm_' + this.methods.id);
               divVM.removeClass('spinner')
               //On réinitialise les valeurs
@@ -222,6 +218,13 @@
               this.methods.idUser = null
               this.methods.vm = null
               this.methods.id = null
+          },
+          refreshVM() {
+              this.$http.post('/get_vm').then((response) => {
+                  this.vm = response.data
+              }, () => {
+                  console.log('erreur')
+              })
           },
           //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
           verification() {

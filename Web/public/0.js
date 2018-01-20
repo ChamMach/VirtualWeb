@@ -2089,13 +2089,7 @@ if (dataArray.vm.length == 0) {
             $('#modal_edit .text-zone').parent().addClass('is-dirty');
         },
         getVM: function getVM() {
-            var _this = this;
-
-            this.$http.post('/get_vm').then(function (response) {
-                _this.vm = response.data;
-            }, function () {
-                console.log('erreur');
-            });
+            this.refreshVM();
             var divVM = $('.vm_' + this.methods.id);
             divVM.removeClass('spinner');
             //On réinitialise les valeurs
@@ -2103,6 +2097,15 @@ if (dataArray.vm.length == 0) {
             this.methods.idUser = null;
             this.methods.vm = null;
             this.methods.id = null;
+        },
+        refreshVM: function refreshVM() {
+            var _this = this;
+
+            this.$http.post('/get_vm').then(function (response) {
+                _this.vm = response.data;
+            }, function () {
+                console.log('erreur');
+            });
         },
 
         //Méthode appellée lorsque l'utilisateur clique sur le bouton oui dans la modale de vérification
@@ -2402,7 +2405,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("creation-vm"),
+      _c("creation-vm", { attrs: { refresh: _vm.refreshVM } }),
       _vm._v(" "),
       _c("modal-verification", {
         attrs: { message: _vm.message, method: _vm.verification }

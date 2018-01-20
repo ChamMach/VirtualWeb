@@ -17235,6 +17235,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ["refresh"],
     name: 'creation_vm',
     data: function data() {
         return {
@@ -17292,6 +17293,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                         //Reset les données du formulaire à l'original
                         Object.assign(_this.$data, _this.$options.data());
                         $('.text-zone').parent().removeClass('is-dirty');
+                        //On met à jour la liste des VM
+                        _this.refresh();
+                        //On ferme la modal
+                        document.querySelector('#modal_create').close();
                     } else if (response.data.erreur == true) {
                         notyf.alert(response.data.message);
                     }
@@ -17665,7 +17670,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ["vm"],
+    props: ["vm", 'refresh'],
     data: function data() {
         return {
             vmEdit: Object.assign({}, this.vm)
@@ -17679,6 +17684,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     methods: {
         editVM: function editVM() {
+            var _this = this;
+
             var error = false;
             $("#modal_edit .input_form").each(function () {
                 //Si on n'a pas de valeur dans l'input
@@ -17698,6 +17705,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 }).then(function (response) {
                     if (response.data.erreur == false) {
                         notyf.confirm(response.data.message);
+                        //On met à jour la liste des VM
+                        _this.refresh();
+                        //On ferme la modal
+                        document.querySelector('#modal_edit').close();
                         //Reset les données du formulaire à l'original
                     } else if (response.data.erreur == true) {
                         notyf.alert(response.data.message);

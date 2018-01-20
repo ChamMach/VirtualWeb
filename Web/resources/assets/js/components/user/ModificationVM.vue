@@ -41,7 +41,7 @@
 
 <script>
     export default {
-        props: ["vm"],
+        props: ["vm", 'refresh'],
         data () {
             return {
                 vmEdit: Object.assign({}, this.vm)
@@ -73,6 +73,10 @@
                     }).then((response) => {
                         if (response.data.erreur == false) {
                             notyf.confirm(response.data.message);
+                            //On met à jour la liste des VM
+                            this.refresh()
+                            //On ferme la modal
+                            document.querySelector('#modal_edit').close()
                             //Reset les données du formulaire à l'original
                         } else if (response.data.erreur == true) {
                             notyf.alert(response.data.message);

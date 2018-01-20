@@ -52,6 +52,7 @@
 
 <script>
     export default {
+        props: ["refresh"],
         name: 'creation_vm',
         data () {
             return {
@@ -106,6 +107,10 @@
                             //Reset les données du formulaire à l'original
                             Object.assign(this.$data, this.$options.data())
                             $('.text-zone').parent().removeClass('is-dirty');
+                            //On met à jour la liste des VM
+                            this.refresh()
+                            //On ferme la modal
+                            document.querySelector('#modal_create').close()
                         } else if (response.data.erreur == true) {
                             notyf.alert(response.data.message);
                         }
