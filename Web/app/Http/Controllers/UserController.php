@@ -116,9 +116,9 @@ class UserController extends Controller
                     $dataToGet = array(
                         'create_vm' => $userID . "_" . $request->get('nom'),
                         'os' => $os,
-                        'ram' => $request->get('ram'),
-                        'cpu' => $request->get('cpu'),
-                        'sto' => $request->get('stockage'),
+                        'ram' => (integer) $request->get('ram'),
+                        'cpu' => (integer) $request->get('cpu'),
+                        'sto' => (integer) $request->get('stockage'),
                         'desc' => $request->get('description')
                     );
                     $json = json_encode($dataToGet);
