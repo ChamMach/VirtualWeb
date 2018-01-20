@@ -70,18 +70,18 @@
                     </div>
                     <div class="options_bloc bloc_interactif">
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect supprimer show_modal_verif"
-                                data-action="remove" @click="set(value, $event)">
+                                data-action="remove" :disabled="value.statut === 'on'" @click="set(value, $event)">
                             <i class="material-icons">delete</i> Supprimer
                         </button>
                         <div class="power">
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect allumer show_modal_verif"
-                                data-action="start" @click="set(value, $event)">
+                                data-action="start" :disabled="value.statut === 'on'" @click="set(value, $event)">
                                 <i class="material-icons">play_arrow</i> Allumer
                             </button>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect eteindre show_modal_verif"
-                                data-action="shutdown" @click="set(value, $event)">
+                                data-action="shutdown" :disabled="value.statut === 'off'" @click="set(value, $event)">
                                 <i class="material-icons">power_settings_new</i> Éteindre
-                            </button>                            
+                            </button>
                         </div>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect edit"
                                 data-modal="edit" @click="editVM(value, $event)">
@@ -132,14 +132,14 @@
                 //Correspond à la modale de création d'une VM
                 var dialog_create = document.querySelector('#modal_create');
                 var dialog_edit = document.querySelector('#modal_edit');
-                
+
                 if (!dialog_create.showModal) {
                     dialogPolyfill.registerDialog(dialog_create);
                 }
                 if (!dialog_edit.showModal) {
                     dialogPolyfill.registerDialog(dialog_edit);
                 }
-                
+
                 $('.show_modal').each(function() {
                     $(this).on('click', function() {
                         $('#modal_'+$(this).attr("data-modal"))[0].showModal()
