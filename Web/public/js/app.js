@@ -17248,7 +17248,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 description: null
             },
             range: {
-                min: 100
+                ram: {
+                    min: 100
+                },
+                stockage: {
+                    min: 100
+                }
             }
         };
     },
@@ -17259,11 +17264,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         selectChange: function selectChange(e) {
             if (e.target.nextElementSibling.attributes["0"].value == "CE") {
-                this.range.min = 8000;
-                this.vm.stockage = 8000;
+                this.range.ram.min = 1030;
+                this.range.stockage.min = 8300;
+                this.vm.stockage = 8300;
             } else if (e.target.nextElementSibling.attributes["0"].value == "WI7") {
-                this.range.min = 25600;
-                this.vm.stockage = 25600;
+                this.range.ram.min = 2050;
+                this.range.stockage.min = 26000;
+                this.vm.stockage = 26000;
             }
         },
         createVM: function createVM() {
@@ -17436,7 +17443,7 @@ var render = function() {
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
-                      min: "100",
+                      min: _vm.range.ram.min,
                       step: "100",
                       max: "3000",
                       value: "200",
@@ -17498,7 +17505,7 @@ var render = function() {
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
-                      min: _vm.range.min,
+                      min: _vm.range.stockage.min,
                       step: "100",
                       max: "60000",
                       value: "100",
@@ -17673,13 +17680,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     props: ["vm", 'refresh'],
     data: function data() {
         return {
-            vmEdit: Object.assign({}, this.vm)
+            vmEdit: Object.assign({}, this.vm),
+            minStockage: 100
         };
     },
 
     watch: {
         vm: function vm(newVm) {
             this.vmEdit = Object.assign({}, newVm);
+            this.vmEdit.sto_l = Math.ceil(this.vmEdit.sto_l);
+            this.minStockage = Math.ceil(this.vmEdit.sto_l);
         }
     },
     methods: {
@@ -17700,7 +17710,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     nom: this.vmEdit.nom,
                     ram: this.vmEdit.ram,
                     cpu: this.vmEdit.cpu,
-                    stockage: this.vmEdit.stockage,
+                    stockage: this.vmEdit.sto_l,
                     description: this.vmEdit.description
                 }).then(function (response) {
                     if (response.data.erreur == false) {
@@ -17876,7 +17886,7 @@ var render = function() {
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
-                      min: _vm.vmEdit.sto_l,
+                      min: _vm.minStockage,
                       step: "100",
                       max: "60000",
                       value: "100",

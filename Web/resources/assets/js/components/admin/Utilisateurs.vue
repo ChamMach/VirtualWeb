@@ -82,7 +82,13 @@
                     idUser: null,
                 },
                 editUser: false,
-                userEditData: {},
+                userEditData: {
+                    nom: '',
+                    prenom: '',
+                    email: '',
+                    password: '',
+                    status: '',
+                },
             }
         },
         mounted() {
@@ -140,14 +146,15 @@
           },
           modifierUser(user, click) {
               this.editUser = true
-              this.$nextTick(() => {
-                  componentHandler.upgradeDom();
-                  getmdlSelect.init(".getmdl-select")
-              });
               this.userEditData.id = user.id
               this.userEditData.nom = user.nom
               this.userEditData.prenom = user.prenom
               this.userEditData.email = user.email
+              this.$nextTick(() => {
+                  componentHandler.upgradeDom();
+                  getmdlSelect.init(".getmdl-select")
+              });
+              this.monemail = user.nom
           },
           addUser() {
               this.$http.post('/edit_user', {

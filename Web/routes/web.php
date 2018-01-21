@@ -24,9 +24,12 @@ Route::group(['middleware' => ['isUser']], function ()
     Route::get('/supprimer', 'UserController@index')->name('supprimer');
     Route::get('/vm', 'UserController@index')->name('vm');
     Route::get('/conteneur', 'UserController@index')->name('contenuer');
+
+    //Requêtes AJAX
     Route::post('create_vm', array('uses' => 'UserController@createVM'));
     Route::post('send_action', array('uses' => 'UserController@sendAction'));
     Route::post('get_vm', array('uses' => 'UserController@getVM'));
+    Route::post('edit_vm', array('uses' => 'UserController@editVM'));
 
     Route::get('/deconnexion_user', array('uses' => 'UserController@deconnexion'));
 });
@@ -37,7 +40,8 @@ Route::group(['middleware' => ['isAdmin']], function ()
 {
     Route::get('/administration', 'Admin\AdminController@index')->name('administration');
     Route::get('/utilisateurs', 'Admin\AdminController@index')->name('utilisateurs');
-    //Route::post('get_users', array('uses' => 'UserController@getUsers'));
+    
+    //Requêtes AJAX
     Route::post('create_user', array('uses' => 'Admin\AdminController@createUser'));
     Route::post('delete_user', array('uses' => 'Admin\AdminController@deleteUser'));
     Route::post('edit_user', array('uses' => 'Admin\AdminController@editUser'));

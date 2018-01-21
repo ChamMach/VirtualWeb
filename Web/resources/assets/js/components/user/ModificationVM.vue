@@ -21,7 +21,7 @@
                         </div>
                         <div class="stockage_input mt16">
                             <label class="">Stockage ({{ vmEdit.sto_l }})</label>
-                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="vmEdit.sto_l" step="100" max="60000" value="100" tabindex="0" v-model="vmEdit.sto_l">
+                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="minStockage" step="100" max="60000" value="100" tabindex="0" v-model="vmEdit.sto_l">
                         </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
@@ -44,12 +44,15 @@
         props: ["vm", 'refresh'],
         data () {
             return {
-                vmEdit: Object.assign({}, this.vm)
+                vmEdit: Object.assign({}, this.vm),
+                minStockage: 100,
             }
         },
         watch: {
             vm(newVm) {
                 this.vmEdit = Object.assign({}, newVm)
+                this.vmEdit.sto_l = Math.ceil(this.vmEdit.sto_l)
+                this.minStockage = Math.ceil(this.vmEdit.sto_l)
             }
         },
         methods: {
@@ -68,7 +71,7 @@
                         nom: this.vmEdit.nom,
                         ram: this.vmEdit.ram,
                         cpu: this.vmEdit.cpu,
-                        stockage: this.vmEdit.stockage,
+                        stockage: this.vmEdit.sto_l,
                         description: this.vmEdit.description,
                     }).then((response) => {
                         if (response.data.erreur == false) {

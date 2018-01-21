@@ -1035,7 +1035,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 idUser: null
             },
             editUser: false,
-            userEditData: {}
+            userEditData: {
+                nom: '',
+                prenom: '',
+                email: '',
+                password: '',
+                status: ''
+            }
         };
     },
     mounted: function mounted() {
@@ -1093,14 +1099,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         modifierUser: function modifierUser(user, click) {
             this.editUser = true;
-            this.$nextTick(function () {
-                componentHandler.upgradeDom();
-                getmdlSelect.init(".getmdl-select");
-            });
             this.userEditData.id = user.id;
             this.userEditData.nom = user.nom;
             this.userEditData.prenom = user.prenom;
             this.userEditData.email = user.email;
+            this.$nextTick(function () {
+                componentHandler.upgradeDom();
+                getmdlSelect.init(".getmdl-select");
+            });
+            this.monemail = user.nom;
         },
         addUser: function addUser() {
             var _this = this;

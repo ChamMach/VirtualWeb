@@ -24,7 +24,7 @@
                     <div class="slider">
                         <div class="ram_input">
                             <label class="">Ram ({{ vm.ram }} Mo)</label>
-                            <input class="mdl-slider mdl-js-slider input_form" type="range" min="100" step="100" max="3000" value="200" tabindex="0" v-model="vm.ram">
+                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="range.ram.min" step="100" max="3000" value="200" tabindex="0" v-model="vm.ram">
                         </div>
                         <div class="cpu_input mt16">
                             <label class="">CPU ({{ vm.cpu }})</label>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="stockage_input mt16">
                             <label class="">Stockage ({{ vm.stockage }})</label>
-                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="range.min" step="100" max="60000" value="100" tabindex="0" v-model="vm.stockage">
+                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="range.stockage.min" step="100" max="60000" value="100" tabindex="0" v-model="vm.stockage">
                         </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
@@ -65,7 +65,12 @@
                     description: null,
                 },
                 range: {
-                    min: 100
+                    ram: {
+                        min: 100
+                    },
+                    stockage: {
+                        min: 100
+                    }
                 }
             }
         },
@@ -75,11 +80,13 @@
             },
             selectChange (e) {
                 if (e.target.nextElementSibling.attributes["0"].value == "CE") {
-                    this.range.min = 8000
-                    this.vm.stockage = 8000
+                    this.range.ram.min = 1030
+                    this.range.stockage.min = 8300
+                    this.vm.stockage = 8300
                 } else if (e.target.nextElementSibling.attributes["0"].value == "WI7") {
-                    this.range.min = 25600
-                    this.vm.stockage = 25600
+                    this.range.ram.min = 2050
+                    this.range.stockage.min = 26000
+                    this.vm.stockage = 26000
                 }
             },
             createVM() {
