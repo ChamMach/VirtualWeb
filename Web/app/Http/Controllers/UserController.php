@@ -114,7 +114,7 @@ class UserController extends Controller
         if ($request->get('systeme') == "WI7") {
             $os = 'Windows7_64';
         } elseif ($request->get('systeme') == "CE") {
-            $os = 'Centos';
+            $os = 'RedHat_64';
         }
 
         if (isset($os)) {
@@ -197,6 +197,97 @@ class UserController extends Controller
                 } else {
                     $return['message'] = 'La VM existe déjà';
                 }
+            }
+
+            return $return;
+        }
+
+        /**
+         * Gère l'édition d'une VM
+         * @param  Request $request Données AJAX
+         * @return Array            Erreur + message ou succes
+         */
+        public function editVM(Request $request)
+        {
+            $return = array(
+                'erreur' => true,
+                'message' => 'Un problème est survenu',
+            );
+
+            //On récupère l'id de l'utilisateur qui fait la demande
+            $user = Auth::user();
+            $userID = $user->id;
+
+            //On vérifie avant si la VM n'existe pas déjà
+            $vmExist = $this->vmExist($request->get('nom'), $userID);
+
+            //Si ce n'est pas le cas, on peut créer une VM
+            if (!is_null($vmExist)) {
+                $socketJson = null;
+                $socket = null;
+                $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
+                //Si la socket est ouverte
+                if ($sockethelper->isOnline() !== false) {
+                    $dataToGet = array(
+                        'modify_vm' => $userID . "_" . $request->get('nom'),
+                        'ram' => (integer) $request->get('ram'),
+                        'cpu' => (integer) $request->get('cpu'),
+                        'sto' => (integer) $request->get('stockage'),
+                        'desc' => $request->get('description')
+                    );
+                    $json = json_encode($dataToGet);
+                    //On envoi le JSON au socket
+                    $sockethelper->send_data($json);
+                    //On récupère le retour
+                    $socket = $sockethelper->read_data();
+                    //On ferme la socket
+                    $sockethelper->close_socket();
+                    //Decode le JSON pour avoir un array et le traiter
+                    $socketJson = json_decode($socket, true);
+                    //Teste du retour JSON afin de savoir si l'action a été réalisée
+                    if (isset($socketJson['modify_vm'])) {
+                        switch ($socketJson['modify_vm']) {
+                            case 'true':
+                            $return['erreur'] = false;
+                            break;
+                            case 'false_vmdoesntexist':
+                            $return['message'] = 'La VM n\'existe pas';
+                            break;
+                            case 'false_vmonline':
+                            $return['message'] = 'La VM est en ligne';
+                            break;
+                            case 'false_vmstateunknown':
+                            $return['message'] = 'Statut VM incconu';
+                            break;
+                        }
+
+                        if ($return['erreur'] == false) {
+                            $return['message'] = 'VM '. $request->get('nom') .' en cours de modification';
+                            //Met à jour la VM en base
+                            $vmExist->description = $request->get('description');
+                            $vmExist->cpu = $request->get('cpu');
+                            $vmExist->ram = $request->get('ram');
+                            $vmExist->sto_l = $request->get('stockage');
+
+                            //On log la modification
+                            DB::table('historique')->insert(
+                                ['id_user' => $userID, 'date' => date("Y-m-d H:i:s"), 'action' => 7]
+                            );
+                        }
+                    }
+                }
+
+            } else {
+                $return['message'] = 'La VM n\'existe pas';
+            }
+
+            //On ajoute au fichier log ce qu'il c'est passé ici pour garder un historique
+            Log::debug('Modification VM '. $userID . "_" . $request->get('nom') .' : ' . json_encode($return));
+
+            if ($return['erreur'] == false) {
+                //Permet de mettre à jour la BDD au lieu d'attendre que les cript s'exécute
+                //tout seul
+                Artisan::call('schedule:run');
             }
 
             return $return;
@@ -360,92 +451,12 @@ class UserController extends Controller
             return $return;
         }
 
-        public function editVM(Request $request)
-        {
-            $return = array(
-                'erreur' => true,
-                'message' => 'Un problème est survenu',
-            );
-
-            //On récupère l'id de l'utilisateur qui fait la demande
-            $user = Auth::user();
-            $userID = $user->id;
-
-            //On vérifie avant si la VM n'existe pas déjà
-            $vmExist = $this->vmExist($request->get('nom'), $userID);
-
-            //Si ce n'est pas le cas, on peut créer une VM
-            if (!is_null($vmExist)) {
-                $socketJson = null;
-                $socket = null;
-                $sockethelper = new sockethelper(env('SCRIPT_VM_IP'), env('SCRIPT_VM_PORT'));
-                //Si la socket est ouverte
-                if ($sockethelper->isOnline() !== false) {
-                    $dataToGet = array(
-                        'modify_vm' => $userID . "_" . $request->get('nom'),
-                        'ram' => (integer) $request->get('ram'),
-                        'cpu' => (integer) $request->get('cpu'),
-                        'sto' => (integer) $request->get('stockage'),
-                        'desc' => $request->get('description')
-                    );
-                    $json = json_encode($dataToGet);
-                    //On envoi le JSON au socket
-                    $sockethelper->send_data($json);
-                    //On récupère le retour
-                    $socket = $sockethelper->read_data();
-                    //On ferme la socket
-                    $sockethelper->close_socket();
-                    //Decode le JSON pour avoir un array et le traiter
-                    $socketJson = json_decode($socket, true);
-                    //Teste du retour JSON afin de savoir si l'action a été réalisée
-                    if (isset($socketJson['modify_vm'])) {
-                        switch ($socketJson['modify_vm']) {
-                            case 'true':
-                            $return['erreur'] = false;
-                            break;
-                            case 'false_vmdoesntexist':
-                            $return['message'] = 'La VM n\'existe pas';
-                            break;
-                            case 'false_vmonline':
-                            $return['message'] = 'La VM est en ligne';
-                            break;
-                            case 'false_vmstateunknown':
-                            $return['message'] = 'Statut VM incconu';
-                            break;
-                        }
-
-                        if ($return['erreur'] == false) {
-                            $return['message'] = 'VM '. $request->get('nom') .' en cours de modification';
-                            //Met à jour la VM en base
-                            $vmExist->description = $request->get('description');
-                            $vmExist->cpu = $request->get('cpu');
-                            $vmExist->ram = $request->get('ram');
-                            $vmExist->sto_l = $request->get('stockage');
-
-                            //On log la modification
-                            DB::table('historique')->insert(
-                                ['id_user' => $userID, 'date' => date("Y-m-d H:i:s"), 'action' => 7]
-                            );
-                        }
-                    }
-                }
-
-            } else {
-                $return['message'] = 'La VM n\'existe pas';
-            }
-
-            //On ajoute au fichier log ce qu'il c'est passé ici pour garder un historique
-            Log::debug('Modification VM '. $userID . "_" . $request->get('nom') .' : ' . json_encode($return));
-
-            if ($return['erreur'] == false) {
-                //Permet de mettre à jour la BDD au lieu d'attendre que les cript s'exécute
-                //tout seul
-                Artisan::call('schedule:run');
-            }
-
-            return $return;
-        }
-
+        /**
+         * Test si la VM existe en base
+         * @param  String $vm        Nom de la VM à vérifier
+         * @param  Integer $userID   ID de l'utilisateur demandeur
+         * @return Array             Contient la VM si elle existe
+         */
         private function vmExist($vm, $userID)
         {
             $exist = false;

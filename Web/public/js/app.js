@@ -17253,6 +17253,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 },
                 stockage: {
                     min: 100
+                },
+                cpu: {
+                    min: 1
                 }
             }
         };
@@ -17265,10 +17268,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         selectChange: function selectChange(e) {
             if (e.target.nextElementSibling.attributes["0"].value == "CE") {
                 this.range.ram.min = 1030;
+                this.vm.ram = 1030;
                 this.range.stockage.min = 8300;
                 this.vm.stockage = 8300;
             } else if (e.target.nextElementSibling.attributes["0"].value == "WI7") {
                 this.range.ram.min = 2050;
+                this.vm.ram = 2050;
                 this.range.stockage.min = 26000;
                 this.vm.stockage = 26000;
             }
@@ -17444,8 +17449,8 @@ var render = function() {
                     attrs: {
                       type: "range",
                       min: _vm.range.ram.min,
-                      step: "100",
-                      max: "3000",
+                      step: "1",
+                      max: "5000",
                       value: "200",
                       tabindex: "0"
                     },
@@ -17506,7 +17511,7 @@ var render = function() {
                     attrs: {
                       type: "range",
                       min: _vm.range.stockage.min,
-                      step: "100",
+                      step: "1",
                       max: "60000",
                       value: "100",
                       tabindex: "0"
