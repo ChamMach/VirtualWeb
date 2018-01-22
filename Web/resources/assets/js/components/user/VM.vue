@@ -84,7 +84,7 @@
                         <a href="#" class="details_btn" @click="showHide" data-action="details_bloc">Détails</a>
                         <a href="#" class="options_btn" @click="showHide" data-action="options_bloc">Options</a>
                     </div>
-                    <modification-vm :vm="editData"></modification-vm>
+                    <modification-vm :vm="editData" v-bind:refresh="refreshVM"></modification-vm>
                 </div>
             </div>
         </div>

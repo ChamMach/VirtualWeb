@@ -12,16 +12,16 @@
                     </div>
                     <div class="slider">
                         <div class="ram_input">
-                            <label class="">Ram ({{ vmEdit.ram }} Mo)</label>
-                            <input class="mdl-slider mdl-js-slider input_form" type="range" min="100" step="100" max="3000" value="200" tabindex="0" v-model="vmEdit.ram">
+                            <label class="">Ram ({{ ramMo }} Mo)</label>
+                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="minRam" max="5000" value="200" tabindex="0" v-model="ramMo">
                         </div>
                         <div class="cpu_input mt16">
                             <label class="">CPU ({{ vmEdit.cpu }})</label>
                             <input class="mdl-slider mdl-js-slider input_form" type="range" min="1" step="1" max="4" value="1" tabindex="0" v-model="vmEdit.cpu">
                         </div>
                         <div class="stockage_input mt16">
-                            <label class="">Stockage ({{ vmEdit.sto_l }})</label>
-                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="minStockage" step="100" max="60000" value="100" tabindex="0" v-model="vmEdit.sto_l">
+                            <label class="">Stockage ({{ stockageMo }})</label>
+                            <input class="mdl-slider mdl-js-slider input_form" type="range" :min="minStockage" step="1" max="60000" value="100" tabindex="0" v-model="stockageMo">
                         </div>
                     </div>
                     <div class="mdl-textfield mdl-js-textfield mdl-cell--12-col">
@@ -46,13 +46,19 @@
             return {
                 vmEdit: Object.assign({}, this.vm),
                 minStockage: 100,
+                ramMo: 100,
+                stockageMo: 100,
+                minRam: 100,
             }
         },
         watch: {
             vm(newVm) {
                 this.vmEdit = Object.assign({}, newVm)
                 this.vmEdit.sto_l = Math.ceil(this.vmEdit.sto_l)
-                this.minStockage = Math.ceil(this.vmEdit.sto_l)
+                this.minStockage = this.vmEdit.stocakge_mo
+                this.minRam = this.vmEdit.ram_mo
+                this.ramMo = this.vmEdit.ram_mo
+                this.stockageMo = this.vmEdit.stocakge_mo
             }
         },
         methods: {
@@ -69,9 +75,9 @@
                 if (error == false) {
                     this.$http.post('/edit_vm', {
                         nom: this.vmEdit.nom,
-                        ram: this.vmEdit.ram,
+                        ram: this.ramMo,
                         cpu: this.vmEdit.cpu,
-                        stockage: this.vmEdit.sto_l,
+                        stockage: this.stockageMo,
                         description: this.vmEdit.description,
                     }).then((response) => {
                         if (response.data.erreur == false) {

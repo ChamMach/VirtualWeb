@@ -2402,7 +2402,9 @@ var render = function() {
                     )
                   ]),
                   _vm._v(" "),
-                  _c("modification-vm", { attrs: { vm: _vm.editData } })
+                  _c("modification-vm", {
+                    attrs: { vm: _vm.editData, refresh: _vm.refreshVM }
+                  })
                 ],
                 1
               )

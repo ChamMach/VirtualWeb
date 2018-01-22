@@ -17681,7 +17681,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             vmEdit: Object.assign({}, this.vm),
-            minStockage: 100
+            minStockage: 100,
+            ramMo: 100,
+            stockageMo: 100,
+            minRam: 100
         };
     },
 
@@ -17689,7 +17692,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         vm: function vm(newVm) {
             this.vmEdit = Object.assign({}, newVm);
             this.vmEdit.sto_l = Math.ceil(this.vmEdit.sto_l);
-            this.minStockage = Math.ceil(this.vmEdit.sto_l);
+            this.minStockage = this.vmEdit.stocakge_mo;
+            this.minRam = this.vmEdit.ram_mo;
+            this.ramMo = this.vmEdit.ram_mo;
+            this.stockageMo = this.vmEdit.stocakge_mo;
         }
     },
     methods: {
@@ -17708,9 +17714,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (error == false) {
                 this.$http.post('/edit_vm', {
                     nom: this.vmEdit.nom,
-                    ram: this.vmEdit.ram,
+                    ram: this.ramMo,
                     cpu: this.vmEdit.cpu,
-                    stockage: this.vmEdit.sto_l,
+                    stockage: this.stockageMo,
                     description: this.vmEdit.description
                 }).then(function (response) {
                     if (response.data.erreur == false) {
@@ -17807,7 +17813,7 @@ var render = function() {
               _c("div", { staticClass: "slider" }, [
                 _c("div", { staticClass: "ram_input" }, [
                   _c("label", {}, [
-                    _vm._v("Ram (" + _vm._s(_vm.vmEdit.ram) + " Mo)")
+                    _vm._v("Ram (" + _vm._s(_vm.ramMo) + " Mo)")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -17815,23 +17821,22 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.vmEdit.ram,
-                        expression: "vmEdit.ram"
+                        value: _vm.ramMo,
+                        expression: "ramMo"
                       }
                     ],
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
-                      min: "100",
-                      step: "100",
-                      max: "3000",
+                      min: _vm.minRam,
+                      max: "5000",
                       value: "200",
                       tabindex: "0"
                     },
-                    domProps: { value: _vm.vmEdit.ram },
+                    domProps: { value: _vm.ramMo },
                     on: {
                       __r: function($event) {
-                        _vm.$set(_vm.vmEdit, "ram", $event.target.value)
+                        _vm.ramMo = $event.target.value
                       }
                     }
                   })
@@ -17871,7 +17876,7 @@ var render = function() {
                 _vm._v(" "),
                 _c("div", { staticClass: "stockage_input mt16" }, [
                   _c("label", {}, [
-                    _vm._v("Stockage (" + _vm._s(_vm.vmEdit.sto_l) + ")")
+                    _vm._v("Stockage (" + _vm._s(_vm.stockageMo) + ")")
                   ]),
                   _vm._v(" "),
                   _c("input", {
@@ -17879,23 +17884,23 @@ var render = function() {
                       {
                         name: "model",
                         rawName: "v-model",
-                        value: _vm.vmEdit.sto_l,
-                        expression: "vmEdit.sto_l"
+                        value: _vm.stockageMo,
+                        expression: "stockageMo"
                       }
                     ],
                     staticClass: "mdl-slider mdl-js-slider input_form",
                     attrs: {
                       type: "range",
                       min: _vm.minStockage,
-                      step: "100",
+                      step: "1",
                       max: "60000",
                       value: "100",
                       tabindex: "0"
                     },
-                    domProps: { value: _vm.vmEdit.sto_l },
+                    domProps: { value: _vm.stockageMo },
                     on: {
                       __r: function($event) {
-                        _vm.$set(_vm.vmEdit, "sto_l", $event.target.value)
+                        _vm.stockageMo = $event.target.value
                       }
                     }
                   })

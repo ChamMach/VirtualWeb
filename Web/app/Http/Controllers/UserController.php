@@ -44,6 +44,18 @@ class UserController extends Controller
                 'on' => 0,
             );
         } else {
+            foreach ($vm as $key => $value) {
+                if ($value['unite_ram'] == 'Go') {
+                    $value['ram_mo'] = ceil($value['ram'] * 1024);
+                } else {
+                    $value['ram_mo'] = ceil($value['ram']);
+                }
+                if ($value['unite_sto_l'] == 'Go') {
+                    $value['stocakge_mo'] = ceil($value['sto_l'] * 1024);
+                } else {
+                    $value['stocakge_mo'] = ceil($value['sto_l']);
+                }
+            }
             $vmAllume = VM::where('statut', 'on')->count();
             $vmData = array(
                 'nb' => sizeof($vm),
@@ -420,6 +432,15 @@ class UserController extends Controller
 
             } else {
                 $return['message'] = 'La VM n\'existe pas';
+            }
+
+            //On ajoute au fichier log ce qu'il c'est passé ici pour garder un historique
+            Log::debug('Modification VM '. $userID . "_" . $request->get('nom') .' : ' . json_encode($return));
+
+            if ($return['erreur'] == false) {
+                //Permet de mettre à jour la BDD au lieu d'attendre que les cript s'exécute
+                //tout seul
+                Artisan::call('schedule:run');
             }
 
             return $return;
