@@ -75,7 +75,7 @@
                             </button>
                         </div>
                         <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect edit"
-                                data-modal="edit" @click="editVM(value, $event)">
+                                data-modal="edit" :disabled="value.statut === 'on'" @click="editVM(value, $event)">
                             <i class="material-icons">power_settings_new</i> Modifier
                         </button>
                     </div>

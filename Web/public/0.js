@@ -2354,7 +2354,10 @@ var render = function() {
                       {
                         staticClass:
                           "mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect edit",
-                        attrs: { "data-modal": "edit" },
+                        attrs: {
+                          "data-modal": "edit",
+                          disabled: value.statut === "on"
+                        },
                         on: {
                           click: function($event) {
                             _vm.editVM(value, $event)
