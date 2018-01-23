@@ -219,7 +219,7 @@ class UserController extends Controller
             $userID = $user->id;
 
             //On vérifie avant si la VM n'existe pas déjà
-            $vmExist = $this->vmExist($request->get('nom'), $userID);
+            $vmExist = $this->vmExist($request->get('nomOriginal'), $userID);
 
             //Si ce n'est pas le cas, on peut créer une VM
             if (!is_null($vmExist)) {
@@ -229,7 +229,8 @@ class UserController extends Controller
                 //Si la socket est ouverte
                 if ($sockethelper->isOnline() !== false) {
                     $dataToGet = array(
-                        'modify_vm' => $userID . "_" . $request->get('nom'),
+                        'modify_vm' => $userID . "_" . $request->get('nomOriginal'),
+                        'nom' => $userID . "_" . $request->get('nom'),
                         'ram' => (integer) $request->get('ram'),
                         'cpu' => (integer) $request->get('cpu'),
                         'sto' => (integer) $request->get('stockage'),

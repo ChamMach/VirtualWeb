@@ -17689,7 +17689,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             minStockage: 100,
             ramMo: 100,
             stockageMo: 100,
-            minRam: 100
+            minRam: 100,
+            originalNom: ''
         };
     },
 
@@ -17701,6 +17702,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             this.minRam = this.vmEdit.ram_mo;
             this.ramMo = this.vmEdit.ram_mo;
             this.stockageMo = this.vmEdit.stocakge_mo;
+            this.originalNom = this.vmEdit.nom;
         }
     },
     methods: {
@@ -17719,6 +17721,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             if (error == false) {
                 this.$http.post('/edit_vm', {
                     nom: this.vmEdit.nom,
+                    nomOriginal: this.originalNom,
                     ram: this.ramMo,
                     cpu: this.vmEdit.cpu,
                     stockage: this.stockageMo,
